@@ -28,6 +28,7 @@ public class BoxTemplate : Template {
         if (collision.collider == null) return;
 
         _body.velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().isKinematic = true;
 
         if (collision.collider.gameObject.tag == "Enemy") {
             if (CanKill()) DestroyIt(collision.collider.gameObject);

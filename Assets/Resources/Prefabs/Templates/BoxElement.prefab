@@ -118,13 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d26d40eb68c4418529e72fc2d53f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
-  _position: {x: 0, y: 0}
   _offset: {x: 0, y: 0}
-  _mainAction: 0
   _placed: 0
   _canPlace: 0
-  _dmg: 0
+  _attack: {fileID: 0}
 --- !u!61 &2205957272967361542
 BoxCollider2D:
   m_ObjectHideFlags: 0

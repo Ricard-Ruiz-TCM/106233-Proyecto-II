@@ -51,7 +51,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         _ranged = Resources.Load<Attack>("ScriptableObjects/RangedAttack");
         _weapon = _melee;
 
-        _layer_Enemy = LayerMask.GetMask("Enemy");
+        _layer_Enemy = LayerMask.GetMask("Enemy", "Object");
 
         _inkBullet = Resources.Load<GameObject>("Prefabs/Player/PlayerBullet");
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
