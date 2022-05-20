@@ -48,7 +48,6 @@ public class SlimeAttack : EnemyCombat
         {
             slime.velocity = Vector2.zero;
             slime.angularVelocity = 0.0f;
-            //slime.constraints = RigidbodyConstraints2D.FreezePositionX;
             
             if(transform.right.x == -1.0f)
             {
