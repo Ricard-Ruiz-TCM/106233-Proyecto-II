@@ -12,11 +12,12 @@ public class PlantAttack : EnemyCombat
     private PlantAI plantAI;
     private float currentTime;
     private float maxTime = 2.0f;
+    private Animator animator;
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-       var direction = transform.right;
+        var direction = transform.right;
         Gizmos.DrawRay(transform.position, direction * 5);
     }
 
@@ -32,6 +33,8 @@ public class PlantAttack : EnemyCombat
         plantAI = GetComponent<PlantAI>();
         _playerCombat = GetComponent<PlayerCombat>();
         currentTime = 0;
+        animator = GetComponentInParent<Animator>();
+        animator.SetBool("Attack", false);
     }
 
     // Update is called once per frame
@@ -43,10 +46,14 @@ public class PlantAttack : EnemyCombat
         {   
             if(plantAI.Detected)
             {
+                animator.SetBool("Attack", true);
                 InkAttack();
                 base.Attack(_playerCombat);
             }
-
+            else
+            {
+                animator.SetBool("Attack", false);
+            }
         }
     }
 

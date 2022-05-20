@@ -34,12 +34,12 @@ public class ShadowAI : EnemyMovement
         if (currentTime > maxTime)
         {
             Flip();
-            /*if (EdgeDetected() || WallDetected())
-            {
-                Flip();
-            }*/
         }
-       
+        if (EdgeDetected() || WallDetected())
+        {
+            Flip();
+        }
+
         if (PlayerDetection())
         {
             Debug.Log("attack");
