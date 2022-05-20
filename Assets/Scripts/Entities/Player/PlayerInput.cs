@@ -82,4 +82,8 @@ public class PlayerInput : MonoBehaviour {
         _right = input.isPressed;
     }
 
+    void OnDowny(InputValue input){
+        _player.TryFallGround();
+    }
+
 }

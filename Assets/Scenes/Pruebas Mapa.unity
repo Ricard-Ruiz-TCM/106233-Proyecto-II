@@ -19326,6 +19326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9947705ef43846b418fe2b8d658b9bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spike: {fileID: 0}
 --- !u!66 &774140664
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -65965,7 +65966,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.64, y: 0.56}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -68493,8 +68494,15 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
+  WhatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  WhatIsDetected:
+    serializedVersion: 2
+    m_Bits: 0
   PlayerDetectionPoint: {fileID: 0}
   DetectionDistance: 1
+  WallDetectionDistance: 0.2
 --- !u!70 &1986772099
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -68947,7 +68955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078023477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.504, y: 2.185, z: 0}
+  m_LocalPosition: {x: -9.29, y: 2.217, z: 0}
   m_LocalScale: {x: 0.7767, y: 0.7767, z: 0.7767}
   m_Children: []
   m_Father: {fileID: 0}
