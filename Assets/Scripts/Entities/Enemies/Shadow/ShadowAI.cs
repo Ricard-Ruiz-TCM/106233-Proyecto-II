@@ -6,17 +6,23 @@ public class ShadowAI : EnemyMovement
 {
     public Rigidbody2D player;
     public LayerMask WhatIsPlayer;
+    public LayerMask WhatIsWall;
+    public LayerMask WhatIsDetected;
     public Transform PlayerDetectionPoint;
     public float DetectionDistance = 1.0f;
+    public float WallDetectionDistance = 0.2f;
 
     private float currentTime;
     private float maxTime;
-    private float Speed = 5.0f;
+    private float Speed = 1.0f;
     //private bool _slowMo = false;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
     // Update is called once per frame
@@ -28,8 +34,13 @@ public class ShadowAI : EnemyMovement
         if (currentTime > maxTime)
         {
             Flip();
+            /*if (EdgeDetected() || WallDetected())
+            {
+                Flip();
+            }*/
         }
-        if(PlayerDetection())
+       
+        if (PlayerDetection())
         {
             Debug.Log("attack");
         }
@@ -37,7 +48,7 @@ public class ShadowAI : EnemyMovement
 
     void Move()
     {
-        transform.Translate(-transform.right * Speed * Time.deltaTime, Space.World);
+        transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
     }
 
     void Flip()
@@ -54,6 +65,18 @@ public class ShadowAI : EnemyMovement
     private bool PlayerDetection()
     {
         RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, transform.right, DetectionDistance, WhatIsPlayer);
+        return hit.collider != null;
+    }
+
+    private bool EdgeDetected()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, Vector2.down, WallDetectionDistance, WhatIsDetected);
+        return hit.collider == null;
+    }
+
+    private bool WallDetected()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, transform.right, WallDetectionDistance, WhatIsWall);
         return hit.collider != null;
     }
 }

@@ -66,9 +66,6 @@ public class SlimeAI : MonoBehaviour
         }
         else if(currentState == States.Chasing)
         {
-            //Chasing();
-            //currentSpeed = chasingSpeed;
-            //Patrol();
             stopTime += Time.deltaTime;
             if(stopTime > 4f)
             {
@@ -76,6 +73,7 @@ public class SlimeAI : MonoBehaviour
                 stopTime = 0;
             }
         }
+
     }
 
     void Patrol()
@@ -106,4 +104,5 @@ public class SlimeAI : MonoBehaviour
         transform.Rotate(0, 180, 0);
         currentTime = 0;
     }
+
 }

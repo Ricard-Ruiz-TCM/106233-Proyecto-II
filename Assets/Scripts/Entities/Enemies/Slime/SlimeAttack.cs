@@ -9,19 +9,37 @@ public class SlimeAttack : EnemyCombat
     public Attack currentAttack;
 
     private SlimeAI slimeAI;
+    private Animator animator;
+    private float cooldown = 2.0f;
+    private float currentTime  = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         slimeAI = gameObject.GetComponent<SlimeAI>();
+        animator = gameObject.GetComponentInParent<Animator>();
+        animator.SetBool("Dying", false);
+        _health = 15.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(slimeAI.Detected)
+        if(slimeAI.Detected && currentTime < 0.1)
         {
-            SlimeAttacks();          
+            SlimeAttacks();     
+            currentTime += Time.deltaTime;
+            Debug.Log(currentTime);
+
+            if (currentTime >= cooldown)
+            {
+                currentTime = 0;
+            }
+        }
+       
+        if(_health <= 1f)
+        {
+            animator.SetBool("Dying", true);
         }
     }
 
@@ -61,12 +79,4 @@ public class SlimeAttack : EnemyCombat
         }
     }
 
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.gameObject.tag == "Player")
-        {
-            slime.constraints = RigidbodyConstraints2D.None;
-            slime.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-    }*/
 }
