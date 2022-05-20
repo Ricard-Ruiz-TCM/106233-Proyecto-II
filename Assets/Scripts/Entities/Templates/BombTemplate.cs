@@ -24,8 +24,6 @@ public class BombTemplate : Template {
         _attack = Resources.Load<Attack>("ScriptableObjects/BoxTemplate");
 
         FindObjects();
-
-        Invoke("Explode", _explosionTime);
     }
 
     public void Explode() {
@@ -48,6 +46,7 @@ public class BombTemplate : Template {
     public override void MainAction(bool action) {
         GetComponent<BoxCollider2D>().isTrigger = false;
         GetComponent<Rigidbody2D>().isKinematic = false;
+        Invoke("Explode", _explosionTime);
     }
 
 }
