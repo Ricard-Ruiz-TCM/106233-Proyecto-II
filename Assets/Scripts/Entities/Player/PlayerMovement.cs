@@ -51,6 +51,11 @@ public class PlayerMovement : PlayerState, IHaveStates {
         _body.AddForce(new Vector2(-(transform.right.x * 75.0f), 175.0f));
     }
 
+    public void TryFall(){
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 1.0f, LayerMask.GetMask("Platform"));
+        if (hit.collider != null) hit.collider.GetComponent<FadedGround>().DisableCol();
+    }
+
     // IHaveStates
     public void OnEnterState(){
         EnableSystem();

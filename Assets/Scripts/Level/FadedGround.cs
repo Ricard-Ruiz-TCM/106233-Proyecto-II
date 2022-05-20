@@ -4,14 +4,10 @@ public class FadedGround : MonoBehaviour {
 
     // Player Transform & Layer
     private Transform _player;
-    private LayerMask _layer_Player;
+    private LayerMask _layer_Ground;
 
     // Components
     private CompositeCollider2D _collider;
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(_player.transform.position, 0.35f);
-    }
 
     // Unity
     void OnEnable(){
@@ -28,7 +24,7 @@ public class FadedGround : MonoBehaviour {
     // Unity
     void Awake(){
         _player = GameObject.FindObjectOfType<Player>().transform;
-        _layer_Player = LayerMask.GetMask("Player");
+        _layer_Ground = LayerMask.GetMask("Platform");
 
         _collider = GetComponent<CompositeCollider2D>();
     }
@@ -39,8 +35,8 @@ public class FadedGround : MonoBehaviour {
     }
 
     public void EnableCol(){
-        var colliders = Physics2D.OverlapCircleAll(_player.transform.position, 0.35f, _layer_Player);
-        if (colliders.Length <= 0) _collider.isTrigger = false;
+        var colliders = Physics2D.OverlapCircleAll(_player.transform.position, 0.25f, _layer_Ground);
+        if (colliders.Length < 1) _collider.isTrigger = false;
     }
 
 }

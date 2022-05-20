@@ -252,6 +252,10 @@ public class Player : Entity {
         _dash.ToggleSystem();
     }
 
+    public void TryFallGround(){
+        _movement.TryFall();
+    }
+
     public void SaveCheckPoint(Vector2 pos) {
         _respawnPoint = pos;
         FillInk(); FillHealth();
