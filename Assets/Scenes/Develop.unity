@@ -1548,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &461312154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29456,8 +29456,15 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
+  WhatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  WhatIsDetected:
+    serializedVersion: 2
+    m_Bits: 0
   PlayerDetectionPoint: {fileID: 0}
   DetectionDistance: 1
+  WallDetectionDistance: 0.2
 --- !u!70 &1420405148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
