@@ -15,6 +15,8 @@ public class ShadowAI : EnemyMovement
     private float currentTime;
     private float maxTime;
     private float Speed = 1.0f;
+    private bool detected;
+    public bool Detected => detected;
     //private bool _slowMo = false;
     // Start is called before the first frame update
     void Start()
@@ -34,15 +36,20 @@ public class ShadowAI : EnemyMovement
         if (currentTime > maxTime)
         {
             Flip();
-            /*if (EdgeDetected() || WallDetected())
-            {
-                Flip();
-            }*/
         }
-       
+        if (EdgeDetected() || WallDetected())
+        {
+            Flip();
+        }
+
         if (PlayerDetection())
         {
             Debug.Log("attack");
+            detected = true;
+        }
+        else
+        {
+            detected = false;
         }
     }
 

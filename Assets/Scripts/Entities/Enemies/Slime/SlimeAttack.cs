@@ -10,7 +10,6 @@ public class SlimeAttack : EnemyCombat
 
     private SlimeAI slimeAI;
     private Animator animator;
-    private float cooldown = 2.0f;
     private float currentTime  = 0;
 
     // Start is called before the first frame update
@@ -25,16 +24,10 @@ public class SlimeAttack : EnemyCombat
     // Update is called once per frame
     void Update()
     {
-        if(slimeAI.Detected && currentTime < 0.1)
+        if(slimeAI.Detected)
         {
             SlimeAttacks();     
             currentTime += Time.deltaTime;
-            Debug.Log(currentTime);
-
-            if (currentTime >= cooldown)
-            {
-                currentTime = 0;
-            }
         }
        
         if(_health <= 1f)
@@ -55,7 +48,6 @@ public class SlimeAttack : EnemyCombat
         {
             slime.velocity = Vector2.zero;
             slime.angularVelocity = 0.0f;
-            //slime.constraints = RigidbodyConstraints2D.FreezePositionX;
             
             if(transform.right.x == -1.0f)
             {
