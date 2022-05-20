@@ -1,0 +1,510 @@
+fileFormatVersion: 2
+guid: 41a7300b8f3b71543b6e61d7d82c9abc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6311387072270260642
+    second: charco_death-Sheet_0
+  - first:
+      213: 8490601728992968588
+    second: charco_death-Sheet_1
+  - first:
+      213: -4229841971963693849
+    second: charco_death-Sheet_2
+  - first:
+      213: -1331413612630635471
+    second: charco_death-Sheet_3
+  - first:
+      213: -3691753425782534703
+    second: charco_death-Sheet_4
+  - first:
+      213: 3691875712183531621
+    second: charco_death-Sheet_5
+  - first:
+      213: 5664599406151275730
+    second: charco_death-Sheet_6
+  - first:
+      213: 4364085271932279539
+    second: charco_death-Sheet_7
+  - first:
+      213: 2375616533722882153
+    second: charco_death-Sheet_8
+  - first:
+      213: 2700325802325456905
+    second: charco_death-Sheet_9
+  - first:
+      213: 6807778690658518300
+    second: charco_death-Sheet_10
+  - first:
+      213: 9052206555831136108
+    second: charco_death-Sheet_11
+  - first:
+      213: 6881312040263993417
+    second: charco_death-Sheet_12
+  - first:
+      213: -1280464778897026841
+    second: charco_death-Sheet_13
+  - first:
+      213: 8705779644328401899
+    second: charco_death-Sheet_14
+  - first:
+      213: -6335056971021772836
+    second: charco_death-Sheet_15
+  - first:
+      213: 9182036478710107776
+    second: charco_death-Sheet_16
+  - first:
+      213: 8590978048637126337
+    second: charco_death-Sheet_17
+  - first:
+      213: -2014179453399100500
+    second: charco_death-Sheet_18
+  - first:
+      213: -3245801559943577486
+    second: charco_death-Sheet_19
+  - first:
+      213: -1703323694278400279
+    second: charco_death-Sheet_20
+  - first:
+      213: -5863109475083351014
+    second: charco_death-Sheet_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: charco_death-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56a65d95e27968a0800000000000000
+      internalID: -6311387072270260642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f71f1994da4d570800000000000000
+      internalID: 8490601728992968588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4f01d13259c45c0800000000000000
+      internalID: -4229841971963693849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c080a9f5ed58de0800000000000000
+      internalID: -1331413612630635471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd86e9a1d144ccc0800000000000000
+      internalID: -3691753425782534703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568779b566d2c3330800000000000000
+      internalID: 3691875712183531621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d41986c523bc9e40800000000000000
+      internalID: 5664599406151275730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa9903de68509c30800000000000000
+      internalID: 4364085271932279539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960e81f96a2e7f020800000000000000
+      internalID: 2375616533722882153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9083e61a20c797520800000000000000
+      internalID: 2700325802325456905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15cc2666a61a7e50800000000000000
+      internalID: 6807778690658518300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fe6c1e6e5ef9d70800000000000000
+      internalID: 9052206555831136108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948cd8487d45f7f50800000000000000
+      internalID: 6881312040263993417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0917a5110ea3ee0800000000000000
+      internalID: -1280464778897026841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb5509167421d870800000000000000
+      internalID: 8705779644328401899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charco_death-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 15
+        width: 74
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7926adf3b5518a0800000000000000
+      internalID: -6335056971021772836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

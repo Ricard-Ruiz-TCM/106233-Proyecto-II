@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: 54926378e65dd57449adbd37f6dd3971
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6214063010858579554
+    second: drawi_mele_attack-Sheet_0
+  - first:
+      213: 5320075323073887479
+    second: drawi_mele_attack-Sheet_1
+  - first:
+      213: -3245026974710475095
+    second: drawi_mele_attack-Sheet_2
+  - first:
+      213: 8837075190820298568
+    second: drawi_mele_attack-Sheet_3
+  - first:
+      213: -6988456094554948186
+    second: drawi_mele_attack-Sheet_4
+  - first:
+      213: 762433019050675657
+    second: drawi_mele_attack-Sheet_5
+  - first:
+      213: 8109288402487662331
+    second: drawi_mele_attack-Sheet_6
+  - first:
+      213: -3406476218581766446
+    second: drawi_mele_attack-Sheet_7
+  - first:
+      213: -2045660496743404435
+    second: drawi_mele_attack-Sheet_8
+  - first:
+      213: 7860619290062556167
+    second: drawi_mele_attack-Sheet_9
+  - first:
+      213: 7768749175622362369
+    second: drawi_mele_attack-Sheet_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9941e97d9633c9a0800000000000000
+      internalID: -6214063010858579554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 57
+        height: 59
+      alignment: 9
+      pivot: {x: 0.58297276, y: 0.45991987}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcf322c154b4d940800000000000000
+      internalID: 5320075323073887479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 60
+        height: 70
+      alignment: 9
+      pivot: {x: 0.6182363, y: 0.3986547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a652ddc82957f2d0800000000000000
+      internalID: -3245026974710475095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 0
+        width: 61
+        height: 69
+      alignment: 9
+      pivot: {x: 0.57753164, y: 0.3834775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fd242b01993aa70800000000000000
+      internalID: 8837075190820298568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 0
+        width: 63
+        height: 70
+      alignment: 9
+      pivot: {x: 0.7026905, y: 0.39189833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad73ab5534040f90800000000000000
+      internalID: -6988456094554948186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 0
+        width: 76
+        height: 58
+      alignment: 9
+      pivot: {x: 0.3755405, y: 0.46738318}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd4b819ac4b49a00800000000000000
+      internalID: 762433019050675657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 76
+        height: 58
+      alignment: 9
+      pivot: {x: 0.3693173, y: 0.46738318}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6d87356daf98070800000000000000
+      internalID: 8109288402487662331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 0
+        width: 66
+        height: 58
+      alignment: 9
+      pivot: {x: 0.42834103, y: 0.45922896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de2e9f6de3c9b0d0800000000000000
+      internalID: -3406476218581766446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 0
+        width: 50
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5662122, y: 0.46847042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c6f88dd9a5c93e0800000000000000
+      internalID: -2045660496743404435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 0
+        width: 48
+        height: 61
+      alignment: 9
+      pivot: {x: 0.59852856, y: 0.4767404}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c03c2d897861d60800000000000000
+      internalID: 7860619290062556167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drawi_mele_attack-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 0
+        width: 50
+        height: 61
+      alignment: 9
+      pivot: {x: 0.56621337, y: 0.46123397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1056412f63420db60800000000000000
+      internalID: 7768749175622362369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
