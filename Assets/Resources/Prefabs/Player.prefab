@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 151142784
+    m_Bits: 151404928
   _platofrmLayer:
     serializedVersion: 2
     m_Bits: 131072
@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1156490840213546253}
   - component: {fileID: 2065730951}
   - component: {fileID: 8607430394609021042}
+  - component: {fileID: 1071044305}
   m_Layer: 23
   m_Name: Player
   m_TagString: Player
@@ -569,6 +570,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _inkBullet: {fileID: 0}
+--- !u!81 &1071044305
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951879192592214157}
+  m_Enabled: 1
 --- !u!1 &2951879192940518841
 GameObject:
   m_ObjectHideFlags: 0
