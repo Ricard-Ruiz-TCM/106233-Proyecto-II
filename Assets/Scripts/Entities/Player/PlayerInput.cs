@@ -6,7 +6,7 @@ public enum INPUT_SCHEME {
     I_KEYBOARD, I_GAMEPAD
 }
 
-public class DrawiInput : MonoBehaviour {
+public class PlayerInput : MonoBehaviour {
 
     // Observer para saber caundo se cambia de Scheme
     public static event Action<INPUT_SCHEME> OnChangeInput;
@@ -15,7 +15,7 @@ public class DrawiInput : MonoBehaviour {
     private Player _player;
 
     // Player Input
-    private PlayerInput _input;
+    private UnityEngine.InputSystem.PlayerInput _input;
 
     [SerializeField]
     private INPUT_SCHEME _currentScheme;
@@ -42,7 +42,7 @@ public class DrawiInput : MonoBehaviour {
     // Unity
     void Awake() {
         _player = GetComponent<Player>();
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<UnityEngine.InputSystem.PlayerInput>();
 
         _currentScheme = INPUT_SCHEME.I_KEYBOARD;
 

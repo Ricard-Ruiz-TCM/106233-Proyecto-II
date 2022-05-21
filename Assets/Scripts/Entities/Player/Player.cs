@@ -44,7 +44,7 @@ public class Player : Entity {
     public void TakeDamage(int amount) { if (CanChangeHealth()) { _health -= amount; IJustTakeDamage(); OnHealthChange?.Invoke(); } }
     private bool _canCHealth;
     public bool CanChangeHealth() { return _canCHealth; }
-    public void FillHealth() { _health = _maxHealth; OnInkChange?.Invoke(); }
+    public void FillHealth() { _health = _maxHealth; OnHealthChange?.Invoke(); }
     private int _maxHealth;
     public float MaxHealth() { return _maxHealth; }
 
@@ -83,7 +83,7 @@ public class Player : Entity {
     private PlayerDie _die;
 
     // Input
-    private DrawiInput _input;
+    private PlayerInput _input;
 
     void Start(){
         _ink = 50;
@@ -109,7 +109,7 @@ public class Player : Entity {
         _die = GetComponent<PlayerDie>();
         _combat = GetComponent<PlayerCombat>();
 
-        _input = GetComponent<DrawiInput>();
+        _input = GetComponent<PlayerInput>();
 
         _currentBehavriour = _iddle;
 
@@ -233,6 +233,8 @@ public class Player : Entity {
                 break;
             default: break;
         }
+
+        if (!_dash.IsDashing()) _dash.DisableSystem();
 
     }
 

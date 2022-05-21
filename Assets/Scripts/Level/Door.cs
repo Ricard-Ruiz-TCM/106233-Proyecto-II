@@ -6,6 +6,7 @@ public class Door : MonoBehaviour {
     public void OpenDoor() {
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         GetComponent<BoxCollider2D>().isTrigger = true;
+        transform.gameObject.layer = LayerMask.GetMask("Default");
     }
 
 }

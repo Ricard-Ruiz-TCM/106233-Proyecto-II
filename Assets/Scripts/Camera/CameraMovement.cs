@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour {
         _player = GameObject.FindObjectOfType<Player>().gameObject.transform;
     }
 
-    void FixedUpdate() {
+    void Update() {
         _camera.transform.position = new Vector3(_player.position.x, _player.position.y, _camera.transform.position.z);
     }
 

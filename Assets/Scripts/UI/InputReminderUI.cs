@@ -11,17 +11,17 @@ public class InputReminderUI : MonoBehaviour {
     private SpriteRenderer _image;
 
     // Input System
-    private DrawiInput _input;
+    private PlayerInput _input;
 
     // Unity
     void OnEnable(){
-        DrawiInput.OnChangeInput += ChangeInputReminder;
+        PlayerInput.OnChangeInput += ChangeInputReminder;
     }
 
     // Unity
     void Awake(){
         _image = GetComponent<SpriteRenderer>();
-        _input = GameObject.FindObjectOfType<DrawiInput>();
+        _input = GameObject.FindObjectOfType<PlayerInput>();
     }
 
     // Unity

@@ -22,7 +22,7 @@ public class EnemyCombat : Entity, ICombat {
     {
         _health -= weapon.Damage;
         if (_health <= 0.0f){
-            GameObject.FindObjectOfType<GameManager>().InstantiateInkPot(transform.position);
+            GameManager.Instance.InstantiateInkPot(transform.position);
             Destroy(this.gameObject);
         }
     }

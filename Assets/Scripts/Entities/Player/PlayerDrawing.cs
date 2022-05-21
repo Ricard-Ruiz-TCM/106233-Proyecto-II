@@ -52,7 +52,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _brushTool = GameObject.FindObjectOfType<Brush>().gameObject;
         _eraserTool = GameObject.FindObjectOfType<Eraser>().gameObject;
         _activeTool = _brushTool;
-        _toolSpeed = 0.05f;
+        _toolSpeed = 0.025f;
 
         _strokes = new List<GameObject>();
 
@@ -134,7 +134,6 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         ///////////////
         _activeTool = _brushTool;
         ActiveTool().Show(0.5f);
-        ActiveTool().SetPosition(transform.position);
 
         ClearStrokes();
 
@@ -142,6 +141,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _checkTemplate = false;
         _templatesIndex = 0;
         CurrentTemplate().SetActive(true);
+
+        ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
         _animator.SetBool("Draw", true);
     }

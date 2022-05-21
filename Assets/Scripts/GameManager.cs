@@ -1,22 +1,25 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Users;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
+
+    /////////////////////////////////////////////////////////////////////
+    // Singleton Instance
+    public static GameManager Instance { get; private set; }
+    void Awake(){
+        if (Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
+    }
+    /////////////////////////////////////////////////////////////////////
 
     private GameObject _container;
 
     [SerializeField]
     private GameObject _inkPot;
 
-
-    void Awake(){
+    void Start(){
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
-    }
-
-    private void Update() {
-        
+        _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
     }
 
     public void InstantiateInkPot(Vector2 pos) {

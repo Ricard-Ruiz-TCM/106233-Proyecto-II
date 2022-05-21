@@ -40,6 +40,7 @@ public class PlayerPlacing : PlayerState, IHaveStates {
     private void StartPlacing(){
         _placed = false;
         _templateElement = _drawing.CreatedTemplate();
+        _templateElement.transform.position = transform.position;
     }
 
     private void EndPlacing(){

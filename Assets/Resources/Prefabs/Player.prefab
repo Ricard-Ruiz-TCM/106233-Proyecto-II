@@ -487,7 +487,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2951879192592214157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c0b46c240a86b740a8002a95dd32d5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 60922f91dac0c2c40a832f365a5dbe01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentScheme: 0
@@ -550,6 +550,7 @@ MonoBehaviour:
   _jumpStr: 0
   _boost: 0
   _boostStr: 0
+  _gravity: 0
 --- !u!114 &1985371382493723404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +568,7 @@ MonoBehaviour:
   _onGround: 0
   _onWall: 0
   _facingWall: 0
+  _gravity: 0
 --- !u!114 &1146343374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +584,7 @@ MonoBehaviour:
   _isDashing: 0
   _dashStr: 0
   _dashTime: 0
+  _dashDuration: 0
 --- !u!114 &1146343373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602da02cbd8c77f46a03880847f29fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gravity: 0
 --- !u!114 &8607430394609021042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _multipleRightLayer:
     serializedVersion: 2
-    m_Bits: 134218624
+    m_Bits: 134218112
   _layer_WallFall:
     serializedVersion: 2
     m_Bits: 0

@@ -78,12 +78,16 @@ public class PlayerJump : PlayerState, IHaveStates {
     private void Jump(float force, float xforce = 0.0f) {
         SetJumpGravity();
 
-        _body.AddForce(new Vector2(xforce, force));
         _boost = 2;
         _lastVelY = 0.0f;
 
         if (_body.velocity.x < -1.0f) _boost = 1;
         if (_body.velocity.x > 1.0f) _boost = -1;
+
+        if (_boost != 2) force = force * 0.825f;
+        _body.AddForce(new Vector2(xforce, force));
+
+        _body.velocity = new Vector2(_body.velocity.x * 0.7f, _body.velocity.y);
 
         _isJumping = true;
     }
@@ -92,7 +96,7 @@ public class PlayerJump : PlayerState, IHaveStates {
         if (_fall.OnTheWall() && _fall.IsFalling()) {
             _body.velocity = Vector2.zero;
             float v = (force * 0.75f) * (_fall.FacingWall() ? -transform.right.x : transform.right.x);
-            Jump(force * 0.5f, v);
+            Jump(force * 0.9f, v);
             // Rotación
             if (v > 0.0f) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
             if (v < 0.0f) transform.localEulerAngles = new Vector2(0.0f, 180.0f);
