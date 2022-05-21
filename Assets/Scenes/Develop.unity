@@ -56934,11 +56934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2951879192592214159, guid: 111089bb80dd89346914408043029d88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.07
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2951879192592214159, guid: 111089bb80dd89346914408043029d88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.85
+      value: 5.41
       objectReference: {fileID: 0}
     - target: {fileID: 2951879192592214159, guid: 111089bb80dd89346914408043029d88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57045,6 +57045,14 @@ PrefabInstance:
     - target: {fileID: 4191135341492208000, guid: d4266acc1c24a5d459edf55227726d88, type: 3}
       propertyPath: m_Name
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191135341492208123, guid: d4266acc1c24a5d459edf55227726d88, type: 3}
+      propertyPath: _offset.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191135341492208123, guid: d4266acc1c24a5d459edf55227726d88, type: 3}
+      propertyPath: _offset.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4191135341492208125, guid: d4266acc1c24a5d459edf55227726d88, type: 3}
       propertyPath: m_RootOrder
