@@ -27,6 +27,8 @@ public class PlayerJump : PlayerState, IHaveStates {
     private int _boost; // -1 (left) | 0 (none) | 1 (right) | 2 (both)
     [SerializeField]
     private float _boostStr;
+    [SerializeField]
+    private float _gravity;
 
     // Fall & WallFall Systems
     private PlayerFall _fall;
@@ -45,12 +47,13 @@ public class PlayerJump : PlayerState, IHaveStates {
         ////////////
         _isJumping = false;
 
-        _jumpStr = 300.0f;
+        _jumpStr = 200.0f;
         _jumpTime = 0.0f;
         _lastVelY = 0.0f;
 
         _boost = 0;
-        _boostStr = 175.0f;
+        _boostStr = 150.0f;
+        _gravity = 0.5f;
 
         _fall = GetComponent<PlayerFall>();
     }
@@ -69,7 +72,7 @@ public class PlayerJump : PlayerState, IHaveStates {
     }
 
     private void SetJumpGravity(){
-        _body.gravityScale = 1.25f;
+        _body.gravityScale = _gravity;
     }
 
     private void Jump(float force, float xforce = 0.0f) {

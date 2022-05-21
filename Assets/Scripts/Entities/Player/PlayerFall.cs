@@ -34,6 +34,9 @@ public class PlayerFall : PlayerState, IHaveStates {
     public bool FacingWall() { return _facingWall; }
     public void OnFacingWall(bool wall) { _facingWall = wall; }
 
+    [SerializeField]
+    private float _gravity;
+
     // Jumping System
     private PlayerJump _jump;
 
@@ -60,6 +63,8 @@ public class PlayerFall : PlayerState, IHaveStates {
         _onWall = false;
         _onGround = false;
 
+        _gravity = 1.25f;
+
         _jump = GetComponent<PlayerJump>();
     }
 
@@ -71,7 +76,7 @@ public class PlayerFall : PlayerState, IHaveStates {
 
     // PlayerFall.cs <Fall>
     private void SetFallGravity(){
-        _body.gravityScale = 3.5f;
+        _body.gravityScale = _gravity;
     }
 
     public void StarFall(){

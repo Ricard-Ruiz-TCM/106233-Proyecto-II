@@ -80,6 +80,7 @@ public class Template : DrawElement, ICombat {
     public void Attack(ICombat target){}
 
     public void TakeDamage(Attack weapon) {
+        GameObject.FindObjectOfType<GameManager>().InstantiateInkPot(transform.position);
         Destroy(this.gameObject);
     }
 

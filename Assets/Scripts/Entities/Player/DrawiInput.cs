@@ -92,7 +92,7 @@ public class DrawiInput : MonoBehaviour {
     }
 
     void OnDashy(InputValue input){
-        _player.ToggleDash();
+        _player.DashTime();
     }
 
     void OnLefty(InputValue input){

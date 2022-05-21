@@ -15,6 +15,7 @@ public class PlayerDash : PlayerState, IHaveStates {
     private float _dashTime;
 
     // Dash Controls
+    [SerializeField]
     private float _dashDuration;
     private float _lastVelocity;
 
@@ -24,8 +25,8 @@ public class PlayerDash : PlayerState, IHaveStates {
         ////////////
         _isDashing = false;
         
-        _dashStr = 500.0f;
-        _dashTime = 0.5f;
+        _dashStr = 400.0f;
+        _dashTime = 0.35f;
 
         _lastVelocity = 0.0f;
         _dashDuration = 0.0f;
@@ -42,6 +43,7 @@ public class PlayerDash : PlayerState, IHaveStates {
     public void EndDash(){
         _body.velocity = new Vector2(_lastVelocity, _body.velocity.y);
         _isDashing = false;
+        _dashDuration = 0.0f;
     }
 
     // IHaveStates
@@ -54,6 +56,7 @@ public class PlayerDash : PlayerState, IHaveStates {
 
     public void OnExitState(){
         _animator.SetBool("Dash", false);
+        EndDash();
         ////////////////
         DisableSystem();
     }

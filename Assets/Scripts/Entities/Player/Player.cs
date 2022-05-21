@@ -34,7 +34,7 @@ public class Player : Entity {
     public void UseInk(int amount) { _ink -= amount; _ink = Math.Max(_ink, 0); OnInkChange?.Invoke();}
     public bool HaveInk(int amount = 1) { return (_ink >= amount); }
     public void AddInk(int amount) { _ink += amount; _ink = Mathf.Min(_ink, _maxInk); OnInkChange?.Invoke(); }
-    public void FillInk() { _ink = _maxInk; }
+    public void FillInk() { _ink = _maxInk; OnInkChange?.Invoke(); }
     private int _maxInk;
     public int MaxInk() { return _maxInk; }
 
@@ -44,7 +44,7 @@ public class Player : Entity {
     public void TakeDamage(int amount) { if (CanChangeHealth()) { _health -= amount; IJustTakeDamage(); OnHealthChange?.Invoke(); } }
     private bool _canCHealth;
     public bool CanChangeHealth() { return _canCHealth; }
-    public void FillHealth() { _health = _maxHealth; }
+    public void FillHealth() { _health = _maxHealth; OnInkChange?.Invoke(); }
     private int _maxHealth;
     public float MaxHealth() { return _maxHealth; }
 
@@ -248,8 +248,8 @@ public class Player : Entity {
         }
     }
 
-    public void ToggleDash(){
-        _dash.ToggleSystem();
+    public void DashTime(){
+        _dash.EnableSystem();
     }
 
     public void TryFallGround(){
