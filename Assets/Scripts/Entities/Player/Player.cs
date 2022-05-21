@@ -83,7 +83,7 @@ public class Player : Entity {
     private PlayerDie _die;
 
     // Input
-    private PlayerInput _input;
+    private DrawiInput _input;
 
     void Start(){
         _ink = 50;
@@ -109,7 +109,7 @@ public class Player : Entity {
         _die = GetComponent<PlayerDie>();
         _combat = GetComponent<PlayerCombat>();
 
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<DrawiInput>();
 
         _currentBehavriour = _iddle;
 

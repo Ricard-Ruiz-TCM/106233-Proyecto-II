@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,10 +6,16 @@ public enum INPUT_SCHEME {
     I_KEYBOARD, I_GAMEPAD
 }
 
-public class PlayerInput : MonoBehaviour {
+public class DrawiInput : MonoBehaviour {
+
+    // Observer para saber caundo se cambia de Scheme
+    public static event Action<INPUT_SCHEME> OnChangeInput;
 
     // Player State Machine
     private Player _player;
+
+    // Player Input
+    private PlayerInput _input;
 
     [SerializeField]
     private INPUT_SCHEME _currentScheme;
@@ -35,6 +42,20 @@ public class PlayerInput : MonoBehaviour {
     // Unity
     void Awake() {
         _player = GetComponent<Player>();
+        _input = GetComponent<PlayerInput>();
+
+        _currentScheme = INPUT_SCHEME.I_KEYBOARD;
+
+        _left = _right = _jump = _mainAction = false;
+        _mousePos = _joystickDir = new Vector2(0.0f, 0.0f);
+    }
+
+
+    // Input
+    void OnControlsChanged() {
+        if (_input.currentControlScheme.Equals("Gamepad")) _currentScheme = INPUT_SCHEME.I_GAMEPAD;
+        if (_input.currentControlScheme.Equals("Keyboard&Mouse")) _currentScheme = INPUT_SCHEME.I_KEYBOARD;
+        OnChangeInput?.Invoke(Scheme());
     }
 
     void OnTemplates(InputValue input){

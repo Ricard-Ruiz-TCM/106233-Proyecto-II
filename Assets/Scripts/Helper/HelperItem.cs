@@ -6,5 +6,6 @@ public class HelperItem : ScriptableObject {
     public int ID;
     public Sprite Portrait;
     public string Text;
+    public float Duration;
 
 }

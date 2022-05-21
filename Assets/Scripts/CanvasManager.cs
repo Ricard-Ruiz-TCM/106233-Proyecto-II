@@ -8,8 +8,6 @@ public class CanvasManager : MonoBehaviour {
     [SerializeField]
     private GameObject _templateHUD;
 
-    private GameObject _player;
-
     void OnEnable() {
         Player.OnChangeState += OnPlayerChangeState;   
     }
@@ -20,7 +18,6 @@ public class CanvasManager : MonoBehaviour {
 
     void Start(){
         _templateHUD.SetActive(false);
-        _player = GameObject.FindObjectOfType<Player>().gameObject;
     }
 
     public void OnPlayerChangeState(PLAYER_STATE state){

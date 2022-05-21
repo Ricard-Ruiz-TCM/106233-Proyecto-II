@@ -6,8 +6,8 @@ public class PlayerState : MonoBehaviour, ISystem {
     protected bool _enable;
 
     // Input
-    private PlayerInput _input;
-    protected PlayerInput Input() { return _input; }
+    private DrawiInput _input;
+    protected DrawiInput Input() { return _input; }
 
     // Animator
     protected Rigidbody2D _body;
@@ -19,7 +19,7 @@ public class PlayerState : MonoBehaviour, ISystem {
         _body = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         // Input
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<DrawiInput>();
     }
 
     // ISystem

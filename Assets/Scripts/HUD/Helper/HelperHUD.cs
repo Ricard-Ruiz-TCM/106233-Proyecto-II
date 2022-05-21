@@ -9,6 +9,8 @@ public class HelperHUD : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI _text;
 
+    HelperItem _item;
+
     void Awake(){
         _portrait = GetComponentInChildren<Image>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
@@ -19,14 +21,15 @@ public class HelperHUD : MonoBehaviour {
     }
 
     public void UpdateItem(HelperItem item){
-        _portrait.sprite = item.Portrait;
-        _text.text = item.Text;
+        _item = item;
+        _portrait.sprite = _item.Portrait;
+        _text.text = _item.Text;
         Show();
     }
 
     private void Show(){
         GetComponent<RectTransform>().localScale = new Vector2(1.0f, 1.0f);
-        Invoke("Hide", 5.0f);
+        Invoke("Hide", _item.Duration);
     }
 
     private void Hide(){
