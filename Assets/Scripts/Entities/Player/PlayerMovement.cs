@@ -65,6 +65,7 @@ public class PlayerMovement : PlayerState, IHaveStates {
 
     public void OnExitState(){
         _animator.SetBool("Run", false);
+        _isMoving = false;
         ////////////////
         DisableSystem();
     }
