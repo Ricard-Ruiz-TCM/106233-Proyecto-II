@@ -21,7 +21,7 @@ public class BombTemplate : Template {
         _explosionRadius = 5.0f;
         _explosionTime = 3.0f;
 
-        _attack = Resources.Load<Attack>("ScriptableObjects/BoxTemplate");
+        _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BoxTemplate");
 
         FindObjects();
     }

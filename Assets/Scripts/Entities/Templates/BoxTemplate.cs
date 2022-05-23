@@ -16,7 +16,7 @@ public class BoxTemplate : Template {
         load();
         _canKill = false;
         _isBox = true;
-        _attack = Resources.Load<Attack>("ScriptableObjects/BoxTemplate");
+        _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BoxTemplate");
         _body = GetComponent<Rigidbody2D>();
     }
 
