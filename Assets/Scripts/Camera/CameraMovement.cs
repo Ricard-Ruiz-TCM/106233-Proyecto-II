@@ -15,6 +15,8 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     private float _deltaX;
     [SerializeField]
+    private float _deltaY;
+    [SerializeField]
     private float _str;
 
     // Temp vector3 for next pos
@@ -27,6 +29,7 @@ public class CameraMovement : MonoBehaviour {
         _player_body = _player.gameObject.GetComponent<Rigidbody2D>();
 
         _deltaX = 1.75f;
+        _deltaY = -1.5f;
         _str = 1.0f;
 
         _fall = _player.GetComponent<PlayerFall>();
@@ -36,15 +39,15 @@ public class CameraMovement : MonoBehaviour {
 
     // Unity
     void Update() {
-        _nextPos = new Vector3(_player.position.x, _player.position.y, transform.position.z);
+        _nextPos = new Vector3(_player.position.x, _player.position.y - _deltaY, transform.position.z);
 
         _nextPos.x += (_deltaX * _player.transform.right.x);
         _nextPos.y += (_player_body.velocity.y / 1.8f);
 
         _str = 1.0f;
-        if (_fall.IsFalling()) _str += 3.0f;
-        if (_dash.IsDashing()) _str += 4.0f;
-        if (_movement.IsMoving()) _str += 3.0f;
+        if (_fall.IsFalling()) _str += 2.0f;
+        if (_dash.IsDashing()) _str += 3.0f;
+        if (_movement.IsMoving()) _str += 2.0f;
 
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
     }
