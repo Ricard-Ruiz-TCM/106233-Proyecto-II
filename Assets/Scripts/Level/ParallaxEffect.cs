@@ -19,7 +19,7 @@ public class ParallaxEffect : MonoBehaviour {
     void FixedUpdate() {
         float deltaX = (_camera.position.x - _lastCameraPos.x) * _parallaxMultiplier;
         float deltaY = (_camera.position.y - _lastCameraPos.y) * (_parallaxMultiplier / 2.0f);
-        transform.Translate(new Vector2(deltaX, deltaY));
+        transform.Translate(new Vector2(deltaX, 0.0f));
         _lastCameraPos = _camera.position;
     }
 }
