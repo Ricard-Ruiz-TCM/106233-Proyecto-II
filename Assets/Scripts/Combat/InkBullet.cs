@@ -10,7 +10,7 @@ public class InkBullet : MonoBehaviour, ISlowMo {
     protected float _speed;
 
     protected void LoadBullet(string attack) {
-        _attack = Resources.Load<Attack>("ScriptableObjects/" + attack);
+        _attack = Resources.Load<Attack>("ScriptableObjects/Attacks/" + attack);
         _slowMo = false;
         _speed = 5.0f;
     }

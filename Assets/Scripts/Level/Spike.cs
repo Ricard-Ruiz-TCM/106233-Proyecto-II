@@ -7,7 +7,7 @@ public class Spike : MonoBehaviour {
 
     // Unity
     void Awake(){
-        _spike = Resources.Load<Attack>("ScriptableObjects/SpikeAttack");
+        _spike = Resources.Load<Attack>("ScriptableObjects/Attacks/SpikeAttack");
     }
 
     // Unity

@@ -8,7 +8,7 @@ public class PlantInk : InkBullet
 
     private void Start()
     {
-        LoadBullet("ScriptableObjects/PlayerBullet");
+        LoadBullet("ScriptableObjects/Attacks/PlayerBullet");
     }
 
     protected new void Movement()

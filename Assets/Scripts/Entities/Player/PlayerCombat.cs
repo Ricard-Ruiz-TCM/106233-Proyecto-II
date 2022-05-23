@@ -47,8 +47,8 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
         _state = COMBAT_STATE.C_MELEE;
 
-        _melee = Resources.Load<Attack>("ScriptableObjects/MeleeAttack");
-        _ranged = Resources.Load<Attack>("ScriptableObjects/RangedAttack");
+        _melee = Resources.Load<Attack>("ScriptableObjects/Attacks/MeleeAttack");
+        _ranged = Resources.Load<Attack>("ScriptableObjects/Attacks/RangedAttack");
         _weapon = _melee;
 
         _layer_Enemy = LayerMask.GetMask("Enemy", "Object");
