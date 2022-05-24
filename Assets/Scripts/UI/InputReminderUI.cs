@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputReminderUI : MonoBehaviour {
 
@@ -8,7 +9,8 @@ public class InputReminderUI : MonoBehaviour {
     private Sprite _keyboard;
 
     // Sprite
-    private SpriteRenderer _image;
+    private SpriteRenderer _sprite;
+    private Image _image;
 
     // Input System
     private PlayerInput _input;
@@ -20,7 +22,8 @@ public class InputReminderUI : MonoBehaviour {
 
     // Unity
     void Awake(){
-        _image = GetComponent<SpriteRenderer>();
+        _sprite = GetComponent<SpriteRenderer>();
+        _image = GetComponent<Image>();
         _input = GameObject.FindObjectOfType<PlayerInput>();
     }
 
@@ -31,8 +34,13 @@ public class InputReminderUI : MonoBehaviour {
 
     // InputReminderUI.CS <swap>
     public void ChangeInputReminder(INPUT_SCHEME scheme){
-        if (scheme == INPUT_SCHEME.I_KEYBOARD) _image.sprite = _keyboard;
-        if (scheme == INPUT_SCHEME.I_GAMEPAD) _image.sprite = _gamepad;
+        if (_image == null) {
+            if (scheme == INPUT_SCHEME.I_KEYBOARD)  _sprite.sprite = _keyboard;
+            if (scheme == INPUT_SCHEME.I_GAMEPAD) _sprite.sprite = _gamepad;
+        } else {
+            if (scheme == INPUT_SCHEME.I_KEYBOARD)  _image.sprite = _keyboard;
+            if (scheme == INPUT_SCHEME.I_GAMEPAD) _image.sprite = _gamepad;
+        }
     }
 
 }
