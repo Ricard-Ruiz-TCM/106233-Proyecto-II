@@ -11,18 +11,25 @@ public class WeaponPlayerUI : MonoBehaviour {
     // Sprite
     private SpriteRenderer _sprite;
 
-    // Input System
-
     // Unity
     void OnEnable(){
         Player.OnChangeWeapon += ChangeWeapon;
+        PlayerCombat.OnAttack += Hide;
+        PlayerCombat.OnEndAttack += Show;
+    }
+
+    // Unity
+    void OnDisable() {
+        Player.OnChangeWeapon -= ChangeWeapon;
+        PlayerCombat.OnAttack -= Hide;
+        PlayerCombat.OnEndAttack -= Show;
     }
 
     // Unity
     void Awake(){
         _sprite = GetComponent<SpriteRenderer>();
-        _brush = Resources.Load<Sprite>("Sprites/pincel2");
-        _eraser = Resources.Load<Sprite>("Sprites/goma2");
+        _brush = Resources.LoadAll<Sprite>("Sprites/armas")[0];
+        _eraser = Resources.LoadAll<Sprite>("Sprites/armas")[1];
     }
 
     // Unity
@@ -33,6 +40,14 @@ public class WeaponPlayerUI : MonoBehaviour {
     void ChangeWeapon(COMBAT_STATE state){
         if (state.Equals(COMBAT_STATE.C_MELEE)) _sprite.sprite = _eraser;
         if (state.Equals(COMBAT_STATE.C_RANGED)) _sprite.sprite = _brush;
+    }
+
+    public void Hide(){
+        _sprite.color -= new Color(0.0f, 0.0f, 0.0f, 1.0f);
+    }
+
+    public void Show(){
+        _sprite.color += new Color(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
 

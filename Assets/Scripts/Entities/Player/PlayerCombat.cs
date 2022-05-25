@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum COMBAT_STATE {
     C_MELEE, C_RANGED
@@ -6,8 +7,11 @@ public enum COMBAT_STATE {
 
 public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
+    public static event Action OnAttack;
+    public static event Action OnEndAttack;
+
     private bool _attacking;
-    private bool IsAttacking() { return _attacking; }
+    public bool IsAttacking() { return _attacking; }
     public bool AttackEnds() { return (!IsAttacking()); }
     
     // Attack Control
@@ -71,6 +75,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
     private void EndAttack() {
         _attacking = false;
+        OnEndAttack?.Invoke();
     }
 
     private ICombat FindTarget(){
@@ -101,6 +106,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     public void Attack(ICombat target){
         _attackTime = 0.0f;
         _attacking = true;
+        OnAttack?.Invoke();
         if (Ranged()) RangedAttack();
         if (Melee()) MeleeAttack(target);
     }
