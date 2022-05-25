@@ -68,5 +68,4 @@ public class FenixAttack : MonoBehaviour
         return FOV >= 2 * angle;
     }
 
-
 }

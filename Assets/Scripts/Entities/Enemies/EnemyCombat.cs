@@ -11,7 +11,8 @@ public class EnemyCombat : Entity, ICombat {
 
     protected float _health;
     protected Attack _weapon;
-    
+    private bool dying = false;
+    public bool Dying => dying;
 
     public void Attack(ICombat target)
     {
@@ -22,6 +23,7 @@ public class EnemyCombat : Entity, ICombat {
     {
         _health -= weapon.Damage;
         if (_health <= 0.0f){
+            dying = true;
             GameManager.Instance.InstantiateInkPot(transform.position);
             Destroy(this.gameObject);
         }

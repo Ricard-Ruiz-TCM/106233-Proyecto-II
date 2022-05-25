@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: b311c1bc1326adc46812721cef254883
+guid: 03e528fd0d0aae849aee8972000f8f20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4051280796009733262
-    second: disparo_planta-Sheet_0
+      213: -9082844358243190390
+    second: GOLEM_DEATH-Sheet_0
   - first:
-      213: 2946986253624960564
-    second: disparo_planta-Sheet_1
+      213: 5985914057786063992
+    second: GOLEM_DEATH-Sheet_1
   - first:
-      213: -8624158725003758588
-    second: disparo_planta-Sheet_2
+      213: 8430027661284677262
+    second: GOLEM_DEATH-Sheet_2
   - first:
-      213: -1340368696795522462
-    second: disparo_planta-Sheet_3
+      213: 7979800579684425427
+    second: GOLEM_DEATH-Sheet_3
+  - first:
+      213: -5342035233027609566
+    second: GOLEM_DEATH-Sheet_4
+  - first:
+      213: -4175215653072826449
+    second: GOLEM_DEATH-Sheet_5
+  - first:
+      213: 6401019076816009070
+    second: GOLEM_DEATH-Sheet_6
+  - first:
+      213: 4064348367094384673
+    second: GOLEM_DEATH-Sheet_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: disparo_planta-Sheet_0
+      name: GOLEM_DEATH-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 135
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8c958b5b6a093830800000000000000
-      internalID: 4051280796009733262
+      spriteID: a89f0ccdd2143f180800000000000000
+      internalID: -9082844358243190390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: disparo_planta-Sheet_1
+      name: GOLEM_DEATH-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 135
         y: 0
-        width: 32
-        height: 32
+        width: 135
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4366645426cc5e820800000000000000
-      internalID: 2946986253624960564
+      spriteID: 87cfa5eee1d321350800000000000000
+      internalID: 5985914057786063992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: disparo_planta-Sheet_2
+      name: GOLEM_DEATH-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 270
         y: 0
-        width: 32
-        height: 32
+        width: 135
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 404b0951555d05880800000000000000
-      internalID: -8624158725003758588
+      spriteID: e8617956e797df470800000000000000
+      internalID: 8430027661284677262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: disparo_planta-Sheet_3
+      name: GOLEM_DEATH-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 405
         y: 0
-        width: 32
-        height: 32
+        width: 135
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +192,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26a137795cd066de0800000000000000
-      internalID: -1340368696795522462
+      spriteID: 3dedb823952fdbe60800000000000000
+      internalID: 7979800579684425427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GOLEM_DEATH-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 135
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ca4c542474dd5b0800000000000000
+      internalID: -5342035233027609566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GOLEM_DEATH-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 0
+        width: 135
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf81f91c77ae06c0800000000000000
+      internalID: -4175215653072826449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GOLEM_DEATH-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 0
+        width: 135
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67fd12bfecf4d850800000000000000
+      internalID: 6401019076816009070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GOLEM_DEATH-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 0
+        width: 135
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12889185e47776830800000000000000
+      internalID: 4064348367094384673
       vertices: []
       indices: 
       edges: []

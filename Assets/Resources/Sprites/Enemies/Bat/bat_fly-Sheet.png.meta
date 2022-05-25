@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: b311c1bc1326adc46812721cef254883
+guid: 8fdce65d0b0ddd1418115ed0ec5c7110
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4051280796009733262
-    second: disparo_planta-Sheet_0
+      213: 7137274894554753719
+    second: bat_fly-Sheet_0
   - first:
-      213: 2946986253624960564
-    second: disparo_planta-Sheet_1
+      213: -2137631360647686866
+    second: bat_fly-Sheet_1
   - first:
-      213: -8624158725003758588
-    second: disparo_planta-Sheet_2
+      213: 397275116119517870
+    second: bat_fly-Sheet_2
   - first:
-      213: -1340368696795522462
-    second: disparo_planta-Sheet_3
+      213: -6493780837762728648
+    second: bat_fly-Sheet_3
+  - first:
+      213: 4358370547574595906
+    second: bat_fly-Sheet_4
+  - first:
+      213: 2113967716538472063
+    second: bat_fly-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: disparo_planta-Sheet_0
+      name: bat_fly-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8c958b5b6a093830800000000000000
-      internalID: 4051280796009733262
+      spriteID: 7baef32a3b1bc0360800000000000000
+      internalID: 7137274894554753719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: disparo_planta-Sheet_1
+      name: bat_fly-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 45
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4366645426cc5e820800000000000000
-      internalID: 2946986253624960564
+      spriteID: e251cd76a9b9552e0800000000000000
+      internalID: -2137631360647686866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: disparo_planta-Sheet_2
+      name: bat_fly-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 90
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 404b0951555d05880800000000000000
-      internalID: -8624158725003758588
+      spriteID: eaae76efc97638500800000000000000
+      internalID: 397275116119517870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: disparo_planta-Sheet_3
+      name: bat_fly-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 135
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +186,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26a137795cd066de0800000000000000
-      internalID: -1340368696795522462
+      spriteID: 83df9ebcbb471e5a0800000000000000
+      internalID: -6493780837762728648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24165bfdbea0c7c30800000000000000
+      internalID: 4358370547574595906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f765bea1072565d10800000000000000
+      internalID: 2113967716538472063
       vertices: []
       indices: 
       edges: []

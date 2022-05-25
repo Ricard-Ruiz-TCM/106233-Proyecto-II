@@ -19,7 +19,7 @@ public class FenixAI : MonoBehaviour
     private float secondsForce;
     private float maxForceTime = 0.2f;
     private bool forceAdded = false;
-    private float Speed = 3.0f;
+    private float Speed = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,9 @@ public class FenixAI : MonoBehaviour
         secondsForce = 0;
         fenix.gravityScale = 0.4f;
         //forceAdded = true;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
     // Update is called once per frame
@@ -43,7 +46,7 @@ public class FenixAI : MonoBehaviour
             secondsForce += Time.deltaTime;
             if (secondsForce < maxForceTime)
             {
-                fenix.AddForce(Vector2.up * 1.5f);
+                fenix.AddForce(Vector2.up);
             }
             else
             {
@@ -52,7 +55,7 @@ public class FenixAI : MonoBehaviour
                 fenix.velocity = new Vector2(0, 0);
             }
         }
-        if(forceTime > 0.8f)
+        if(forceTime > 0.6f)
         {
             forceAdded = true;
             forceTime = 0;
