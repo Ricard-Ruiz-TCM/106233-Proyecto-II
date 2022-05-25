@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3291502536895463870}
   - component: {fileID: 3291502536895463858}
   - component: {fileID: 3291502536895463857}
+  - component: {fileID: 437900734}
   m_Layer: 7
   m_Name: "tabl\xF3n del puente"
   m_TagString: Untagged
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,3 +147,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!66 &437900734
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3291502536895463869}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 3291502536895463857}
+    m_ColliderPaths:
+    - - X: 1481911
+        Y: -693000
+      - X: 1481911
+        Y: 693000
+      - X: -1482204
+        Y: 692707
+      - X: -1481911
+        Y: -693000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.1481618, y: -0.0693}
+      - {x: 0.1481618, y: 0.0693}
+      - {x: -0.1482204, y: 0.069241405}
+      - {x: -0.1481618, y: -0.0693}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
