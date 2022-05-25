@@ -70,14 +70,20 @@ public class PlayerPlacing : PlayerState, IHaveStates {
         if (!IsEnabled()) return;
         /////////////////////////
         
-        if (Input().Keyboard())
-            TemplateElement().Screen2WorldPosition(Input().MousePos());
+        bool placeAction = false;
 
-        if (Input().GamePad())
+        if (Input().Keyboard()){
+            TemplateElement().Screen2WorldPosition(Input().MousePos());
+            placeAction = Input().MainAction();
+        }
+
+        if (Input().GamePad()){
             Template().Move(Input().Joystick() * PlaceSpeed());
+            placeAction = Input().Jump();
+        }
 
         if (!Template().Placed()) {
-            if (Input().MainAction()) {
+            if (placeAction) {
                 Template().TryToPlace();
                 _placed = Template().Placed();
             }
@@ -85,7 +91,7 @@ public class PlayerPlacing : PlayerState, IHaveStates {
 
         if (IsPlaced()) {
             EndPlacing();
-            Template().MainAction(Input().MainAction());
+            Template().MainAction(placeAction);
             if (Template().IsBox()) SwapBox(_templateElement);
         }
     }
