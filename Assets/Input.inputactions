@@ -108,6 +108,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Bug",
+                    "type": "Button",
+                    "id": "2fd1a785-6c07-4f11-b7f6-891775007c15",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -383,6 +391,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "TempLast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7d5e33e-66fb-4198-a902-036166e481d7",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Bug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ff254ed-878c-4d88-ae84-04d880e05386",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Bug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

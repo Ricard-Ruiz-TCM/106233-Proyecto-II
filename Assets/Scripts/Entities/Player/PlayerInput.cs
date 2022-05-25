@@ -67,6 +67,13 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void OnPause(InputValue input){
+        bool pause = false;
+        pause |= _player.StopDrawing();
+        pause |= _player.StopPlacing();
+        if (pause) _player.Pause();
+    }
+
+    void OnBug(){
         transform.Translate(new Vector2(0.0f, 1.0f));
         if (MainAction()) transform.Translate(new Vector2(1.0f, 0.0f));
     }

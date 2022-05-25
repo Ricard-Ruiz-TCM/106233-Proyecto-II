@@ -16,6 +16,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     private bool UsingEraser(){ return (ActiveTool() is Eraser); }
     private Eraser Eraser(){ return _activeTool.GetComponent<Eraser>(); }
 
+    public bool CanStop() { return !Input().MainAction(); }
+
     // Drawing Tools Speed
     [SerializeField]
     private float _toolSpeed;
@@ -149,6 +151,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
     public void OnExitState(){
         _animator.SetBool("Draw", false);
+
+        ActiveTool().MainAction(false);
 
         ActiveTool().Hide();
 

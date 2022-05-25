@@ -279,6 +279,21 @@ public class Player : Entity {
         FillInk(); FillHealth();
     }
 
+    public bool StopDrawing(){
+        if (_drawing.IsEnabled()){
+            if (_drawing.CanStop()) ToggleDrawing();
+            return true;
+        }
+        return false;
+    }
+    public bool StopPlacing(){
+        if (_placing.IsEnabled()){
+            _placing.StopPlacing();
+            return true;
+        }
+        return false;
+    }
+
     private void IJustTakeDamage(){
         _movement.PushBack();
         _canCHealth = false;
@@ -346,7 +361,10 @@ public class Player : Entity {
         OnChangeState?.Invoke(State());
     }
 
-
     // ------------------------------
+
+    public void Pause(){
+        Debug.Log("PAUSE TIME   ");
+    }
 
 }

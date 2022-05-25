@@ -52,6 +52,12 @@ public class PlayerPlacing : PlayerState, IHaveStates {
         _activeBox = box;
     }
 
+    public void StopPlacing(){
+        EndPlacing();
+        _placed = true;
+        Destroy(_templateElement);
+    }
+
     // IHaveStates
     public void OnEnterState(){
         EnableSystem();
