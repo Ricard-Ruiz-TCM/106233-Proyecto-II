@@ -20,8 +20,6 @@ public class FallingPlatform : MonoBehaviour {
     void Awake(){
         _fall = false;
         _fade = false;
-        _fallTime = 2.5f;
-        _fadeTime = 0.75f;
         _initialPos = this.transform.position;
     }
 
