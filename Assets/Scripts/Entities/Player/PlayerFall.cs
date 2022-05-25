@@ -88,6 +88,10 @@ public class PlayerFall : PlayerState, IHaveStates {
         _isFalling = false;
     }
 
+    private void ClampFallSpeed(){
+        _body.velocity = new Vector2(_body.velocity.x, Mathf.Clamp(_body.velocity.y, -8.0f, 0.0f));
+    }
+
     // IHaveStates
     public void OnEnterState(){
         EnableSystem();
@@ -108,6 +112,8 @@ public class PlayerFall : PlayerState, IHaveStates {
         if (Grounded()) EndFall();
 
         OnFalling?.Invoke();
+
+        ClampFallSpeed();
         
         _jump.CheckBoost();
     }
