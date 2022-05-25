@@ -75,10 +75,6 @@ public class PlayerInput : MonoBehaviour {
         _mainAction = input.isPressed;
     }
 
-    void OnMainDrawingActiony(InputValue input){
-        _mainAction = input.isPressed;
-    }
-
     void OnMainMoving(InputValue input){
         _mousePos = input.Get<Vector2>();
     }
@@ -105,6 +101,14 @@ public class PlayerInput : MonoBehaviour {
 
     void OnDowny(InputValue input){
         _player.TryFallGround();
+    }
+
+    void OnTempNext(InputValue input){
+        _player.NextTemplate();
+    }
+
+    void OnTempLast(InputValue input){
+        _player.LastTemplate();
     }
 
 }

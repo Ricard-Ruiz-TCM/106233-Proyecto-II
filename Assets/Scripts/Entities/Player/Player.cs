@@ -258,6 +258,14 @@ public class Player : Entity {
         _movement.TryFall();
     }
 
+    public void NextTemplate(){
+        if (_drawing.IsEnabled()) _drawing.NextTemplate();
+    }
+
+    public void LastTemplate(){
+        if (_drawing.IsEnabled()) _drawing.LastTemplate();
+    }
+
     public void SaveCheckPoint(Vector2 pos) {
         _respawnPoint = pos;
         FillInk(); FillHealth();
