@@ -79,7 +79,7 @@ public class PlayerPlacing : PlayerState, IHaveStates {
 
         if (Input().GamePad()){
             Template().Move(Input().Joystick() * PlaceSpeed());
-            placeAction = Input().Jump();
+            placeAction = Input().Jump() || Input().MainAction();
         }
 
         if (!Template().Placed()) {

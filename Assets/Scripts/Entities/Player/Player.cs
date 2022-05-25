@@ -70,6 +70,12 @@ public class Player : Entity {
     private void EnableAttack() { _canAttack = true; }
     private void DisableAttack() { _canAttack = false; }
 
+    [SerializeField]
+    private bool _canJump;
+    private bool CanJump() { return (_canJump && _input.Jump()); }
+    private void EnableJump() { _canJump = true; }
+    private void DisableJump() { _canJump = false; }
+
     // Player Behaviour
     private PlayerIddle _iddle;
     private PlayerDash _dash;
@@ -131,7 +137,7 @@ public class Player : Entity {
                 /* TO: PS_DASH */ 
                 else if (_dash.CanDash()) ChangeState(PLAYER_STATE.PS_DASH);
                 /* TO: PS_JUMP */ 
-                else if (_input.Jump()) ChangeState(PLAYER_STATE.PS_JUMP);
+                else if (CanJump()) ChangeState(PLAYER_STATE.PS_JUMP);
                 /* TO: PS_ATTACK */
                 else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);
                 /* TO: PS_MOVE */ 
@@ -142,6 +148,7 @@ public class Player : Entity {
                 else {
                     _movement.ApplyFriccion();
                     if (!_input.MainAction()) EnableAttack();
+                    if (!_input.Jump()) EnableJump();
                 }
                 break;
             case PLAYER_STATE.PS_MOVE:
@@ -150,7 +157,7 @@ public class Player : Entity {
                 /* to: PS_DASH */
                 else if (_dash.CanDash()) ChangeState(PLAYER_STATE.PS_DASH);
                 /* TO: PS_JUMP */
-                else if (_input.Jump()) ChangeState(PLAYER_STATE.PS_JUMP);
+                else if (CanJump()) ChangeState(PLAYER_STATE.PS_JUMP);
                 /* TO: PS_FALL */
                 else if (_fall.HaveFallen()) ChangeState(PLAYER_STATE.PS_FALL);
                 /* TO: PS_IDDLE */
@@ -161,6 +168,7 @@ public class Player : Entity {
                 else {
                     _movement.ApplyFriccion();
                     if (!_input.MainAction()) EnableAttack();
+                    if (!_input.Jump()) EnableJump();
                 }
                 break;
             case PLAYER_STATE.PS_DASH:
@@ -225,10 +233,10 @@ public class Player : Entity {
                 /* TO: PS_FALL */
                 else if (_fall.IsFalling() && !_fall.OnTheWall()) ChangeState(PLAYER_STATE.PS_FALL);
                 /* TO: PS_JUMP */
-                else if (_input.Jump()) ChangeState(PLAYER_STATE.PS_JUMP);
+                else if (CanJump()) ChangeState(PLAYER_STATE.PS_JUMP);
                 // Extra
                 else {
-
+                    if (!_input.Jump()) EnableJump();
                 }
                 break;
             default: break;
@@ -308,6 +316,7 @@ public class Player : Entity {
         if (State().Equals(next)) return;
 
         DisableAttack();
+        DisableJump();
         CurrentStateBehaviour().OnExitState();
         SoftChangeState(next);
         CurrentStateBehaviour().OnEnterState();
