@@ -10,35 +10,43 @@ public class SlimeAttack : EnemyCombat
 
     private SlimeAI slimeAI;
     private Animator animator;
-    private float currentTime  = 0;
+    private float currentTime;
+    private float maxTime = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
         slimeAI = gameObject.GetComponent<SlimeAI>();
         animator = gameObject.GetComponentInParent<Animator>();
-        animator.SetBool("Dying", false);
+        currentTime = 0;
         _health = 15.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(slimeAI.Detected)
-        {
-            SlimeAttacks();     
-            currentTime += Time.deltaTime;
+        currentTime += Time.deltaTime;
+        if (currentTime <= maxTime) {
+            if (slimeAI.Detected)
+            {
+                SlimeAttacks();
+                Debug.Log("detected");
+            }
+           
         }
        
-        if(_health <= 1f)
+        if(_health <= 5f)
         {
+            Debug.Log("animation");
             animator.SetBool("Dying", true);
         }
+
     }
 
     void SlimeAttacks()
     {
         slime.AddForce(new Vector2(transform.right.x * 10.0f, 1.0f));
+        currentTime = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
