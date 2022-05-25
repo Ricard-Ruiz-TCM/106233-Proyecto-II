@@ -40,6 +40,9 @@ public class PlayerFall : PlayerState, IHaveStates {
     // Jumping System
     private PlayerJump _jump;
 
+    // SystemMachine
+    private Player _player;
+
     // Unity
     void OnEnable(){
         BottomDetector.OnGround += OnGround;
@@ -66,6 +69,7 @@ public class PlayerFall : PlayerState, IHaveStates {
         _gravity = 1.25f;
 
         _jump = GetComponent<PlayerJump>();
+        _player = GetComponent<Player>();
     }
 
     // Unity
@@ -82,6 +86,9 @@ public class PlayerFall : PlayerState, IHaveStates {
     public void StarFall(){
         SetFallGravity();
         _isFalling = true;
+        if (!_player.LastState().Equals(PLAYER_STATE.PS_JUMP)) {
+            _body.velocity = new Vector3(_body.velocity.x / 10.0f, _body.velocity.y);
+        }
     }
 
     private void EndFall(){
