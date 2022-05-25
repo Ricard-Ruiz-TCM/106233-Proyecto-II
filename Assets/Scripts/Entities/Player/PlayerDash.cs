@@ -22,8 +22,9 @@ public class PlayerDash : PlayerState, IHaveStates {
     private float _lastVelocity;
 
     // Layers para evitar coll
-    [SerializeField]
     private LayerMask _layers;
+    [SerializeField]
+    private float _dashSafeDistance;
 
     // FallSystem
     private PlayerFall _fall;
@@ -40,7 +41,9 @@ public class PlayerDash : PlayerState, IHaveStates {
         _lastVelocity = 0.0f;
         _dashDuration = 0.0f;
 
-        _layers = LayerMask.GetMask("Wall", "Ground");
+        _dashSafeDistance = 0.35f;
+
+        _layers = LayerMask.GetMask("Wall", "Ground", "WallFall", "Door", "FallingPlatform", "Object");
 
         _fall = GetComponent<PlayerFall>();
     }
@@ -81,8 +84,8 @@ public class PlayerDash : PlayerState, IHaveStates {
         /////////////////////////
 
         // Comprobación para que no se meta en una pared
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 0.05f, _layers);
-        if (hit.collider != null) EndDash();
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _dashSafeDistance, _layers);
+        if (hit.collider != null) { _lastVelocity = 0.0f; EndDash(); }
 
         _dashDuration += Time.deltaTime;
         if (_dashDuration >= _dashTime) EndDash();
