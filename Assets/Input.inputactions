@@ -38,14 +38,6 @@
                     "interactions": "Press(behavior=2)"
                 },
                 {
-                    "name": "MainDrawingActiony",
-                    "type": "Button",
-                    "id": "0cf6ae9e-f36a-4359-ba87-864c55f52226",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)"
-                },
-                {
                     "name": "MainMoving",
                     "type": "Value",
                     "id": "af0fdd55-58a1-462d-bd5a-651913a1d837",
@@ -117,7 +109,7 @@
                 {
                     "name": "",
                     "id": "4762926b-177f-441b-8cda-7b85c755c37e",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -139,7 +131,7 @@
                 {
                     "name": "",
                     "id": "a10936df-f925-40fe-aaa0-278e72f4a336",
-                    "path": "<Keyboard>/v",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -150,7 +142,7 @@
                 {
                     "name": "",
                     "id": "b45628d4-3308-48a3-9370-776bcc228a36",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -216,7 +208,7 @@
                 {
                     "name": "",
                     "id": "25c50402-ff3e-4c93-9f8f-d6d2dd52f9b9",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -248,17 +240,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ae9d846b-6a7a-407b-88d5-952df45e8f8c",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Lefty",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "aaede27f-5060-4350-974d-5a2215b323e1",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -272,17 +253,6 @@
                     "name": "",
                     "id": "45ed5cc2-499c-4dc1-8382-878362d1d034",
                     "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Righty",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d82266db-908b-4202-8bdf-aa2883a779e7",
-                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -309,17 +279,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "MainJoystickMoving",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f0a60a94-ff23-43a5-8911-2bfbadca0a38",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MainDrawingActiony",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -360,17 +319,6 @@
                     "name": "",
                     "id": "7730adcb-6d58-4f1f-a318-346c98c4aded",
                     "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Downy",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c8bd60c7-21fe-4217-81e7-18d393072955",
-                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
