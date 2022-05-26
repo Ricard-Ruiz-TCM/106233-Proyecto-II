@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a11adb8c6ecf34eaf185c5bb5aa1fd, type: 3}
+  m_Name: HelperBomb
+  m_EditorClassIdentifier: 
+  ID: 0
+  Portrait: {fileID: 1166433094336620484, guid: c0561c64d80efb64ead537782a769f3b, type: 3}
+  Text: "Has conseguida la Bomba, \xFAsala para llegar a sitios sellados."
+  Duration: 5
