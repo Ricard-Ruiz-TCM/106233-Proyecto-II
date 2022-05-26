@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb14354beb59014da539f102b8fce76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallTime: 0.8
-  _fadeTime: 1
+  _fallTime: 6
+  _fadeTime: 0.2
 --- !u!50 &3291502536895463858
 Rigidbody2D:
   serializedVersion: 4
