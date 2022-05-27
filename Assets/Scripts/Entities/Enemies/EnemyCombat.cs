@@ -26,13 +26,13 @@ public class EnemyCombat : Entity, ICombat {
             dying = true;
             //GameManager.Instance.InstantiateInkPot(transform.position);
             //Destroy(this.gameObject);
-            StartCoroutine(DeathDelay());
+            //StartCoroutine(DeathDelay());
         }
     }
 
-    protected IEnumerator DeathDelay()
+    protected IEnumerator DeathDelay(float time)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(time);
         GameManager.Instance.InstantiateInkPot(transform.position);
         Destroy(this.gameObject);
     }

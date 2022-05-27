@@ -51,7 +51,7 @@ public class PlantAttack : EnemyCombat
                 InkAttack();
                 base.Attack(_playerCombat);
             }
-            else
+            else if(currentTime < maxTime)
             {
                 animator.SetBool("Attack", false);
             }
@@ -59,7 +59,8 @@ public class PlantAttack : EnemyCombat
 
         if (_health <= 0f)
         {
-            animator.SetBool("Dying", true);        
+            animator.SetBool("Dying", true);
+            StartCoroutine(DeathDelay(1.9f));
         }
     }
 
