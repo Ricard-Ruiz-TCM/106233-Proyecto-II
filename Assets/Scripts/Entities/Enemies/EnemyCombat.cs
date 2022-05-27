@@ -11,7 +11,7 @@ public class EnemyCombat : Entity, ICombat {
 
     protected float _health;
     protected Attack _weapon;
-    private bool dying = false;
+    protected bool dying = false;
     public bool Dying => dying;
 
     public void Attack(ICombat target)

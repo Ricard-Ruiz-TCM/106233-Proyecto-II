@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-enum States
+public enum States
 {
     Patrolling,
-    Chasing
+    Chasing,
+    Attacking
 }
 
 public class SlimeAI : MonoBehaviour
@@ -22,11 +23,10 @@ public class SlimeAI : MonoBehaviour
     private float stopTime;
     private float maxTime = 4.0f;
     private float currentSpeed;
-    private States currentState;
+    public States currentState;
 
-    public bool Detected => detected;
+    public bool Attack() { return (currentState.Equals(States.Attacking)); }
 
-    private bool detected;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,15 +41,6 @@ public class SlimeAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DetectPlayer())
-        {
-            currentState = States.Chasing;
-            detected = true;
-        }
-        else
-        {
-            detected = false;
-        }
 
         if(currentState == States.Patrolling)
         { 
@@ -63,12 +54,20 @@ public class SlimeAI : MonoBehaviour
             {
                 Flip();
             }
+            if(DetectPlayer()) currentState = States.Chasing;
         }
         else if(currentState == States.Chasing)
         {
             stopTime += Time.deltaTime;
-            if(stopTime > 4f)
-            {
+            if(stopTime > 2f) {
+                currentState = States.Attacking;
+                GetComponent<SlimeAttack>().SlimeAttacks();
+                stopTime = 0;
+            }
+        }
+        else if (currentState == States.Attacking){
+            stopTime += Time.deltaTime;
+            if (stopTime > 2.0f) {
                 currentState = States.Patrolling;
                 stopTime = 0;
             }
