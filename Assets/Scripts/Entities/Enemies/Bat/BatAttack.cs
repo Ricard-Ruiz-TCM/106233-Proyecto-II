@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FenixAttack : MonoBehaviour
+public class BatAttack : MonoBehaviour
 {
     [SerializeField]
     public Attack currentAttack;

@@ -8,6 +8,7 @@ public class PlantAttack : EnemyCombat
     private GameObject _bullet;
     public GameObject _container;
     public Attack currentAttack;
+
     private PlayerCombat _playerCombat;
     private PlantAI plantAI;
     private float currentTime;
@@ -20,7 +21,6 @@ public class PlantAttack : EnemyCombat
         var direction = transform.right;
         Gizmos.DrawRay(transform.position, direction * 5);
     }
-
 
     private void Awake()
     {
@@ -42,7 +42,6 @@ public class PlantAttack : EnemyCombat
     void Update()
     {
         currentTime += Time.deltaTime;
-        //Debug.Log(currentTime);
         if (currentTime > maxTime)
         {   
             if(plantAI.Detected)
@@ -57,7 +56,7 @@ public class PlantAttack : EnemyCombat
             }
         }
 
-        if (_health <= 0f)
+        if (dying)
         {
             animator.SetBool("Dying", true);
             StartCoroutine(DeathDelay(1.9f));

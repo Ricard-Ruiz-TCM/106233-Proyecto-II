@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FenixAI : MonoBehaviour
+public class BatAI : MonoBehaviour
 {
     public Rigidbody2D player;
     public Rigidbody2D fenix;
