@@ -26,7 +26,7 @@ public class SlimeAttack : EnemyCombat
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime <= maxTime) {
+        if (currentTime >= maxTime) {
             if (slimeAI.Detected)
             {
                 SlimeAttacks();
@@ -35,10 +35,10 @@ public class SlimeAttack : EnemyCombat
            
         }
        
-        if(_health <= 5f)
+        if(_health <= 0f)
         {
-            Debug.Log("animation");
             animator.SetBool("Dying", true);
+            //StartCoroutine(Delay());          
         }
 
     }
@@ -79,4 +79,10 @@ public class SlimeAttack : EnemyCombat
         }
     }
 
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(2.5f);
+        GameManager.Instance.InstantiateInkPot(transform.position);
+        Destroy(this.gameObject);
+    }
 }
