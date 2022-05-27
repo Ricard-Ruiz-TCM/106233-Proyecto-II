@@ -188,7 +188,7 @@ public class Player : Entity {
                 else if (_jump.JumpEnds() || !_input.Jump()) ChangeState(PLAYER_STATE.PS_FALL);
                 // Extra
                 else {
-                    
+                    _movement.ApplyRotacion();
                 }
                 break;
             case PLAYER_STATE.PS_FALL:
@@ -200,7 +200,7 @@ public class Player : Entity {
                 else if (_fall.OnTheWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 // Extra
                 else {
-
+                    _movement.ApplyRotacion();
                 }
                 break;
             case PLAYER_STATE.PS_DRAW:
