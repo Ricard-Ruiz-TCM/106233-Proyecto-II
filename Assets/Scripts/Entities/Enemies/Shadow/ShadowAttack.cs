@@ -12,12 +12,14 @@ public class ShadowAttack : EnemyCombat
     public float DetectionRange;
 
     private ShadowAI shadowAI;
+    private Animator animator;
     private PlayerCombat _playerCombat;
     private Transform player;
     // Start is called before the first frame update
     void Start()
     {
         shadowAI = GetComponentInParent<ShadowAI>();
+        animator = gameObject.GetComponentInParent<Animator>();
         _health = 20;
     }
 
@@ -27,6 +29,11 @@ public class ShadowAttack : EnemyCombat
         if(shadowAI.Detected)
         {
             ShadowAttacks();
+        }
+
+        if (_health <= 0f)
+        {
+            animator.SetBool("Dying", true);       
         }
     }
 
