@@ -16,14 +16,15 @@ public class SlimeAttack : EnemyCombat
     {
         slimeAI = gameObject.GetComponent<SlimeAI>();
         animator = gameObject.GetComponentInParent<Animator>();
-        _health = 15.0f;
+        //_health = 15.0f;
     }
 
-    public new void TakeDamage(Attack weapon)
+    private void Update()
     {
-        base.TakeDamage(weapon);
-        if (dying){
+        if (dying)
+        {
             animator.SetBool("Dying", true);
+            StartCoroutine(DeathDelay(2.5f));
         }
     }
 
@@ -49,10 +50,4 @@ public class SlimeAttack : EnemyCombat
         }
     }
 
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(2.5f);
-        GameManager.Instance.InstantiateInkPot(transform.position);
-        Destroy(this.gameObject);
-    }
 }
