@@ -33,6 +33,7 @@ public class PlantAttack : EnemyCombat
         plantAI = GetComponent<PlantAI>();
         _playerCombat = GetComponent<PlayerCombat>();
         currentTime = 0;
+        _health = 5;
         animator = GetComponentInParent<Animator>();
         animator.SetBool("Attack", false);
     }
@@ -54,6 +55,11 @@ public class PlantAttack : EnemyCombat
             {
                 animator.SetBool("Attack", false);
             }
+        }
+
+        if (_health <= 0f)
+        {
+            animator.SetBool("Dying", true);        
         }
     }
 
