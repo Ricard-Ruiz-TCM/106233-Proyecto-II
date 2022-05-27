@@ -147,6 +147,7 @@ public class Player : Entity {
                 // EXtra
                 else {
                     _movement.ApplyFriccion();
+                    _movement.ApplyRotacion();
                     if (!_input.MainAction()) EnableAttack();
                     if (!_input.Jump()) EnableJump();
                 }
@@ -167,6 +168,7 @@ public class Player : Entity {
                 // EXtra
                 else {
                     _movement.ApplyFriccion();
+                    _movement.ApplyRotacion();
                     if (!_input.MainAction()) EnableAttack();
                     if (!_input.Jump()) EnableJump();
                 }
@@ -186,7 +188,7 @@ public class Player : Entity {
                 else if (_jump.JumpEnds() || !_input.Jump()) ChangeState(PLAYER_STATE.PS_FALL);
                 // Extra
                 else {
-
+                    
                 }
                 break;
             case PLAYER_STATE.PS_FALL:

@@ -16,7 +16,7 @@ public class Template : DrawElement, ICombat {
 
     protected void load() {
         _camera = Camera.main;
-        _position = new Vector2(0.0f, 0.0f);
+        _position = new Vector2(transform.position.x, transform.position.y);
         _offset = new Vector2(0.0f, 0.0f);
 
         _isBox = false;

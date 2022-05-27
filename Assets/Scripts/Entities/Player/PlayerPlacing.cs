@@ -40,7 +40,7 @@ public class PlayerPlacing : PlayerState, IHaveStates {
     private void StartPlacing(){
         _placed = false;
         _templateElement = _drawing.CreatedTemplate();
-        _templateElement.transform.position = transform.position;
+        _templateElement.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
     }
 
     private void EndPlacing(){
@@ -75,7 +75,7 @@ public class PlayerPlacing : PlayerState, IHaveStates {
     public void OnState() {
         if (!IsEnabled()) return;
         /////////////////////////
-        
+
         bool placeAction = false;
 
         if (Input().Keyboard()){

@@ -35,7 +35,7 @@ public class PlayerMovement : PlayerState, IHaveStates {
     }
 
     // Unity
-    void FixedUpdate() {
+    public void ApplyRotacion() {
         // Rotación
         if (Input().Right() && !Input().Left()) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
         if (Input().Left() && !Input().Right()) transform.localEulerAngles = new Vector2(0.0f, 180.0f);

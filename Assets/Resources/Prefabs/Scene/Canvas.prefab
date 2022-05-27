@@ -819,8 +819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e64adc664d8254baab48bc9d34e9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gamepad: {fileID: -3515655750767481914, guid: 8d134e52faa4da74ea99ff532436679f, type: 3}
-  _keyboard: {fileID: -1978224156128764262, guid: 8d134e52faa4da74ea99ff532436679f, type: 3}
+  _gamepad: {fileID: 3142202435494831527, guid: 8d134e52faa4da74ea99ff532436679f, type: 3}
+  _keyboard: {fileID: -5980895920858401459, guid: 8d134e52faa4da74ea99ff532436679f, type: 3}
 --- !u!1 &6446888665902036672
 GameObject:
   m_ObjectHideFlags: 0

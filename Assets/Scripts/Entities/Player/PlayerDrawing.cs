@@ -60,7 +60,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         _templates = new List<GameObject>();
         _templatesIndex = 0;
-        _templateOffset = new Vector2(-2.8f, -1.2f);
+        _templateOffset = new Vector2(-1.0f, -1.2f);
         _templateCompleted = false;
         _checkTemplate = false;
         _createdTemplate = null;
@@ -118,6 +118,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         SetTemplateIndex(newPos);
         CurrentTemplate().SetActive(true);
 
+        CurrentTemplate().gameObject.transform.position = (Vector2)transform.position + _templateOffset;
+
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
         ClearStrokes();
@@ -143,6 +145,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _checkTemplate = false;
         _templatesIndex = 0;
         CurrentTemplate().SetActive(true);
+
+        CurrentTemplate().gameObject.transform.position = (Vector2)transform.position + _templateOffset;
 
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
