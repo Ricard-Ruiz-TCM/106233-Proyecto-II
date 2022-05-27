@@ -26,11 +26,11 @@ public class SlimeAttack : EnemyCombat
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= maxTime) {
-            if (slimeAI.Detected)
+        Debug.Log(currentTime);
+        if (slimeAI.Detected) {
+            if (currentTime > maxTime)
             {
                 SlimeAttacks();
-                Debug.Log("detected");
             }
            
         }
@@ -38,7 +38,7 @@ public class SlimeAttack : EnemyCombat
         if(_health <= 0f)
         {
             animator.SetBool("Dying", true);
-            //StartCoroutine(Delay());          
+            //StartCoroutine(DeathDelay());          
         }
 
     }
@@ -46,7 +46,7 @@ public class SlimeAttack : EnemyCombat
     void SlimeAttacks()
     {
         slime.AddForce(new Vector2(transform.right.x * 10.0f, 1.0f));
-        currentTime = 0;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,7 +75,7 @@ public class SlimeAttack : EnemyCombat
                 GetComponent<Rigidbody2D>().AddForce(-forceNew * magnitude);
                 player.TakeDamage(currentAttack);
             }
-           
+            currentTime = 0;
         }
     }
 

@@ -30,9 +30,9 @@ public class EnemyCombat : Entity, ICombat {
         }
     }
 
-    IEnumerator DeathDelay()
+    protected IEnumerator DeathDelay()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         GameManager.Instance.InstantiateInkPot(transform.position);
         Destroy(this.gameObject);
     }
