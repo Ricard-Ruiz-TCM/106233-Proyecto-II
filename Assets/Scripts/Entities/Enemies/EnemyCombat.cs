@@ -24,15 +24,12 @@ public class EnemyCombat : Entity, ICombat {
         _health -= weapon.Damage;
         if (_health <= 0.0f){
             dying = true;
-            //GameManager.Instance.InstantiateInkPot(transform.position);
-            //Destroy(this.gameObject);
-            StartCoroutine(DeathDelay());
         }
     }
 
-    protected IEnumerator DeathDelay()
+    protected IEnumerator DeathDelay(float time)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(time);
         GameManager.Instance.InstantiateInkPot(transform.position);
         Destroy(this.gameObject);
     }
