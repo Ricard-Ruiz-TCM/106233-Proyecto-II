@@ -41,7 +41,6 @@ public class Player : Entity {
     [SerializeField]
     private int _health;
     public float Health() { return _health; }
-    public void TakeDamage(int amount) { if (CanChangeHealth()) { _health -= amount; IJustTakeDamage(); OnHealthChange?.Invoke(); } }
     private bool _canCHealth;
     public bool CanChangeHealth() { return _canCHealth; }
     public void FillHealth() { _health = _maxHealth; OnHealthChange?.Invoke(); }
@@ -296,7 +295,16 @@ public class Player : Entity {
         return false;
     }
 
-    private void IJustTakeDamage(){
+    public void TakeDamage(int amount, DEATH_CAUSE source = DEATH_CAUSE.D_DAMAGE) { 
+        if (CanChangeHealth()) { 
+            _health -= amount; 
+            IJustTakeDamage(source);
+            OnHealthChange?.Invoke(); 
+        } 
+    }
+
+    private void IJustTakeDamage(DEATH_CAUSE cause){
+        _die.SetDeathCause(cause);
         _movement.PushBack();
         _canCHealth = false;
         Invencible();
@@ -315,14 +323,10 @@ public class Player : Entity {
         if (_health <= 0.0f) ChangeState(PLAYER_STATE.PS_DIE);
     }
 
-    public void Die(DEATH_CAUSE cause) {
-        _die.SetDeathCause(cause);
-        TakeDamage(_maxHealth);
-    }
-
     public void Respawn() {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.transform.position = _respawnPoint;
+        _die.SetDeathCause(DEATH_CAUSE.D_DAMAGE);
         FillHealth();
         FillInk();
         ChangeState(PLAYER_STATE.PS_IDDLE);

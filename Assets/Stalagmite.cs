@@ -18,6 +18,10 @@ public class Stalagmite : MonoBehaviour {
     private Rigidbody2D _body;
     private PolygonCollider2D _col;
 
+    
+    [SerializeField]
+    private Attack _stalagmite;
+
     // Unity
     void Awake(){
         _falling = false;
@@ -48,10 +52,13 @@ public class Stalagmite : MonoBehaviour {
         _body.isKinematic = true;
         _col.isTrigger = false;
     }
+        
+    // Unity
+    void OnCollisionEnter2D(Collision2D collision){
+        if (collision == null) return;
+        if (collision.gameObject.tag != "Player") return;
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.collider == null) return;
-        _col.isTrigger = true;
+        collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL);
     }
 
 }
