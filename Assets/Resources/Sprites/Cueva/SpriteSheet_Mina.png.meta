@@ -1,0 +1,876 @@
+fileFormatVersion: 2
+guid: 09ec848dcf388a04db5bf0fc814ce230
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9064844723383973902
+    second: SpriteSheet_Mina_0
+  - first:
+      213: 7994935676381997261
+    second: SpriteSheet_Mina_1
+  - first:
+      213: 4428505328839348095
+    second: SpriteSheet_Mina_2
+  - first:
+      213: 8915735705495719920
+    second: SpriteSheet_Mina_3
+  - first:
+      213: 3213561580570443877
+    second: SpriteSheet_Mina_4
+  - first:
+      213: 2691723588946469782
+    second: SpriteSheet_Mina_5
+  - first:
+      213: 3089182459832531723
+    second: SpriteSheet_Mina_6
+  - first:
+      213: -7799461116931840782
+    second: SpriteSheet_Mina_7
+  - first:
+      213: 7455873387936443200
+    second: SpriteSheet_Mina_8
+  - first:
+      213: 3849521461869519870
+    second: SpriteSheet_Mina_9
+  - first:
+      213: -7203693829626851726
+    second: SpriteSheet_Mina_10
+  - first:
+      213: 4103795265024451458
+    second: SpriteSheet_Mina_11
+  - first:
+      213: 9004823618319593046
+    second: SpriteSheet_Mina_12
+  - first:
+      213: 3459505168321955271
+    second: SpriteSheet_Mina_13
+  - first:
+      213: 1504313534335485187
+    second: SpriteSheet_Mina_14
+  - first:
+      213: -312525846134710115
+    second: SpriteSheet_Mina_15
+  - first:
+      213: -7665361526528062270
+    second: SpriteSheet_Mina_16
+  - first:
+      213: 1207353491811944075
+    second: SpriteSheet_Mina_17
+  - first:
+      213: -3866537002374370238
+    second: SpriteSheet_Mina_18
+  - first:
+      213: -9078723088505018033
+    second: SpriteSheet_Mina_19
+  - first:
+      213: -325750573105345537
+    second: SpriteSheet_Mina_20
+  - first:
+      213: -5576166017854890904
+    second: SpriteSheet_Mina_21
+  - first:
+      213: 8028119868781958125
+    second: SpriteSheet_Mina_22
+  - first:
+      213: 855249745465654098
+    second: SpriteSheet_Mina_23
+  - first:
+      213: 2943371956732791849
+    second: SpriteSheet_Mina_24
+  - first:
+      213: -8853074644934509439
+    second: SpriteSheet_Mina_25
+  - first:
+      213: 5757097986878901896
+    second: SpriteSheet_Mina_26
+  - first:
+      213: -848246518560478116
+    second: SpriteSheet_Mina_27
+  - first:
+      213: 6082396803168368302
+    second: SpriteSheet_Mina_28
+  - first:
+      213: 4860763188330342296
+    second: SpriteSheet_Mina_29
+  - first:
+      213: 2412703659498886106
+    second: SpriteSheet_Mina_30
+  - first:
+      213: -5721593682837378297
+    second: SpriteSheet_Mina_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 998
+        width: 141
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0830619f3ccccd70800000000000000
+      internalID: 9064844723383973902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 998
+        width: 115
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8a8d083a7b3fe60800000000000000
+      internalID: 7994935676381997261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_2
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 999
+        width: 72
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fc4632226357d30800000000000000
+      internalID: 4428505328839348095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_3
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1001
+        width: 101
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffc655f26e0bbb70800000000000000
+      internalID: 8915735705495719920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_4
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1002
+        width: 99
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5608eb93b3dd89c20800000000000000
+      internalID: 3213561580570443877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_5
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 1249
+        width: 397
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693a1b0c75cea5520800000000000000
+      internalID: 2691723588946469782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_6
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 1250
+        width: 120
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b7fac741bfeda20800000000000000
+      internalID: 3089182459832531723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_7
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 1251
+        width: 121
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f46ecdff6fb2c390800000000000000
+      internalID: -7799461116931840782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_8
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1253
+        width: 121
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b6d3ae755987760800000000000000
+      internalID: 7455873387936443200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_9
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 1174
+        width: 397
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3a9f9bf5f3c6530800000000000000
+      internalID: 3849521461869519870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_10
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 1152
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e0b66f0a6570c90800000000000000
+      internalID: -7203693829626851726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_11
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 1153
+        width: 72
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28366bafc0c93f830800000000000000
+      internalID: 4103795265024451458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_12
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 1152
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65eacfa0f5f87fc70800000000000000
+      internalID: 9004823618319593046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_13
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 1152
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c545701f91a20030800000000000000
+      internalID: 3459505168321955271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_14
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 1094
+        width: 397
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30501e4703560e410800000000000000
+      internalID: 1504313534335485187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_15
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 1080
+        width: 121
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d902306166fa9abf0800000000000000
+      internalID: -312525846134710115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_16
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 1008
+        width: 396
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc4950fd4a2f9590800000000000000
+      internalID: -7665361526528062270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_17
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 648
+        width: 141
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8647cd9a9161c010800000000000000
+      internalID: 1207353491811944075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_18
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 648
+        width: 115
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c6296051d475ac0800000000000000
+      internalID: -3866537002374370238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_19
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 649
+        width: 73
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49658fb375e10280800000000000000
+      internalID: -9078723088505018033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_20
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 650
+        width: 102
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb0da46493ba7bf0800000000000000
+      internalID: -325750573105345537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_21
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 651
+        width: 99
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c9721fc8a7d92b0800000000000000
+      internalID: -5576166017854890904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 340
+        width: 124
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de311016c7c996f60800000000000000
+      internalID: 8028119868781958125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_23
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 340
+        width: 103
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b39b8bc157edb00800000000000000
+      internalID: 855249745465654098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_24
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 340
+        width: 73
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c87e23335f8d820800000000000000
+      internalID: 2943371956732791849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 340
+        width: 102
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c39aa148f832580800000000000000
+      internalID: -8853074644934509439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_26
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 340
+        width: 99
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e880ddd1255ef40800000000000000
+      internalID: 5757097986878901896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_27
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 24
+        width: 124
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5cad3b194c6a34f0800000000000000
+      internalID: -848246518560478116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_28
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 24
+        width: 104
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea672d3aaa3096450800000000000000
+      internalID: 6082396803168368302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_29
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 24
+        width: 72
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897a9b9cd56e47340800000000000000
+      internalID: 4860763188330342296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_30
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 24
+        width: 102
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad357bcf135ab7120800000000000000
+      internalID: 2412703659498886106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Mina_31
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 24
+        width: 99
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70beb591cd0d890b0800000000000000
+      internalID: -5721593682837378297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
