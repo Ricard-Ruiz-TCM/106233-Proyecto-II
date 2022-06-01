@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Stalagmite : MonoBehaviour {
 
-    [SerializeField]
     private bool _falling;
     private bool IsFalling() { return _falling; }
+
+    private bool _canFall;
+    private bool CanFall() { return _canFall; }
+
+    [SerializeField]
+    private float _fallDistance;
 
     [SerializeField]
     private float _detectionDistance;
 
-    [SerializeField]
+    private LayerMask _playerLayer;
+
     private Vector2 _position;
 
     private Transform _player;
@@ -22,20 +28,34 @@ public class Stalagmite : MonoBehaviour {
     [SerializeField]
     private Attack _stalagmite;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, _detectionDistance);
+        Gizmos.DrawRay(new Ray(transform.position, -transform.up));
+    }
+
     // Unity
     void Awake(){
         _falling = false;
+        _canFall = false;
         _position = transform.position;
-        _detectionDistance = 1.0f;
         _body = GetComponent<Rigidbody2D>();
         _col = GetComponent<PolygonCollider2D>();
         _player = GameObject.FindObjectOfType<Player>().transform;
+
+        _playerLayer = LayerMask.GetMask("Player");
     }
 
     // Unity
     void Update() {
         if (IsFalling()) return;
-        if (Vector2.Distance(transform.position, _player.position) < _detectionDistance) Fall();
+        if (!CanFall() && Vector2.Distance(transform.position, _player.position) < _detectionDistance) Shake();
+        if (CanFall()) {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, _fallDistance, _playerLayer);
+            if (hit.collider != null) {
+                  Fall();
+            }
+        }
     }
 
     // Stalagmite.cs
@@ -43,14 +63,22 @@ public class Stalagmite : MonoBehaviour {
         _falling = true;
         _body.isKinematic = false;
         Invoke("Respawn", 5.0f);
+        GetComponent<Animator>().SetBool("Shake", false);
+    }
+
+    private void Shake() {
+        _canFall = true;
+        GetComponent<Animator>().SetBool("Shake", true);
     }
 
     private void Respawn(){
         _falling = false;
+        _canFall = false;
         _body.velocity = Vector2.zero;
         transform.position = _position;
         _body.isKinematic = true;
         _col.isTrigger = false;
+        GetComponent<Animator>().SetBool("Shake", false);
     }
         
     // Unity
