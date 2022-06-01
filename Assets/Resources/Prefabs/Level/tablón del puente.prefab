@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3291502536895463858}
   - component: {fileID: 3291502536895463857}
   - component: {fileID: 437900734}
-  m_Layer: 7
+  m_Layer: 17
   m_Name: "tabl\xF3n del puente"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
