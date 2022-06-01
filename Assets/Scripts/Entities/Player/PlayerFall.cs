@@ -5,6 +5,7 @@ public class PlayerFall : PlayerState, IHaveStates {
 
     // Observer para saber cuando cae
     public static event Action OnFalling;
+    public ParticleSystem effect;
 
     [SerializeField]
     private bool _isFalling;
@@ -85,10 +86,11 @@ public class PlayerFall : PlayerState, IHaveStates {
 
     public void StarFall(){
         SetFallGravity();
-        _isFalling = true;
+        _isFalling = true;      
         if (!_player.LastState().Equals(PLAYER_STATE.PS_JUMP)) {
             _body.velocity = new Vector3(_body.velocity.x / 10.0f, _body.velocity.y);
         }
+        StartParticles();
     }
 
     private void EndFall(){
@@ -127,4 +129,8 @@ public class PlayerFall : PlayerState, IHaveStates {
         _jump.CheckBoost();
     }
 
+    private void StartParticles()
+    {
+        effect.Play();
+    }
 }

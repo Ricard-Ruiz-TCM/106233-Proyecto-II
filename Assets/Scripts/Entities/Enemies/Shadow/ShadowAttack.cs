@@ -54,34 +54,13 @@ public class ShadowAttack : EnemyCombat
         Debug.Log("Shadow attacks");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collision2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerCombat>();
-        if (collision.collider.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             player.TakeDamage(currentAttack);
             attacked = true;
-            /*shadow.velocity = Vector2.zero;
-            shadow.angularVelocity = 0.0f;
-
-            if (transform.right.x == -1.0f)
-            {
-                var magnitude = 500;
-                var force = transform.position + collision.transform.position;
-                var forceNew = new Vector2(-5.1f, 10.0f);
-                force.Normalize();
-                GetComponent<Rigidbody2D>().AddForce(-forceNew * magnitude);
-                player.TakeDamage(currentAttack);
-            }
-            else if (transform.right.x == 1.0f)
-            {
-                var magnitude = 500;
-                var force = transform.position - collision.transform.position;
-                var forceNew = new Vector2(5.1f, 10.0f);
-                force.Normalize();
-                GetComponent<Rigidbody2D>().AddForce(-forceNew * magnitude);
-                player.TakeDamage(currentAttack);
-            }*/
 
         }
     }
