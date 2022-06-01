@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour {
     private PlayerDash _dash;
     private PlayerFall _fall;
     private PlayerMovement _movement;
+    private PlayerDrawing _drawing;
 
     // Camera Movement controll
     [SerializeField]
@@ -35,10 +36,13 @@ public class CameraMovement : MonoBehaviour {
         _fall = _player.GetComponent<PlayerFall>();
         _dash = _player.GetComponent<PlayerDash>();
         _movement = _player.GetComponent<PlayerMovement>();
+        _drawing = _player.GetComponent<PlayerDrawing>();
     }
 
     // Unity
     void Update() {
+        if (_drawing.IsDrawing()) return;
+
         _nextPos = new Vector3(_player.position.x, _player.position.y + _deltaY, transform.position.z);
 
         _nextPos.x += (_deltaX * _player.transform.right.x);

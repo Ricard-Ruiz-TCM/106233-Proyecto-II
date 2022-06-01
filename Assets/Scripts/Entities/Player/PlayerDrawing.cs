@@ -7,6 +7,9 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     private GameObject _brushTool;
     private GameObject _eraserTool;
 
+    private bool _isDrawing;
+    public bool IsDrawing() { return _isDrawing; }
+
     // Drawing Active Tool & Getters/Checkers
     [SerializeField]
     private GameObject _activeTool;
@@ -60,7 +63,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         _templates = new List<GameObject>();
         _templatesIndex = 0;
-        _templateOffset = new Vector2(-1.0f, -1.2f);
+        _templateOffset = new Vector2(-2.8f, -1.2f);
         _templateCompleted = false;
         _checkTemplate = false;
         _createdTemplate = null;
@@ -118,7 +121,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         SetTemplateIndex(newPos);
         CurrentTemplate().SetActive(true);
 
-        CurrentTemplate().gameObject.transform.position = (Vector2)transform.position + _templateOffset;
+        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
 
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
@@ -140,6 +143,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         ActiveTool().Show(0.5f);
 
         ClearStrokes();
+        _isDrawing = true;
 
         GameObject.FindObjectOfType<HelperHUD>().Hide();
 
@@ -148,7 +152,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _templatesIndex = 0;
         CurrentTemplate().SetActive(true);
 
-        CurrentTemplate().gameObject.transform.position = (Vector2)transform.position + _templateOffset;
+        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
 
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
@@ -161,6 +165,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         ActiveTool().MainAction(false);
 
         ActiveTool().Hide();
+        _isDrawing = false;
 
         ClearStrokes();
 
@@ -199,7 +204,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
             }
         } 
 
-        CurrentTemplate().gameObject.transform.position = (Vector2)transform.position + _templateOffset;
+        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
         if (!Input().MainAction() && _checkTemplate){
             _checkTemplate = false;
             _createdTemplate = CurrentTemplate().GetComponent<TemplateGuide>().CheckTemplate();
