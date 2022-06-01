@@ -23,6 +23,6 @@ public class HandShakerUI : MonoBehaviour {
 
     void Update() {
         _time += Time.deltaTime;
-        transform.position += new Vector3(Mathf.Cos(_time * _rack) * _speed, -Time.deltaTime * 0.7f, 0.0f);
+        transform.position += new Vector3(Mathf.Cos(_time * _rack) * _speed, -Time.deltaTime * 0.5f, 0.0f);
     }
 }
