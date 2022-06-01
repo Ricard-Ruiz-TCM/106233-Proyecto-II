@@ -4,17 +4,17 @@ public class CameraMovement : MonoBehaviour {
 
     // Target, aka player
     private Transform _player;
-    private Rigidbody2D _player_body;
 
     // Systems
-    private PlayerDash _dash;
-    private PlayerFall _fall;
+    private PlayerDrawing _drawing; 
     private PlayerMovement _movement;
-    private PlayerDrawing _drawing;
+    private PlayerDash _dash;
 
     // Camera Movement controll
     [SerializeField]
     private float _deltaX;
+    [SerializeField]
+    private float _nextDeltaX;
     [SerializeField]
     private float _deltaY;
     [SerializeField]
@@ -24,40 +24,49 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     Vector3 _nextPos;
 
+    private float _timeSmothing;
+    private float _timeBaseSmooth;
+
     // Unity
     void Start() {
         _player = GameObject.FindObjectOfType<Player>().gameObject.transform;
-        _player_body = _player.gameObject.GetComponent<Rigidbody2D>();
 
-        _deltaX = 1.75f;
+        _deltaX = 0.0f;
+        _nextDeltaX = 0.0f;
         _deltaY = 0.0f;
-        _str = 1.0f;
+        _str = 8.0f;
+        
+        _timeBaseSmooth = 0.5f;
+        _timeSmothing = _timeBaseSmooth;
 
-        _fall = _player.GetComponent<PlayerFall>();
-        _dash = _player.GetComponent<PlayerDash>();
-        _movement = _player.GetComponent<PlayerMovement>();
         _drawing = _player.GetComponent<PlayerDrawing>();
+        _movement = _player.GetComponent<PlayerMovement>();
+        _dash = _player.GetComponent<PlayerDash>();
     }
 
     // Unity
     void Update() {
+
+        _nextDeltaX = 2.0f * _player.transform.right.x;
+
         if (_drawing.IsDrawing()) return;
+        if (_movement.IsMoving() || _dash.IsDashing()){
+            float value = Time.deltaTime * 1.15f;
+            if (_dash.IsDashing()) value += Time.deltaTime;
+            if (_deltaX > _nextDeltaX) _deltaX -= value;
+            else if (_deltaX < _nextDeltaX) _deltaX += value;
+        }
 
-        _nextPos = new Vector3(_player.position.x, _player.position.y + _deltaY, transform.position.z);
-
-        _nextPos.x += (_deltaX * _player.transform.right.x);
-
-        _str = 0.75f;
-        if (_fall.IsFalling()) _str += 2.0f;
-        if (_dash.IsDashing()) _str += 3.0f;
-        if (_movement.IsMoving()) _str += 2.0f;
-        if (_deltaY < 0) _str += 3.0f;
-
+        _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
     }
 
     public void SetDeltaY(float y) {
         _deltaY = y;
+    }
+
+    public void SetDeltaX(float x){
+        _deltaX = x;
     }
 
 }
