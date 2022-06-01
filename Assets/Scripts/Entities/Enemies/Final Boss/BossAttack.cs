@@ -24,6 +24,4 @@ public class BossAttack : EnemyCombat {
         // Lanza el prefab de bote de tinta
     }
 
-
-
 }
