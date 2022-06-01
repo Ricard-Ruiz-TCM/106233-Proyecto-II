@@ -141,6 +141,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         ClearStrokes();
 
+        GameObject.FindObjectOfType<HelperHUD>().Hide();
+
         _templateCompleted = false;
         _checkTemplate = false;
         _templatesIndex = 0;

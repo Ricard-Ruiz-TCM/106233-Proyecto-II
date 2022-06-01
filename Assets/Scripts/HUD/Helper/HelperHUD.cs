@@ -22,7 +22,7 @@ public class HelperHUD : MonoBehaviour {
 
     public void UpdateItem(HelperItem item){
         _item = item;
-        _portrait.sprite = _item.Portrait;
+        //_portrait.sprite = _item.Portrait;
         _text.text = _item.Text;
         Show();
     }
@@ -32,7 +32,7 @@ public class HelperHUD : MonoBehaviour {
         Invoke("Hide", _item.Duration);
     }
 
-    private void Hide(){
+    public void Hide(){
         GetComponent<RectTransform>().localScale = new Vector2(0.0f, 0.0f);
     }
 
