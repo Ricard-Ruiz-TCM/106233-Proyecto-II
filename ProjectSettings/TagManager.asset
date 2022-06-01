@@ -11,6 +11,7 @@ TagManager:
   - DestroyWall
   - Ink
   - WallFall
+  - Boss
   layers:
   - Default
   - TransparentFX
