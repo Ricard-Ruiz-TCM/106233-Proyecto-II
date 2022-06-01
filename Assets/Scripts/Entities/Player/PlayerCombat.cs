@@ -89,9 +89,9 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     }
 
     // PlayerCombat.cs <Melee>
-    private void MeleeAttack(ICombat target) {
-        if (target == null) return;
-        target.TakeDamage(_weapon);
+    private void MeleeAttack() {
+        _body.velocity = Vector2.zero;
+        _body.AddForce(new Vector2(transform.right.x * 300.0f, 100.0f));
     }
 
     // PlayerCombat.cs <Ranged>
@@ -108,7 +108,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         _attacking = true;
         OnAttack?.Invoke();
         if (Ranged()) RangedAttack();
-        if (Melee()) MeleeAttack(target);
+        if (Melee()) MeleeAttack();
     }
 
     public void TakeDamage(Attack weapon){ _player.TakeDamage(weapon.Damage); }
@@ -117,7 +117,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     public void OnEnterState(){
         EnableSystem();
         ///////////////
-        Attack(FindTarget());
+        Attack(null);
         if (Melee()) _animator.SetBool("Melee", true);
         if (Ranged()) _animator.SetBool("Ranged", true);
     }
@@ -131,6 +131,11 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
     public void OnState(){
         if (!IsEnabled()) return;
+
+        if (Melee()) {
+            ICombat target = FindTarget();
+            if (target != null) target.TakeDamage(_weapon);
+        }
 
         _attackTime += Time.deltaTime;
         if (_attackTime >= _weapon.Cooldown) EndAttack();
