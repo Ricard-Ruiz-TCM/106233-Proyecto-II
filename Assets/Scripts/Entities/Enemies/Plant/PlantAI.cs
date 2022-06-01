@@ -27,7 +27,6 @@ public class PlantAI : EnemyMovement
        
         if(PlayerDetection())
         {
-            //Flip();
             detected = true;
         }
 
@@ -56,7 +55,7 @@ public class PlantAI : EnemyMovement
 
     private bool PlayerDetection()
     {
-        RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, transform.right, DetectionDistance, WhatIsPlayer);
+        RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, -transform.right, DetectionDistance, WhatIsPlayer);
         return hit.collider != null;
     }
 
