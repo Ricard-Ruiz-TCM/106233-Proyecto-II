@@ -25,7 +25,7 @@ public class ShadowAI : EnemyMovement
     private float currentTime;
     private float maxTime;
     private float stopTime;
-    private float Speed = 0.1f;
+    private float Speed = 0.05f;
     private bool detected;
     private Animator animator;
     public ShadowStates shadowState;
@@ -41,7 +41,6 @@ public class ShadowAI : EnemyMovement
         transform.localScale = Scaler;*/
         shadowState = ShadowStates.Idle;
         animator = gameObject.GetComponentInParent<Animator>();
-        animator.SetBool("Idle", true);
         animator.SetBool("Disappearing", false);
         boxColider = GetComponentInParent<BoxCollider2D>();
     }
@@ -72,12 +71,13 @@ public class ShadowAI : EnemyMovement
             {
                 shadowState = ShadowStates.Disappearing;
                 animator.SetBool("Disappearing", true);
+                animator.SetBool("Idle", false);
                 detected = true;
-                shadowState = ShadowStates.Chasing;
+                //shadowState = ShadowStates.Chasing;
                 StartCoroutine(AnimationDelay(2f, "Underground"));
-                //StartCoroutine(StateDelay(1f, ShadowStates.Chasing));
-                boxColider.size = new Vector2(0.3f, 0.1f);
-                boxColider.offset = new Vector2(0.0f, -0.25f);
+                StartCoroutine(StateDelay(1f, ShadowStates.Chasing));
+                //boxColider.size = new Vector2(0.3f, 0.06f);
+                //boxColider.offset = new Vector2(0.0f, -0.25f);
 
             }
             animator.SetBool("Appearing", false);
@@ -98,24 +98,18 @@ public class ShadowAI : EnemyMovement
         else if (shadowState == ShadowStates.Chasing)
         {
             Chasing();
-            //Move();
-            //animator.SetBool("Disappearing", false);
-            if (transform.position.x - player.position.x < 0.01f)
-            {
-                shadowState = ShadowStates.Attacking;
-            }
+            animator.SetBool("Disappearing", false);
         }
 
         else if (shadowState == ShadowStates.Attacking)
         {
-            //shadow.velocity = Vector2.zero;
             stopTime += Time.deltaTime;
             animator.SetBool("Attacking", true);
             GetComponent<ShadowAttack>().ShadowAttacks();
-            if (stopTime > maxTime)
+            if (stopTime > 3)
             {
-                boxColider.size = new Vector2(0.3f, 0.6f);
-                boxColider.offset = new Vector2(0.0f, 0.0f);
+                //boxColider.size = new Vector2(0.3f, 0.6f);
+                //boxColider.offset = new Vector2(0.0f, 0.0f);
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Appearing", true);
                 shadowState = ShadowStates.Appearing;
@@ -141,8 +135,6 @@ public class ShadowAI : EnemyMovement
     private void Chasing()
     {
         Vector2 direction = new Vector2(player.position.x, 0);
-        //direction.Normalize();
-        //direction = direction.normalized;
         transform.Translate(-direction * Speed * Time.deltaTime, Space.World);
     }
 
@@ -174,5 +166,16 @@ public class ShadowAI : EnemyMovement
     {
         yield return new WaitForSeconds(time);
         shadowState = state;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Speed = 0;
+            shadowState = ShadowStates.Attacking;
+            animator.SetBool("Attacking", true);
+            shadow.velocity = Vector3.zero;
+        }
     }
 }
