@@ -11266,7 +11266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902044969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.72, y: 2.64, z: 0}
+  m_LocalPosition: {x: -20.68, y: 8.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1635175904}
@@ -51651,9 +51651,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: 0
-  _melee: {fileID: 0}
-  _handAttack: {fileID: 0}
-  _spawnAttack: {fileID: 0}
+  _meleeAttack: {fileID: 11400000, guid: d0187d97a487c524a88cb21fe93b6b95, type: 2}
+  _meleeAttackTimer: 0
+  _handAttack: {fileID: 11400000, guid: 9781d9abab4f3074d9b91f69c2cae5f7, type: 2}
+  _handAttackTimer: 0
+  _spawnAttack: {fileID: 11400000, guid: 598cecaa43dd31641bcb451e8a768dd7, type: 2}
+  _spawnAttackTimer: 0
 --- !u!95 &1486062311
 Animator:
   serializedVersion: 3

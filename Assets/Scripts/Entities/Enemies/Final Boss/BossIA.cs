@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BOSS_STATES {
+    B_INTRO,
     B_MELEE_ATTACK, 
     B_HAND_ATTACK, 
     B_SPAWN_ATTACK, 
     B_TAKE_DAMAGE, 
-    B_MOVING
+    B_MOVING,
+    B_DEATH
 }
 
 public class BossIA : EnemyMovement {
@@ -18,14 +20,18 @@ public class BossIA : EnemyMovement {
 
     private GameObject _player;
 
+
     [SerializeField]
-    private Attack _melee;
-    private float _meleTimer;
+    private Attack _meleeAttack;
+    [SerializeField]
+    private float _meleeAttackTimer;
     [SerializeField]
     private Attack _handAttack;
+    [SerializeField]
     private float _handAttackTimer;
     [SerializeField]
     private Attack _spawnAttack;
+    [SerializeField]
     private float _spawnAttackTimer;
 
     // Combat
@@ -34,6 +40,16 @@ public class BossIA : EnemyMovement {
     // Components
     private Animator _animator;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1.0f, 0.0f, 0.0f);
+        Gizmos.DrawWireSphere(transform.position, _meleeAttack.Range);
+        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
+        Gizmos.DrawWireSphere(transform.position, _handAttack.Range);
+        Gizmos.color = new Color(0.0f, 0.0f, 1.0f);
+        Gizmos.DrawWireSphere(transform.position, _spawnAttack.Range);
+    }
+
     void Start(){
         _state = BOSS_STATES.B_MOVING;
 
@@ -41,52 +57,104 @@ public class BossIA : EnemyMovement {
 
         _player = GameObject.FindObjectOfType<Player>().gameObject;
 
+        _meleeAttackTimer = _meleeAttack.Cooldown;
+        _handAttackTimer = _handAttack.Cooldown;
+        _spawnAttackTimer = _spawnAttack.Cooldown;
+
         _animator = GetComponent<Animator>();
+
+        ChangeState("", BOSS_STATES.B_INTRO, "Intro");
     }
 
     private void Update() {
-        // reduce cooldown de todas las habilidades por Time.deltaTime
+
+        _meleeAttackTimer -= Time.deltaTime;
+        _handAttackTimer -= Time.deltaTime;
+        _spawnAttackTimer -= Time.deltaTime;
+
         switch(State()){
+            case BOSS_STATES.B_INTRO:
+                if (CheckAnimationEnds()) {
+                    ChangeState("Intro", BOSS_STATES.B_MOVING, "Move");
+                }
+                break;
             case BOSS_STATES.B_MELEE_ATTACK:
-                // Se le dice al BossAttack que realize el ataque
-                // Animación acabada?
-                    // Cmabio a takeDamage
+                if (CheckAnimationEnds()) {
+                    ChangeState("Melee", BOSS_STATES.B_TAKE_DAMAGE, "Take");
+                    _meleeAttackTimer = _meleeAttack.Cooldown;
+                }
                 break;
-            case BOSS_STATES.B_HAND_ATTACK: 
-                // animación acabada?
-                    // cambia a moving
+            case BOSS_STATES.B_HAND_ATTACK:
+                if (CheckAnimationEnds()) {
+                    ChangeState("Hand", BOSS_STATES.B_MOVING, "Move");
+                    _handAttackTimer = _handAttack.Cooldown;
+                }
                 break;
-            case BOSS_STATES.B_SPAWN_ATTACK: 
-                // Animacion acabada
-                    // Cambia am oving
+            case BOSS_STATES.B_SPAWN_ATTACK:
+                if (CheckAnimationEnds()) {
+                    ChangeState("Spawn", BOSS_STATES.B_MOVING, "Move");
+                    _spawnAttackTimer = _spawnAttack.Cooldown;
+                }
                 break;
-            case BOSS_STATES.B_TAKE_DAMAGE: 
-                // X Tiempo pasado
-                    // Cambia a Moving
+            case BOSS_STATES.B_TAKE_DAMAGE:
+                if (CheckAnimationEnds()) {
+                    ChangeState("Take", BOSS_STATES.B_MOVING, "Move");
+                }
                 break;
-            case BOSS_STATES.B_MOVING: 
-            if (_handAttackTimer <= 0.0f) 
-                ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
-            else if (_spawnAttackTimer <= 0.0f) 
-                ChangeState("Move", BOSS_STATES.B_SPAWN_ATTACK, "Spawn");
-            else {
-                Movement();
-                if (Vector2.Distance(transform.position, _player.transform.position) < _melee.Range) 
-                    ChangeState("Move", BOSS_STATES.B_MELEE_ATTACK, "Melee");
-            }
+            case BOSS_STATES.B_MOVING:
+                if ((_handAttackTimer <= 0.0f) && (CheckDistance(_handAttack.Range))) {
+                    ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
+                    Invoke("HandAttack", 1.0f);
+                } else if ((_spawnAttackTimer <= 0.0f) && (CheckDistance(_spawnAttack.Range))) {
+                    ChangeState("Move", BOSS_STATES.B_SPAWN_ATTACK, "Spawn");
+                    Invoke("SpawnAttack", 1.0f);
+                } else {
+                    Movement();
+                    if ((_meleeAttackTimer <= 0.0f) && CheckDistance(_meleeAttack.Range)) {
+                        ChangeState("Move", BOSS_STATES.B_MELEE_ATTACK, "Melee");
+                        Invoke("MeleeAttack", 1.0f);
+                    }
+                }
+                break;
+            case BOSS_STATES.B_DEATH:
                 break;
             default: break;
         }
     }  
 
-    private void Movement(){
-
+    public void MeleeAttack() { _combat.MeleeAttack(); }
+    public void HandAttack() {
+        Vector2 pos = _player.transform.position;
+        pos.y -= 1.0f;
+        _combat.HandAttack(pos); 
+    }
+    public void SpawnAttack() {
+        _combat.SpawnAttack((int)transform.right.x); 
     }
 
-    private void ChangeState(string fromAnim, BOSS_STATES next, string to)  {
+    private void Movement(){
+        Vector2 x = (_player.transform.position - transform.position);
+        x.Normalize();
+        if (Vector2.Distance(transform.position, _player.transform.position) > 1.5f)
+        {
+            transform.Translate(new Vector3(x.x * Time.deltaTime * 1.0f, 0.0f, 0.0f));
+        }
+    }
+
+    public bool CheckDistance(float range)
+    {
+        return (Vector2.Distance(transform.position, _player.transform.position) < range);
+    }
+
+    private bool CheckAnimationEnds() {
+        return (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
+    }
+
+    private void ChangeState(string from, BOSS_STATES next, string to)  {
         _state = next;
-        _animator.SetBool(fromAnim, false);
-        _animator.SetBool(to, true);
+        _meleeAttackTimer = 1.0f;
+        if (from != "") _animator.SetBool(from, false);
+        if (to != "") _animator.SetBool(to, true);
     }
     
 
