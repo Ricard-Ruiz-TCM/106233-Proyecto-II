@@ -12,6 +12,9 @@ public class MusicPlayer : MonoBehaviour {
     }
     /////////////////////////////////////////////////////////////////////
 
+    public AudioSource _fxAS;
+    public AudioSource _musicAS;
+
     // Diccionario de FX
     public List<AudioClip> _fx;
     public Dictionary<string, int> _fxDic;
@@ -70,18 +73,37 @@ public class MusicPlayer : MonoBehaviour {
         audio.PlayOneShot(audio.clip);
     }
 
-    public void PlayFX(string audio, float volume, bool repeat){
+    public void PlayFX(string audio, float volume = 1){
         if (!ExistsFX(audio)) LoadFX(audio);
         ////////////////////////////////
         // Play del FX con el mixer del FX
-        GetFX(audio);
+        _fxAS.PlayOneShot(GetFX(audio), volume);
     }
 
-    public void PlayMusic(string audio, float volume, bool repeat){
+    public void PlaySpecialFX(string audio, float volume = 1, double time = 0.0f){
+        if (!ExistsFX(audio)) LoadFX(audio);
+        ////////////////////////////////
+        // Play del FX con el mixer del FX
+        _fxAS.clip = GetFX(audio);
+        _fxAS.volume = volume;
+        _fxAS.PlayScheduled(time);
+    }
+
+    public void StopFX(string audio){
+        if (!ExistsFX(audio)) LoadFX(audio);
+        ////////////////////////////////
+        // Play del FX con el mixer del FX
+        if (_fxAS.isPlaying) _fxAS.Stop();
+        _fxAS.volume = 1.0f;
+        _fxAS.clip = null;
+    }
+
+    public void PlayMusic(string audio, float volume = 1, bool repeat = false){
         if (!ExistsMusic(audio)) LoadMusic(audio);
         ////////////////////////////////
         // Play de la Music con el mixer de la Music
-        GetMusic(audio);
+        _musicAS.clip = GetMusic(audio);
+        _musicAS.Play();
     }
 
     // MusicPlayer.cs <Control>

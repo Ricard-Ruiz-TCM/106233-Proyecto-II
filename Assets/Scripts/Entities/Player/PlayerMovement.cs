@@ -56,9 +56,15 @@ public class PlayerMovement : PlayerState, IHaveStates {
         if (hit.collider != null) hit.collider.GetComponent<FadedGround>().DisableCol();
     }
 
+    // PlayerMovement.cs <Audio>
+    public void Steps() {
+        MusicPlayer.Instance.PlayFX("Steps/step" + ((int)Random.Range(0, 6)).ToString(), 0.1f);
+    }
+
     // IHaveStates
     public void OnEnterState(){
         EnableSystem();
+        InvokeRepeating("Steps", 0.0f, 0.5f);
         ///////////////
         _animator.SetBool("Run", true);
     }
@@ -66,6 +72,7 @@ public class PlayerMovement : PlayerState, IHaveStates {
     public void OnExitState(){
         _animator.SetBool("Run", false);
         _isMoving = false;
+        if (IsInvoking("Steps")) CancelInvoke("Steps");
         ////////////////
         DisableSystem();
     }

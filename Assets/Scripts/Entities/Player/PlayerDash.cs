@@ -69,6 +69,7 @@ public class PlayerDash : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         StartDash();
+        MusicPlayer.Instance.PlayFX("dash");
         _animator.SetBool("Dash", true);
     }
 
