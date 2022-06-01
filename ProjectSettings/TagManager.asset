@@ -10,6 +10,7 @@ TagManager:
   - Door
   - DestroyWall
   - Ink
+  - WallFall
   layers:
   - Default
   - TransparentFX

@@ -66,11 +66,15 @@ public class Template : DrawElement, ICombat {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject != null) HighlightRed();
+        if (other.gameObject != null){
+            if (other.gameObject.GetComponent<CameraDeltaYMod>() == null) HighlightRed();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other) {
-        if (other.gameObject != null) HighlightRed();
+        if (other.gameObject != null){
+            if (other.gameObject.GetComponent<CameraDeltaYMod>() == null) HighlightRed();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
