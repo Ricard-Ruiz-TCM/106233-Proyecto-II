@@ -1,46 +1,46 @@
 fileFormatVersion: 2
-guid: 98d03b0bbdaf68f46868c9fb6fb628ce
+guid: 1e09cb25d1751a449901e68aa7c5d31a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5452517421419564075
-    second: plant_death-Sheet_0
+      213: -2323788718900292631
+    second: plant_death-Sheet-export_0
   - first:
-      213: -1550643457774677343
-    second: plant_death-Sheet_1
+      213: -7834159919463934811
+    second: plant_death-Sheet-export_1
   - first:
-      213: 2320683661264738782
-    second: plant_death-Sheet_2
+      213: -4349464216961956652
+    second: plant_death-Sheet-export_2
   - first:
-      213: 3627371263183041089
-    second: plant_death-Sheet_3
+      213: -5450635845066484252
+    second: plant_death-Sheet-export_3
   - first:
-      213: -3859017491929807145
-    second: plant_death-Sheet_4
+      213: -6534246520013233728
+    second: plant_death-Sheet-export_4
   - first:
-      213: -5422418460645925100
-    second: plant_death-Sheet_5
+      213: -7651361095620103951
+    second: plant_death-Sheet-export_5
   - first:
-      213: 7819356711030444537
-    second: plant_death-Sheet_6
+      213: -263661743476324502
+    second: plant_death-Sheet-export_6
   - first:
-      213: 8187785337892741665
-    second: plant_death-Sheet_7
+      213: -6234476284277215170
+    second: plant_death-Sheet-export_7
   - first:
-      213: 2195040764018119481
-    second: plant_death-Sheet_8
+      213: -6561221047550298063
+    second: plant_death-Sheet-export_8
   - first:
-      213: -6580683087253623870
-    second: plant_death-Sheet_9
+      213: 2363933124611905954
+    second: plant_death-Sheet-export_9
   - first:
-      213: 2241490621248003921
-    second: plant_death-Sheet_10
+      213: 781214830332376998
+    second: plant_death-Sheet-export_10
   - first:
-      213: -1139393588915075645
-    second: plant_death-Sheet_11
+      213: -7397367816745900394
+    second: plant_death-Sheet-export_11
   - first:
-      213: 5539743472988418669
-    second: plant_death-Sheet_12
+      213: -2467307825929087783
+    second: plant_death-Sheet-export_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,12 +71,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -104,10 +104,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,10 +116,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,13 +130,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_death-Sheet_0
+      name: plant_death-Sheet-export_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d378ac3b44c454b0800000000000000
-      internalID: -5452517421419564075
+      spriteID: 9e353ecd87e30cfd0800000000000000
+      internalID: -2323788718900292631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_1
+      name: plant_death-Sheet-export_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a29e06adf10b7ae0800000000000000
-      internalID: -1550643457774677343
+      spriteID: 5a4dfb67f09774390800000000000000
+      internalID: -7834159919463934811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_2
+      name: plant_death-Sheet-export_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed9dcb19e79b43020800000000000000
-      internalID: 2320683661264738782
+      spriteID: 4d4c5b0d65993a3c0800000000000000
+      internalID: -4349464216961956652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_3
+      name: plant_death-Sheet-export_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1423c7af1f2075230800000000000000
-      internalID: 3627371263183041089
+      spriteID: 4e51dced3937b54b0800000000000000
+      internalID: -5450635845066484252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_4
+      name: plant_death-Sheet-export_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,20 +228,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d6418b7904027ac0800000000000000
-      internalID: -3859017491929807145
+      spriteID: 0c167c3f861b155a0800000000000000
+      internalID: -6534246520013233728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_5
+      name: plant_death-Sheet-export_5
       rect:
         serializedVersion: 2
         x: 320
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41fdda5a323bfb4b0800000000000000
-      internalID: -5422418460645925100
+      spriteID: 1f0f1574f97e0d590800000000000000
+      internalID: -7651361095620103951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_6
+      name: plant_death-Sheet-export_6
       rect:
         serializedVersion: 2
         x: 384
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,20 +270,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f1590dff7fe38c60800000000000000
-      internalID: 7819356711030444537
+      spriteID: a67cb3f8a09475cf0800000000000000
+      internalID: -263661743476324502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_7
+      name: plant_death-Sheet-export_7
       rect:
         serializedVersion: 2
         x: 448
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,20 +291,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 122af32526bd0a170800000000000000
-      internalID: 8187785337892741665
+      spriteID: e303f03e9d0ba79a0800000000000000
+      internalID: -6234476284277215170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_8
+      name: plant_death-Sheet-export_8
       rect:
         serializedVersion: 2
         x: 512
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,20 +312,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9335dcee1f9567e10800000000000000
-      internalID: 2195040764018119481
+      spriteID: 138b2f7583cd1f4a0800000000000000
+      internalID: -6561221047550298063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_9
+      name: plant_death-Sheet-export_9
       rect:
         serializedVersion: 2
         x: 576
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,20 +333,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cba3dc1997bca4a0800000000000000
-      internalID: -6580683087253623870
+      spriteID: 2a99545f6a06ec020800000000000000
+      internalID: 2363933124611905954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_10
+      name: plant_death-Sheet-export_10
       rect:
         serializedVersion: 2
         x: 640
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,20 +354,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15f5bd618df5b1f10800000000000000
-      internalID: 2241490621248003921
+      spriteID: 6a77a37cfbe67da00800000000000000
+      internalID: 781214830332376998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_11
+      name: plant_death-Sheet-export_11
       rect:
         serializedVersion: 2
         x: 704
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,20 +375,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c50c51519f0030f0800000000000000
-      internalID: -1139393588915075645
+      spriteID: 69624f1e925475990800000000000000
+      internalID: -7397367816745900394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_death-Sheet_12
+      name: plant_death-Sheet-export_12
       rect:
         serializedVersion: 2
         x: 768
-        y: 8
+        y: 0
         width: 64
-        height: 62
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,8 +396,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d62734e765f11ec40800000000000000
-      internalID: 5539743472988418669
+      spriteID: 9d494fbca9c52cdd0800000000000000
+      internalID: -2467307825929087783
       vertices: []
       indices: 
       edges: []
