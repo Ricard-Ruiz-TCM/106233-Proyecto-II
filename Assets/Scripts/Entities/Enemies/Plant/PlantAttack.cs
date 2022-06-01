@@ -12,7 +12,7 @@ public class PlantAttack : EnemyCombat
     private PlayerCombat _playerCombat;
     private PlantAI plantAI;
     private float currentTime;
-    private float maxTime = 2.0f;
+    private float maxTime = 1.0f;
     private Animator animator;
 
     private void OnDrawGizmos()
@@ -53,6 +53,7 @@ public class PlantAttack : EnemyCombat
             else if(currentTime < maxTime)
             {
                 animator.SetBool("Attack", false);
+                animator.SetBool("Idle", true);
             }
         }
 
@@ -65,7 +66,7 @@ public class PlantAttack : EnemyCombat
 
     void InkAttack()
     {
-        Vector2 init = new Vector2(transform.position.x, transform.position.y + 0.45f);
+        Vector2 init = new Vector2(transform.position.x + 0.05f, transform.position.y + 0.15f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, _container.transform);
         bullet.GetComponent<PlantInk>().Direction(-transform.right.x);
         currentTime = 0;
