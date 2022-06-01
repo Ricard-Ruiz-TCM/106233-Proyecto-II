@@ -9,6 +9,10 @@ public class BombTemplate : Template {
     [SerializeField]
     private float _explosionRadius;
 
+    private TextMesh _text;
+    private Color _color;
+    private SpriteRenderer _spritebg;
+
     [SerializeField]
     private float _explosionTime;
 
@@ -19,15 +23,38 @@ public class BombTemplate : Template {
         load();
 
         _explosionRadius = 5.0f;
-        _explosionTime = 3.0f;
+        _explosionTime = -1.0f;
+
+        _text = GetComponentInChildren<TextMesh>();
+        _spritebg = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        _color = _spritebg.color;
+
+        _text.text = "";
 
         _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BoxTemplate");
 
         FindObjects();
     }
 
+    private void Update(){
+        if (_explosionTime > 0.0f)
+        {
+            _explosionTime -= Time.deltaTime;
+            _text.text = ((int)_explosionTime).ToString();
+            _color.a = 1.0f;
+            _spritebg.color = _color;
+        }
+        else
+        {
+            _text.text = "";
+            _color.a = 0.0f;
+            _spritebg.color = _color;
+        }
+    }
+
     public void Explode() {
-        foreach(GameObject go in _objects){
+        GetComponent<Animator>().SetBool("Explode", true);
+        foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
                 Destroy(go);
             }
@@ -36,7 +63,7 @@ public class BombTemplate : Template {
         GameObject player = GameObject.FindObjectOfType<Player>().gameObject;
         if (Vector2.Distance(transform.position, player.transform.position) < _explosionRadius) player.GetComponent<PlayerCombat>().TakeDamage(_attack);
        
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 1.3f);
     }
 
     public void FindObjects() {
@@ -46,6 +73,7 @@ public class BombTemplate : Template {
     public override void MainAction(bool action) {
         GetComponent<BoxCollider2D>().isTrigger = false;
         GetComponent<Rigidbody2D>().isKinematic = false;
+        _explosionTime = 4.0f;
         Invoke("Explode", _explosionTime);
     }
 
