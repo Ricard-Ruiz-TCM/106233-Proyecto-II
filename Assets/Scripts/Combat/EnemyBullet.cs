@@ -26,9 +26,13 @@ public class EnemyBullet : MonoBehaviour, ISlowMo
             if (collision.collider.gameObject.tag == "Player")
             {
                 ColPlayer(collision.collider.gameObject);
+                
+            }
+            if(collision.collider.gameObject.tag != "Enemy")
+            {
                 Destroy(this.gameObject);
             }
-            //Destroy(this.gameObject);
+           
         }
     }
 
