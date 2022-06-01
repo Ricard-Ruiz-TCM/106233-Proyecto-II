@@ -91,7 +91,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     // PlayerCombat.cs <Melee>
     private void MeleeAttack() {
         _body.velocity = Vector2.zero;
-        _body.AddForce(new Vector2(transform.right.x * 300.0f, 100.0f));
+        _body.AddForce(new Vector2(transform.right.x * 150.0f, 75.0f));
     }
 
     // PlayerCombat.cs <Ranged>
