@@ -6,22 +6,33 @@ public class BossAttack : EnemyCombat {
 
     private Rigidbody2D _body;
 
+    public GameObject _handPrefab;
+    public GameObject _spawner;
+
+    private GameObject _elementsContainer;
+    private GameObject _enemiesContainer;
+
     void Awake() {
         _health =  100.0f;
+
+        _elementsContainer = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
+        _enemiesContainer = GameObject.FindObjectOfType<EnemyContainer>().gameObject;
+
 
         _body = GetComponent<Rigidbody2D>();
     }
 
     public void MeleeAttack(){
-        
+        Debug.Log("TE ATACO PUTA");
     }
     
     public void HandAttack(Vector2 position){
-        // Spawn de la mano (la mano funciona sola)
+        Instantiate(_handPrefab, position, Quaternion.identity, _elementsContainer.transform);
     }
 
-    public void SpawnAttack(int dir){
-        // Lanza el prefab de bote de tinta
+    public void SpawnAttack(float dir){
+        GameObject sp = Instantiate(_spawner, transform.position, Quaternion.identity, _elementsContainer.transform);
+        sp.GetComponent<GolemSpawner>().SetDir(dir);
     }
 
 }
