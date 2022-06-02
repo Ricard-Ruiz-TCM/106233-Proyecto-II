@@ -10,6 +10,8 @@ public class CameraMovement : MonoBehaviour {
     private PlayerMovement _movement;
     private PlayerDash _dash;
 
+    private Vector3 BossPosition;
+
     // Camera Movement controll
     [SerializeField]
     private float _deltaX;
@@ -21,6 +23,8 @@ public class CameraMovement : MonoBehaviour {
     private float _str;
 
     private bool _holdY;
+
+    private bool _OnBossRoom;
 
     // Temp vector3 for next pos
     [SerializeField]
@@ -37,9 +41,13 @@ public class CameraMovement : MonoBehaviour {
         _deltaY = 0.0f;
         _str = 8.0f;
 
+        _OnBossRoom = false;
+
         _holdY = false;
 
         _timeBaseSmooth = 0.5f;
+
+        BossPosition = new Vector3(91f, -67.25f, -20.0f);
 
         _drawing = _player.GetComponent<PlayerDrawing>();
         _movement = _player.GetComponent<PlayerMovement>();
@@ -48,6 +56,8 @@ public class CameraMovement : MonoBehaviour {
 
     // Unity
     void Update() {
+
+        if (Vector2.Distance(transform.position, BossPosition) < 5.0f) _OnBossRoom = true;
 
         _nextDeltaX = 2.0f * _player.transform.right.x;
 
@@ -67,6 +77,9 @@ public class CameraMovement : MonoBehaviour {
         if (_holdY) {
             _nextPos.y = transform.position.y;
         }
+
+        if (_OnBossRoom) _nextPos = BossPosition;
+
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
     }
 
@@ -83,4 +96,5 @@ public class CameraMovement : MonoBehaviour {
         _holdY = true;
     }
 
+    
 }
