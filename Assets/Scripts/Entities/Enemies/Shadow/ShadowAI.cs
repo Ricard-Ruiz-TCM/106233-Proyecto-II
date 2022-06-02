@@ -13,19 +13,19 @@ public enum ShadowStates
 
 public class ShadowAI : EnemyMovement
 {
-    public Rigidbody2D player;
+    public Transform player;
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsWall;
     public LayerMask WhatIsDetected;
     public Transform PlayerDetectionPoint;
     public Rigidbody2D shadow;
-    private float DetectionDistance = 2f;
+    private float DetectionDistance = 3f;
     public float WallDetectionDistance = 0.2f;
 
     private float currentTime;
     private float maxTime;
     private float stopTime;
-    private float Speed = 0.05f;
+    private float Speed = 1f;
     private bool detected;
     private Animator animator;
     public ShadowStates shadowState;
@@ -35,13 +35,13 @@ public class ShadowAI : EnemyMovement
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Rigidbody2D>();
+        //player = GetComponent<Transform>();
         Vector3 Scaler = transform.localScale;
        /* Scaler.x *= -1;
         transform.localScale = Scaler;*/
         shadowState = ShadowStates.Idle;
         animator = gameObject.GetComponentInParent<Animator>();
-        animator.SetBool("Disappearing", false);
+        //animator.SetBool("Disappearing", false);
         boxColider = GetComponentInParent<BoxCollider2D>();
     }
 
@@ -64,10 +64,18 @@ public class ShadowAI : EnemyMovement
         }
     }*/
 
+       /* if (EdgeDetected() || WallDetected())
+        {
+            Flip();
+        }*/
 
         if (shadowState == ShadowStates.Idle)
         {
-            if (PlayerDetection())
+            if(PlayerBehind())
+            {
+                Flip();
+            }
+            else if (PlayerDetection())
             {
                 shadowState = ShadowStates.Disappearing;
                 animator.SetBool("Disappearing", true);
@@ -105,20 +113,23 @@ public class ShadowAI : EnemyMovement
         {
             stopTime += Time.deltaTime;
             animator.SetBool("Attacking", true);
-            GetComponent<ShadowAttack>().ShadowAttacks();
-            if (stopTime > 3)
+            //GetComponent<ShadowAttack>().ShadowAttacks();
+            if (stopTime > 2)
             {
-                //boxColider.size = new Vector2(0.3f, 0.6f);
-                //boxColider.offset = new Vector2(0.0f, 0.0f);
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Appearing", true);
                 shadowState = ShadowStates.Appearing;
+                //StartCoroutine(StateDelay(1f, ShadowStates.Appearing));
                 stopTime = 0;
                 StartCoroutine(AnimationDelay(2f, "Idle"));
             }
         }
 
-
+        else if(shadowState == ShadowStates.Appearing)
+        {
+            //Vector2 newPos = new Vector2(transform.position.x + 0.1f, transform.position.y);
+            //transform.position = Vector2.MoveTowards(this.transform.position, newPos, Speed * Time.deltaTime);
+        }
     }
 
     void Move()
@@ -134,13 +145,18 @@ public class ShadowAI : EnemyMovement
 
     private void Chasing()
     {
-        Vector2 direction = new Vector2(player.position.x, 0);
-        transform.Translate(-direction * Speed * Time.deltaTime, Space.World);
+        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.position.x, transform.position.y), Speed * Time.deltaTime);
     }
 
     private bool PlayerDetection()
     {
         RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, -transform.right, DetectionDistance, WhatIsPlayer);
+        return hit.collider != null;
+    }
+
+    private bool PlayerBehind()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, transform.right, DetectionDistance, WhatIsPlayer);
         return hit.collider != null;
     }
 
@@ -168,14 +184,25 @@ public class ShadowAI : EnemyMovement
         shadowState = state;
     }
 
+    private IEnumerator MoveDelay(float time, Collider2D coll)
+    {
+        yield return new WaitForSeconds(time);
+        var force = transform.position + coll.transform.position;
+        var forceNew = new Vector2(-(transform.right.x) * 400.0f, 10.0f);
+        force.Normalize();
+        shadow.velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().AddForce(forceNew);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            Speed = 0;
+            //Speed = 0;
+            transform.position = new Vector2(collision.transform.position.x, transform.position.y);
             shadowState = ShadowStates.Attacking;
             animator.SetBool("Attacking", true);
-            shadow.velocity = Vector3.zero;
+            //StartCoroutine(MoveDelay(4f, collision));
         }
     }
 }

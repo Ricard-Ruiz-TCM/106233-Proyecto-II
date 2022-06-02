@@ -13,9 +13,9 @@ public class ShadowAttack : EnemyCombat
 
     private ShadowAI shadowAI;
     private Animator animator;
-    private PlayerCombat _playerCombat;
     private Transform player;
     public bool attacked = false;
+    private bool canBeAttacked = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +28,6 @@ public class ShadowAttack : EnemyCombat
     // Update is called once per frame
     void Update()
     {
-        /*if(shadowAI.Detected)
-        {
-            ShadowAttacks();
-        }*/
-
-
-
         if (_health <= 0f)
         {
             animator.SetBool("Dying", true);
@@ -54,14 +47,44 @@ public class ShadowAttack : EnemyCombat
         Debug.Log("Shadow attacks");
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerCombat>();
         if (collision.gameObject.tag == "Player")
         {
-            player.TakeDamage(currentAttack);
             attacked = true;
+            canBeAttacked = true;
 
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        var player = collision.gameObject.GetComponent<PlayerCombat>();
+        if (collision.gameObject.tag == "Player")
+        {
+            if (canBeAttacked)
+            {
+                StartCoroutine(DamageDelay(1.5f, player));
+            }
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var player = collision.gameObject.GetComponent<PlayerCombat>();
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("exit");
+            canBeAttacked = false;
+            StopCoroutine(DamageDelay(0f, player));
+        }
+    }
+
+    private IEnumerator DamageDelay(float time, PlayerCombat obj)
+    {
+        yield return new WaitForSeconds(time);
+        obj.TakeDamage(currentAttack);
     }
 }

@@ -23,6 +23,15 @@ public class InkBullet : MonoBehaviour, ISlowMo {
         }
     }
 
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.gameObject.tag == "Enemy") ColEnemy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
+
     protected void ColEnemy(GameObject enemy) {
         if (enemy.GetComponent<EnemyCombat>() != null) {
             enemy.GetComponent<EnemyCombat>().TakeDamage(_attack);
