@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb96e7b5ddc668942b6a9c37dc356712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   fenix: {fileID: 7361935468834109448}
   WhatIsPlayer:
     serializedVersion: 2
@@ -178,9 +177,8 @@ MonoBehaviour:
   PlayerDetectionPoint: {fileID: 7361935468568805856}
   EdgeDetectionPoint: {fileID: 7361935468568805856}
   DetectionDistance: 1
-  DetectionRange: 0
-  VisionAngle: 0
   FOV: 90
+  state: 0
 --- !u!114 &7361935468834109942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,14 +192,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAttack: {fileID: 11400000, guid: c89fc018cd8ed274eb501a8d6046e287, type: 2}
-  _bullet: {fileID: 2681706865726031603, guid: 68cc2a3dcc4d3374085bbd1e856ca953, type: 3}
+  _bullet: {fileID: 4595159293922017097, guid: 214da4cdc4080694ab5981d3545ba49f, type: 3}
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8388608
   WhatIsVisible:
     serializedVersion: 2
     m_Bits: 256
-  container: {fileID: 0}
+  container: {fileID: 7361935468834109452}
   DetectionRange: 3.5
   VisionAngle: 45
   FOV: 90

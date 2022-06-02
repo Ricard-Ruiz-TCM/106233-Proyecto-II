@@ -30,7 +30,7 @@ public class BatAI : MonoBehaviour
     private float Speed = 2f;
     private float chasingSpeed = 1f;
     private bool detected;
-    private BatStates state;
+    public BatStates state;
 
     public bool Detected => detected;
 
@@ -104,12 +104,9 @@ public class BatAI : MonoBehaviour
             if (IsInRange() && IsInVisionAngle())
             {
                 state = BatStates.Chasing;
-                detected = true;
+                //detected = true;
             }
-            else
-            {
-                detected = false;
-            }
+
         }
         else if(state == BatStates.Chasing)
         {

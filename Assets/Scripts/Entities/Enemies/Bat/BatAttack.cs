@@ -35,9 +35,9 @@ public class BatAttack : EnemyCombat
         currentTime += Time.deltaTime;
         if (currentTime > maxTime)
         {
-            if (batAI.Detected)
+            if (batAI.state == BatStates.Chasing)
             {
-                //InkAttack();
+                InkAttack();
                 base.Attack(_playerCombat);
             }
             /*else if (currentTime < maxTime)
