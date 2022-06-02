@@ -13,6 +13,8 @@ TagManager:
   - WallFall
   - Boss
   - FallTree
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
