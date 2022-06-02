@@ -62,7 +62,16 @@ public class BombTemplate : Template {
 
         GameObject player = GameObject.FindObjectOfType<Player>().gameObject;
         if (Vector2.Distance(transform.position, player.transform.position) < _explosionRadius) player.GetComponent<PlayerCombat>().TakeDamage(_attack);
-       
+
+        List<GameObject> _trees = new List<GameObject>(GameObject.FindGameObjectsWithTag("FallTree"));
+
+        foreach (GameObject go in _trees){
+            if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius)
+            {
+                go.GetComponent<Animator>().SetBool("Fall", true);
+            }
+        }
+
         Destroy(this.gameObject, 1.3f);
     }
 

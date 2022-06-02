@@ -12,6 +12,7 @@ TagManager:
   - Ink
   - WallFall
   - Boss
+  - FallTree
   layers:
   - Default
   - TransparentFX

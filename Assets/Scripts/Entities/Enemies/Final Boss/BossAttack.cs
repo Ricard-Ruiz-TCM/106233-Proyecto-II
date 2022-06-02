@@ -13,7 +13,7 @@ public class BossAttack : EnemyCombat {
     }
 
     public void MeleeAttack(){
-        // Hace le raycasta y lanza el ataque al playe si lo detecata
+        
     }
     
     public void HandAttack(Vector2 position){
