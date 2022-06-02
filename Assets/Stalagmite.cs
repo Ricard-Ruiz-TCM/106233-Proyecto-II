@@ -62,6 +62,7 @@ public class Stalagmite : MonoBehaviour {
     private void Fall(){
         _falling = true;
         _body.isKinematic = false;
+        _col.isTrigger = true;
         Invoke("Respawn", 5.0f);
         GetComponent<Animator>().SetBool("Shake", false);
     }
@@ -80,7 +81,15 @@ public class Stalagmite : MonoBehaviour {
         _col.isTrigger = false;
         GetComponent<Animator>().SetBool("Shake", false);
     }
-        
+
+    // Unity
+    private void OnTriggerEnter2D(Collider2D collision){
+        if (collision == null) return;
+        if (collision.gameObject.tag != "Player") return;
+
+        collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL);
+    }
+
     // Unity
     void OnCollisionEnter2D(Collision2D collision){
         if (collision == null) return;

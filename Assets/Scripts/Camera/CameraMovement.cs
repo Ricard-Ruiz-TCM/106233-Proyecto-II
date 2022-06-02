@@ -20,11 +20,12 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     private float _str;
 
+    private bool _holdY;
+
     // Temp vector3 for next pos
     [SerializeField]
     Vector3 _nextPos;
 
-    private float _timeSmothing;
     private float _timeBaseSmooth;
 
     // Unity
@@ -35,9 +36,10 @@ public class CameraMovement : MonoBehaviour {
         _nextDeltaX = 0.0f;
         _deltaY = 0.0f;
         _str = 8.0f;
-        
+
+        _holdY = false;
+
         _timeBaseSmooth = 0.5f;
-        _timeSmothing = _timeBaseSmooth;
 
         _drawing = _player.GetComponent<PlayerDrawing>();
         _movement = _player.GetComponent<PlayerMovement>();
@@ -58,6 +60,13 @@ public class CameraMovement : MonoBehaviour {
         }
 
         _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
+        if (_player.position.y >= transform.position.y)
+        {
+            _holdY = false;
+        }
+        if (_holdY) {
+            _nextPos.y = transform.position.y;
+        }
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
     }
 
@@ -67,6 +76,11 @@ public class CameraMovement : MonoBehaviour {
 
     public void SetDeltaX(float x){
         _deltaX = x;
+    }
+
+    public void StopYMovement()
+    {
+        _holdY = true;
     }
 
 }

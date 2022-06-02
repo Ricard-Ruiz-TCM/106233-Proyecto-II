@@ -40,14 +40,8 @@ public class BossIA : EnemyMovement {
     // Components
     private Animator _animator;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(1.0f, 0.0f, 0.0f);
+    private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, _meleeAttack.Range);
-        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
-        Gizmos.DrawWireSphere(transform.position, _handAttack.Range);
-        Gizmos.color = new Color(0.0f, 0.0f, 1.0f);
-        Gizmos.DrawWireSphere(transform.position, _spawnAttack.Range);
     }
 
     void Start(){
@@ -102,10 +96,10 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_MOVING:
-                if ((_handAttackTimer <= 0.0f) && (CheckDistance(_handAttack.Range))) {
+                if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range))) {
                     ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
                     Invoke("HandAttack", 1.0f);
-                } else if ((_spawnAttackTimer <= 0.0f) && (CheckDistance(_spawnAttack.Range))) {
+                } else if ((_spawnAttackTimer <= 0.0f) && (InDistance(0.0f, _spawnAttack.Range))) {
                     ChangeState("Move", BOSS_STATES.B_SPAWN_ATTACK, "Spawn");
                     Invoke("SpawnAttack", 1.0f);
                 } else {
@@ -144,6 +138,11 @@ public class BossIA : EnemyMovement {
     public bool CheckDistance(float range)
     {
         return (Vector2.Distance(transform.position, _player.transform.position) < range);
+    }
+
+    public bool InDistance(float range, float max)
+    {
+        return ((Vector2.Distance(transform.position, _player.transform.position) > range) && CheckDistance(max));
     }
 
     private bool CheckAnimationEnds() {
