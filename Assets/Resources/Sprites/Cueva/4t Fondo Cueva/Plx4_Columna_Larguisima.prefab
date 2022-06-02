@@ -97,6 +97,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plx4_Estalactita_3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7593407409955377099, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
+      propertyPath: _parallaxMultiplier
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
 --- !u!4 &2712674532348323233 stripped
@@ -158,6 +162,10 @@ PrefabInstance:
     - target: {fileID: 2615608866834242714, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
       propertyPath: m_Name
       value: Plx4_Estalactita_3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593407409955377099, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
+      propertyPath: _parallaxMultiplier
+      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
@@ -531,6 +539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plx4_Estalactita_3 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7593407409955377099, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
+      propertyPath: _parallaxMultiplier
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
 --- !u!4 &7717987360597777460 stripped
@@ -716,6 +728,10 @@ PrefabInstance:
     - target: {fileID: 2615608866834242714, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
       propertyPath: m_Name
       value: Plx4_Estalactita_3 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593407409955377099, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
+      propertyPath: _parallaxMultiplier
+      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b25ef5eb85aee54b9b3b9c0a3ee14b2, type: 3}
