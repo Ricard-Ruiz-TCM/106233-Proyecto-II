@@ -35,16 +35,17 @@ public class BatAttack : EnemyCombat
         currentTime += Time.deltaTime;
         if (currentTime > maxTime)
         {
-            if (batAI.Detected)
+            if (batAI.state == BatStates.Chasing)
             {
-                //InkAttack();
+                InkAttack();
                 base.Attack(_playerCombat);
             }
-            /*else if (currentTime < maxTime)
-            {
-                animator.SetBool("Attack", false);
-                animator.SetBool("Idle", true);
-            }*/
+        }
+
+        if (dying)
+        {
+            //animator.SetBool("Dying", true);
+            StartCoroutine(DeathDelay(0.5f));
         }
 
     }
@@ -53,7 +54,7 @@ public class BatAttack : EnemyCombat
     {
         Vector2 init = new Vector2(transform.position.x + 0.05f, transform.position.y - 0.1f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, container.transform);
-        bullet.GetComponent<BatInk>().Direction(-transform.up.y);
+        bullet.GetComponent<BatInk>().Direction(player.transform.position.y + 0.5f);
         currentTime = 0;
     }
 }

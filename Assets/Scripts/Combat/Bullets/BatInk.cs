@@ -20,7 +20,7 @@ public class BatInk : EnemyBullet
     public void Direction(float dir)
     {
         fwd = dir;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(fwd * 200f, fwd * 300.0f));
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(fwd * 200f, 300.0f));
 
     }
 }

@@ -28,9 +28,9 @@ public class BatAI : MonoBehaviour
     private float maxForceTime = 0.2f;
     private bool forceAdded = false;
     private float Speed = 2f;
-    private float chasingSpeed = 1f;
+    private float chasingSpeed = 0.8f;
     private bool detected;
-    private BatStates state;
+    public BatStates state;
 
     public bool Detected => detected;
 
@@ -104,12 +104,8 @@ public class BatAI : MonoBehaviour
             if (IsInRange() && IsInVisionAngle())
             {
                 state = BatStates.Chasing;
-                detected = true;
             }
-            else
-            {
-                detected = false;
-            }
+
         }
         else if(state == BatStates.Chasing)
         {
@@ -185,6 +181,6 @@ public class BatAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, player.transform.position.y + 1.5f), chasingSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + 0.5f, player.transform.position.y + 0.8f), chasingSpeed * Time.deltaTime);
     }
 }
