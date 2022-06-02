@@ -19,6 +19,13 @@ public class PlayerDie : PlayerState, IHaveStates {
     // PlayerStateMachine
     private Player _player;
 
+    [SerializeField]
+    private float _time;
+    [SerializeField]
+    public float _speed;
+    [SerializeField]
+    public float _rack;
+
     // Unity
     void Awake(){ 
         LoadState();
@@ -26,6 +33,10 @@ public class PlayerDie : PlayerState, IHaveStates {
         _cause = "";
         _dCause = DEATH_CAUSE.D_DAMAGE;
         _respawnTime = 1.0f;
+        _time = 0.0f;
+
+        _speed = 2.0f;
+        _rack = 2.0f;
 
         _player = GetComponent<Player>();
     }
@@ -33,6 +44,10 @@ public class PlayerDie : PlayerState, IHaveStates {
     // Unity
     void Start(){
         _deathTriggerAnim = Resources.Load<GameObject>("Prefabs/ERASE_ANIM");
+    }
+
+    void Update() {
+        _time += Time.deltaTime;
     }
 
     // PlayerDie.cs <Die>
@@ -56,6 +71,10 @@ public class PlayerDie : PlayerState, IHaveStates {
         ///////////////
         switch (_dCause){
             case DEATH_CAUSE.D_DAMAGE: Invoke("InstantiateHand", 1.0f); break;
+            case DEATH_CAUSE.D_FALL:
+                _body.velocity = Vector2.zero;
+                _body.isKinematic = true;
+                break;
             default: break;
         }
         _animator.SetBool("Deathx" + _cause, true);
@@ -64,6 +83,7 @@ public class PlayerDie : PlayerState, IHaveStates {
     public void OnExitState(){
         _animator.SetBool("DeathxFall", false);
         _animator.SetBool("DeathxDamage", false);
+        _body.isKinematic = false;
         ////////////////
         DisableSystem();
     }
@@ -71,6 +91,10 @@ public class PlayerDie : PlayerState, IHaveStates {
     public void OnState(){
         if (!IsEnabled()) return;
         /////////////////////////
+
+        if (_dCause.Equals(DEATH_CAUSE.D_FALL)) {
+            transform.position += new Vector3((Mathf.Cos(_time * _rack) * _speed) * Time.deltaTime, +Time.deltaTime * 1.5f, 0.0f);
+        }
 
         _respawnTime -= Time.deltaTime;
         if (_respawnTime <= 0.0f) _player.Respawn();
