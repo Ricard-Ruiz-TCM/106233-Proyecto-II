@@ -72,6 +72,16 @@ public class BombTemplate : Template {
             }
         }
 
+        List<GameObject> enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+
+        foreach (GameObject go in enemies)
+        {
+            if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius)
+            {
+                go.GetComponent<ICombat>().TakeDamage(_attack);
+            }
+        }
+
         Destroy(this.gameObject, 1.3f);
     }
 
