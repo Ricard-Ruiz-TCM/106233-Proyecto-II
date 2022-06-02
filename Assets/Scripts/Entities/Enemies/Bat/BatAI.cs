@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BatStates
+{
+    Patrolling,
+    Chasing
+}
 public class BatAI : MonoBehaviour
 {
-    public Player player;
+    private Player player;
     public Rigidbody2D fenix;
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsDetected;
     public Transform PlayerDetectionPoint;
     public Transform EdgeDetectionPoint;
     public float DetectionDistance = 1.0f;
-    public float DetectionRange;
-    public float VisionAngle;
-    public float FOV = 90f;
 
+    private float DetectionRange = 3.5f;
+    private float VisionAngle = 90f;
+    public float FOV = 90f;
     private float WallDetectionDistance = 1.0f;
     private float currentTime;
     private float forceTime;
@@ -23,6 +28,11 @@ public class BatAI : MonoBehaviour
     private float maxForceTime = 0.2f;
     private bool forceAdded = false;
     private float Speed = 2f;
+    private float chasingSpeed = 1f;
+    private bool detected;
+    private BatStates state;
+
+    public bool Detected => detected;
 
     private void OnDrawGizmos()
     {
@@ -51,49 +61,70 @@ public class BatAI : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+        state = BatStates.Patrolling;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Fly();
-       /* maxTime = Random.Range(3.0f, 7.0f);
-        currentTime += Time.deltaTime;
-        forceTime += Time.deltaTime;
+            // forceTime += Time.deltaTime;
 
-        if(forceAdded)
+            /* if(forceAdded)
+             {
+                 secondsForce += Time.deltaTime;
+                 if (secondsForce < maxForceTime)
+                 {
+                     fenix.AddForce(Vector2.up);
+                 }
+                 else
+                 {
+                     secondsForce = 0;
+                     forceAdded = false;
+                     fenix.velocity = new Vector2(0, 0);
+                 }
+             }
+             if(forceTime > 0.6f)
+             {
+                 forceAdded = true;
+                 forceTime = 0;
+             }*/
+        if (state == BatStates.Patrolling)
         {
-            secondsForce += Time.deltaTime;
-            if (secondsForce < maxForceTime)
+            Fly();
+            maxTime = Random.Range(3.0f, 5.0f);
+            currentTime += Time.deltaTime;
+            if (currentTime > maxTime)
             {
-                fenix.AddForce(Vector2.up);
+                Turn();
+            }
+            else if (EdgeDetected())
+            {
+                Turn();
+            }
+            if (IsInRange() && IsInVisionAngle())
+            {
+                state = BatStates.Chasing;
+                detected = true;
             }
             else
             {
-                secondsForce = 0;
-                forceAdded = false;
-                fenix.velocity = new Vector2(0, 0);
+                detected = false;
             }
         }
-        if(forceTime > 0.6f)
+        else if(state == BatStates.Chasing)
         {
-            forceAdded = true;
-            forceTime = 0;
-        }*/
-        if (currentTime > maxTime)
-        {
-            Turn();
+            ChasePlayer();
+            Flip();
+            if (IsInRange() && IsInVisionAngle())
+            {
+                detected = true;
+            }
+            else
+            {
+                detected = false;
+                state = BatStates.Patrolling;
+            }
         }
-        else if(EdgeDetected())
-        {
-            Turn();
-        }
-        if (IsInRange() && IsInVisionAngle())
-        {
-            //ChasePlayer();
-            Debug.Log("detected");
-        }
-
         
     }
 
@@ -104,19 +135,20 @@ public class BatAI : MonoBehaviour
 
     void Turn()
     {
-        transform.rotation = Quaternion.Euler(0, 180, 0);
+        //transform.rotation = Quaternion.Euler(0, 180, 0);
+        transform.Rotate(0, 180, 0);
         currentTime = 0;
     }
 
     void Flip()
     {
-        if(transform.position.x > player.transform.position.x)
+        if(player.transform.forward.z == 1 && transform.forward.z == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.Rotate(0, 180, 0);
         }
-        else if (transform.position.x < player.transform.position.x)
+        else if (player.transform.forward.z == -1 && transform.forward.z == 1)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.Rotate(0, 180, 0);
         }
     }
 
@@ -153,6 +185,6 @@ public class BatAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, player.transform.position.y + 1.5f), chasingSpeed * Time.deltaTime);
     }
 }

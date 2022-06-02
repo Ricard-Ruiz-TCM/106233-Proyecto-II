@@ -178,6 +178,9 @@ MonoBehaviour:
   PlayerDetectionPoint: {fileID: 7361935468568805856}
   EdgeDetectionPoint: {fileID: 7361935468568805856}
   DetectionDistance: 1
+  DetectionRange: 0
+  VisionAngle: 0
+  FOV: 90
 --- !u!114 &7361935468834109942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,12 +194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAttack: {fileID: 11400000, guid: c89fc018cd8ed274eb501a8d6046e287, type: 2}
+  _bullet: {fileID: 2681706865726031603, guid: 68cc2a3dcc4d3374085bbd1e856ca953, type: 3}
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8388608
   WhatIsVisible:
     serializedVersion: 2
     m_Bits: 256
+  container: {fileID: 0}
   DetectionRange: 3.5
   VisionAngle: 45
   FOV: 90

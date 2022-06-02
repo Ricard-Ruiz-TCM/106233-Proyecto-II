@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatAttack : MonoBehaviour
+public class BatAttack : EnemyCombat
 {
     [SerializeField]
     public Attack currentAttack;
+    [SerializeField]
+    private GameObject _bullet;
     private PlayerCombat _playerCombat;
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsVisible;
+    public GameObject container;
+    private BatAI batAI;
     public float DetectionRange;
     public float VisionAngle;
     public float FOV = 90f;
@@ -22,36 +26,34 @@ public class BatAttack : MonoBehaviour
     void Start()
     {
         currentTime = 0;
+        batAI = GetComponent<BatAI>();
     }
 
     // Update is called once per frame
     void Update()
     {
         currentTime += Time.deltaTime;
-        if(currentTime >= maxTime)
+        if (currentTime > maxTime)
         {
-            currentTime = 0;
-
+            if (batAI.Detected)
+            {
+                //InkAttack();
+                base.Attack(_playerCombat);
+            }
+            /*else if (currentTime < maxTime)
+            {
+                animator.SetBool("Attack", false);
+                animator.SetBool("Idle", true);
+            }*/
         }
+
     }
 
-    bool IsInRange()
+    void InkAttack()
     {
-        float dist = Vector2.Distance(player.position, transform.position);
-        return dist < DetectionRange;
+        Vector2 init = new Vector2(transform.position.x + 0.05f, transform.position.y - 0.1f);
+        GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, container.transform);
+        bullet.GetComponent<BatInk>().Direction(-transform.up.y);
+        currentTime = 0;
     }
-
-    private float GetAngle()
-    {
-        Vector2 v1 = -transform.up;
-        Vector2 v2 = player.position - transform.position;
-        return Vector2.Angle(v1, v2);
-    }
-
-    private bool IsInVisionAngle()
-    {
-        float angle = GetAngle();
-        return FOV >= 2 * angle;
-    }
-
 }
