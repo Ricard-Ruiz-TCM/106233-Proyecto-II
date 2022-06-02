@@ -16,7 +16,7 @@ public class EnemyCombat : Entity, ICombat {
 
     public void Attack(ICombat target)
     {
-        Debug.Log("Enemy Attack()");
+
     }
 
     public void TakeDamage(Attack weapon)
