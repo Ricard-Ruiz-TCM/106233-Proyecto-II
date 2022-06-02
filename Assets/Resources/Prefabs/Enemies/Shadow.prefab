@@ -152,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.01714173}
+  m_Offset: {x: -0.0070228577, y: -0.040789604}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -163,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.56571656}
+  m_Size: {x: 0.19818115, y: 0.35154533}
   m_EdgeRadius: 0
 --- !u!114 &8747024360094501974
 MonoBehaviour:
@@ -177,7 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc103a1e664c7445ba53bffd89616da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8388608
@@ -186,7 +185,7 @@ MonoBehaviour:
     m_Bits: 256
   WhatIsDetected:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 262272
   PlayerDetectionPoint: {fileID: 8747024359304924059}
   shadow: {fileID: 8747024360094501968}
   WallDetectionDistance: 0.2

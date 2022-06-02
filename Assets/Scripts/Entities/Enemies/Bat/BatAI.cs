@@ -71,6 +71,7 @@ public class BatAI : MonoBehaviour
         if (PlayerDetection())
         {
             //ChasePlayer();
+            Debug.Log("detected");
         }
 
         

@@ -31,7 +31,8 @@ public class ShadowAttack : EnemyCombat
         if (_health <= 0f)
         {
             animator.SetBool("Dying", true);
-            StartCoroutine(DeathDelay(2.5f));
+            shadowAI.shadowState = ShadowStates.Dying;
+            StartCoroutine(DeathDelay(3f));
         }
     }
 

@@ -10,7 +10,7 @@ public enum States
 
 public class SlimeAI : MonoBehaviour
 {
-    public Rigidbody2D player;
+    private Player player;
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsDetected;
     public LayerMask WhatIsWall;
@@ -32,7 +32,7 @@ public class SlimeAI : MonoBehaviour
     {
         currentState = States.Patrolling;
         currentSpeed = patrollingSpeed;
-        player = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<Player>();
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;

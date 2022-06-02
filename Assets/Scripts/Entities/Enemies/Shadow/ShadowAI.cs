@@ -8,12 +8,13 @@ public enum ShadowStates
     Disappearing,
     Appearing,
     Chasing,
-    Attacking
+    Attacking,
+    Dying
 }
 
 public class ShadowAI : EnemyMovement
 {
-    public Transform player;
+    private Player player;
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsWall;
     public LayerMask WhatIsDetected;
@@ -36,6 +37,7 @@ public class ShadowAI : EnemyMovement
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>();
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
@@ -49,7 +51,7 @@ public class ShadowAI : EnemyMovement
     void Update()
     {
 
-        if (shadowState == ShadowStates.Idle)
+        if (shadowState == ShadowStates.Idle && shadowState != ShadowStates.Dying)
         {
             Move();
             currentTime += Time.deltaTime;
@@ -93,6 +95,9 @@ public class ShadowAI : EnemyMovement
             {
                 Flip();
             }
+            animator.SetBool("Underground", true);
+            animator.SetBool("Attacking", false);
+            //StartCoroutine(AnimationDelay(2f, "Underground"));
             animator.SetBool("Disappearing", false);
         }
 
@@ -120,6 +125,7 @@ public class ShadowAI : EnemyMovement
                 animator.SetBool("Appearing", false);
                 animator.SetBool("Disappearing", false);
                 stopTime = 0;
+
             }
         }
     }
@@ -137,7 +143,7 @@ public class ShadowAI : EnemyMovement
 
     private void Chasing()
     {
-        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.position.x, transform.position.y), Speed * Time.deltaTime);
+        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
     }
 
     private bool PlayerDetection()
