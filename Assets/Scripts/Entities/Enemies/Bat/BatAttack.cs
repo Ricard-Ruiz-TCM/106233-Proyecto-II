@@ -40,11 +40,12 @@ public class BatAttack : EnemyCombat
                 InkAttack();
                 base.Attack(_playerCombat);
             }
-            /*else if (currentTime < maxTime)
-            {
-                animator.SetBool("Attack", false);
-                animator.SetBool("Idle", true);
-            }*/
+        }
+
+        if (dying)
+        {
+            //animator.SetBool("Dying", true);
+            StartCoroutine(DeathDelay(2.5f));
         }
 
     }
