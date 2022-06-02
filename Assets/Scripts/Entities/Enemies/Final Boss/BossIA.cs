@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum BOSS_STATES {
     B_INTRO,
+    B_WAIT,
     B_MELEE_ATTACK, 
     B_HAND_ATTACK, 
     B_SPAWN_ATTACK, 
@@ -37,6 +38,9 @@ public class BossIA : EnemyMovement {
     // Combat
     private BossAttack _combat;
 
+    [SerializeField]
+    private float _waitTime;
+
     // Components
     private Animator _animator;
 
@@ -57,16 +61,30 @@ public class BossIA : EnemyMovement {
 
         _animator = GetComponent<Animator>();
 
+        _waitTime = 1.5f;
+
         ChangeState("", BOSS_STATES.B_INTRO, "Intro");
     }
 
     private void Update() {
 
+        Vector2 x = (_player.transform.position - transform.position);
+        x.Normalize();
+
+        if ((x.x < 0) && (transform.right.x > 0)) transform.localEulerAngles = new Vector2(0.0f, 180.0f);
+        if ((x.x > 0) && (transform.right.x < 0)) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
+
+        //Debug.Log("Dir: " + x.x + " Right: " + transform.right.x);
+
+        _waitTime -= Time.deltaTime;
         _meleeAttackTimer -= Time.deltaTime;
         _handAttackTimer -= Time.deltaTime;
         _spawnAttackTimer -= Time.deltaTime;
 
         switch(State()){
+            case BOSS_STATES.B_WAIT:
+                if (_waitTime <= 0.0f) ChangeState("Wait", BOSS_STATES.B_MOVING, "Move");
+                break;
             case BOSS_STATES.B_INTRO:
                 if (CheckAnimationEnds()) {
                     ChangeState("Intro", BOSS_STATES.B_MOVING, "Move");
@@ -80,13 +98,13 @@ public class BossIA : EnemyMovement {
                 break;
             case BOSS_STATES.B_HAND_ATTACK:
                 if (CheckAnimationEnds()) {
-                    ChangeState("Hand", BOSS_STATES.B_MOVING, "Move");
+                    ChangeState("Hand", BOSS_STATES.B_WAIT, "Wait");
                     _handAttackTimer = _handAttack.Cooldown;
                 }
                 break;
             case BOSS_STATES.B_SPAWN_ATTACK:
                 if (CheckAnimationEnds()) {
-                    ChangeState("Spawn", BOSS_STATES.B_MOVING, "Move");
+                    ChangeState("Spawn", BOSS_STATES.B_WAIT, "Wait");
                     _spawnAttackTimer = _spawnAttack.Cooldown;
                 }
                 break;
@@ -119,19 +137,27 @@ public class BossIA : EnemyMovement {
     public void MeleeAttack() { _combat.MeleeAttack(); }
     public void HandAttack() {
         Vector2 pos = _player.transform.position;
-        pos.y -= 1.0f;
+        pos.y = transform.position.y - 0.8f;
         _combat.HandAttack(pos); 
     }
     public void SpawnAttack() {
-        _combat.SpawnAttack((int)transform.right.x); 
+        Vector2 point = transform.position;
+        point.x += transform.right.x * 1.5f;
+        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 3.0f, LayerMask.GetMask("Enemy"));
+        if (hit.collider != null)  return;
+        _combat.SpawnAttack(transform.right.x); 
     }
 
     private void Movement(){
-        Vector2 x = (_player.transform.position - transform.position);
-        x.Normalize();
-        if (Vector2.Distance(transform.position, _player.transform.position) > 1.5f)
-        {
-            transform.Translate(new Vector3(x.x * Time.deltaTime * 1.0f, 0.0f, 0.0f));
+        Vector2 point = transform.position;
+        point.x += transform.right.x * 1.0f;
+        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.0f, LayerMask.GetMask("Enemy"));
+        if (hit.collider != null) {
+            ChangeState("Move", BOSS_STATES.B_WAIT, "Wait");
+        } else {
+            if (Vector2.Distance(transform.position, _player.transform.position) > 0.9f) {
+                transform.Translate(new Vector3(Time.deltaTime * 1.0f, 0.0f, 0.0f));
+            }
         }
     }
 
@@ -152,6 +178,7 @@ public class BossIA : EnemyMovement {
     private void ChangeState(string from, BOSS_STATES next, string to)  {
         _state = next;
         _meleeAttackTimer = 1.0f;
+        _waitTime = 1.5f;
         if (from != "") _animator.SetBool(from, false);
         if (to != "") _animator.SetBool(to, true);
     }
