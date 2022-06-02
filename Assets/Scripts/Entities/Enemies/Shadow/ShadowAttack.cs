@@ -76,7 +76,6 @@ public class ShadowAttack : EnemyCombat
         var player = collision.gameObject.GetComponent<PlayerCombat>();
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("exit");
             canBeAttacked = false;
             StopAllCoroutines();
         }
