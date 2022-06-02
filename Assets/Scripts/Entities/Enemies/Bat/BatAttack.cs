@@ -54,7 +54,7 @@ public class BatAttack : EnemyCombat
     {
         Vector2 init = new Vector2(transform.position.x + 0.05f, transform.position.y - 0.1f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, container.transform);
-        bullet.GetComponent<BatInk>().Direction(player.transform.position.y + 0.5f);
+        bullet.GetComponent<BatInk>().Direction(-transform.up.x);
         currentTime = 0;
     }
 }

@@ -22,14 +22,11 @@ public class BatAI : MonoBehaviour
     public float FOV = 90f;
     private float WallDetectionDistance = 1.0f;
     private float currentTime;
-    private float forceTime;
     private float maxTime;
-    private float secondsForce;
-    private float maxForceTime = 0.2f;
-    private bool forceAdded = false;
     private float Speed = 2f;
     private float chasingSpeed = 0.8f;
     private bool detected;
+    private float startPos;
     public BatStates state;
 
     public bool Detected => detected;
@@ -55,13 +52,13 @@ public class BatAI : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         fenix = GetComponent<Rigidbody2D>();
-        secondsForce = 0;
         fenix.gravityScale = 0.4f;
         //forceAdded = true;
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
         state = BatStates.Patrolling;
+        startPos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -90,6 +87,7 @@ public class BatAI : MonoBehaviour
              }*/
         if (state == BatStates.Patrolling)
         {
+            
             Fly();
             maxTime = Random.Range(3.0f, 5.0f);
             currentTime += Time.deltaTime;
@@ -119,6 +117,8 @@ public class BatAI : MonoBehaviour
             {
                 detected = false;
                 state = BatStates.Patrolling;
+                //transform.position = new Vector2(transform.position.x, startPos);
+                //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, startPos), 2f);
             }
         }
         
@@ -181,6 +181,6 @@ public class BatAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + 0.5f, player.transform.position.y + 0.8f), chasingSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + (player.transform.forward.z * 0.5f), player.transform.position.y + 0.8f), chasingSpeed * Time.deltaTime);
     }
 }
