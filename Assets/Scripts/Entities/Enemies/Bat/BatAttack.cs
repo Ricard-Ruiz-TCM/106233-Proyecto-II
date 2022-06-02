@@ -45,7 +45,7 @@ public class BatAttack : EnemyCombat
         if (dying)
         {
             //animator.SetBool("Dying", true);
-            StartCoroutine(DeathDelay(2.5f));
+            StartCoroutine(DeathDelay(0.5f));
         }
 
     }
@@ -54,7 +54,7 @@ public class BatAttack : EnemyCombat
     {
         Vector2 init = new Vector2(transform.position.x + 0.05f, transform.position.y - 0.1f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, container.transform);
-        bullet.GetComponent<BatInk>().Direction(-transform.up.y);
+        bullet.GetComponent<BatInk>().Direction(player.transform.position.y + 0.5f);
         currentTime = 0;
     }
 }

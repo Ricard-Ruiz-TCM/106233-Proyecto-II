@@ -104,7 +104,6 @@ public class BatAI : MonoBehaviour
             if (IsInRange() && IsInVisionAngle())
             {
                 state = BatStates.Chasing;
-                //detected = true;
             }
 
         }
@@ -182,6 +181,6 @@ public class BatAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, player.transform.position.y + 0.8f), chasingSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + 0.5f, player.transform.position.y + 0.8f), chasingSpeed * Time.deltaTime);
     }
 }
