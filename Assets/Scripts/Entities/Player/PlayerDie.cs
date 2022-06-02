@@ -46,7 +46,7 @@ public class PlayerDie : PlayerState, IHaveStates {
     }
 
     private void InstantiateHand(){
-        Vector2 pos = transform.position; pos.x += 1.0f;
+        Vector2 pos = transform.position; pos.x += 1.1f;
         Instantiate(_deathTriggerAnim, pos, Quaternion.identity, transform);
     }
 
