@@ -87,7 +87,6 @@ public class BatAI : MonoBehaviour
              }*/
         if (state == BatStates.Patrolling)
         {
-            
             Fly();
             maxTime = Random.Range(3.0f, 5.0f);
             currentTime += Time.deltaTime;
@@ -116,9 +115,13 @@ public class BatAI : MonoBehaviour
             else
             {
                 detected = false;
+                //StartCoroutine(SmoothMovement(new Vector3(transform.position.x, startPos, 0f), 2f));
+                
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, startPos), chasingSpeed * Time.deltaTime);
+            }
+            if(transform.position.y == startPos)
+            {
                 state = BatStates.Patrolling;
-                //transform.position = new Vector2(transform.position.x, startPos);
-                //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, startPos), 2f);
             }
         }
         
