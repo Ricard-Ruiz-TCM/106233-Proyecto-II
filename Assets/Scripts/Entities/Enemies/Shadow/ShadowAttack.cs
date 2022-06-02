@@ -76,9 +76,8 @@ public class ShadowAttack : EnemyCombat
         var player = collision.gameObject.GetComponent<PlayerCombat>();
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("exit");
             canBeAttacked = false;
-            StopCoroutine(DamageDelay(0f, player));
+            StopAllCoroutines();
         }
     }
 
@@ -86,5 +85,6 @@ public class ShadowAttack : EnemyCombat
     {
         yield return new WaitForSeconds(time);
         obj.TakeDamage(currentAttack);
+        yield break;
     }
 }

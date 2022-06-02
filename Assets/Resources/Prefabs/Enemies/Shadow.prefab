@@ -188,7 +188,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   PlayerDetectionPoint: {fileID: 8747024359304924059}
-  shadow: {fileID: 0}
+  shadow: {fileID: 8747024360094501968}
   WallDetectionDistance: 0.2
   shadowState: 0
 --- !u!95 &8747024360094501970
