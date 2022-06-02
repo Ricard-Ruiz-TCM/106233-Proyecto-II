@@ -63093,6 +63093,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 580408830}
     m_Modifications:
+    - target: {fileID: 6732312365310869780, guid: bdab9567ce98f424eb96c813dba522be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732312365310869780, guid: bdab9567ce98f424eb96c813dba522be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.61
+      objectReference: {fileID: 0}
     - target: {fileID: 6732312365712694041, guid: bdab9567ce98f424eb96c813dba522be, type: 3}
       propertyPath: m_Name
       value: Teleporter
