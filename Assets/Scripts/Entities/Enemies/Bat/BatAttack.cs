@@ -17,20 +17,6 @@ public class BatAttack : MonoBehaviour
     private float maxTime = 2f;
     private Transform player;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, DetectionRange);
-
-        Gizmos.color = Color.red;
-        var direction = Quaternion.AngleAxis(VisionAngle/2, transform.forward)
-            * -transform.up;
-        Gizmos.DrawRay(transform.position, direction * DetectionRange);
-        var direction2 = Quaternion.AngleAxis(-VisionAngle/2 , transform.forward)
-            * -transform.up;
-        Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
-
-        Gizmos.color = Color.white;
-    }
 
     // Start is called before the first frame update
     void Start()
