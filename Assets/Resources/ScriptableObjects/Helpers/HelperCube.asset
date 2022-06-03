@@ -16,4 +16,4 @@ MonoBehaviour:
   Portrait: {fileID: 320707729136608954, guid: c0561c64d80efb64ead537782a769f3b, type: 3}
   Text: "Has conseguido un cubo \xFAsalo para llegar a sitios elevados y derrotar
     enemigos gracias a la gravedad."
-  Duration: 5
+  Duration: 8
