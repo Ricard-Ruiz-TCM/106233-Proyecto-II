@@ -115,6 +115,7 @@ public class PlayerFall : PlayerState, IHaveStates {
         MusicPlayer.Instance.StopFX("fall");
         ////////////////
         DisableSystem();
+        StopParticles();
     }
 
     public void OnState(){
@@ -132,5 +133,10 @@ public class PlayerFall : PlayerState, IHaveStates {
     private void StartParticles()
     {
         effect.Play();
+    }
+
+    private void StopParticles()
+    {
+        effect.Stop();
     }
 }

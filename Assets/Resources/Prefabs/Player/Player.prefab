@@ -495,6 +495,7 @@ MonoBehaviour:
   _lastState: 0
   _canAttack: 0
   _canJump: 0
+  _NoInk: {fileID: 0}
 --- !u!114 &1146343377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e5f634b13d1b54bb57db10a6a942ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _HUDREMINDER: {fileID: 0}
   _activeTool: {fileID: 0}
   _toolSpeed: 0
   _strokes: []
@@ -736,7 +738,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
