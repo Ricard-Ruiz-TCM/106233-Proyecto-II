@@ -264,7 +264,7 @@ public class Player : Entity {
     }
 
     public void TryFallGround(){
-        _movement.TryFall();
+        if (!_drawing.IsDrawing() && !_placing.IsPlaced()) _movement.TryFall();
     }
 
     public void NextTemplate(){
