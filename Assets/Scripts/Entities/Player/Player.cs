@@ -87,6 +87,9 @@ public class Player : Entity {
     private PlayerCombat _combat;
     private PlayerDie _die;
 
+    [SerializeField]
+    private GameObject _NoInk;
+
     // Input
     private PlayerInput _input;
 
@@ -115,6 +118,8 @@ public class Player : Entity {
         _combat = GetComponent<PlayerCombat>();
 
         _input = GetComponent<PlayerInput>();
+
+        _NoInk = Resources.Load<GameObject>("Prefabs/NoInk");
 
         _currentBehavriour = _iddle;
 
@@ -248,7 +253,11 @@ public class Player : Entity {
     }
 
     public void ToggleDrawing(){
-        _drawing.ToggleSystem();
+        if (HaveInk(10)) {
+            _drawing.ToggleSystem();
+        } else {
+            Instantiate(_NoInk, transform.position + new Vector3(-0.6f, 0.6f, 0.0f), Quaternion.identity, transform);
+        }
     }
 
     public void SwapTools(){
@@ -329,6 +338,7 @@ public class Player : Entity {
         _die.SetDeathCause(DEATH_CAUSE.D_DAMAGE);
         FillHealth();
         FillInk();
+        Camera.main.transform.GetComponent<CameraMovement>().EnableYMovement();
         ChangeState(PLAYER_STATE.PS_IDDLE);
     }
 

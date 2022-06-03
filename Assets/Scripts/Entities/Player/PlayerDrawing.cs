@@ -145,7 +145,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         _activeTool = _brushTool;
-        ActiveTool().Show(0.5f);
+        ActiveTool().Show(0.75f);
 
         ClearStrokes();
         _isDrawing = true;
@@ -187,7 +187,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         if (!IsEnabled()) return;
         /////////////////////////
 
-        if (!Input().MainAction()) ActiveTool().Show(0.5f);
+        if (!Input().MainAction()) ActiveTool().Show(0.75f);
 
         if (Input().Keyboard())
             ActiveTool().Screen2WorldPosition(Input().MousePos());
@@ -218,6 +218,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
             _checkTemplate = false;
             _createdTemplate = CurrentTemplate().GetComponent<TemplateGuide>().CheckTemplate();
             _templateCompleted = CurrentTemplate().GetComponent<TemplateGuide>().IsCompleted();
+            if (_templateCompleted) GetComponent<Player>().UseInk(10);
         }
 
     }

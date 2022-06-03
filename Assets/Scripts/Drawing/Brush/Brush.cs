@@ -45,7 +45,7 @@ public class Brush : DrawElement {
     // Drawing Action
     public override void MainAction(bool action){
         if (!IsDrawing() && action) {
-            Show(0.75f);
+            Show(0.9f);
             CreateStroke();
             StartDrawing();
         } else if (IsDrawing() && action) {

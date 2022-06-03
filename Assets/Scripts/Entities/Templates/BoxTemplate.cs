@@ -21,7 +21,7 @@ public class BoxTemplate : Template {
     }
 
     void Update() {
-        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) > 5.0f) _canKill = true;
+        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) > 2.0f) _canKill = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -31,7 +31,11 @@ public class BoxTemplate : Template {
         if (collision.collider.gameObject.tag == "WallFall") GetComponent<Rigidbody2D>().isKinematic = true;
 
         if (collision.collider.gameObject.tag == "Enemy") {
-            if (CanKill()) DestroyIt(collision.collider.gameObject);
+            if (CanKill())
+            {
+                Destroy(collision.collider.gameObject);
+                _body.velocity = Vector2.zero;
+            }
         }
 
         if (collision.collider.gameObject.tag == "Player"){
@@ -42,11 +46,6 @@ public class BoxTemplate : Template {
         }
 
         _canKill = false;
-    }
-
-    private void DestroyIt(GameObject other = null) {
-        Destroy(other);
-        Destroy(this.gameObject);
     }
 
     public override void MainAction(bool action) {

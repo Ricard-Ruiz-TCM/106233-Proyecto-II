@@ -32,13 +32,13 @@ public class MMCanvas : MonoBehaviour {
     public void OnClickContinue(){
         _selector.transform.SetParent(_option0.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level");
     }
 
     public void OnClickNewGame(){
         _selector.transform.SetParent(_option1.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level");
     }
 
     public void OnClickOptions(){

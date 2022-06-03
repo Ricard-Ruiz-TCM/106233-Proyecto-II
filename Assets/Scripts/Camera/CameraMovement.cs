@@ -70,10 +70,6 @@ public class CameraMovement : MonoBehaviour {
         }
 
         _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
-        if (_player.position.y >= transform.position.y)
-        {
-            _holdY = false;
-        }
         if (_holdY) {
             _nextPos.y = transform.position.y;
         }
@@ -94,6 +90,11 @@ public class CameraMovement : MonoBehaviour {
     public void StopYMovement()
     {
         _holdY = true;
+    }
+
+    public void EnableYMovement()
+    {
+        _holdY = false;
     }
 
     

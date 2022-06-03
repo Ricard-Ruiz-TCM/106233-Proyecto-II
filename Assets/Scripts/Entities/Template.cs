@@ -27,7 +27,7 @@ public class Template : DrawElement, ICombat {
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<BoxCollider2D>().isTrigger = true;
 
-        Show(0.5f);
+        Show(0.9f);
     }
 
     protected void PlaceTemplate() {
