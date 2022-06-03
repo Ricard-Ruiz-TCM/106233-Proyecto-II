@@ -7,6 +7,8 @@ public class PlayerBullet : InkBullet {
 
     void Start() {
         LoadBullet("InkBullet");
+
+        Destroy(this.gameObject, 2.5f);
     }
 
     protected new void Movement(){
@@ -14,7 +16,7 @@ public class PlayerBullet : InkBullet {
     }
 
     public void Dir(float dir) {
-        _speed = 5.0f; _str = new Vector2(50.0f, 10.0f);
+        _speed = 5.0f; _str = new Vector2(45.0f, 45.0f);
         transform.localEulerAngles = new Vector2(0.0f, (dir < 0 ? 0.0f : 180.0f));
         GetComponent<Rigidbody2D>().AddForce(new Vector2(-(transform.right.x) * _str.x * _speed, _str.y * _speed));
     }

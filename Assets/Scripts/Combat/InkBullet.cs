@@ -27,8 +27,11 @@ public class InkBullet : MonoBehaviour, ISlowMo {
     {
         if (collision != null)
         {
-            if (collision.gameObject.tag == "Enemy") ColEnemy(collision.gameObject);
-            Destroy(this.gameObject);
+            if (collision.gameObject.tag == "Enemy")
+            {
+                ColEnemy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
         }
     }
 
