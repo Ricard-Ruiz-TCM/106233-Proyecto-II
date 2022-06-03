@@ -155,19 +155,13 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _templateCompleted = false;
         _checkTemplate = false;
         _templatesIndex = 0;
-        CurrentTemplate().SetActive(true);
 
         _HUDREMINDER.GetComponent<Animator>().SetBool("Show", true);
 
-        Invoke("PosTemp", 1.25f);
-
+        CurrentTemplate().SetActive(true);
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
         _animator.SetBool("Draw", true);
-    }
-
-    public void PosTemp() {
-        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
     }
 
     public void OnExitState(){
@@ -215,7 +209,9 @@ public class PlayerDrawing : PlayerState, IHaveStates {
                 DestroyStroke(Eraser().GetStroke());
                 _checkTemplate = true;
             }
-        } 
+        }
+
+        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
 
         //CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
         if (!Input().MainAction() && _checkTemplate){
