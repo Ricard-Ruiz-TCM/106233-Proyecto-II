@@ -44,7 +44,7 @@ public class PlantAttack : EnemyCombat
         currentTime += Time.deltaTime;
         if (currentTime > maxTime)
         {   
-            if(plantAI.Detected)
+            if(plantAI.Detected && dying == false)
             {
                 animator.SetBool("Attack", true);
                 InkAttack();

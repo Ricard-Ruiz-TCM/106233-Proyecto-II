@@ -5,7 +5,8 @@ public enum States
 {
     Patrolling,
     Chasing,
-    Attacking
+    Attacking,
+    Dying
 }
 
 public class SlimeAI : MonoBehaviour
@@ -42,7 +43,7 @@ public class SlimeAI : MonoBehaviour
     void Update()
     {
 
-        if(currentState == States.Patrolling)
+        if(currentState == States.Patrolling && currentState != States.Dying)
         { 
             Patrol();
             currentTime += Time.deltaTime;
@@ -56,7 +57,7 @@ public class SlimeAI : MonoBehaviour
             }
             if(DetectPlayer()) currentState = States.Chasing;
         }
-        else if(currentState == States.Chasing)
+        else if(currentState == States.Chasing && currentState != States.Dying)
         {
             stopTime += Time.deltaTime;
             if(stopTime > 2f) {
@@ -65,7 +66,7 @@ public class SlimeAI : MonoBehaviour
                 stopTime = 0;
             }
         }
-        else if (currentState == States.Attacking){
+        else if (currentState == States.Attacking && currentState != States.Dying){
             stopTime += Time.deltaTime;
             if (stopTime > 2.0f) {
                 currentState = States.Patrolling;

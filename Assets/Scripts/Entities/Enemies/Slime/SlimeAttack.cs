@@ -23,6 +23,7 @@ public class SlimeAttack : EnemyCombat
     {
         if (dying)
         {
+            GetComponent<SlimeAI>().currentState = States.Dying;
             animator.SetBool("Dying", true);
             StartCoroutine(DeathDelay(2.5f));
         }
