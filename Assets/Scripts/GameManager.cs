@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour {
     {
         LVL1.SetActive(false);
         LVL2.SetActive(true);
+        foreach(GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) {
+            Destroy(enemies);
+        }
     }
 
 
