@@ -18,6 +18,7 @@ public class Helper : MonoBehaviour {
         if (collision.gameObject == null) return;
         if (collision.gameObject.tag != "Player") return;
         _hud.UpdateItem(_item);
+        if (GetComponent<newTemplateUI>() != null) GetComponent<newTemplateUI>().Show();
         Destroy(this.gameObject);
     }
 

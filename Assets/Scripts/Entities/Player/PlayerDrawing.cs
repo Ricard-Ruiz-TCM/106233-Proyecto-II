@@ -10,6 +10,9 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     private bool _isDrawing;
     public bool IsDrawing() { return _isDrawing; }
 
+    [SerializeField]
+    private GameObject _HUDREMINDER;
+
     // Drawing Active Tool & Getters/Checkers
     [SerializeField]
     private GameObject _activeTool;
@@ -75,6 +78,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _eraserTool.GetComponent<DrawElement>().Hide();
 
         _strokes.Clear();
+
+        _HUDREMINDER = GameObject.Find("BookHUD");
 
         _templates.Add(GameObject.FindObjectOfType<BoxTemplateID>().gameObject);
         _templates.Add(GameObject.FindObjectOfType<BombTemplateID>().gameObject);
@@ -152,11 +157,17 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _templatesIndex = 0;
         CurrentTemplate().SetActive(true);
 
-        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
+        _HUDREMINDER.GetComponent<Animator>().SetBool("Show", true);
+
+        Invoke("PosTemp", 1.25f);
 
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
         _animator.SetBool("Draw", true);
+    }
+
+    public void PosTemp() {
+        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
     }
 
     public void OnExitState(){
@@ -169,6 +180,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         ClearStrokes();
 
+        _HUDREMINDER.GetComponent<Animator>().SetBool("Show", false);
+
         _templateCompleted = false;
         CurrentTemplate().GetComponent<TemplateGuide>().Reset();
         CurrentTemplate().SetActive(false);
@@ -179,7 +192,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     public void OnState(){
         if (!IsEnabled()) return;
         /////////////////////////
-        
+
         if (!Input().MainAction()) ActiveTool().Show(0.5f);
 
         if (Input().Keyboard())
@@ -204,7 +217,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
             }
         } 
 
-        CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
+        //CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
         if (!Input().MainAction() && _checkTemplate){
             _checkTemplate = false;
             _createdTemplate = CurrentTemplate().GetComponent<TemplateGuide>().CheckTemplate();

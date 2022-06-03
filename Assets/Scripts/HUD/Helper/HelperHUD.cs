@@ -32,12 +32,12 @@ public class HelperHUD : MonoBehaviour {
     }
 
     private void Show(){
-        GetComponent<RectTransform>().localScale = new Vector2(1.0f, 1.0f);
+        GetComponent<Animator>().SetBool("Show", true);
         Invoke("Hide", _item.Duration);
     }
 
     public void Hide(){
-        GetComponent<RectTransform>().localScale = new Vector2(0.0f, 0.0f);
+        GetComponent<Animator>().SetBool("Show", false);
     }
 
 }

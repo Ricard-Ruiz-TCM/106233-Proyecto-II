@@ -17,7 +17,7 @@ public class CanvasManager : MonoBehaviour {
     }
 
     void Start(){
-        _templateHUD.SetActive(false);
+        _templateHUD.GetComponent<Animator>().SetBool("Show", false);
     }
 
     public void OnPlayerChangeState(PLAYER_STATE state){
@@ -26,11 +26,11 @@ public class CanvasManager : MonoBehaviour {
     }
 
     public void ShowTemplateHUD(){
-        _templateHUD.SetActive(true);
+        _templateHUD.GetComponent<Animator>().SetBool("Show", true);
     }
 
     public void HideTemplateHUD(){
-        _templateHUD.SetActive(false);
+        _templateHUD.GetComponent<Animator>().SetBool("Show", false);
     }
 
 }
