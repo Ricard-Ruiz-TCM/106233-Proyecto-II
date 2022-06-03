@@ -27,5 +27,6 @@ public class Teleporter : MonoBehaviour {
         _player.position = new Vector3(_destiny.position.x, _destiny.position.y, _player.position.z);
         _camera.position = new Vector3(_destiny.position.x, _destiny.position.y, _camera.position.z);
         GameObject.FindObjectOfType<ShadowIntensity>().StopSunshines();
+        GameManager.Instance.GOTOLVL2();
     }
 }
