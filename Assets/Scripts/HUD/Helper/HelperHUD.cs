@@ -20,6 +20,10 @@ public class HelperHUD : MonoBehaviour {
         Hide();
     }
 
+    private void Update() {
+        
+    }
+
     public void UpdateItem(HelperItem item){
         _item = item;
         //_portrait.sprite = _item.Portrait;

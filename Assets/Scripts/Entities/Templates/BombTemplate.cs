@@ -36,6 +36,13 @@ public class BombTemplate : Template {
         FindObjects();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider == null) return;
+        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<Rigidbody2D>().isKinematic = true;
+    }
+
     private void Update(){
         if (_explosionTime > 0.0f)
         {
@@ -81,6 +88,10 @@ public class BombTemplate : Template {
                 go.GetComponent<ICombat>().TakeDamage(_attack);
             }
         }
+
+        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<Rigidbody2D>().isKinematic = true;
+
 
         Destroy(this.gameObject, 1.3f);
     }
