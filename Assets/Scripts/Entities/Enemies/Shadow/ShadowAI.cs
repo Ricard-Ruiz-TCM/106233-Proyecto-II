@@ -4,12 +4,13 @@ using UnityEngine;
 
 public enum ShadowStates
 {
-    Idle,
+    Move,
+    MoveUnderground,
     Disappearing,
     Appearing,
-    Chasing,
     Attacking,
-    Dying
+    Dying,
+
 }
 
 public class ShadowAI : EnemyMovement
@@ -22,15 +23,13 @@ public class ShadowAI : EnemyMovement
     public Rigidbody2D shadow;
     private float DetectionDistance = 2f;
     public float WallDetectionDistance = 0.2f;
-
     private float currentTime;
-    private float maxTime;
-    private float stopTime;
+
+    private float attackCD;
     private float Speed = 1f;
     private bool detected;
     private Animator animator;
     public ShadowStates shadowState;
-    private BoxCollider2D boxColider;
     public bool Detected => detected;
     //private bool _slowMo = false;
 
@@ -41,165 +40,122 @@ public class ShadowAI : EnemyMovement
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-        shadowState = ShadowStates.Idle;
+        shadowState = ShadowStates.Move;
         animator = gameObject.GetComponentInParent<Animator>();
-        animator.SetBool("Disappearing", false);
-        boxColider = GetComponentInParent<BoxCollider2D>();
+        animator.SetBool("Idle", true);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-        if (shadowState == ShadowStates.Idle && shadowState != ShadowStates.Dying)
-        {
-            Move();
-            currentTime += Time.deltaTime;
-
-            if (EdgeDetected() || WallDetected())
-            {
-                Flip();
-            }
-            else if (PlayerBehind())
-            {
-                Flip();
-            }
-            else if (PlayerDetection())
-            {
-                shadowState = ShadowStates.Disappearing;
-                animator.SetBool("Disappearing", true);
-                animator.SetBool("Idle", false);
-                detected = true;
-                StartCoroutine(AnimationDelay(2f, "Underground"));
-                StartCoroutine(StateDelay(1f, ShadowStates.Chasing));
-                animator.SetBool("Appearing", false);
-            }
-             
-            else if (GetComponent<ShadowAttack>().attacked == true)
-            {
-                stopTime += Time.deltaTime;
-                if (stopTime > maxTime)
-                {
-                    shadowState = ShadowStates.Appearing;
-                    stopTime = 0;
-                    animator.SetBool("Appearing", true);
-                    GetComponent<ShadowAttack>().attacked = false;
+    void Update() {
+        currentTime += Time.deltaTime;
+        attackCD += Time.deltaTime;
+        switch (shadowState) {
+            case ShadowStates.Move:
+                Move();
+                if (EdgeDetected() || WallDetected()) {
+                    Flip();
+                } else if (PlayerDetection()) {
+                    detected = true;
+                    currentTime = 0.0f;
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("Disappearing", true);
+                    shadowState = ShadowStates.Disappearing;
                 }
-            }
-        }
+                break;
 
-        else if (shadowState == ShadowStates.Chasing)
-        {
-            Chasing();
-            if (EdgeDetected() || WallDetected())
-            {
-                Flip();
-            }
-            animator.SetBool("Underground", true);
-            animator.SetBool("Attacking", false);
-            //StartCoroutine(AnimationDelay(2f, "Underground"));
-            animator.SetBool("Disappearing", false);
-        }
+            case ShadowStates.Disappearing:
+                if (currentTime >= 1.5f) {
+                    currentTime = 0.0f;
+                    animator.SetBool("Disappearing", false);
+                    animator.SetBool("Underground", true);
+                    shadowState = ShadowStates.MoveUnderground;
+                }
+                break;
 
-        else if (shadowState == ShadowStates.Attacking)
-        {
-            stopTime += Time.deltaTime;
-            animator.SetBool("Attacking", true);
-            if (stopTime > 1)
-            {
-                animator.SetBool("Attacking", false);
-                animator.SetBool("Appearing", true);
-                shadowState = ShadowStates.Appearing;
-                stopTime = 0;
-                
-            }
-        }
+            case ShadowStates.MoveUnderground:
+                //if (PlayerBehind()) Flip();
+                if (!EdgeDetected() && !WallDetected()) Chasing();
+                else {
+                    currentTime = 0.0f;
+                    animator.SetBool("Underground", false);
+                    animator.SetBool("Appearing", true);
+                    shadowState = ShadowStates.Appearing;
+                }
+                if (Vector2.Distance(player.transform.position, transform.position) > 4.0f) {
+                    currentTime = 0.0f;
+                    animator.SetBool("Underground", false);
+                    animator.SetBool("Appearing", true);
+                    shadowState = ShadowStates.Appearing;
+                }
+                if (Vector2.Distance(transform.position, player.transform.position) < 0.2f) {
+                    if (attackCD >= 6.0f) {
+                        shadowState = ShadowStates.Attacking;
+                        animator.SetBool("Underground", false);
+                        animator.SetBool("Attacking", true);
+                        Invoke("Attack", 1.35f);
+                        attackCD = 0.0f;
+                        currentTime = 0.0f;
+                    }
+                }
+                break;
 
-        else if(shadowState == ShadowStates.Appearing)
-        {
-            stopTime += Time.deltaTime;
-            if(stopTime > 2)
-            {
-                StartCoroutine(StateDelay(2f, ShadowStates.Idle));
-                animator.SetBool("Idle", true);
-                animator.SetBool("Appearing", false);
-                animator.SetBool("Disappearing", false);
-                stopTime = 0;
+            case ShadowStates.Attacking:
+                if (currentTime > 3.5f) {
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Appearing", true);
+                    shadowState = ShadowStates.Appearing;
+                    currentTime = 0.0f;
+                }
+                break;
 
-            }
+            case ShadowStates.Appearing:
+                if (currentTime >= 3.2f) {
+                    animator.SetBool("Idle", true);
+                    animator.SetBool("Appearing", false);
+                    animator.SetBool("Disappearing", false);
+                    currentTime = 0.0f;
+                    shadowState = ShadowStates.Move;
+                }
+                break;
         }
     }
 
-    void Move()
-    {
+    void Move() {
         transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
     }
 
-    void Flip()
-    {
+    void Flip() {
         transform.Rotate(0, 180, 0);
-        currentTime = 0;
     }
 
-    private void Chasing()
-    {
-        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
+    private void Chasing() {
+        if (Vector2.Distance(transform.position, player.transform.position) > 0.1f) { 
+            transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
+            if (PlayerBehind()) Flip();
+        }
     }
 
-    private bool PlayerDetection()
-    {
+    private bool PlayerDetection() {
         RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, transform.right, DetectionDistance, WhatIsPlayer);
         return hit.collider != null;
     }
 
-    private bool PlayerBehind()
-    {
+    private bool PlayerBehind() {
         RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, -transform.right, DetectionDistance, WhatIsPlayer);
         return hit.collider != null;
     }
 
-    private bool EdgeDetected()
-    {
+    private bool EdgeDetected() {
         RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, Vector2.down, WallDetectionDistance, WhatIsDetected);
         return hit.collider == null;
     }
 
-    private bool WallDetected()
-    {
+    private bool WallDetected() {
         RaycastHit2D hit = Physics2D.Raycast(PlayerDetectionPoint.position, transform.right, WallDetectionDistance, WhatIsWall);
         return hit.collider != null;
     }
 
-    private IEnumerator AnimationDelay(float time, string name)
-    {
-        yield return new WaitForSeconds(time);
-        animator.SetBool(name, true);
-    }
-
-    private IEnumerator StateDelay(float time, ShadowStates state)
-    {
-        yield return new WaitForSeconds(time);
-        shadowState = state;
-    }
-
-    private IEnumerator MoveDelay(float time, Collider2D coll)
-    {
-        yield return new WaitForSeconds(time);
-        var force = transform.position + coll.transform.position;
-        var forceNew = new Vector2(-(transform.right.x) * 400.0f, 10.0f);
-        force.Normalize();
-        shadow.velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().AddForce(forceNew);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            transform.position = new Vector2(collision.transform.position.x, transform.position.y);
-            shadowState = ShadowStates.Attacking;
-            animator.SetBool("Attacking", true);
-            //StartCoroutine(MoveDelay(4f, collision));
-        }
+    private void Attack() {
+        GetComponent<ShadowAttack>().ShadowAttacks();
     }
 }

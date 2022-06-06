@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c066c305f0acca4084943fde823b094, type: 3}
   m_Name: MeleeAttack
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 15
   InkCost: 0
   Range: 1
   Cooldown: 0.6

@@ -21,71 +21,29 @@ public class ShadowAttack : EnemyCombat
     {
         shadowAI = GetComponentInParent<ShadowAI>();
         animator = gameObject.GetComponentInParent<Animator>();
+        player = GameObject.FindObjectOfType<Player>().transform;
         _health = 20;
-        animator.SetBool("Idle", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_health <= 0f)
+        if (dying)
         {
+            dying = false;
             animator.SetBool("Dying", true);
             shadowAI.shadowState = ShadowStates.Dying;
             StartCoroutine(DeathDelay(3f));
         }
     }
 
-    bool IsInRange()
-    {
-        float dist = Vector2.Distance(player.position, transform.position);
-        return dist < DetectionRange;
-    }
-
     public void ShadowAttacks()
     {
-        //shadow.AddForce(new Vector2(0, transform.up.y * 10.0f));
-        Debug.Log("Shadow attacks");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var player = collision.gameObject.GetComponent<PlayerCombat>();
-        if (collision.gameObject.tag == "Player")
+        if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
         {
-            attacked = true;
-            canBeAttacked = true;
-
+            player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        var player = collision.gameObject.GetComponent<PlayerCombat>();
-        if (collision.gameObject.tag == "Player")
-        {
-            if (canBeAttacked)
-            {
-                StartCoroutine(DamageDelay(1.5f, player));
-            }
-
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        var player = collision.gameObject.GetComponent<PlayerCombat>();
-        if (collision.gameObject.tag == "Player")
-        {
-            canBeAttacked = false;
-            StopAllCoroutines();
-        }
-    }
-
-    private IEnumerator DamageDelay(float time, PlayerCombat obj)
-    {
-        yield return new WaitForSeconds(time);
-        obj.TakeDamage(currentAttack);
-        yield break;
-    }
+   
 }
