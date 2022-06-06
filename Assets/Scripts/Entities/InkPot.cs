@@ -19,11 +19,11 @@ public class InkPot : MonoBehaviour
         transform.position = _pos + new Vector2(0.0f, Mathf.Sin(_time * 5.0f /*speed*/) * 0.2f /*disatnce*/);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.gameObject == null) return;
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject == null) return;
 
-        if (collision.collider.gameObject.tag == "Player") {
-            collision.collider.gameObject.GetComponent<Player>().AddInk(5);
+        if (collision.gameObject.gameObject.tag == "Player") {
+            collision.gameObject.gameObject.GetComponent<Player>().AddInk(5);
             Destroy(this.gameObject);
         }
     }
