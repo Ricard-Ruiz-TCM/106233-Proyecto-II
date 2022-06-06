@@ -39,6 +39,7 @@ public class BombTemplate : Template {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider == null) return;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
     }

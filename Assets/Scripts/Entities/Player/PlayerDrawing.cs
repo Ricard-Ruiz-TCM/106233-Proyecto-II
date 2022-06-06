@@ -121,8 +121,9 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     // PlayerDrawing.cs <Templates>   // "-1" => Next template on List    
     public void NextTemplate(int newPos = -1){ 
         if (newPos == -1) newPos = (_templatesIndex + 1) % _templates.Count;
-     
+
         CurrentTemplate().SetActive(false);
+        CurrentTemplateGuide().FullAlpha();
         SetTemplateIndex(newPos);
         CurrentTemplate().SetActive(true);
 
@@ -159,6 +160,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _HUDREMINDER.GetComponent<Animator>().SetBool("Show", true);
 
         CurrentTemplate().SetActive(true);
+
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
         _animator.SetBool("Draw", true);
@@ -178,7 +180,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         _templateCompleted = false;
         CurrentTemplate().GetComponent<TemplateGuide>().Reset();
-        CurrentTemplate().SetActive(false);
+        CurrentTemplateGuide().FadeOut();
         ////////////////
         DisableSystem();
     }

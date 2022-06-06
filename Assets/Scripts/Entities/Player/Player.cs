@@ -41,6 +41,7 @@ public class Player : Entity {
     [SerializeField]
     private int _health;
     public float Health() { return _health; }
+    [SerializeField]
     private bool _canCHealth;
     public bool CanChangeHealth() { return _canCHealth; }
     public void FillHealth() { _health = _maxHealth; OnHealthChange?.Invoke(); }
@@ -326,6 +327,7 @@ public class Player : Entity {
 
     private void NoInvencible() {
         _canCHealth = true;
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     private void CheckDeath(){

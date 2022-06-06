@@ -33,6 +33,19 @@ public class TemplateGuide : MonoBehaviour {
     public bool IsCompleted() { return _completed; }
     public void Reset() { _completed = false; }
 
+    private float _fade;
+
+    private void OnEnable()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        _fade = 0.005f;
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+    }
+
     void Awake() {
         _completed = false;
 
@@ -44,6 +57,13 @@ public class TemplateGuide : MonoBehaviour {
         _completation = 0.0f;
         _accuracy = 0.0f;
         _failure = true;
+    }
+
+    private void Update(){
+        Color c = GetComponent<SpriteRenderer>().color;
+        c.a += _fade;
+        GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, c.a);
+        if (c.a <= 0.0f) this.gameObject.SetActive(false);
     }
 
     private void Fill(){
@@ -94,6 +114,15 @@ public class TemplateGuide : MonoBehaviour {
             active += (point.CheckCollision(points) ? 1 : 0);
         }
         return (active / list.Count);
+    }
+
+    public void FadeOut() {
+        _fade = -0.01f;
+    }
+
+    public void FullAlpha()
+    {
+        _fade = 1.0f;
     }
 
 }
