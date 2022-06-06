@@ -10,6 +10,7 @@ public class BatInk : EnemyBullet
     private void Start()
     {
         LoadBullet("InkBullet");
+        Destroy(this.gameObject, 2.5f);
     }
 
     protected new void Movement()

@@ -10,6 +10,7 @@ public class PlantInk : EnemyBullet
     private void Start()
     {
         LoadBullet("InkBullet");
+        Destroy(this.gameObject, 2.5f);
     }
 
     protected new void Movement()
@@ -35,7 +36,6 @@ public class PlantInk : EnemyBullet
             {
                 ColPlayer(collision.gameObject);
             }
-            if (collision.gameObject.tag != "Enemy")  Destroy(this.gameObject);
         }
     }
 }
