@@ -42,7 +42,7 @@ public class SlimeAttack : EnemyCombat
         {
             if (GetComponent<SlimeAI>().currentState == States.Dying) return;
             var player = collision.gameObject.GetComponent<PlayerCombat>();
-            if (GetComponent<SlimeAI>().currentState != States.Chasing)
+            if (GetComponent<SlimeAI>().currentState == States.Patrolling) 
             {
                 player.TakeDamage(currentAttack);
             }

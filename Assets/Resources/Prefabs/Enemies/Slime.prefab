@@ -145,7 +145,7 @@ MonoBehaviour:
     m_Bits: 128
   WhatIsWall:
     serializedVersion: 2
-    m_Bits: 671498624
+    m_Bits: 688275840
   EdgeDetectionPoint: {fileID: 3438083275055373835}
   DetectionDistance: 1
   currentState: 0

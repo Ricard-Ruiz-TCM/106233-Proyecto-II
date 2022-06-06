@@ -12,8 +12,10 @@ public class PlantAttack : EnemyCombat
     private PlayerCombat _playerCombat;
     private PlantAI plantAI;
     private float currentTime;
-    private float maxTime = 1.0f;
+    private float maxTime = 1.5f;
     private Animator animator;
+
+    private bool attacking;
 
     private void OnDrawGizmos()
     {
@@ -24,6 +26,7 @@ public class PlantAttack : EnemyCombat
 
     private void Awake()
     {
+        attacking = false;
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
     }
 
@@ -42,33 +45,32 @@ public class PlantAttack : EnemyCombat
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime > maxTime)
+        if ((currentTime > maxTime) && (!attacking))
         {   
             if(plantAI.Detected && dying == false)
             {
+                attacking = true;
                 animator.SetBool("Attack", true);
-                InkAttack();
-                base.Attack(_playerCombat);
-            }
-            else if(currentTime < maxTime)
-            {
-                animator.SetBool("Attack", false);
-                animator.SetBool("Idle", true);
+                Invoke("InkAttack", 1.15f);
             }
         }
 
         if (dying)
         {
             animator.SetBool("Dying", true);
+            if (IsInvoking("InkAttack")) CancelInvoke("InkAttack");
             StartCoroutine(DeathDelay(1.9f));
         }
     }
 
     void InkAttack()
     {
-        Vector2 init = new Vector2(transform.position.x + 0.05f, transform.position.y + 0.15f);
+        Vector2 init = new Vector2(transform.position.x + 0.1f, transform.position.y + 0.5f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, _container.transform);
         bullet.GetComponent<PlantInk>().Direction(-transform.right.x);
         currentTime = 0;
+        attacking = false;
+        animator.SetBool("Attack", false);
+        animator.SetBool("Idle", true);
     }
 }
