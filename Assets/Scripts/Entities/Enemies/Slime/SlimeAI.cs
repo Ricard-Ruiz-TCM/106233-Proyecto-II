@@ -16,9 +16,9 @@ public class SlimeAI : MonoBehaviour
     public LayerMask WhatIsDetected;
     public LayerMask WhatIsWall;
     public Transform EdgeDetectionPoint;
-    public float DetectionDistance = 1.0f;
+    public float DetectionDistance = 5.0f;
 
-    private float WallDetectionDistance = 0.2f;
+    private float WallDetectionDistance = 0.25f;
     private float patrollingSpeed = 1.0f;
     private float currentTime;
     private float stopTime;
@@ -47,14 +47,14 @@ public class SlimeAI : MonoBehaviour
             if(DetectPlayer()) currentState = States.Chasing;
         } else if(currentState == States.Chasing) {
             stopTime += Time.deltaTime;
-            if(stopTime > 1.5f) {
+            if(stopTime > 0.2f) {
                 currentState = States.Attacking;
                 GetComponent<SlimeAttack>().SlimeAttacks();
                 stopTime = 0;
             }
         } else if (currentState == States.Attacking){
             stopTime += Time.deltaTime;
-            if (stopTime > 1.5f) {
+            if (stopTime > 3.0f) {
                 currentState = States.Patrolling;
                 stopTime = 0;
             }
@@ -80,7 +80,7 @@ public class SlimeAI : MonoBehaviour
 
     private bool DetectPlayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, transform.right, DetectionDistance, WhatIsPlayer);
+        RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, transform.right, 3f, WhatIsPlayer);
         return hit.collider != null;
     }
 
