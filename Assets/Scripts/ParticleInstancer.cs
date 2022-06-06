@@ -28,6 +28,11 @@ public class ParticleInstancer : MonoBehaviour
         return _particles.ContainsKey(name);
     }
 
+    public void StopParticles(string name){
+        if (!Exists(name)) return;
+        _particles[name].GetComponent<ParticleSystem>().Stop();
+    }
+
     public void StartParticles(string name, Transform parent)
     {
         if (!Exists(name)) LoadParticles(name);
