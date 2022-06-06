@@ -23,9 +23,10 @@ public class SlimeAttack : EnemyCombat
     {
         if (dying)
         {
+            dying = false;
             GetComponent<SlimeAI>().currentState = States.Dying;
             animator.SetBool("Dying", true);
-            StartCoroutine(DeathDelay(2.5f));
+            StartCoroutine(DeathDelay(2.3f));
         }
     }
 
@@ -39,15 +40,23 @@ public class SlimeAttack : EnemyCombat
     {
         if(collision.collider.gameObject.tag == "Player")
         {
+            if (GetComponent<SlimeAI>().currentState == States.Dying) return;
             var player = collision.gameObject.GetComponent<PlayerCombat>();
-            slime.velocity = Vector2.zero;
-            slime.angularVelocity = 0.0f;
-            var force = transform.position + collision.transform.position;
-            var forceNew = new Vector2(-(transform.right.x) * 400.0f, 10.0f);
-            force.Normalize();
-            slime.velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().AddForce(forceNew);
-            player.TakeDamage(currentAttack);
+            if (GetComponent<SlimeAI>().currentState != States.Chasing)
+            {
+                player.TakeDamage(currentAttack);
+            }
+            else
+            {
+                slime.velocity = Vector2.zero;
+                slime.angularVelocity = 0.0f;
+                var force = transform.position + collision.transform.position;
+                var forceNew = new Vector2(-(transform.right.x) * 400.0f, 10.0f);
+                force.Normalize();
+                slime.velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().AddForce(forceNew);
+                player.TakeDamage(currentAttack);
+            }
         }
     }
 

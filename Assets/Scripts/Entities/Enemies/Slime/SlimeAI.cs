@@ -40,35 +40,21 @@ public class SlimeAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-        if(currentState == States.Patrolling && currentState != States.Dying)
-        { 
+    void Update() {
+        if(currentState == States.Patrolling) { 
             Patrol();
-            currentTime += Time.deltaTime;
-            if(currentTime > maxTime)
-            {
-                Flip();
-            }
-            if(EdgeDetected() || WallDetected())
-            {
-                Flip();
-            }
+            if(EdgeDetected() || WallDetected()) Flip();
             if(DetectPlayer()) currentState = States.Chasing;
-        }
-        else if(currentState == States.Chasing && currentState != States.Dying)
-        {
+        } else if(currentState == States.Chasing) {
             stopTime += Time.deltaTime;
-            if(stopTime > 2f) {
+            if(stopTime > 1.5f) {
                 currentState = States.Attacking;
                 GetComponent<SlimeAttack>().SlimeAttacks();
                 stopTime = 0;
             }
-        }
-        else if (currentState == States.Attacking && currentState != States.Dying){
+        } else if (currentState == States.Attacking){
             stopTime += Time.deltaTime;
-            if (stopTime > 2.0f) {
+            if (stopTime > 1.5f) {
                 currentState = States.Patrolling;
                 stopTime = 0;
             }
@@ -76,8 +62,7 @@ public class SlimeAI : MonoBehaviour
 
     }
 
-    void Patrol()
-    {
+    void Patrol() {
         transform.Translate(transform.right * currentSpeed * Time.deltaTime, Space.World);
     }
 

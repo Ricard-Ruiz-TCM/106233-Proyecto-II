@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b097d0d81f3be4797ee2e1b70333cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8388608
@@ -146,7 +145,7 @@ MonoBehaviour:
     m_Bits: 128
   WhatIsWall:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 671498624
   EdgeDetectionPoint: {fileID: 3438083275055373835}
   DetectionDistance: 1
   currentState: 0
