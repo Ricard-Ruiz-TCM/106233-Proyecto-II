@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour {
     private PlayerDrawing _drawing; 
     private PlayerMovement _movement;
     private PlayerDash _dash;
+    private PlayerWallFall _wfall;
 
     private Vector3 BossPosition;
 
@@ -54,6 +55,7 @@ public class CameraMovement : MonoBehaviour {
         _drawing = _player.GetComponent<PlayerDrawing>();
         _movement = _player.GetComponent<PlayerMovement>();
         _dash = _player.GetComponent<PlayerDash>();
+        _wfall = _player.GetComponent<PlayerWallFall>();
     }
 
     // Unity
@@ -72,8 +74,10 @@ public class CameraMovement : MonoBehaviour {
         }
 
         if (Mathf.Abs(_deltaY - _nextDeltaY) > 0.1f){
-            if (_deltaY > _nextDeltaY) _deltaY -= Time.deltaTime * 0.9f;
-            else if (_deltaY < _nextDeltaY) _deltaY += Time.deltaTime * 0.9f;
+            float value = Time.deltaTime * 0.9f;
+            if (_wfall.IsEnabled()) value += Time.deltaTime * 0.6f;
+            if (_deltaY > _nextDeltaY) _deltaY -= value;
+            else if (_deltaY < _nextDeltaY) _deltaY += value;
         }
 
         _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
