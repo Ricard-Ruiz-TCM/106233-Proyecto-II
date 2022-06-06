@@ -23,6 +23,7 @@ public class EnemyCombat : Entity, ICombat {
 
     public void TakeDamage(Attack weapon)
     {
+        if (!CanTakeDamage) return;
         _health -= weapon.Damage;
         if (_health <= 0.0f){
             dying = true;

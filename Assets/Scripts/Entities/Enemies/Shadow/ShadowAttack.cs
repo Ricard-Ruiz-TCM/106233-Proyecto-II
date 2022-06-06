@@ -31,11 +31,10 @@ public class ShadowAttack : EnemyCombat
         if (dying)
         {
             dying = false;
-            animator.SetBool("Dying", true);
             GetComponent<Rigidbody2D>().isKinematic = true;
             GetComponent<BoxCollider2D>().isTrigger = true;
             shadowAI.shadowState = ShadowStates.Dying;
-            StartCoroutine(DeathDelay(3f));
+            StartCoroutine(DeathDelay(1.25f));
         }
     }
 

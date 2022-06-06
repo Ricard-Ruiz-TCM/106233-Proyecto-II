@@ -122,6 +122,11 @@ public class ShadowAI : EnemyMovement
                     shadowState = ShadowStates.Move;
                 }
                 break;
+            case ShadowStates.Dying:
+                animator.SetBool("Idle", false);
+                animator.SetBool("Appearing", false);
+                animator.SetBool("Dying", true);
+                break;
         }
     }
 
