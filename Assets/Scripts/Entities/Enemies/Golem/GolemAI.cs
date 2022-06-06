@@ -2,32 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GolemAI : MonoBehaviour
-{
-    public Rigidbody2D player;
-    public Rigidbody2D paintBucket;
-    public LayerMask WhatIsPlayer;
-    public Transform PlayerDetectionPoint;
+public class GolemAI : MonoBehaviour {
 
-    //private float speed = 2.0f;
-    private float maxDist = 5.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private GameObject player;
+    private float _time;
+
+    void Start() {
+        player = GameObject.FindObjectOfType<Player>().gameObject;
+        _time = 5.0f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (!GetComponent<GolemAttack>().Dying) FacePlayer();
+        _time -= Time.deltaTime;
+        if (_time <= 0.0f)
+        {
+            Invoke("Attack", 0.55f);
+            GetComponent<Animator>().SetBool("Attack", true);
+            Invoke("StopAnim", 1.5f);
+            _time = 5.0f;
+        }
     }
 
-    void Move()
+    private void StopAnim()
     {
-        Vector2 minPos = new Vector2(paintBucket.position.x - maxDist, transform.position.y);
-        Vector2 maxPos = new Vector2(paintBucket.position.x + maxDist, transform.position.y);
-        Vector2 randPos = new Vector2((Random.Range(minPos.x, maxPos.x)), Random.Range(minPos.y, maxPos.y));
-
+        GetComponent<Animator>().SetBool("Attack", false);
     }
+
+
+    private void Attack(){
+        GetComponent<GolemAttack>().Attack();
+    }
+
+    public void FacePlayer() {
+        Vector2 dir = (transform.position - player.transform.position);
+        dir.Normalize();
+        transform.localEulerAngles = new Vector3(0.0f, -180.0f * Mathf.Ceil(dir.x), 0.0f);
+    }
+
 }
