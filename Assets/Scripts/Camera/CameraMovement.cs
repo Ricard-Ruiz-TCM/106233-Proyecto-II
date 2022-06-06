@@ -20,6 +20,8 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     private float _deltaY;
     [SerializeField]
+    private float _nextDeltaY;
+    [SerializeField]
     private float _str;
 
     private bool _holdY;
@@ -69,18 +71,21 @@ public class CameraMovement : MonoBehaviour {
             else if (_deltaX < _nextDeltaX) _deltaX += value;
         }
 
-        _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
-        if (_holdY) {
-            _nextPos.y = transform.position.y;
+        if (Mathf.Abs(_deltaY - _nextDeltaY) > 0.1f){
+            if (_deltaY > _nextDeltaY) _deltaY -= Time.deltaTime * 0.9f;
+            else if (_deltaY < _nextDeltaY) _deltaY += Time.deltaTime * 0.9f;
         }
 
+        _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
+        
+        if (_holdY) { _nextPos.y = transform.position.y; }
         if (_OnBossRoom) _nextPos = BossPosition;
 
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
     }
 
     public void SetDeltaY(float y) {
-        _deltaY = y;
+        _nextDeltaY = y;
     }
 
     public void SetDeltaX(float x){
