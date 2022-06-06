@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7581985352257276042}
   - component: {fileID: 3877270700005189870}
   - component: {fileID: 2179651519455993879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fake_Rock
   m_TagString: DestroyWall
   m_Icon: {fileID: 0}

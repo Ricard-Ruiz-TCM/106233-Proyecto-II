@@ -51,6 +51,7 @@ public class ShadowAI : EnemyMovement
         attackCD += Time.deltaTime;
         switch (shadowState) {
             case ShadowStates.Move:
+                GetComponent<ShadowAttack>().CanTakeDamage = true;
                 Move();
                 if (EdgeDetected() || WallDetected()) {
                     Flip();
@@ -64,7 +65,8 @@ public class ShadowAI : EnemyMovement
                 break;
 
             case ShadowStates.Disappearing:
-                if (currentTime >= 1.5f) {
+                GetComponent<ShadowAttack>().CanTakeDamage = false;
+                if (currentTime >= 1.25f) {
                     currentTime = 0.0f;
                     animator.SetBool("Disappearing", false);
                     animator.SetBool("Underground", true);
@@ -73,6 +75,7 @@ public class ShadowAI : EnemyMovement
                 break;
 
             case ShadowStates.MoveUnderground:
+                GetComponent<ShadowAttack>().CanTakeDamage = false;
                 //if (PlayerBehind()) Flip();
                 if (!EdgeDetected() && !WallDetected()) Chasing();
                 else {
@@ -87,12 +90,12 @@ public class ShadowAI : EnemyMovement
                     animator.SetBool("Appearing", true);
                     shadowState = ShadowStates.Appearing;
                 }
-                if (Vector2.Distance(transform.position, player.transform.position) < 0.2f) {
+                if (Vector2.Distance(transform.position, player.transform.position) < 0.25f) {
                     if (attackCD >= 6.0f) {
                         shadowState = ShadowStates.Attacking;
                         animator.SetBool("Underground", false);
                         animator.SetBool("Attacking", true);
-                        Invoke("Attack", 1.35f);
+                        Invoke("Attack", 0.50f);
                         attackCD = 0.0f;
                         currentTime = 0.0f;
                     }
@@ -100,7 +103,8 @@ public class ShadowAI : EnemyMovement
                 break;
 
             case ShadowStates.Attacking:
-                if (currentTime > 3.5f) {
+                GetComponent<ShadowAttack>().CanTakeDamage = false;
+                if (currentTime > 1.25f) {
                     animator.SetBool("Attacking", false);
                     animator.SetBool("Appearing", true);
                     shadowState = ShadowStates.Appearing;
@@ -109,7 +113,8 @@ public class ShadowAI : EnemyMovement
                 break;
 
             case ShadowStates.Appearing:
-                if (currentTime >= 3.2f) {
+                GetComponent<ShadowAttack>().CanTakeDamage = true;
+                if (currentTime >= 1.25f) {
                     animator.SetBool("Idle", true);
                     animator.SetBool("Appearing", false);
                     animator.SetBool("Disappearing", false);
@@ -129,8 +134,8 @@ public class ShadowAI : EnemyMovement
     }
 
     private void Chasing() {
-        if (Vector2.Distance(transform.position, player.transform.position) > 0.1f) { 
-            transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.transform.position.x, transform.position.y), Speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, player.transform.position) > 0.15f) { 
+            transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(player.transform.position.x, transform.position.y), (2.0f * Speed) * Time.deltaTime);
             if (PlayerBehind()) Flip();
         }
     }

@@ -14,6 +14,8 @@ public class EnemyCombat : Entity, ICombat {
     protected bool dying = false;
     public bool Dying => dying;
 
+    public bool CanTakeDamage = true;
+
     public void Attack(ICombat target)
     {
 

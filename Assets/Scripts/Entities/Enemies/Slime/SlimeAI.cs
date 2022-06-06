@@ -37,29 +37,31 @@ public class SlimeAI : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+        stopTime = 0.0f;
     }
 
     // Update is called once per frame
     void Update() {
+        stopTime += Time.deltaTime;
         if(currentState == States.Patrolling) { 
             Patrol();
             if(EdgeDetected() || WallDetected()) Flip();
-            if(DetectPlayer()) currentState = States.Chasing;
-        } else if(currentState == States.Chasing) {
-            stopTime += Time.deltaTime;
-            if(stopTime > 0.2f) {
-                currentState = States.Attacking;
-                GetComponent<SlimeAttack>().SlimeAttacks();
+            if(DetectPlayer() && stopTime > 1.0f) {
+                currentState = States.Chasing;
                 stopTime = 0;
             }
+        } else if(currentState == States.Chasing) {
+            if(stopTime > 0.2f) {
+            currentState = States.Attacking;
+            GetComponent<SlimeAttack>().SlimeAttacks();
+            stopTime = 0;
+            }
         } else if (currentState == States.Attacking){
-            stopTime += Time.deltaTime;
             if (stopTime > 3.0f) {
                 currentState = States.Patrolling;
                 stopTime = 0;
             }
         }
-
     }
 
     void Patrol() {

@@ -58,14 +58,17 @@ public class PlantAttack : EnemyCombat
         if (dying)
         {
             animator.SetBool("Dying", true);
+            dying = false;
             if (IsInvoking("InkAttack")) CancelInvoke("InkAttack");
             StartCoroutine(DeathDelay(1.9f));
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            GetComponent<BoxCollider2D>().isTrigger = true;
         }
     }
 
     void InkAttack()
     {
-        Vector2 init = new Vector2(transform.position.x + 0.1f, transform.position.y + 0.5f);
+        Vector2 init = new Vector2(transform.position.x + (transform.right.x * -0.3f), transform.position.y + 0.8f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, _container.transform);
         bullet.GetComponent<PlantInk>().Direction(-transform.right.x);
         currentTime = 0;

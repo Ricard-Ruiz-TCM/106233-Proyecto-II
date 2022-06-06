@@ -32,6 +32,8 @@ public class ShadowAttack : EnemyCombat
         {
             dying = false;
             animator.SetBool("Dying", true);
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            GetComponent<BoxCollider2D>().isTrigger = true;
             shadowAI.shadowState = ShadowStates.Dying;
             StartCoroutine(DeathDelay(3f));
         }
@@ -41,7 +43,7 @@ public class ShadowAttack : EnemyCombat
     {
         if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
         {
-            player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
+            player.GetComponent<PlayerCombat>().TakeDamage(currentAttack);
         }
     }
 

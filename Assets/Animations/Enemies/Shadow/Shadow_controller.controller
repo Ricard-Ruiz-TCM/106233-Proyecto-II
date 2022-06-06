@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -5039311884213506619}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -140,22 +140,22 @@ AnimatorStateMachine:
     m_Position: {x: 170, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5105002134163623480}
-    m_Position: {x: 190, y: 230, z: 0}
+    m_Position: {x: 170, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5929448219550094822}
-    m_Position: {x: 484.95007, y: 239.46707, z: 0}
+    m_Position: {x: 420, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3863711890613951818}
     m_Position: {x: -80, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7060780140502886930}
-    m_Position: {x: 536.9857, y: 71.035736, z: 0}
+    m_Position: {x: 450, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2120629357051657371}
-    m_Position: {x: 501.38232, y: -59.053497, z: 0}
+    m_Position: {x: 250, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6282644478531355275}
-    m_Position: {x: 111.114624, y: -93.287506, z: 0}
+    m_Position: {x: 0, y: -70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -277,7 +277,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -5039311884213506619}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -594,7 +594,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -5039311884213506619}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -616,7 +616,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 8337698626580757500}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -690,7 +690,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -5039311884213506619}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
