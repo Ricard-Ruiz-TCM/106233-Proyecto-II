@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5451715007389664792}
   - component: {fileID: 5451715007389664793}
-  - component: {fileID: 5451715007389664790}
   - component: {fileID: 5451715007389664791}
   - component: {fileID: 5451715007389664788}
   - component: {fileID: 5451715007389664789}
+  - component: {fileID: 7308169415912233278}
   m_Layer: 17
   m_Name: Tronco Puente
   m_TagString: Untagged
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5451715007389664790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5451715007389664786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb14354beb59014da539f102b8fce76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fallTime: 6
-  _fadeTime: 0.2
 --- !u!50 &5451715007389664791
 Rigidbody2D:
   serializedVersion: 4
@@ -183,3 +169,17 @@ CompositeCollider2D:
       - {x: -0.1599414, y: -0.18}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &7308169415912233278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451715007389664786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2764066bbae60cb4889284b80e7ab348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallTime: 6
+  _fadeTime: 0.2
