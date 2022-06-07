@@ -66,7 +66,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _strokes = new List<GameObject>();
 
         _templates = new List<GameObject>();
-        _templatesIndex = -1;
+        _templatesIndex = 0;
         _templateOffset = new Vector2(-2.8f, -1.2f);
         _templateCompleted = false;
         _checkTemplate = false;
@@ -85,6 +85,10 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _templates.Add(GameObject.FindObjectOfType<BoxTemplateID>().gameObject);
         _templates.Add(GameObject.FindObjectOfType<BombTemplateID>().gameObject);
         _templates.Add(GameObject.FindObjectOfType<BulbTemplateID>().gameObject);
+        DisableAllTemplates();
+    }
+
+    private void DisableAllTemplates(){
         foreach (GameObject g in _templates) { g.SetActive(false); }
     }
 
@@ -120,14 +124,11 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
     // PlayerDrawing.cs <Templates>   // "-1" => Next template on List    
     public void NextTemplate(int newPos = -1){
-        if (newPos == _templatesIndex) return;
-        if (newPos == -1) newPos = (_templatesIndex + 1) % _templates.Count;
-        _templatesIndex = newPos;
-
-        _templatesIndex = Mathf.Clamp(_templatesIndex, 0, GameManager.Instance.REAL_PROGRESSION - 1);
+        if (newPos == -1) newPos = (_templatesIndex + 1) % GameManager.Instance.REAL_PROGRESSION;
+        newPos = Mathf.Clamp(newPos, 0, GameManager.Instance.REAL_PROGRESSION - 1);
 
         CurrentTemplateGuide().FadeOut();
-        SetTemplateIndex(_templatesIndex);
+        SetTemplateIndex(newPos);
         CurrentTemplate().SetActive(true);
 
         CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
@@ -139,8 +140,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
     public void LastTemplate(){
         int i = _templatesIndex;
-        i = (i - 1) % _templates.Count; 
-        if (i < 0) i = _templates.Count - 1;
+        i = (i - 1) % GameManager.Instance.REAL_PROGRESSION; 
+        if (i < 0) i = GameManager.Instance.REAL_PROGRESSION - 1;
         NextTemplate(i);
     }
 
@@ -156,11 +157,12 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         GameObject.FindObjectOfType<HelperHUD>().Hide();
 
-        GameObject.FindObjectOfType<TemplateHUD>().OnClickButton(GameManager.Instance.ProgressionTemplate);
+        GameObject.FindObjectOfType<TemplateHUD>().FadeButtons(GameManager.Instance.HighlightedTemplate);
+        _templatesIndex = GameManager.Instance.HighlightedTemplate;
+        NextTemplate(_templatesIndex);
 
         _templateCompleted = false;
         _checkTemplate = false;
-        _templatesIndex = 0;
 
         _HUDREMINDER.GetComponent<Animator>().SetBool("Show", true);
 

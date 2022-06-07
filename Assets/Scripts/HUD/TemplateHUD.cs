@@ -22,7 +22,7 @@ public class TemplateHUD : MonoBehaviour {
         }
     }   
     
-    private void FadeButtons(int id){
+    public void FadeButtons(int id){
         foreach (GameObject g in _buttons){
             g.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         }

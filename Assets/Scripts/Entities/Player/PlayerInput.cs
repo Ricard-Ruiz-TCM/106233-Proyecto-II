@@ -50,7 +50,6 @@ public class PlayerInput : MonoBehaviour {
         _mousePos = _joystickDir = new Vector2(0.0f, 0.0f);
     }
 
-
     // Input
     void OnControlsChanged() {
         if (_input.currentControlScheme.Equals("Gamepad")) _currentScheme = INPUT_SCHEME.I_GAMEPAD;

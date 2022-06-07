@@ -38,7 +38,7 @@ public class TemplateGuide : MonoBehaviour {
     private void OnEnable()
     {
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-        _fade = 0.005f;
+        _fade = 1.0f;
     }
 
     private void OnDisable()
@@ -61,9 +61,9 @@ public class TemplateGuide : MonoBehaviour {
 
     private void Update(){
         Color c = GetComponent<SpriteRenderer>().color;
-        c.a += _fade;
+        c.a += _fade * Time.deltaTime;
         GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, c.a);
-        if (c.a <= 0.0f) this.gameObject.SetActive(false);
+        if (c.a <= 0.001f) this.gameObject.SetActive(false);
     }
 
     private void Fill(){
@@ -117,7 +117,7 @@ public class TemplateGuide : MonoBehaviour {
     }
 
     public void FadeOut() {
-        _fade = -0.01f;
+        _fade = -10.0f;
     }
 
     public void FullAlpha()

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 
     private GameObject _container;
 
-    public int ProgressionTemplate = 0;
+    public int HighlightedTemplate = 0;
 
     public int REAL_PROGRESSION = 0;
 
@@ -52,12 +52,12 @@ public class GameManager : MonoBehaviour {
 
     public void SetNewProgression (int templateID) {
         _templateButtons[REAL_PROGRESSION].SetActive(true);
-        ProgressionTemplate = templateID;
+        HighlightedTemplate = templateID;
         REAL_PROGRESSION += 1;
     }
 
     public void ResetProg() {
-        ProgressionTemplate = 0;
+        HighlightedTemplate = 0;
     }
 
 
