@@ -10,14 +10,14 @@ public class ShadowIntensity : MonoBehaviour {
 
     void Start() {
         _light = GetComponent<Light2D>();
-        InvokeRepeating("ChangeSI", 0.0f, 0.1f);
+        InvokeRepeating("ChangeSI", 0.0f, 0.2f);
         _increasing = 0.005f;
     }
 
     private void ChangeSI()
     {
         _light.shadowIntensity += Random.Range(_increasing / 10.0f, _increasing);
-        _light.shadowIntensity = Mathf.Clamp(_light.shadowIntensity, 0.005f, 0.1f);
+        _light.shadowIntensity = Mathf.Clamp(_light.shadowIntensity, 0.005f, 0.05f);
         _times++;
         if (Random.Range(0, 200) < (_times / 2.5f)) { _increasing *= -1; _times = 0; }
     }
