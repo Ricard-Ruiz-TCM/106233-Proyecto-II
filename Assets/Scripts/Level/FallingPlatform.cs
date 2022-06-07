@@ -16,6 +16,14 @@ public class FallingPlatform : MonoBehaviour {
     // InitPos
     private Vector2 _initialPos;
 
+    private void OnEnable() {
+        Player.OnRespawn += Restore;
+    }
+
+    private void OnDisable() {
+        Player.OnRespawn -= Restore;
+    }
+
     // Unity
     void Awake(){
         _fall = false;

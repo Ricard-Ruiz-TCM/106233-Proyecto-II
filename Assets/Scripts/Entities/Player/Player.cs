@@ -23,6 +23,8 @@ public class Player : Entity {
     // Observer para avisar cuando cambiamos de arma
     public static event Action<COMBAT_STATE> OnChangeWeapon;
 
+    public static event Action OnRespawn;
+
     // Observer para ver caundo cambia la vida
     public static event Action OnHealthChange;
     // Obsever para ver caudno cambia la tinta
@@ -350,6 +352,7 @@ public class Player : Entity {
         FillInk();
         Camera.main.transform.GetComponent<CameraMovement>().EnableYMovement();
         ChangeState(PLAYER_STATE.PS_IDDLE);
+        OnRespawn?.Invoke();
     }
 
     // State Machine Change and Check Methods
