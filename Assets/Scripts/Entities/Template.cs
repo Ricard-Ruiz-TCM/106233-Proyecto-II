@@ -86,6 +86,8 @@ public class Template : DrawElement, ICombat {
 
     public void TakeDamage(Attack weapon) {
         GameManager.Instance.InstantiateInkPot(transform.position);
+        ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
+
         Destroy(this.gameObject);
     }
 

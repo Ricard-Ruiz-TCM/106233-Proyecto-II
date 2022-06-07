@@ -40,6 +40,7 @@ public class BoxTemplate : Template {
 
         if (collision.collider.gameObject.tag == "Player"){
             if (CanKill()) {
+                ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
                 collision.collider.GetComponent<PlayerCombat>().TakeDamage(_attack);
                 Destroy(this.gameObject);
             }
