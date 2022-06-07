@@ -61,7 +61,10 @@ public class CameraMovement : MonoBehaviour {
     // Unity
     void Update() {
 
-        if (Vector2.Distance(transform.position, BossPosition) < 5.0f) _OnBossRoom = true;
+        if ((Vector2.Distance(transform.position, BossPosition) < 5.0f) && (!_OnBossRoom)){
+            _OnBossRoom = true;
+            MusicPlayer.Instance.PlayMusic("boss");
+        }
 
         _nextDeltaX = 2.0f * _player.transform.right.x;
 

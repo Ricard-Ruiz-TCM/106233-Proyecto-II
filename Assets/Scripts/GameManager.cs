@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
         //LVL2.SetActive(false);
+        MusicPlayer.Instance.PlayMusic("forest");
     }
 
     public void InstantiateInkPot(Vector2 pos) {
@@ -34,7 +35,8 @@ public class GameManager : MonoBehaviour {
     {
         //LVL1.SetActive(false);
         //LVL2.SetActive(true);
-        foreach(GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) {
+        MusicPlayer.Instance.PlayMusic("cave");
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemies);
         }
     }

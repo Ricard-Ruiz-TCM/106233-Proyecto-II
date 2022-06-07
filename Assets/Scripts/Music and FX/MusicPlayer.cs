@@ -13,7 +13,10 @@ public class MusicPlayer : MonoBehaviour {
     /////////////////////////////////////////////////////////////////////
 
     public AudioSource _fxAS;
+    public bool _fadeAS;
     public AudioSource _musicAS;
+    public bool _fadeCM;
+    public AudioSource _currentMusic;
 
     // Diccionario de FX
     public List<AudioClip> _fx;
@@ -30,6 +33,21 @@ public class MusicPlayer : MonoBehaviour {
 
         _music = new List<AudioClip>();
         _musicDic = new Dictionary<string, int>();
+
+        _fadeAS = true;
+        _fadeCM = true;
+    }
+
+    void Update() {
+
+        if (_fadeAS) _musicAS.volume -= 0.001f;
+                else _musicAS.volume += 0.001f;
+        _musicAS.volume = Mathf.Clamp(_musicAS.volume, 0.0f, 1.0f);
+
+        if (_fadeCM) _currentMusic.volume -= 0.001f;
+                else _currentMusic.volume += 0.001f;
+        _currentMusic.volume = Mathf.Clamp(_currentMusic.volume, 0.0f, 1.0f);
+
     }
 
     // MusicPlayer.cs <Load>
@@ -65,7 +83,7 @@ public class MusicPlayer : MonoBehaviour {
     }
 
     private AudioClip GetMusic(string audio){
-        return _fx[_fxDic[audio]];
+        return _music[_musicDic[audio]];
     }
 
     // MusicPlayer.cs <Play>
@@ -102,8 +120,22 @@ public class MusicPlayer : MonoBehaviour {
         if (!ExistsMusic(audio)) LoadMusic(audio);
         ////////////////////////////////
         // Play de la Music con el mixer de la Music
-        _musicAS.clip = GetMusic(audio);
-        _musicAS.Play();
+        if (_currentMusic.isPlaying) {
+            _musicAS.clip = GetMusic(audio);
+            _musicAS.Play();
+            _musicAS.volume = 0.0f;
+            _fadeCM = true; _fadeAS = false;
+        } else if (_musicAS.isPlaying) {
+            _currentMusic.clip = GetMusic(audio);
+            _currentMusic.Play();
+            _currentMusic.volume = 0.0f;
+            _fadeAS = true; _fadeCM = false;
+        } else {
+            _currentMusic.clip = GetMusic(audio);
+            _currentMusic.Play();
+            _currentMusic.volume = 0.0f;
+            _fadeAS = false;
+        }
     }
 
     // MusicPlayer.cs <Control>
