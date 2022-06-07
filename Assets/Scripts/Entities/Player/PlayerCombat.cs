@@ -111,7 +111,8 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         if (Melee()) MeleeAttack();
     }
 
-    public void TakeDamage(Attack weapon){ _player.TakeDamage(weapon.Damage); }
+    public void TakeDamage(Attack weapon){ _player.TakeDamage(weapon.Damage);
+    }
 
     // IHaveStates
     public void OnEnterState(){

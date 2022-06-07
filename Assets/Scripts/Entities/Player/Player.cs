@@ -330,7 +330,9 @@ public class Player : Entity {
     }
 
     public void TakeDamage(int amount, DEATH_CAUSE source = DEATH_CAUSE.D_DAMAGE) { 
-        if (CanChangeHealth()) { 
+        if (CanChangeHealth()) {
+            ParticleInstancer.Instance.StartParticles("Particulas de Daño", transform);
+
             _health -= amount; 
             IJustTakeDamage(source);
             OnHealthChange?.Invoke(); 
