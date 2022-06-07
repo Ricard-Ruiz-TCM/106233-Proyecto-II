@@ -36,13 +36,15 @@ public class ParticleInstancer : MonoBehaviour
     public void StartParticles(string name, Transform parent)
     {
         if (!Exists(name)) LoadParticles(name);
-        InstanceParticles(name, parent);
+        GameObject g = InstanceParticles(name, parent);
+        Destroy(g.gameObject, g.GetComponent<ParticleSystem>().main.duration);
     }
 
     public void StartParticles(string name, Vector2 position) {
         if (!Exists(name)) LoadParticles(name);
         GameObject g = InstanceParticles(name, GameObject.FindObjectOfType<ElementsContainer>().transform);
         g.transform.SetPositionAndRotation(position, Quaternion.identity);
+        Destroy(g.gameObject, g.GetComponent<ParticleSystem>().main.duration);
     }
 
     private GameObject InstanceParticles(string name, Transform parent)
