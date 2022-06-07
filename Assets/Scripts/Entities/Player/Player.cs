@@ -96,6 +96,11 @@ public class Player : Entity {
     // Input
     private PlayerInput _input;
 
+    // sprite
+    private SpriteRenderer _sprite;
+
+    public float _alpha;
+
     void Start(){
         _ink = 50;
         _maxInk = _ink;
@@ -104,6 +109,7 @@ public class Player : Entity {
         _maxHealth = _health;
 
         _canCHealth = true;
+        _alpha = 1.0f;
 
         _canAttack = true;
 
@@ -125,6 +131,8 @@ public class Player : Entity {
         _NoInk = Resources.Load<GameObject>("Prefabs/NoInk");
 
         _currentBehavriour = _iddle;
+
+        _sprite = GetComponent<SpriteRenderer>();
 
         _spikeAttack = Resources.Load<Attack>("ScritpableObjects/SpikeAttack");
 
@@ -255,6 +263,12 @@ public class Player : Entity {
 
     }
 
+    private void FixedUpdate() {
+        if (!_canCHealth) _alpha = Mathf.Cos(Time.realtimeSinceStartup * 1.5f);
+        _alpha = Mathf.Clamp(_alpha, 0.25f, 1.0f);
+        _sprite.color = new Color(1.0f, 1.0f, 1.0f, _alpha);
+    }
+
     public void ToggleDrawing(){
         if (HaveInk(10)) {
             if (GameManager.Instance.REAL_PROGRESSION > 0) _drawing.ToggleSystem();
@@ -337,11 +351,15 @@ public class Player : Entity {
 
     private void NoInvencible() {
         _canCHealth = true;
+        _alpha = 1.0f;
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     private void CheckDeath(){
-        if (_health <= 0.0f) ChangeState(PLAYER_STATE.PS_DIE);
+        if (_health <= 0.0f) {
+            ChangeState(PLAYER_STATE.PS_DIE);
+            _alpha = 0.5f;
+        }
     }
 
     public void Respawn() {
@@ -350,6 +368,7 @@ public class Player : Entity {
         _die.SetDeathCause(DEATH_CAUSE.D_DAMAGE);
         FillHealth();
         FillInk();
+        _alpha = 1.0f;
         Camera.main.transform.GetComponent<CameraMovement>().EnableYMovement();
         ChangeState(PLAYER_STATE.PS_IDDLE);
         OnRespawn?.Invoke();
