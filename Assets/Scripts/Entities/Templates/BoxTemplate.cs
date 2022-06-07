@@ -26,7 +26,6 @@ public class BoxTemplate : Template {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider == null) return;
-
         _body.velocity = Vector2.zero;
         if (collision.collider.gameObject.tag == "WallFall") GetComponent<Rigidbody2D>().isKinematic = true;
 
