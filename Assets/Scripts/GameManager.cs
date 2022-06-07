@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     void Start(){
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
-        LVL2.SetActive(false);
+        //LVL2.SetActive(false);
     }
 
     public void InstantiateInkPot(Vector2 pos) {
@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour {
 
     public void GOTOLVL2()
     {
-        LVL1.SetActive(false);
-        LVL2.SetActive(true);
+        //LVL1.SetActive(false);
+        //LVL2.SetActive(true);
         foreach(GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemies);
         }
