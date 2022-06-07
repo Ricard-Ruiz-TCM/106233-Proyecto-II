@@ -39,9 +39,15 @@ public class ParticleInstancer : MonoBehaviour
         InstanceParticles(name, parent);
     }
 
-    private void InstanceParticles(string name, Transform parent)
+    public void StartParticles(string name, Vector2 position) {
+        if (!Exists(name)) LoadParticles(name);
+        GameObject g = InstanceParticles(name, GameObject.FindObjectOfType<ElementsContainer>().transform);
+        g.transform.SetPositionAndRotation(position, Quaternion.identity);
+    }
+
+    private GameObject InstanceParticles(string name, Transform parent)
     {
-        Instantiate(_particles[name], parent);
+        return Instantiate(_particles[name], parent);
     }
 
 
