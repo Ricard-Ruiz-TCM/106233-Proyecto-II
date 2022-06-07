@@ -13,18 +13,18 @@ public class ParticleInstancer : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
         _particles = new Dictionary<string, GameObject>();
+        _particlesInGame = new List<GameObject>();
     }
     /////////////////////////////////////////////////////////////////////
 
     private Dictionary<string, GameObject> _particles;
+    private List<GameObject> _particlesInGame;
 
-    private void LoadParticles(string name)
-    {
+    private void LoadParticles(string name){
         _particles.Add(name, Resources.Load<GameObject>("Prefabs/Particles/" + name));
     }
 
-    private bool Exists(string name)
-    {
+    private bool Exists(string name){
         return _particles.ContainsKey(name);
     }
 
@@ -33,8 +33,19 @@ public class ParticleInstancer : MonoBehaviour
         _particles[name].GetComponent<ParticleSystem>().Stop();
     }
 
-    public void StartParticles(string name, Transform parent)
-    {
+    public void StopParticles(int id){
+        if ((_particlesInGame.Count > id) || (id < 0)) return;
+        if (_particlesInGame[id] == null) return;
+        _particlesInGame[id].GetComponent<ParticleSystem>().Stop();
+    }
+
+    public int StartSpecialParticles(string name, Transform parent) {
+        if (!Exists(name)) LoadParticles(name);
+        _particlesInGame.Add(InstanceParticles(name, parent));
+        return _particlesInGame.Count - 1;
+    }
+
+    public void StartParticles(string name, Transform parent){
         if (!Exists(name)) LoadParticles(name);
         GameObject g = InstanceParticles(name, parent);
         Destroy(g.gameObject, g.GetComponent<ParticleSystem>().main.duration*3.0f);
@@ -47,8 +58,7 @@ public class ParticleInstancer : MonoBehaviour
         Destroy(g.gameObject, g.GetComponent<ParticleSystem>().main.duration*3.0f);
     }
 
-    private GameObject InstanceParticles(string name, Transform parent)
-    {
+    private GameObject InstanceParticles(string name, Transform parent){
         return Instantiate(_particles[name], parent);
     }
 

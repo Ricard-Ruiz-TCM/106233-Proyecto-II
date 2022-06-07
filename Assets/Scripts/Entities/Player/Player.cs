@@ -264,8 +264,9 @@ public class Player : Entity {
     }
 
     private void FixedUpdate() {
-        if (!_canCHealth) _alpha = Mathf.Cos(Time.realtimeSinceStartup * 1.5f);
+        if (!_canCHealth) _alpha = Mathf.Cos(Time.realtimeSinceStartup * 10.0f) + 0.5f;
         _alpha = Mathf.Clamp(_alpha, 0.25f, 1.0f);
+        if (State().Equals(PLAYER_STATE.PS_DIE)) _alpha = 0.5f;
         _sprite.color = new Color(1.0f, 1.0f, 1.0f, _alpha);
     }
 
