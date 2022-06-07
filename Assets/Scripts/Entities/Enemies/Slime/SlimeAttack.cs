@@ -48,6 +48,7 @@ public class SlimeAttack : EnemyCombat
             if (GetComponent<SlimeAI>().currentState == States.Patrolling) 
             {
                 player.TakeDamage(currentAttack);
+                
             }
             else
             {

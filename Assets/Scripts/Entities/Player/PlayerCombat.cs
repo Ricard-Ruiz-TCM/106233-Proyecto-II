@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections;
 
 public enum COMBAT_STATE {
     C_MELEE, C_RANGED
@@ -92,6 +93,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     private void MeleeAttack() {
         _body.velocity = Vector2.zero;
         _body.AddForce(new Vector2(transform.right.x * 150.0f, 75.0f));
+        StartCoroutine(AttackDelay(0.3f));
     }
 
     // PlayerCombat.cs <Ranged>
@@ -128,6 +130,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         _animator.SetBool("Ranged", false);
         ////////////////
         DisableSystem();
+        StopAllCoroutines();
     }
 
     public void OnState(){
@@ -142,4 +145,10 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         if (_attackTime >= _weapon.Cooldown) EndAttack();
     }
 
+
+    private IEnumerator AttackDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ParticleInstancer.Instance.StartParticles("Particles_attack", new Vector2(transform.position.x + 0.8f, transform.position.y));
+    }
 }

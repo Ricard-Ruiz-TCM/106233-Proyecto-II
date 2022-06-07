@@ -28,6 +28,7 @@ public class EnemyCombat : Entity, ICombat {
         if (_health <= 0.0f){
             dying = true;
         }
+        
     }
 
     protected IEnumerator DeathDelay(float time)
