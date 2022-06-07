@@ -40,4 +40,12 @@ public class DEBUGING : MonoBehaviour {
         GameObject.FindObjectOfType<ShadowIntensity>().Fix();
     }
 
+    public void FullINK(){
+        _player.GetComponent<Player>().FillInk();
+    }
+
+    public void FullHP(){
+        _player.GetComponent<Player>().FillHealth();
+    }
+
 }

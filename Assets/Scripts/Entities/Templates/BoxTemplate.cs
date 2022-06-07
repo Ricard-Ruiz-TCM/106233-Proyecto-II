@@ -32,6 +32,7 @@ public class BoxTemplate : Template {
         if (collision.collider.gameObject.tag == "Enemy") {
             if (CanKill())
             {
+                if (collision.collider.gameObject.GetComponent<BoxTemplate>() != null) return;
                 Destroy(collision.collider.gameObject);
                 _body.velocity = Vector2.zero;
             }

@@ -20,6 +20,8 @@ public class PlayerPlacing : PlayerState, IHaveStates {
     // Template de Box Activa    
     private GameObject _activeBox;
 
+    private GameObject _box2Dstroy;
+
     // Drawing System
     private PlayerDrawing _drawing;
 
@@ -48,7 +50,10 @@ public class PlayerPlacing : PlayerState, IHaveStates {
     }
 
     private void SwapBox(GameObject box){
-        if (_activeBox != null) Destroy(_activeBox);
+        if (_activeBox != null) {
+            _box2Dstroy = _activeBox;
+            Destroy(_box2Dstroy, 2.0f);
+        }
         _activeBox = box;
     }
 
