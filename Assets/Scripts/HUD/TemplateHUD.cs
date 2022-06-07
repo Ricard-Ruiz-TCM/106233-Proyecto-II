@@ -29,9 +29,19 @@ public class TemplateHUD : MonoBehaviour {
         _buttons[id].GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
     
-    private void OnClickButton(int id){
+    public void OnClickButton(int id){
         FadeButtons(id);
         _player.NextTemplate(id);
+    }
+
+    public void LastTemplate() {
+        _player.LastTemplate();
+        FadeButtons(_player.TID);
+    }
+
+    public void NextTemplate() {
+        _player.NextTemplate();
+        FadeButtons(_player.TID);
     }
 
     public void OnClickBoxTemplate() { OnClickButton(0); }

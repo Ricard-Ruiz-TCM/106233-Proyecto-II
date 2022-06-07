@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a11adb8c6ecf34eaf185c5bb5aa1fd, type: 3}
   m_Name: PinchosPinchan
   m_EditorClassIdentifier: 
-  ID: 2
+  ID: -1
   Portrait: {fileID: 21300000, guid: cac92c6b6ff5f324db3a6122c5f9b8b6, type: 3}
   Text: CUIDADO QUE LOS PINCHOS PINCHAN MAMA HUEVO
   Duration: 13

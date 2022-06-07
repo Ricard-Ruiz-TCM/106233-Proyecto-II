@@ -40,6 +40,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     public GameObject CurrentTemplate() { return _templates[_templatesIndex]; }
     private TemplateGuide CurrentTemplateGuide(){ return CurrentTemplate().GetComponent<TemplateGuide>(); }
 
+    public int TID => _templatesIndex;
     // Templates Control
     private int _templatesIndex;
     private void SetTemplateIndex(int i){ _templatesIndex = i; }
@@ -65,7 +66,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _strokes = new List<GameObject>();
 
         _templates = new List<GameObject>();
-        _templatesIndex = 0;
+        _templatesIndex = -1;
         _templateOffset = new Vector2(-2.8f, -1.2f);
         _templateCompleted = false;
         _checkTemplate = false;
@@ -84,7 +85,6 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _templates.Add(GameObject.FindObjectOfType<BoxTemplateID>().gameObject);
         _templates.Add(GameObject.FindObjectOfType<BombTemplateID>().gameObject);
         _templates.Add(GameObject.FindObjectOfType<BulbTemplateID>().gameObject);
-        _templates.Add(GameObject.FindObjectOfType<KeyTemplateID>().gameObject);
         foreach (GameObject g in _templates) { g.SetActive(false); }
     }
 
@@ -119,12 +119,15 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     }
 
     // PlayerDrawing.cs <Templates>   // "-1" => Next template on List    
-    public void NextTemplate(int newPos = -1){ 
+    public void NextTemplate(int newPos = -1){
+        if (newPos == _templatesIndex) return;
         if (newPos == -1) newPos = (_templatesIndex + 1) % _templates.Count;
+        _templatesIndex = newPos;
 
-        CurrentTemplate().SetActive(false);
-        CurrentTemplateGuide().FullAlpha();
-        SetTemplateIndex(newPos);
+        _templatesIndex = Mathf.Clamp(_templatesIndex, 0, GameManager.Instance.REAL_PROGRESSION - 1);
+
+        CurrentTemplateGuide().FadeOut();
+        SetTemplateIndex(_templatesIndex);
         CurrentTemplate().SetActive(true);
 
         CurrentTemplate().gameObject.transform.position = (Vector2)Camera.main.transform.position + _templateOffset;
@@ -153,13 +156,13 @@ public class PlayerDrawing : PlayerState, IHaveStates {
 
         GameObject.FindObjectOfType<HelperHUD>().Hide();
 
+        GameObject.FindObjectOfType<TemplateHUD>().OnClickButton(GameManager.Instance.ProgressionTemplate);
+
         _templateCompleted = false;
         _checkTemplate = false;
         _templatesIndex = 0;
 
         _HUDREMINDER.GetComponent<Animator>().SetBool("Show", true);
-
-        CurrentTemplate().SetActive(true);
 
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
@@ -175,6 +178,8 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _isDrawing = false;
 
         ClearStrokes();
+
+        GameManager.Instance.ResetProg();
 
         _HUDREMINDER.GetComponent<Animator>().SetBool("Show", false);
 

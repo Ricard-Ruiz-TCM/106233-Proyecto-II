@@ -111,11 +111,11 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void OnTempNext(InputValue input){
-        _player.NextTemplate();
+        _player.LastTemplate(); 
     }
 
     void OnTempLast(InputValue input){
-        _player.LastTemplate();
+        _player.NextTemplate();
     }
 
 }

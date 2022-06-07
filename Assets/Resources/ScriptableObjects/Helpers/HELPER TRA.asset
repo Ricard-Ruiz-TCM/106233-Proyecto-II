@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a11adb8c6ecf34eaf185c5bb5aa1fd, type: 3}
   m_Name: HELPER TRA
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: -1
   Portrait: {fileID: -7472704073832157061, guid: 9b96f6bb7a9894e4b8e485417b242c13, type: 3}
   Text: HOLA SOY EL PUTO SLIME
   Duration: 8

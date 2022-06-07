@@ -255,7 +255,7 @@ public class Player : Entity {
 
     public void ToggleDrawing(){
         if (HaveInk(10)) {
-            _drawing.ToggleSystem();
+            if (GameManager.Instance.REAL_PROGRESSION > 0) _drawing.ToggleSystem();
         } else {
             Instantiate(_NoInk, transform.position + new Vector3(-0.6f, 0.6f, 0.0f), Quaternion.identity, transform);
         }
@@ -278,11 +278,19 @@ public class Player : Entity {
     }
 
     public void NextTemplate(){
-        if (_drawing.IsEnabled()) _drawing.NextTemplate();
+        if (_drawing.IsEnabled()) {
+            if (GameManager.Instance.REAL_PROGRESSION > 1) {
+                GameObject.FindObjectOfType<TemplateHUD>().NextTemplate();
+            }
+        }
     }
 
     public void LastTemplate(){
-        if (_drawing.IsEnabled()) _drawing.LastTemplate();
+        if (_drawing.IsEnabled()) {
+            if (GameManager.Instance.REAL_PROGRESSION > 1) {
+                GameObject.FindObjectOfType<TemplateHUD>().LastTemplate();
+            }
+        }
     }
 
     public void SaveCheckPoint(Vector2 pos) {

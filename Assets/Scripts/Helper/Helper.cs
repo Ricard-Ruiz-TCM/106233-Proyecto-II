@@ -19,6 +19,7 @@ public class Helper : MonoBehaviour {
         if (collision.gameObject.tag != "Player") return;
         _hud.UpdateItem(_item);
         if (GetComponent<newTemplateUI>() != null) GetComponent<newTemplateUI>().Show();
+        if (_item.ID != -1) GameManager.Instance.SetNewProgression(_item.ID);
         Destroy(this.gameObject);
     }
 

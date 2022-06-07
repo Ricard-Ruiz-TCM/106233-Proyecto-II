@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a11adb8c6ecf34eaf185c5bb5aa1fd, type: 3}
   m_Name: HelperTest
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: -1
   Portrait: {fileID: -2654588857809120892, guid: 3b2b0431aa6f5dc4e961e71cd3610cc8, type: 3}
   Text: Hola puto, soy el charco yme debes 10 pavos
   Duration: 8

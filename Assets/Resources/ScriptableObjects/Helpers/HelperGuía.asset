@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a11adb8c6ecf34eaf185c5bb5aa1fd, type: 3}
   m_Name: "HelperGu\xEDa"
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: -1
   Portrait: {fileID: 21300000, guid: b0be5eec89ee41f479b14de7723e125c, type: 3}
   Text: "Drawi utiliza las gu\xEDas para dibujar objetos y crearlos en el mundo real.
     Pressiona R para interectuar con el men\xFA y resigue las l\xEDneas para dar
