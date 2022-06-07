@@ -52,11 +52,15 @@ public class PlayerPlacing : PlayerState, IHaveStates {
     private void SwapBox(GameObject box){
         if (_activeBox != null) {
             _box2Dstroy = _activeBox;
-            Destroy(_box2Dstroy, 2.0f);
+            Invoke("DstroyBox", 1.5f);
         }
         _activeBox = box;
     }
-
+    
+    private void DstroyBox(){
+        ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", _box2Dstroy.transform.position);
+        Destroy(_box2Dstroy);
+    }
     public void StopPlacing(){
         EndPlacing();
         _placed = true;
