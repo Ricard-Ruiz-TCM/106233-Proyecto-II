@@ -48,4 +48,17 @@ public class DEBUGING : MonoBehaviour {
         _player.GetComponent<Player>().FillHealth();
     }
 
+    public void KillXDamage(){
+        _player.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_DAMAGE);
+    }
+
+    public void KillXFall(){
+        _player.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL);
+    }
+
+    public void TakeDmg(){
+        Attack a = new Attack(); a.Damage = 1;
+        _player.GetComponent<PlayerCombat>().TakeDamage(a);
+    }
+
 }
