@@ -34,5 +34,10 @@ public class DEBUGING : MonoBehaviour {
     public void Respawn() {
         _player.GetComponent<Player>().Respawn();
     }
+    
+    public void FixtLight()
+    {
+        GameObject.FindObjectOfType<ShadowIntensity>().Fix();
+    }
 
 }

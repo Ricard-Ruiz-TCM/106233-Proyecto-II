@@ -22,10 +22,14 @@ public class ShadowIntensity : MonoBehaviour {
         if (Random.Range(0, 200) < (_times / 2.5f)) { _increasing *= -1; _times = 0; }
     }
 
-    public void StopSunshines()
-    {
+    public void StopSunshines() {
         CancelInvoke("ChangeSI");
         _light.shadowIntensity = 1.0f;
+    }
+
+    public void Fix(){
+        InvokeRepeating("ChangeSI", 0.0f, 0.2f);
+        _increasing = 0.005f;
     }
 
 }
