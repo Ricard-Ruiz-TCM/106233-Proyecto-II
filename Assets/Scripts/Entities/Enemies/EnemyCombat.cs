@@ -16,6 +16,8 @@ public class EnemyCombat : Entity, ICombat {
 
     public bool CanTakeDamage = true;
 
+    private int _id;
+
     public void Attack(ICombat target)
     {
 
@@ -25,6 +27,7 @@ public class EnemyCombat : Entity, ICombat {
     {
         if (!CanTakeDamage) return;
         _health -= weapon.Damage;
+        //_id = ParticleInstancer.Instance.StartSpecialParticles("Particles_attack", transform);
         if (_health <= 0.0f){
             dying = true;
         }

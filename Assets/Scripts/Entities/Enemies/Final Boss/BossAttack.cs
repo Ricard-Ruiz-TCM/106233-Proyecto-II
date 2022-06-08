@@ -31,7 +31,9 @@ public class BossAttack : EnemyCombat {
     }
 
     public void SpawnAttack(float dir){
-        GameObject sp = Instantiate(_spawner, transform.position, Quaternion.identity, _elementsContainer.transform);
+        Vector2 pos = transform.position;
+        pos += new Vector2(transform.right.x * 0.8f, 1.5f);
+        GameObject sp = Instantiate(_spawner, pos, Quaternion.identity, _elementsContainer.transform);
         sp.GetComponent<GolemSpawner>().SetDir(dir);
     }
 
