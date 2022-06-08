@@ -94,6 +94,8 @@ public class BombTemplate : Template {
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
 
+        ParticleInstancer.Instance.StartParticles("BombExplosion_Particle", transform.position);
+
 
         Destroy(this.gameObject, 1.3f);
     }
