@@ -105,38 +105,46 @@ public class BossIA : EnemyMovement {
         _handAttackTimer -= Time.deltaTime;
         _spawnAttackTimer -= Time.deltaTime;
 
+
+
         switch(State()){
             case BOSS_STATES.B_INTRO:
-                if (_waitTime <= 0.0f) {
+                if (GetComponent<BossAttack>().Dying) ChangeState("Intro", BOSS_STATES.B_DEATH, "Die");
+                else if (_waitTime <= 0.0f) {
                     ChangeState("Intro", BOSS_STATES.B_MOVING, "Move");
                 }
                 break;
             case BOSS_STATES.B_MELEE_ATTACK:
-                if (_waitTime <= 0.0f) {
+                if (GetComponent<BossAttack>().Dying) ChangeState("Melee", BOSS_STATES.B_DEATH, "Die");
+                else if (_waitTime <= 0.0f) {
                     ChangeState("Melee", BOSS_STATES.B_TAKE_DAMAGE, "Take");
                     _meleeAttackTimer = _meleeAttack.Cooldown;
                     _waitTime = 2.5f;
                 }
                 break;
             case BOSS_STATES.B_HAND_ATTACK:
-                if (_waitTime <= 0.0f) {
+                if (GetComponent<BossAttack>().Dying) ChangeState("Hand", BOSS_STATES.B_DEATH, "Die");
+                else if (_waitTime <= 0.0f) {
                     ChangeState("Hand", BOSS_STATES.B_MOVING, "Move");
                     _handAttackTimer = _handAttack.Cooldown;
                 }
                 break;
             case BOSS_STATES.B_SPAWN_ATTACK:
-                if (_waitTime <= 0.0f) {
+                if (GetComponent<BossAttack>().Dying) ChangeState("Spawn", BOSS_STATES.B_DEATH, "Die");
+                else if (_waitTime <= 0.0f) {
                     ChangeState("Spawn", BOSS_STATES.B_MOVING, "Move");
                     _spawnAttackTimer = _spawnAttack.Cooldown;
                 }
                 break;
             case BOSS_STATES.B_TAKE_DAMAGE:
-                if (_waitTime <= 0.0f) {
+                if (GetComponent<BossAttack>().Dying) ChangeState("Take", BOSS_STATES.B_DEATH, "Die");
+                else if (_waitTime <= 0.0f) {
                     ChangeState("Take", BOSS_STATES.B_MOVING, "Move");
                 }
                 break;
             case BOSS_STATES.B_MOVING:
-                if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range) && (_player.GetComponent<PlayerFall>().Grounded()))) {
+                if (GetComponent<BossAttack>().Dying) ChangeState("Move", BOSS_STATES.B_DEATH, "Die");
+                else if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range) && (_player.GetComponent<PlayerFall>().Grounded()))) {
                     _handPos = _player.transform.position;
                     ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
                     _waitTime = 2.5f;
@@ -155,10 +163,13 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_DEATH:
+                if (toDestroy) { toDestroy = false; Destroy(this.gameObject, 12.0f); }
                 break;
             default: break;
         }
-    }  
+    }
+
+    private bool toDestroy = true;
 
     public void MeleeAttack() { _combat.MeleeAttack(); }
     public void HandAttack() { _combat.HandAttack(_handPos);  }

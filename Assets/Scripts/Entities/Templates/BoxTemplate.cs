@@ -29,7 +29,7 @@ public class BoxTemplate : Template {
         _body.velocity = Vector2.zero;
         if (collision.collider.gameObject.tag == "WallFall") GetComponent<Rigidbody2D>().isKinematic = true;
 
-        if (collision.collider.gameObject.tag == "Enemy") {
+        if ((collision.collider.gameObject.tag == "Enemy") || (collision.collider.gameObject.tag == "Boss")) {
             if (CanKill())
             {
                 if (collision.collider.gameObject.GetComponent<BoxTemplate>() != null) return;

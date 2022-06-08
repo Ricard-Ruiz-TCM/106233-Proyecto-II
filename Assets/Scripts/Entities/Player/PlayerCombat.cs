@@ -44,6 +44,8 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     // PlayerSateMachine
     protected Player _player;
 
+    private bool _canAttack;
+
     void Awake(){
         LoadState();
         /////////////
@@ -85,6 +87,10 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
             if (hit.collider.gameObject.tag == "Enemy"){
                 return hit.collider.gameObject.GetComponent<ICombat>();    
             }
+            if (hit.collider.gameObject.tag == "Boss")
+            {
+                return hit.collider.gameObject.GetComponent<ICombat>();
+            }
         }
         return null;
     }
@@ -121,6 +127,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         EnableSystem();
         ///////////////
         Attack(null);
+        _canAttack = true;
         if (Melee())
         {
             _animator.SetBool("Melee", true);
@@ -140,10 +147,12 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     public void OnState(){
         if (!IsEnabled()) return;
 
-        if (Melee()) {
+        if (Melee() && (_canAttack)) {
             ICombat target = FindTarget();
+            _canAttack = false;
             if (target != null)
             {
+                
                 target.TakeDamage(_weapon);
             }
         }
