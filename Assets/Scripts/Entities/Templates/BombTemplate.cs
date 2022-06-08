@@ -19,6 +19,8 @@ public class BombTemplate : Template {
     [SerializeField]
     private Attack _attack;
 
+    private int _particlesID;
+
     private void Start() {
         load();
 
@@ -32,6 +34,8 @@ public class BombTemplate : Template {
         _text.text = "";
 
         _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BoxTemplate");
+
+        _particlesID = ParticleInstancer.Instance.StartSpecialParticles("MechaBomba_Particle", transform);
 
         FindObjects();
     }
@@ -77,6 +81,7 @@ public class BombTemplate : Template {
         foreach (GameObject go in _trees){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius)
             {
+                ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", go.transform);
                 go.GetComponent<Animator>().SetBool("Fall", true);
             }
         }
@@ -94,8 +99,10 @@ public class BombTemplate : Template {
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
 
-        ParticleInstancer.Instance.StartParticles("BombExplosion_Particle", transform.position);
+        this.transform.localScale = new Vector2(3.0f, 3.0f);
+        this.transform.Translate(new Vector3(0.0f, 0.35f, 0.0f));
 
+        ParticleInstancer.Instance.StartParticles("BombExplosion_Particle", transform);
 
         Destroy(this.gameObject, 1.3f);
     }
@@ -108,7 +115,12 @@ public class BombTemplate : Template {
         GetComponent<BoxCollider2D>().isTrigger = false;
         GetComponent<Rigidbody2D>().isKinematic = false;
         _explosionTime = 4.0f;
+        Invoke("StopP", _explosionTime * 0.8f);
         Invoke("Explode", _explosionTime);
+    }
+
+    private void StopP(){
+        ParticleInstancer.Instance.StopParticles(_particlesID);
     }
 
 }

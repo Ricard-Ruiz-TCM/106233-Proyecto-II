@@ -315,6 +315,7 @@ public class Player : Entity {
 
     public void SaveCheckPoint(Vector2 pos) {
         _respawnPoint = pos;
+        if (Camera.main.GetComponent<CameraMovement>().OnBoos) _respawnPoint = new Vector2(85.7f, -62.0f);
         FillInk(); FillHealth();
     }
 

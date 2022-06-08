@@ -34,7 +34,7 @@ public class ParticleInstancer : MonoBehaviour
     }
 
     public void StopParticles(int id){
-        if ((_particlesInGame.Count > id) || (id < 0)) return;
+        if ((_particlesInGame.Count < id) || (id < 0)) return;
         if (_particlesInGame[id] == null) return;
         _particlesInGame[id].GetComponent<ParticleSystem>().Stop();
     }
