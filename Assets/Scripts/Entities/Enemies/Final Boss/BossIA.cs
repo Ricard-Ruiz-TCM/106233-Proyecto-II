@@ -59,7 +59,7 @@ public class BossIA : EnemyMovement {
 
     private void Respawn(){
         GameObject g = Instantiate(BossSpawner, GameObject.FindObjectOfType<ElementsContainer>().transform);
-        g.transform.position = new Vector3(96.00f, -69.9f, 0.0f);
+        g.transform.position = new Vector3(94.482f, -70.544f, 0.0f);
         foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")){
             Destroy(enemies);
         }
@@ -81,7 +81,7 @@ public class BossIA : EnemyMovement {
         _handAttackTimer = _handAttack.Cooldown;
         _spawnAttackTimer = _spawnAttack.Cooldown;
 
-        _detectionDistance = 1.2f;
+        _detectionDistance = 2.1f;
 
         _animator = GetComponent<Animator>();
 
@@ -98,8 +98,6 @@ public class BossIA : EnemyMovement {
         if ((x.x < 0) && (transform.right.x > 0)) transform.localEulerAngles = new Vector2(0.0f, 180.0f);
         if ((x.x > 0) && (transform.right.x < 0)) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
 
-        //Debug.Log("Dir: " + x.x + " Right: " + transform.right.x);
-
         _waitTime -= Time.deltaTime;
         _meleeAttackTimer -= Time.deltaTime;
         _handAttackTimer -= Time.deltaTime;
@@ -115,7 +113,7 @@ public class BossIA : EnemyMovement {
                 if (_waitTime <= 0.0f) {
                     ChangeState("Melee", BOSS_STATES.B_TAKE_DAMAGE, "Take");
                     _meleeAttackTimer = _meleeAttack.Cooldown;
-                    _waitTime = 1.1f;
+                    _waitTime = 2.5f;
                 }
                 break;
             case BOSS_STATES.B_HAND_ATTACK:
@@ -138,17 +136,17 @@ public class BossIA : EnemyMovement {
             case BOSS_STATES.B_MOVING:
                 if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range))) {
                     ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
-                    _waitTime = 1.1f;
+                    _waitTime = 2.5f;
                     Invoke("HandAttack", 1.0f);
                 } else if ((_spawnAttackTimer <= 0.0f) && (InDistance(0.0f, _spawnAttack.Range))) {
                     ChangeState("Move", BOSS_STATES.B_SPAWN_ATTACK, "Spawn");
-                    _waitTime = 1.0f;
+                    _waitTime = 1.25f;
                     Invoke("SpawnAttack", 1.0f);
                 } else {
                     Movement();
                     if ((_meleeAttackTimer <= 0.0f) && CheckDistance(_meleeAttack.Range)) {
                         ChangeState("Move", BOSS_STATES.B_MELEE_ATTACK, "Melee");
-                        _waitTime = 1.1f;
+                        _waitTime = 1.2f;
                         Invoke("MeleeAttack", 1.0f);
                     }
                 }
@@ -160,11 +158,13 @@ public class BossIA : EnemyMovement {
     }  
 
     public void MeleeAttack() { _combat.MeleeAttack(); }
+
     public void HandAttack() {
         Vector2 pos = _player.transform.position;
         pos.y = transform.position.y - 0.8f;
         _combat.HandAttack(pos); 
     }
+
     public void SpawnAttack() {
         Vector2 point = transform.position;
         point.x += transform.right.x * 1.5f;
@@ -177,27 +177,19 @@ public class BossIA : EnemyMovement {
         Vector2 point = transform.position;
         point.x += transform.right.x * 1.5f;
         RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.0f, LayerMask.GetMask("Enemy"));
-        if (hit.collider != null) {
-            Debug.Log("DFs");
-        } else {
+        if (hit.collider == null) {
             if (Vector2.Distance(transform.position, _player.transform.position) > _detectionDistance) {
                 transform.Translate(new Vector3(Time.deltaTime * 1.0f, 0.0f, 0.0f));
             }
         }
     }
 
-    public bool CheckDistance(float range)
-    {
+    public bool CheckDistance(float range) {
         return (Vector2.Distance(transform.position, _player.transform.position) < range);
     }
 
-    public bool InDistance(float range, float max)
-    {
+    public bool InDistance(float range, float max) {
         return ((Vector2.Distance(transform.position, _player.transform.position) > range) && CheckDistance(max));
-    }
-
-    private bool CheckAnimationEnds() {
-        return (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
     }
 
     private void ChangeState(string from, BOSS_STATES next, string to)  {
