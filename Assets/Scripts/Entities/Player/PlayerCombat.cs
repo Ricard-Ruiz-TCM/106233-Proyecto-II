@@ -131,7 +131,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         ////////////////
         DisableSystem();
         OnEndAttack?.Invoke();
-        StopAllCoroutines();
+        //StopAllCoroutines();
     }
 
     public void OnState(){
