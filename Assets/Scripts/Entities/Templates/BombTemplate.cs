@@ -97,6 +97,13 @@ public class BombTemplate : Template {
             }
         }
 
+        List<GameObject> bosses = new List<GameObject>(GameObject.FindGameObjectsWithTag("Boss"));
+        foreach (GameObject go in enemies) {
+            if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
+                go.GetComponent<BossAttack>().TakeDamage(_attack);
+            }
+        }
+
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
 
