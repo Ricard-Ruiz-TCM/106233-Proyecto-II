@@ -158,12 +158,7 @@ public class BossIA : EnemyMovement {
     }  
 
     public void MeleeAttack() { _combat.MeleeAttack(); }
-
-    public void HandAttack() {
-        Vector2 pos = _player.transform.position;
-        pos.y = transform.position.y - 0.1f;
-        _combat.HandAttack(pos); 
-    }
+    public void HandAttack() { _combat.HandAttack();  }
 
     public bool CanSpawnAttack(){
         Vector2 point = transform.position;

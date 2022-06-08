@@ -35,8 +35,9 @@ public class BossAttack : EnemyCombat {
         }
     }
     
-    public void HandAttack(Vector2 position){
-        _hand = Instantiate(_handPrefab, position, Quaternion.identity, _elementsContainer.transform);
+    public void HandAttack(){
+        _hand = Instantiate(_handPrefab, _elementsContainer.transform);
+        _hand.transform.position = new Vector2(_player.transform.position.x, _player.transform.position.y - 0.35f);
         Invoke("HandDamage", 1.55f);
     }
 
