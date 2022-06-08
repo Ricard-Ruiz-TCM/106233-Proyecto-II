@@ -25,8 +25,11 @@ public class TemplateGuide : MonoBehaviour {
     public Vector2 StartPoint() { return (_mandatory.Count >= 1 ? _mandatory[0].gameObject.transform.position : transform.position); }
 
     // Referente a la performance de la template
+    [SerializeField]
     private float _completation;
+    [SerializeField]
     private float _accuracy;
+    [SerializeField]
     private bool _failure;
 
     private bool _completed;
@@ -85,6 +88,11 @@ public class TemplateGuide : MonoBehaviour {
     }
 
     public GameObject CheckTemplate() {
+
+        _failure = false;
+        _completation = 0.0f;
+        _accuracy = 0.0f;
+
         _completed = false;
         List<Vector2> allStokePoints = new List<Vector2>();
         if (_player == null) _player = GameObject.FindObjectOfType<PlayerDrawing>();

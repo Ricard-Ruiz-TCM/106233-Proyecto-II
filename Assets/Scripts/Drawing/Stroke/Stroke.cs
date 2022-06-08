@@ -29,7 +29,7 @@ public class Stroke : MonoBehaviour {
     void Start() {
         _colliderPoints = new List<Vector2>();
         _pointsDistance = 0.30f;
-        _pointsRadius = 0.10f;
+        _pointsRadius = 0.20f;
         _completed = false;
 
         _lineRenderer = GetComponent<LineRenderer>();
