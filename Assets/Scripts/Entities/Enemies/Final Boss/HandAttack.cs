@@ -15,6 +15,7 @@ public class HandAttack : MonoBehaviour {
         Invoke("EnableMove", 1.2f);
 
         Destroy(this.gameObject, 2.5f);
+
     }
 
     private void OnDestroy() {
@@ -26,6 +27,7 @@ public class HandAttack : MonoBehaviour {
     }
 
     public void MakeDamage(){
+        if (_player == null) return;
         _player.GetComponent<PlayerCombat>().TakeDamage(_attack);
         _player.GetComponent<PlayerMovement>().ExtraUpPush();
     }
