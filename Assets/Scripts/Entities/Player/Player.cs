@@ -364,14 +364,13 @@ public class Player : Entity {
             ChangeState(PLAYER_STATE.PS_DIE);
             _alpha = 0.5f;
         } else {
-            ParticleInstancer.Instance.StartParticles("Particulas de Daño", transform);
+            ParticleInstancer.Instance.StartParticles("Particulasdedano", transform);
         }
     }
 
     public void Respawn() {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.transform.position = _respawnPoint;
-        if (Camera.main.GetComponent<CameraMovement>().OnBoos) transform.position = new Vector2(85.6f, -59.2f);
         _die.SetDeathCause(DEATH_CAUSE.D_DAMAGE);
         FillHealth();
         FillInk();
