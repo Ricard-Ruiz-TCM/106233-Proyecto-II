@@ -90,6 +90,8 @@ public class BossIA : EnemyMovement {
         ChangeState("", BOSS_STATES.B_INTRO, "Intro");
     }
 
+    private Vector3 _handPos;
+
     private void Update() {
 
         Vector2 x = (_player.transform.position - transform.position);
@@ -134,7 +136,8 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_MOVING:
-                if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range))) {
+                if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range) && (_player.GetComponent<PlayerFall>().Grounded()))) {
+                    _handPos = _player.transform.position;
                     ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
                     _waitTime = 2.5f;
                     Invoke("HandAttack", 1.0f);
@@ -158,7 +161,7 @@ public class BossIA : EnemyMovement {
     }  
 
     public void MeleeAttack() { _combat.MeleeAttack(); }
-    public void HandAttack() { _combat.HandAttack();  }
+    public void HandAttack() { _combat.HandAttack(_handPos);  }
 
     public bool CanSpawnAttack(){
         Vector2 point = transform.position;

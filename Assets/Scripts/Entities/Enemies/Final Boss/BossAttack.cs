@@ -35,9 +35,10 @@ public class BossAttack : EnemyCombat {
         }
     }
     
-    public void HandAttack(){
+    public void HandAttack(Vector3 pos){
         _hand = Instantiate(_handPrefab, _elementsContainer.transform);
-        _hand.transform.position = new Vector2(_player.transform.position.x, _player.transform.position.y - 0.35f);
+        if (_player.GetComponent<PlayerFall>().Grounded()) pos = _player.transform.position;
+        _hand.transform.position = new Vector2(pos.x, pos.y - 0.30f);
         Invoke("HandDamage", 1.55f);
     }
 
