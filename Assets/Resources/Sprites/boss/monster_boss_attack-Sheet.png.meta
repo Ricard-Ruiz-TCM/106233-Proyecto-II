@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: 6402020a721775148a36490eaef0c128
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2451815158469596953
+    second: monster_boss_attack-Sheet_0
+  - first:
+      213: -4377091909745506935
+    second: monster_boss_attack-Sheet_1
+  - first:
+      213: 4682750903366905458
+    second: monster_boss_attack-Sheet_2
+  - first:
+      213: 4748287890647047828
+    second: monster_boss_attack-Sheet_3
+  - first:
+      213: -8052870429338093835
+    second: monster_boss_attack-Sheet_4
+  - first:
+      213: -6528064417186542736
+    second: monster_boss_attack-Sheet_5
+  - first:
+      213: 6603715474566101889
+    second: monster_boss_attack-Sheet_6
+  - first:
+      213: -4033321507058897847
+    second: monster_boss_attack-Sheet_7
+  - first:
+      213: 3899765359857009052
+    second: monster_boss_attack-Sheet_8
+  - first:
+      213: -5442627565739361560
+    second: monster_boss_attack-Sheet_9
+  - first:
+      213: 7108635176959485590
+    second: monster_boss_attack-Sheet_10
+  - first:
+      213: -1527348930150415395
+    second: monster_boss_attack-Sheet_11
+  - first:
+      213: -2100549866288732924
+    second: monster_boss_attack-Sheet_12
+  - first:
+      213: -5732157947398318354
+    second: monster_boss_attack-Sheet_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,16 +74,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,10 +107,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +131,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e860888a1769fdd0800000000000000
+      internalID: -2451815158469596953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985026259127143c0800000000000000
+      internalID: -4377091909745506935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ee2d6e2297cf040800000000000000
+      internalID: 4682750903366905458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e5e45ddae45e140800000000000000
+      internalID: 4748287890647047828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f63e0da2057e3090800000000000000
+      internalID: -8052870429338093835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b8abeeff7a765a0800000000000000
+      internalID: -6528064417186542736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b33437c3c15ab50800000000000000
+      internalID: 6603715474566101889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cafc27573c608c0800000000000000
+      internalID: -4033321507058897847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9186a5deefbe1630800000000000000
+      internalID: 3899765359857009052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea3b53b017e774b0800000000000000
+      internalID: -5442627565739361560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 3520
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6962480c702f6a260800000000000000
+      internalID: 7108635176959485590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3cf428d34cdcae0800000000000000
+      internalID: -1527348930150415395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405adda960959d2e0800000000000000
+      internalID: -2100549866288732924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_attack-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 4576
+        y: 0
+        width: 352
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee614e497b84370b0800000000000000
+      internalID: -5732157947398318354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

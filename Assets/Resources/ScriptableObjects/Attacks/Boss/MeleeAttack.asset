@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   InkCost: 0
-  Range: 1
+  Range: 1.8
   Cooldown: 6

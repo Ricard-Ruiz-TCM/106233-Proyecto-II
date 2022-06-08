@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 13ecfe8738e892e4880f9eb207f7cf10
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4282258071297374218
+    second: monster_boss_GOLEM-Sheet_0
+  - first:
+      213: 5925614085614669621
+    second: monster_boss_GOLEM-Sheet_1
+  - first:
+      213: 2945203782771541103
+    second: monster_boss_GOLEM-Sheet_2
+  - first:
+      213: -1457521764878755998
+    second: monster_boss_GOLEM-Sheet_3
+  - first:
+      213: 5262962335943184901
+    second: monster_boss_GOLEM-Sheet_4
+  - first:
+      213: -2629932479249339183
+    second: monster_boss_GOLEM-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,16 +50,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -68,7 +86,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +107,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: monster_boss_GOLEM-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 306
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f745c7f8fc5294c0800000000000000
+      internalID: -4282258071297374218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_GOLEM-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 306
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f0d199d920c3250800000000000000
+      internalID: 5925614085614669621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_GOLEM-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 0
+        width: 306
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f640c3f6c377fd820800000000000000
+      internalID: 2945203782771541103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_GOLEM-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 0
+        width: 306
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26750085da7d5cbe0800000000000000
+      internalID: -1457521764878755998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_GOLEM-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 0
+        width: 306
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50257243c5cc90940800000000000000
+      internalID: 5262962335943184901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_boss_GOLEM-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 0
+        width: 306
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dca417185a908bd0800000000000000
+      internalID: -2629932479249339183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

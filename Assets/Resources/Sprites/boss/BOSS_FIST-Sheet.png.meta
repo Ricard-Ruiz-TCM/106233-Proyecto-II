@@ -1,40 +1,31 @@
 fileFormatVersion: 2
-guid: 20f00e78b33ea714fbf085f25111d392
+guid: 1ef7020460d22174a83fc2a864b54baf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8012382428322389537
-    second: boss_range_attack-Sheet_0
+      213: -4104941748237862794
+    second: BOSS_FIST-Sheet_0
   - first:
-      213: 3557682465060689909
-    second: boss_range_attack-Sheet_1
+      213: 7802018383250766265
+    second: BOSS_FIST-Sheet_1
   - first:
-      213: 2390874219390440577
-    second: boss_range_attack-Sheet_2
+      213: -8829578512210397798
+    second: BOSS_FIST-Sheet_2
   - first:
-      213: 2181802649643037442
-    second: boss_range_attack-Sheet_3
+      213: 5341096841847948328
+    second: BOSS_FIST-Sheet_3
   - first:
-      213: -9106864023199188749
-    second: boss_range_attack-Sheet_4
+      213: 1806159417610223433
+    second: BOSS_FIST-Sheet_4
   - first:
-      213: -7864690798321221384
-    second: boss_range_attack-Sheet_5
+      213: -6203882601529817335
+    second: BOSS_FIST-Sheet_5
   - first:
-      213: 185652760317458437
-    second: boss_range_attack-Sheet_6
+      213: -9083802776612442072
+    second: BOSS_FIST-Sheet_6
   - first:
-      213: -7085623437900379545
-    second: boss_range_attack-Sheet_7
-  - first:
-      213: -5782102008997095441
-    second: boss_range_attack-Sheet_8
-  - first:
-      213: 236579509449187629
-    second: boss_range_attack-Sheet_9
-  - first:
-      213: 3287207990132898244
-    second: boss_range_attack-Sheet_10
+      213: -7000158615813963073
+    second: BOSS_FIST-Sheet_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -98,7 +89,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -110,7 +101,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -124,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_0
+      name: BOSS_FIST-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd1234302ac4ec090800000000000000
-      internalID: -8012382428322389537
+      spriteID: 6787c989a315807c0800000000000000
+      internalID: -4104941748237862794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_1
+      name: BOSS_FIST-Sheet_1
       rect:
         serializedVersion: 2
-        x: 295
+        x: 64
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f714914a5d6f5130800000000000000
-      internalID: 3557682465060689909
+      spriteID: 9b9bab8f166564c60800000000000000
+      internalID: 7802018383250766265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_2
+      name: BOSS_FIST-Sheet_2
       rect:
         serializedVersion: 2
-        x: 590
+        x: 128
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18418656f671e2120800000000000000
-      internalID: 2390874219390440577
+      spriteID: a95f64fcf19077580800000000000000
+      internalID: -8829578512210397798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_3
+      name: BOSS_FIST-Sheet_3
       rect:
         serializedVersion: 2
-        x: 885
+        x: 192
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 203bafd33f1574e10800000000000000
-      internalID: 2181802649643037442
+      spriteID: 824ce4187436f1a40800000000000000
+      internalID: 5341096841847948328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_4
+      name: BOSS_FIST-Sheet_4
       rect:
         serializedVersion: 2
-        x: 1180
+        x: 256
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f87d6fcb6bed9180800000000000000
-      internalID: -9106864023199188749
+      spriteID: 94f326ebb64c01910800000000000000
+      internalID: 1806159417610223433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_5
+      name: BOSS_FIST-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1475
+        x: 320
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f0c7c943610bd290800000000000000
-      internalID: -7864690798321221384
+      spriteID: 907c69bb4a167e9a0800000000000000
+      internalID: -6203882601529817335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_6
+      name: BOSS_FIST-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1770
+        x: 384
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 508fa4ea332939200800000000000000
-      internalID: 185652760317458437
+      spriteID: 820fe42b089dfe180800000000000000
+      internalID: -9083802776612442072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_range_attack-Sheet_7
+      name: BOSS_FIST-Sheet_7
       rect:
         serializedVersion: 2
-        x: 2065
+        x: 448
         y: 0
-        width: 295
-        height: 281
+        width: 64
+        height: 110
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,71 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76a04c3460fcaad90800000000000000
-      internalID: -7085623437900379545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss_range_attack-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 2360
-        y: 0
-        width: 295
-        height: 281
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe7d7a29bd8d1cfa0800000000000000
-      internalID: -5782102008997095441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss_range_attack-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 2655
-        y: 0
-        width: 295
-        height: 281
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d21ead57fcf784300800000000000000
-      internalID: 236579509449187629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss_range_attack-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 2950
-        y: 0
-        width: 295
-        height: 281
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c972ba20428e9d20800000000000000
-      internalID: 3287207990132898244
+      spriteID: fb2c40dc3d07ade90800000000000000
+      internalID: -7000158615813963073
       vertices: []
       indices: 
       edges: []

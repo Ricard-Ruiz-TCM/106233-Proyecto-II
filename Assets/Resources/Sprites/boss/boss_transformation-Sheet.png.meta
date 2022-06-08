@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: 79df0bdafe65e0d44b6ccedb14607d33
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2931995077173405786
+    second: boss_transformation-Sheet_0
+  - first:
+      213: -4802585209472114422
+    second: boss_transformation-Sheet_1
+  - first:
+      213: 1442233358412996522
+    second: boss_transformation-Sheet_2
+  - first:
+      213: -4124657640013003939
+    second: boss_transformation-Sheet_3
+  - first:
+      213: -6611738428188996272
+    second: boss_transformation-Sheet_4
+  - first:
+      213: 6771535859950754363
+    second: boss_transformation-Sheet_5
+  - first:
+      213: 5659058591855921200
+    second: boss_transformation-Sheet_6
+  - first:
+      213: -6449360682861177877
+    second: boss_transformation-Sheet_7
+  - first:
+      213: -7489389490779021715
+    second: boss_transformation-Sheet_8
+  - first:
+      213: -4322480249213118
+    second: boss_transformation-Sheet_9
+  - first:
+      213: -4241339112483906268
+    second: boss_transformation-Sheet_10
+  - first:
+      213: -2152697917049718096
+    second: boss_transformation-Sheet_11
+  - first:
+      213: 2662293578012257850
+    second: boss_transformation-Sheet_12
+  - first:
+      213: -4089971993303088015
+    second: boss_transformation-Sheet_13
+  - first:
+      213: 8297363938759442488
+    second: boss_transformation-Sheet_14
+  - first:
+      213: -5567674201263954280
+    second: boss_transformation-Sheet_15
+  - first:
+      213: 5473547709840049322
+    second: boss_transformation-Sheet_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,16 +83,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,10 +116,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +140,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a586d120df980b820800000000000000
+      internalID: 2931995077173405786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01aed9723ac95db0800000000000000
+      internalID: -4802585209472114422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aafdc632997d30410800000000000000
+      internalID: 1442233358412996522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d538ce2dab542c6c0800000000000000
+      internalID: -4124657640013003939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05dcef71ee26e34a0800000000000000
+      internalID: -6611738428188996272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a1f2cccf359fd50800000000000000
+      internalID: 6771535859950754363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038c1ba6ec3098e40800000000000000
+      internalID: 5659058591855921200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be350bd01a44f76a0800000000000000
+      internalID: -6449360682861177877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2184
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e929940f7501890800000000000000
+      internalID: -7489389490779021715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f62342ab4a0fff0800000000000000
+      internalID: -4322480249213118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d1d6c7c8cb325c0800000000000000
+      internalID: -4241339112483906268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3003
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba378166a41022e0800000000000000
+      internalID: -2152697917049718096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3276
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e693d57ed52f420800000000000000
+      internalID: 2662293578012257850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 3549
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1748fd544208d37c0800000000000000
+      internalID: -4089971993303088015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 3822
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83084ed7a88262370800000000000000
+      internalID: 8297363938759442488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8962e8010d5abb2b0800000000000000
+      internalID: -5567674201263954280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_transformation-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 4368
+        y: 0
+        width: 273
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa44b2a54a2f5fb40800000000000000
+      internalID: 5473547709840049322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
