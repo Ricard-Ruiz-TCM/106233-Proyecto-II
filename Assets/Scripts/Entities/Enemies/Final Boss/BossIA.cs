@@ -163,7 +163,7 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_DEATH:
-                if (toDestroy) { toDestroy = false; Destroy(this.gameObject, 12.0f); }
+                if (toDestroy) { toDestroy = false; GetComponent<PolygonCollider2D>().isTrigger = true; }
                 break;
             default: break;
         }
