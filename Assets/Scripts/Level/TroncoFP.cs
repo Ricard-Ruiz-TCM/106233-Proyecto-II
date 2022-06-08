@@ -45,6 +45,8 @@ public class TroncoFP : MonoBehaviour
     // FallingPlatform.cs
     private void Fade()
     {
+        ParticleInstancer.Instance.StartParticles("Puente_Particulas 1", transform);
+
         if (IsFaded()) return;
         _fade = true;
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
@@ -55,8 +57,8 @@ public class TroncoFP : MonoBehaviour
     {
         if (IsFalling()) return;
         _fall = true;
-        ParticleInstancer.Instance.StartParticles("Tronco", transform);
         GetComponent<Rigidbody2D>().isKinematic = false;
+
         GetComponent<BoxCollider2D>().isTrigger = true;
         Invoke("Restore", _fallTime);
     }
