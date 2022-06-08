@@ -9,9 +9,7 @@ public class Teleporter : MonoBehaviour {
 
     private Transform _destiny;
 
-    private bool _teleporting;
     private void Start() {
-        _teleporting = false;
         _camera = Camera.main.transform;
         _player = GameObject.FindObjectOfType<Player>().transform;
 
@@ -32,11 +30,10 @@ public class Teleporter : MonoBehaviour {
         if (collision.gameObject == null) return;
         if (collision.gameObject.tag != "Player") return;
 
-        if (!_teleporting) Teleport();
+        Teleport();
     }
 
     private void Teleport() {
-        _teleporting = true;
         GameManager.Instance.Fade();
     }
 

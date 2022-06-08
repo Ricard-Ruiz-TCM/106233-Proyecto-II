@@ -130,6 +130,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         _animator.SetBool("Ranged", false);
         ////////////////
         DisableSystem();
+        OnEndAttack?.Invoke();
         StopAllCoroutines();
     }
 
