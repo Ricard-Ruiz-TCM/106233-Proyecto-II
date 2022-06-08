@@ -92,6 +92,7 @@ public class BombTemplate : Template {
         {
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius)
             {
+                if (go.GetComponent<ICombat>() == null) break;
                 go.GetComponent<ICombat>().TakeDamage(_attack);
             }
         }

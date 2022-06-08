@@ -138,7 +138,7 @@ public class BossIA : EnemyMovement {
                     ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
                     _waitTime = 2.5f;
                     Invoke("HandAttack", 1.0f);
-                } else if ((_spawnAttackTimer <= 0.0f) && (InDistance(0.0f, _spawnAttack.Range))) {
+                } else if ((_spawnAttackTimer <= 0.0f) && (InDistance(0.0f, _spawnAttack.Range) && (CanSpawnAttack()))) {
                     ChangeState("Move", BOSS_STATES.B_SPAWN_ATTACK, "Spawn");
                     _waitTime = 1.25f;
                     Invoke("SpawnAttack", 1.0f);
@@ -165,18 +165,21 @@ public class BossIA : EnemyMovement {
         _combat.HandAttack(pos); 
     }
 
-    public void SpawnAttack() {
+    public bool CanSpawnAttack(){
         Vector2 point = transform.position;
         point.x += transform.right.x * 1.5f;
-        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 3.0f, LayerMask.GetMask("Enemy"));
-        if (hit.collider != null)  return;
+        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.55f, LayerMask.GetMask("Enemy", "Wall"));
+        return (hit.collider == null);
+    }
+
+    public void SpawnAttack() {
         _combat.SpawnAttack(transform.right.x); 
     }
 
     private void Movement(){
         Vector2 point = transform.position;
         point.x += transform.right.x * 1.5f;
-        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.0f, LayerMask.GetMask("Enemy"));
+        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.5f, LayerMask.GetMask("Enemy", "Wall"));
         if (hit.collider == null) {
             if (Vector2.Distance(transform.position, _player.transform.position) > _detectionDistance) {
                 transform.Translate(new Vector3(Time.deltaTime * 1.0f, 0.0f, 0.0f));
