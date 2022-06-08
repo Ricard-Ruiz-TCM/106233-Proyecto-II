@@ -44,6 +44,9 @@ public class PlayerFall : PlayerState, IHaveStates {
     // SystemMachine
     private Player _player;
 
+    //Particles
+    private int _particleId;
+
     // Unity
     void OnEnable(){
         BottomDetector.OnGround += OnGround;
@@ -71,6 +74,7 @@ public class PlayerFall : PlayerState, IHaveStates {
 
         _jump = GetComponent<PlayerJump>();
         _player = GetComponent<Player>();
+
     }
 
     // Unity
@@ -86,11 +90,11 @@ public class PlayerFall : PlayerState, IHaveStates {
 
     public void StarFall(){
         SetFallGravity();
-        _isFalling = true;      
+        _isFalling = true;
+        _particleId = ParticleInstancer.Instance.StartSpecialParticles("Player_Fall", transform);
         if (!_player.LastState().Equals(PLAYER_STATE.PS_JUMP)) {
             _body.velocity = new Vector3(_body.velocity.x / 10.0f, _body.velocity.y);
         }
-        StartParticles();
     }
 
     private void EndFall(){
@@ -106,7 +110,7 @@ public class PlayerFall : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         StarFall();
-        MusicPlayer.Instance.PlaySpecialFX("fall", 0.25f, 1.0f);
+        //MusicPlayer.Instance.PlaySpecialFX("fall", 0.25f, 1.0f);
         _animator.SetBool("Fall", true);
     }
 
@@ -115,7 +119,7 @@ public class PlayerFall : PlayerState, IHaveStates {
         MusicPlayer.Instance.StopFX("fall");
         ////////////////
         DisableSystem();
-        StopParticles();
+        ParticleInstancer.Instance.StopParticles(_particleId);
     }
 
     public void OnState(){
@@ -130,13 +134,4 @@ public class PlayerFall : PlayerState, IHaveStates {
         _jump.CheckBoost();
     }
 
-    private void StartParticles()
-    {
-        effect.Play();
-    }
-
-    private void StopParticles()
-    {
-        effect.Stop();
-    }
 }

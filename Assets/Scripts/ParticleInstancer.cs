@@ -37,6 +37,7 @@ public class ParticleInstancer : MonoBehaviour
         if ((_particlesInGame.Count < id) || (id < 0)) return;
         if (_particlesInGame[id] == null) return;
         _particlesInGame[id].GetComponent<ParticleSystem>().Stop();
+        Destroy(_particlesInGame[id]);
     }
 
     public int StartSpecialParticles(string name, Transform parent) {
