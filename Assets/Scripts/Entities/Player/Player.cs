@@ -335,8 +335,6 @@ public class Player : Entity {
 
     public void TakeDamage(int amount, DEATH_CAUSE source = DEATH_CAUSE.D_DAMAGE) { 
         if (CanChangeHealth()) {
-            ParticleInstancer.Instance.StartParticles("Particulas de Daño", transform);
-
             _health -= amount; 
             IJustTakeDamage(source);
             OnHealthChange?.Invoke(); 
@@ -365,6 +363,8 @@ public class Player : Entity {
         if (_health <= 0.0f) {
             ChangeState(PLAYER_STATE.PS_DIE);
             _alpha = 0.5f;
+        } else {
+            ParticleInstancer.Instance.StartParticles("Particulas de Daño", transform);
         }
     }
 

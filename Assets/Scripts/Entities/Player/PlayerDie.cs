@@ -74,7 +74,7 @@ public class PlayerDie : PlayerState, IHaveStates {
             case DEATH_CAUSE.D_FALL:
                 _body.velocity = Vector2.zero;
                 _body.isKinematic = true;
-                ParticleInstancer.Instance.StartParticles("Plumas_Particle", transform.position);
+                ParticleInstancer.Instance.StartParticles("Plumas_Particle", this.transform);
                 break;
             default: break;
         }
