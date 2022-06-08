@@ -16,7 +16,6 @@ public class SlimeAttack : EnemyCombat
     {
         slimeAI = gameObject.GetComponent<SlimeAI>();
         animator = gameObject.GetComponentInParent<Animator>();
-        //_health = 15.0f;
     }
 
     private void Update()

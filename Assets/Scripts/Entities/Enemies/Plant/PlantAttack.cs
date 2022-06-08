@@ -68,6 +68,7 @@ public class PlantAttack : EnemyCombat
 
     void InkAttack()
     {
+        if (dying == true) return;
         Vector2 init = new Vector2(transform.position.x + (transform.right.x * -0.3f), transform.position.y + 0.8f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, _container.transform);
         bullet.GetComponent<PlantInk>().Direction(-transform.right.x);
