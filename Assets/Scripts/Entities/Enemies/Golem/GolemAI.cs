@@ -7,11 +7,6 @@ public class GolemAI : MonoBehaviour {
     private GameObject player;
     private float _time;
 
-    private void OnEnable()
-    {
-        Fader.OnFullAlpha += () => { Destroy(this.gameObject); };
-    }
-
     void Start() {
         player = GameObject.FindObjectOfType<Player>().gameObject;
         _time = 5.0f;
