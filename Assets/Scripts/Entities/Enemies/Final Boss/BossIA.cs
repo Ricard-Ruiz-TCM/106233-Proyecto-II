@@ -46,12 +46,12 @@ public class BossIA : EnemyMovement {
 
     private void OnEnable()
     {
-        Fader.CanBossRespawn += Respawn;
+        Fader.OnFullAlpha += Respawn;
     }
 
     private void OnDisable()
     {
-        Fader.CanBossRespawn -= Respawn;
+        Fader.OnFullAlpha -= Respawn;
     }
 
     public GameObject BossSpawner;

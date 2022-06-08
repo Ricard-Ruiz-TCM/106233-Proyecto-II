@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Fader : MonoBehaviour {
 
-    public static event Action CanBossRespawn;
+    public static event Action OnFullAlpha;
 
     private float _str;
     private float _alpha;
@@ -12,8 +12,8 @@ public class Fader : MonoBehaviour {
     private Image _image;
 
     void Awake() {
-        _str = 0.35f;
-        _alpha = 1.0f;
+        _str = -0.35f;
+        _alpha = 0.99f;
         _image = GetComponent<Image>();
     }
 
@@ -29,7 +29,7 @@ public class Fader : MonoBehaviour {
 
         if (_alpha >= 1.0f){
             _str *= -1;
-            CanBossRespawn?.Invoke();
+           OnFullAlpha?.Invoke();
         }
         if (_alpha <= 0.0f) this.gameObject.SetActive(false);
     }

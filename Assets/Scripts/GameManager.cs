@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
     void Start(){
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
-        //LVL2.SetActive(false);
+        LVL2.SetActive(false);
         MusicPlayer.Instance.PlayMusic("forest");
 
         _fader = GameObject.FindObjectOfType<Fader>().gameObject;
@@ -44,15 +44,29 @@ public class GameManager : MonoBehaviour {
         Instantiate(_inkPot, pos, Quaternion.identity, _container.transform);
     }
 
-    public void GOTOLVL2()
-    {
-        //LVL1.SetActive(false);
-        //LVL2.SetActive(true);
+    public void GOTOLVL2(){
+        LVL1.SetActive(false);
+        LVL2.SetActive(true);
         MusicPlayer.Instance.PlayMusic("cave");
         foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemies);
         }
     }
+
+    public void GOTOLVL1(){
+        LVL1.SetActive(true);
+        LVL2.SetActive(false);
+        MusicPlayer.Instance.PlayMusic("forest");
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemies);
+        }
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Boss"))
+        {
+            Destroy(enemies);
+        }
+    }
+
 
     public void SetNewProgression (int templateID) {
         _templateButtons[REAL_PROGRESSION].SetActive(true);

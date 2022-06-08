@@ -28,6 +28,7 @@ public class DEBUGING : MonoBehaviour {
     }
 
     public void ToForest() {
+        GameManager.Instance.GOTOLVL1();
         _player.transform.position = new Vector2(-15.3f, -18.8f);
     }
 

@@ -9,7 +9,7 @@ public class GolemAI : MonoBehaviour {
 
     private void OnEnable()
     {
-        Fader.CanBossRespawn += () => { Destroy(this.gameObject); };
+        Fader.OnFullAlpha += () => { Destroy(this.gameObject); };
     }
 
     void Start() {
