@@ -63,7 +63,7 @@ public class DEBUGING : MonoBehaviour {
     }
     
     public void BossTime() {
-        _player.transform.position = new Vector2(85.6f, -59.2f);
+        _player.transform.position = new Vector2(82.6f, -59.2f);
     }
 
     public void GetAll() {
