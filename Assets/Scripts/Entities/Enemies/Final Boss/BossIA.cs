@@ -4,7 +4,6 @@ using UnityEngine;
 
 public enum BOSS_STATES {
     B_INTRO,
-    B_WAIT,
     B_MELEE_ATTACK, 
     B_HAND_ATTACK, 
     B_SPAWN_ATTACK, 
@@ -21,6 +20,8 @@ public class BossIA : EnemyMovement {
 
     private GameObject _player;
 
+    [SerializeField]
+    private float _detectionDistance;
 
     [SerializeField]
     private Attack _meleeAttack;
@@ -80,9 +81,11 @@ public class BossIA : EnemyMovement {
         _handAttackTimer = _handAttack.Cooldown;
         _spawnAttackTimer = _spawnAttack.Cooldown;
 
+        _detectionDistance = 1.2f;
+
         _animator = GetComponent<Animator>();
 
-        _waitTime = 1.5f;
+        _waitTime = 2.5f;
 
         ChangeState("", BOSS_STATES.B_INTRO, "Intro");
     }
@@ -103,48 +106,49 @@ public class BossIA : EnemyMovement {
         _spawnAttackTimer -= Time.deltaTime;
 
         switch(State()){
-            case BOSS_STATES.B_WAIT:
-                if (_waitTime <= 0.0f) ChangeState("Wait", BOSS_STATES.B_MOVING, "Move");
-                break;
             case BOSS_STATES.B_INTRO:
-                if (CheckAnimationEnds()) {
+                if (_waitTime <= 0.0f) {
                     ChangeState("Intro", BOSS_STATES.B_MOVING, "Move");
                 }
                 break;
             case BOSS_STATES.B_MELEE_ATTACK:
-                if (CheckAnimationEnds()) {
+                if (_waitTime <= 0.0f) {
                     ChangeState("Melee", BOSS_STATES.B_TAKE_DAMAGE, "Take");
                     _meleeAttackTimer = _meleeAttack.Cooldown;
+                    _waitTime = 1.1f;
                 }
                 break;
             case BOSS_STATES.B_HAND_ATTACK:
-                if (CheckAnimationEnds()) {
-                    ChangeState("Hand", BOSS_STATES.B_WAIT, "Wait");
+                if (_waitTime <= 0.0f) {
+                    ChangeState("Hand", BOSS_STATES.B_MOVING, "Move");
                     _handAttackTimer = _handAttack.Cooldown;
                 }
                 break;
             case BOSS_STATES.B_SPAWN_ATTACK:
-                if (CheckAnimationEnds()) {
-                    ChangeState("Spawn", BOSS_STATES.B_WAIT, "Wait");
+                if (_waitTime <= 0.0f) {
+                    ChangeState("Spawn", BOSS_STATES.B_MOVING, "Move");
                     _spawnAttackTimer = _spawnAttack.Cooldown;
                 }
                 break;
             case BOSS_STATES.B_TAKE_DAMAGE:
-                if (CheckAnimationEnds()) {
+                if (_waitTime <= 0.0f) {
                     ChangeState("Take", BOSS_STATES.B_MOVING, "Move");
                 }
                 break;
             case BOSS_STATES.B_MOVING:
                 if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range))) {
                     ChangeState("Move", BOSS_STATES.B_HAND_ATTACK, "Hand");
+                    _waitTime = 1.1f;
                     Invoke("HandAttack", 1.0f);
                 } else if ((_spawnAttackTimer <= 0.0f) && (InDistance(0.0f, _spawnAttack.Range))) {
                     ChangeState("Move", BOSS_STATES.B_SPAWN_ATTACK, "Spawn");
+                    _waitTime = 1.0f;
                     Invoke("SpawnAttack", 1.0f);
                 } else {
                     Movement();
                     if ((_meleeAttackTimer <= 0.0f) && CheckDistance(_meleeAttack.Range)) {
                         ChangeState("Move", BOSS_STATES.B_MELEE_ATTACK, "Melee");
+                        _waitTime = 1.1f;
                         Invoke("MeleeAttack", 1.0f);
                     }
                 }
@@ -174,9 +178,9 @@ public class BossIA : EnemyMovement {
         point.x += transform.right.x * 1.0f;
         RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.0f, LayerMask.GetMask("Enemy"));
         if (hit.collider != null) {
-            ChangeState("Move", BOSS_STATES.B_WAIT, "Wait");
+            Debug.Log("DFs");
         } else {
-            if (Vector2.Distance(transform.position, _player.transform.position) > 0.9f) {
+            if (Vector2.Distance(transform.position, _player.transform.position) > _detectionDistance) {
                 transform.Translate(new Vector3(Time.deltaTime * 1.0f, 0.0f, 0.0f));
             }
         }
@@ -199,7 +203,6 @@ public class BossIA : EnemyMovement {
     private void ChangeState(string from, BOSS_STATES next, string to)  {
         _state = next;
         _meleeAttackTimer = 1.0f;
-        _waitTime = 1.5f;
         if (from != "") _animator.SetBool(from, false);
         if (to != "") _animator.SetBool(to, true);
     }
