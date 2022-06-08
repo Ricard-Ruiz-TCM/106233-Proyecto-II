@@ -161,7 +161,12 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_DEATH:
-                if (toDestroy) { toDestroy = false; GetComponent<PolygonCollider2D>().isTrigger = true; GetComponent<Rigidbody2D>().isKinematic = true; }
+                if (toDestroy) { 
+                    toDestroy = false; 
+                    GetComponent<PolygonCollider2D>().isTrigger = true; 
+                    GetComponent<Rigidbody2D>().isKinematic = true;
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
                 break;
             default: break;
         }
