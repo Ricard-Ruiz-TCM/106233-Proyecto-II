@@ -48,7 +48,12 @@ public class PlayerMovement : PlayerState, IHaveStates {
 
     public void PushBack() {
         _body.velocity = Vector2.zero;
-        _body.AddForce(new Vector2(-(transform.right.x * 75.0f), 175.0f));
+        _body.AddForce(new Vector2(-(transform.right.x * 125.0f), 200.0f));
+    }
+
+    public void ExtraUpPush()
+    {
+        _body.AddForce(new Vector2(0.0f, 250.0f));
     }
 
     public void TryFall(){

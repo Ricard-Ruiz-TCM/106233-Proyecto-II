@@ -14,6 +14,8 @@ public class BossAttack : EnemyCombat {
     private GameObject _elementsContainer;
     private GameObject _enemiesContainer;
 
+    private GameObject _hand;
+
     void Awake() {
         _health =  100.0f;
 
@@ -34,7 +36,14 @@ public class BossAttack : EnemyCombat {
     }
     
     public void HandAttack(Vector2 position){
-        Instantiate(_handPrefab, position, Quaternion.identity, _elementsContainer.transform);
+        _hand = Instantiate(_handPrefab, position, Quaternion.identity, _elementsContainer.transform);
+        Invoke("HandDamage", 0.25f);
+    }
+
+    private void HandDamage()
+    {
+        if (_hand == null) return;
+        _hand.GetComponentInChildren<HandAttack>().MakeDamage();
     }
 
     public void SpawnAttack(float dir){

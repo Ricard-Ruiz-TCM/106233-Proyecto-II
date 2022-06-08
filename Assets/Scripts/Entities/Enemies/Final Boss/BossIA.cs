@@ -161,7 +161,7 @@ public class BossIA : EnemyMovement {
 
     public void HandAttack() {
         Vector2 pos = _player.transform.position;
-        pos.y = transform.position.y - 0.8f;
+        pos.y = transform.position.y - 0.1f;
         _combat.HandAttack(pos); 
     }
 
