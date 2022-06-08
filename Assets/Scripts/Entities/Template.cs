@@ -34,7 +34,7 @@ public class Template : DrawElement, ICombat {
         Show();
         GetComponent<Rigidbody2D>().isKinematic = false;
         GetComponent<BoxCollider2D>().isTrigger = false;
-        ParticleInstancer.Instance.StartParticles("CreaciónDibujo_Particle", transform);
+        ParticleInstancer.Instance.StartParticles("CreacionDibujo_Particle", transform);
         _placed = true;
     }
 
