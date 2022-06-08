@@ -29,6 +29,7 @@ public class DEBUGING : MonoBehaviour {
 
     public void ToForest() {
         GameManager.Instance.GOTOLVL1();
+        FixtLight();
         _player.transform.position = new Vector2(-15.3f, -18.8f);
     }
 
@@ -36,8 +37,7 @@ public class DEBUGING : MonoBehaviour {
         _player.GetComponent<Player>().Respawn();
     }
     
-    public void FixtLight()
-    {
+    public void FixtLight(){
         GameObject.FindObjectOfType<ShadowIntensity>().Fix();
     }
 
