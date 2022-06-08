@@ -315,7 +315,6 @@ public class Player : Entity {
 
     public void SaveCheckPoint(Vector2 pos) {
         _respawnPoint = pos;
-        if (Camera.main.GetComponent<CameraMovement>().OnBoos) _respawnPoint = new Vector2(85.7f, -62.0f);
         FillInk(); FillHealth();
     }
 
@@ -372,6 +371,7 @@ public class Player : Entity {
     public void Respawn() {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.transform.position = _respawnPoint;
+        if (Camera.main.GetComponent<CameraMovement>().OnBoos) transform.position = new Vector2(85.6f, -59.2f);
         _die.SetDeathCause(DEATH_CAUSE.D_DAMAGE);
         FillHealth();
         FillInk();

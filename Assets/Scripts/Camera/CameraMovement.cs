@@ -35,8 +35,6 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     Vector3 _nextPos;
 
-    private float _timeBaseSmooth;
-
     // Unity
     void Start() {
         _player = GameObject.FindObjectOfType<Player>().gameObject.transform;
