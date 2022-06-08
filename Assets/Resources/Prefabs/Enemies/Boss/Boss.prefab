@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d624192e0b642246a3c900f2a2683ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: 11400000, guid: 9781d9abab4f3074d9b91f69c2cae5f7, type: 2}
   CanTakeDamage: 1
   _handPrefab: {fileID: 6425764876064675303, guid: b8057f5238b07444493f405a565f1bcc, type: 3}
   _spawner: {fileID: 4885185806677625458, guid: 8fcd7a1210ed7394794b723a255fb104, type: 3}

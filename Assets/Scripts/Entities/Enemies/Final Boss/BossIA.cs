@@ -147,7 +147,7 @@ public class BossIA : EnemyMovement {
                     if ((_meleeAttackTimer <= 0.0f) && CheckDistance(_meleeAttack.Range)) {
                         ChangeState("Move", BOSS_STATES.B_MELEE_ATTACK, "Melee");
                         _waitTime = 1.2f;
-                        Invoke("MeleeAttack", 1.0f);
+                        Invoke("MeleeAttack", 0.8f);
                     }
                 }
                 break;

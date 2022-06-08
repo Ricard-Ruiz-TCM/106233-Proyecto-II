@@ -6,6 +6,8 @@ public class BossAttack : EnemyCombat {
 
     private Rigidbody2D _body;
 
+    private Transform _player;
+
     public GameObject _handPrefab;
     public GameObject _spawner;
 
@@ -18,12 +20,17 @@ public class BossAttack : EnemyCombat {
         _elementsContainer = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _enemiesContainer = GameObject.FindObjectOfType<EnemyContainer>().gameObject;
 
+        _player = GameObject.FindObjectOfType<Player>().transform;
+
 
         _body = GetComponent<Rigidbody2D>();
     }
 
     public void MeleeAttack(){
-        Debug.Log("TE ATACO PUTA");
+        if (Vector2.Distance(this.transform.position, _player.position) < 2.2f)
+        {
+            _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
+        }
     }
     
     public void HandAttack(Vector2 position){
@@ -31,9 +38,7 @@ public class BossAttack : EnemyCombat {
     }
 
     public void SpawnAttack(float dir){
-        Vector2 pos = transform.position;
-        pos += new Vector2(transform.right.x * 0.8f, 1.5f);
-        GameObject sp = Instantiate(_spawner, pos, Quaternion.identity, _elementsContainer.transform);
+        GameObject sp = Instantiate(_spawner, transform);
         sp.GetComponent<GolemSpawner>().SetDir(dir);
     }
 
