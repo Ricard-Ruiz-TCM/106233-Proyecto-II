@@ -175,7 +175,7 @@ public class BossIA : EnemyMovement {
 
     private void Movement(){
         Vector2 point = transform.position;
-        point.x += transform.right.x * 1.0f;
+        point.x += transform.right.x * 1.5f;
         RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.0f, LayerMask.GetMask("Enemy"));
         if (hit.collider != null) {
             Debug.Log("DFs");
