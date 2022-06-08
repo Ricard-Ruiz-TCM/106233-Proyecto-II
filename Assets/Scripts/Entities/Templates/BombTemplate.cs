@@ -98,7 +98,7 @@ public class BombTemplate : Template {
         }
 
         List<GameObject> bosses = new List<GameObject>(GameObject.FindGameObjectsWithTag("Boss"));
-        foreach (GameObject go in enemies) {
+        foreach (GameObject go in bosses) {
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
                 go.GetComponent<BossAttack>().TakeDamage(_attack);
             }

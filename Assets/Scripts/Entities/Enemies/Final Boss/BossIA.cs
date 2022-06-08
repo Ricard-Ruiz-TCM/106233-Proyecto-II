@@ -94,27 +94,21 @@ public class BossIA : EnemyMovement {
 
     private void Update() {
 
-        Vector2 x = (_player.transform.position - transform.position);
-        x.Normalize();
-
-        if ((x.x < 0) && (transform.right.x > 0)) transform.localEulerAngles = new Vector2(0.0f, 180.0f);
-        if ((x.x > 0) && (transform.right.x < 0)) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
-
         _waitTime -= Time.deltaTime;
         _meleeAttackTimer -= Time.deltaTime;
         _handAttackTimer -= Time.deltaTime;
         _spawnAttackTimer -= Time.deltaTime;
 
-
-
         switch(State()){
             case BOSS_STATES.B_INTRO:
+                rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Intro", BOSS_STATES.B_DEATH, "Die");
                 else if (_waitTime <= 0.0f) {
                     ChangeState("Intro", BOSS_STATES.B_MOVING, "Move");
                 }
                 break;
             case BOSS_STATES.B_MELEE_ATTACK:
+                rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Melee", BOSS_STATES.B_DEATH, "Die");
                 else if (_waitTime <= 0.0f) {
                     ChangeState("Melee", BOSS_STATES.B_TAKE_DAMAGE, "Take");
@@ -123,6 +117,7 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_HAND_ATTACK:
+                rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Hand", BOSS_STATES.B_DEATH, "Die");
                 else if (_waitTime <= 0.0f) {
                     ChangeState("Hand", BOSS_STATES.B_MOVING, "Move");
@@ -130,6 +125,7 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_SPAWN_ATTACK:
+                rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Spawn", BOSS_STATES.B_DEATH, "Die");
                 else if (_waitTime <= 0.0f) {
                     ChangeState("Spawn", BOSS_STATES.B_MOVING, "Move");
@@ -137,12 +133,14 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_TAKE_DAMAGE:
+                rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Take", BOSS_STATES.B_DEATH, "Die");
                 else if (_waitTime <= 0.0f) {
                     ChangeState("Take", BOSS_STATES.B_MOVING, "Move");
                 }
                 break;
             case BOSS_STATES.B_MOVING:
+                rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Move", BOSS_STATES.B_DEATH, "Die");
                 else if ((_handAttackTimer <= 0.0f) && (InDistance(_meleeAttack.Range, _handAttack.Range) && (_player.GetComponent<PlayerFall>().Grounded()))) {
                     _handPos = _player.transform.position;
@@ -163,7 +161,7 @@ public class BossIA : EnemyMovement {
                 }
                 break;
             case BOSS_STATES.B_DEATH:
-                if (toDestroy) { toDestroy = false; GetComponent<PolygonCollider2D>().isTrigger = true; }
+                if (toDestroy) { toDestroy = false; GetComponent<PolygonCollider2D>().isTrigger = true; GetComponent<Rigidbody2D>().isKinematic = true; }
                 break;
             default: break;
         }
@@ -179,6 +177,14 @@ public class BossIA : EnemyMovement {
         point.x += transform.right.x * 1.5f;
         RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.55f, LayerMask.GetMask("Enemy", "Wall"));
         return (hit.collider == null);
+    }
+
+    private void rotation()
+    {
+        Vector2 x = (_player.transform.position - transform.position);
+        x.Normalize();
+        if ((x.x < 0) && (transform.right.x > 0)) transform.localEulerAngles = new Vector2(0.0f, 180.0f);
+        if ((x.x > 0) && (transform.right.x < 0)) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
     }
 
     public void SpawnAttack() {
