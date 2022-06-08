@@ -215,6 +215,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3922081597720719303, guid: 17502e63ad4e01d41ae5649bc82d7d1e, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922081597720719303, guid: 17502e63ad4e01d41ae5649bc82d7d1e, type: 3}
+      propertyPath: ForceModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922081597720719303, guid: 17502e63ad4e01d41ae5649bc82d7d1e, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 43f3279fa1ff45b408d9deb5920b29c7, type: 3}

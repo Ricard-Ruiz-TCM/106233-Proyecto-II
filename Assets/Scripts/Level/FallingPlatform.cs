@@ -44,6 +44,9 @@ public class FallingPlatform : MonoBehaviour {
         if (IsFaded()) return;
         _fade = true;
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+        var fo = ps.forceOverLifetime;
+        fo.y = 1.0f;
         Invoke("Fall", _fadeTime);
     }
 
@@ -62,6 +65,9 @@ public class FallingPlatform : MonoBehaviour {
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.5f);
+        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+        var fo = ps.forceOverLifetime;
+        fo.y = 0.0f;
         transform.position = _initialPos;
     }
 
