@@ -256,6 +256,9 @@ public class Player : Entity {
                     if (!_input.Jump()) EnableJump();
                 }
                 break;
+            case PLAYER_STATE.PS_DIE:
+                if (Camera.main.gameObject.GetComponent<CameraMovement>().OnBoos) GameManager.Instance.Fade();
+                break;
             default: break;
         }
 

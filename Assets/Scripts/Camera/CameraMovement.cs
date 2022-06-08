@@ -27,6 +27,8 @@ public class CameraMovement : MonoBehaviour {
 
     private bool _holdY;
 
+    public bool OnBoos => _OnBossRoom;
+
     private bool _OnBossRoom;
 
     // Temp vector3 for next pos
@@ -39,9 +41,9 @@ public class CameraMovement : MonoBehaviour {
     void Start() {
         _player = GameObject.FindObjectOfType<Player>().gameObject.transform;
 
-        _deltaX = 0.0f;
+        _deltaX = 2.0f;
         _nextDeltaX = 0.0f;
-        _deltaY = 0.0f;
+        _deltaY = 1.5f;
         _str = 8.0f;
 
         _OnBossRoom = false;

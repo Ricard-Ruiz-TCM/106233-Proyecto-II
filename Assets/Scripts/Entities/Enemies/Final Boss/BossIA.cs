@@ -44,6 +44,27 @@ public class BossIA : EnemyMovement {
     // Components
     private Animator _animator;
 
+    private void OnEnable()
+    {
+        Fader.CanBossRespawn += Respawn;
+    }
+
+    private void OnDisable()
+    {
+        Fader.CanBossRespawn -= Respawn;
+    }
+
+    public GameObject BossSpawner;
+
+    private void Respawn(){
+        GameObject g = Instantiate(BossSpawner, GameObject.FindObjectOfType<ElementsContainer>().transform);
+        g.transform.position = new Vector3(96.00f, -69.9f, 0.0f);
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")){
+            Destroy(enemies);
+        }
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Boss")) Destroy(enemies);
+    }
+
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, _meleeAttack.Range);
     }

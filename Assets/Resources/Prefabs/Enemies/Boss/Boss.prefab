@@ -153,6 +153,8 @@ MonoBehaviour:
   _handAttackTimer: 0
   _spawnAttack: {fileID: 11400000, guid: 598cecaa43dd31641bcb451e8a768dd7, type: 2}
   _spawnAttackTimer: 0
+  _waitTime: 0
+  BossSpawner: {fileID: 983417922342475165, guid: 588a3ccc7bf10c541aa78ba7792d6369, type: 3}
 --- !u!114 &8024434931353097748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d624192e0b642246a3c900f2a2683ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanTakeDamage: 1
   _handPrefab: {fileID: 6425764876064675303, guid: b8057f5238b07444493f405a565f1bcc, type: 3}
   _spawner: {fileID: 4885185806677625458, guid: 8fcd7a1210ed7394794b723a255fb104, type: 3}
 --- !u!95 &8024434931353097750

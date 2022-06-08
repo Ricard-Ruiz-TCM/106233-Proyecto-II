@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject _inkPot;
 
+    private GameObject _fader;
+
     [SerializeField]
     private List<GameObject> _templateButtons;
 
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour {
         _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
         //LVL2.SetActive(false);
         MusicPlayer.Instance.PlayMusic("forest");
+
+        _fader = GameObject.FindObjectOfType<Fader>().gameObject;
 
         foreach (GameObject go in _templateButtons) go.SetActive(false);
     }
@@ -60,5 +64,12 @@ public class GameManager : MonoBehaviour {
         HighlightedTemplate = 0;
     }
 
+
+    public void Fade()
+    {
+        if (_fader.activeSelf) return;
+        _fader.SetActive(true);
+        _fader.GetComponent<Fader>().StartAlpha();
+    }
 
 }

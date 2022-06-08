@@ -12,19 +12,19 @@ public class DEBUGING : MonoBehaviour {
     }
 
     public void ToCubeTemplate() {
-        _player.transform.position = new Vector2(90.6f, -18.8f);
+        _player.transform.position = new Vector2(93.8f, -18.5f);
     }
 
     public void ToBombTemplate() {
-        _player.transform.position = new Vector2(175.7f, -18.5f);
+        _player.transform.position = new Vector2(177.5f, -17.9f);
     }
 
     public void ToLightTemplate() {
-        _player.transform.position = new Vector2(-4.6f, -64.8f);
+        _player.transform.position = new Vector2(-2.2f, -64.5f);
     }
 
     public void ToCave() {
-        _player.transform.position = new Vector2(240.7f, -17.2f);
+        _player.transform.position = new Vector2(239.2f, -17.2f);
     }
 
     public void ToForest() {
@@ -59,6 +59,26 @@ public class DEBUGING : MonoBehaviour {
     public void TakeDmg(){
         Attack a = new Attack(); a.Damage = 1;
         _player.GetComponent<PlayerCombat>().TakeDamage(a);
+    }
+    
+    public void BossTime() {
+        _player.transform.position = new Vector2(85.6f, -59.2f);
+    }
+
+    public void GetAll() {
+        StartCoroutine(GetAllTemplates());
+    }
+
+    public IEnumerator GetAllTemplates(){
+        yield return new WaitForEndOfFrame();
+        ToCubeTemplate();
+        yield return new WaitForEndOfFrame();
+        ToBombTemplate();
+        yield return new WaitForEndOfFrame();
+        ToLightTemplate();
+        yield return new WaitForEndOfFrame();
+        ToForest();
+        yield return new WaitForEndOfFrame();
     }
 
 }
