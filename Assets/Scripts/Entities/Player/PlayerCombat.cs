@@ -121,7 +121,10 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         EnableSystem();
         ///////////////
         Attack(null);
-        if (Melee()) _animator.SetBool("Melee", true);
+        if (Melee())
+        {
+            _animator.SetBool("Melee", true);
+        }
         if (Ranged()) _animator.SetBool("Ranged", true);
     }
 
@@ -139,7 +142,10 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
         if (Melee()) {
             ICombat target = FindTarget();
-            if (target != null) target.TakeDamage(_weapon);
+            if (target != null)
+            {
+                target.TakeDamage(_weapon);
+            }
         }
 
         _attackTime += Time.deltaTime;
