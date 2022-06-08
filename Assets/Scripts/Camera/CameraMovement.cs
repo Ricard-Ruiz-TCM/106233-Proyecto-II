@@ -48,8 +48,6 @@ public class CameraMovement : MonoBehaviour {
 
         _holdY = false;
 
-        _timeBaseSmooth = 0.5f;
-
         BossPosition = new Vector3(91f, -67.25f, -20.0f);
 
         _drawing = _player.GetComponent<PlayerDrawing>();
