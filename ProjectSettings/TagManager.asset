@@ -15,6 +15,7 @@ TagManager:
   - FallTree
   - Ground
   - Wall
+  - Spikes
   layers:
   - Default
   - TransparentFX

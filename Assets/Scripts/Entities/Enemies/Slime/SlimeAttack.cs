@@ -62,6 +62,11 @@ public class SlimeAttack : EnemyCombat
                 player.TakeDamage(currentAttack);
             }
         }
+
+        else if(collision.collider.gameObject.tag == "Spikes")
+        {
+            dying = true;
+        }
     }
 
 }
