@@ -12,9 +12,9 @@ public class HandAttack : MonoBehaviour {
     private void Start() {
         _move = false;
 
-        Invoke("EnableMove", 0.5f);
+        Invoke("EnableMove", 1.2f);
 
-        Destroy(this.gameObject, 1.25f);
+        Destroy(this.gameObject, 2.5f);
     }
 
     private void OnDestroy() {
@@ -27,6 +27,7 @@ public class HandAttack : MonoBehaviour {
 
     public void MakeDamage(){
         _player.GetComponent<PlayerCombat>().TakeDamage(_attack);
+        _player.GetComponent<PlayerMovement>().ExtraUpPush();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
