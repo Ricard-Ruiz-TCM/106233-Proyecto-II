@@ -70,6 +70,8 @@ public class Stalagmite : MonoBehaviour {
     private void Shake() {
         _canFall = true;
         GetComponent<Animator>().SetBool("Shake", true);
+        ParticleInstancer.Instance.StartParticles("Particula_Estalactita", transform);
+
     }
 
     private void Respawn(){
