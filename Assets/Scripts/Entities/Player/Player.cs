@@ -137,9 +137,12 @@ public class Player : Entity {
         _spikeAttack = Resources.Load<Attack>("ScritpableObjects/SpikeAttack");
 
         ChangeState(PLAYER_STATE.PS_IDDLE);
+
     }
 
     void Update(){
+
+        MusicPlayer.Instance.UUpdate();
 
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
@@ -209,12 +212,16 @@ public class Player : Entity {
             case PLAYER_STATE.PS_FALL:
                 /* TO: PS_DASH */
                 if (_dash.CanDash()) ChangeState(PLAYER_STATE.PS_DASH);
+                /* TO : JUMP */
+                else if ((CanJump()) && (_fall.CanCoyoteJump())) ChangeState(PLAYER_STATE.PS_JUMP);
                 /* TO: PS_IDDLE */
                 else if (_fall.Grounded()) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_WALL_FALL */
                 else if (_fall.OnTheWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 // Extra
-                else {
+                else
+                {
+                    if (!_input.Jump()) EnableJump();
                     _movement.ApplyRotacion();
                 }
                 break;
@@ -331,6 +338,12 @@ public class Player : Entity {
             return true;
         }
         return false;
+    }
+
+    public void TakeDamage(int amount, DEATH_CAUSE source, bool die) {
+        _health -= amount;
+        IJustTakeDamage(source);
+        OnHealthChange?.Invoke();
     }
 
     public void TakeDamage(int amount, DEATH_CAUSE source = DEATH_CAUSE.D_DAMAGE) { 

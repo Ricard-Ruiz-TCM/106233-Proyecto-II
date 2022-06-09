@@ -6,13 +6,16 @@ public class HandAttack : MonoBehaviour {
     private Attack _attack;
 
     private bool _move;
-   
+
+    private GameObject _player;
+
     private void Start() {
         _move = false;
 
-        Invoke("EnableMove", 0.5f);
+        Invoke("EnableMove", 1.2f);
 
-        Destroy(this.gameObject, 2.0f);
+        Destroy(this.gameObject, 2.5f);
+
     }
 
     private void OnDestroy() {
@@ -23,12 +26,27 @@ public class HandAttack : MonoBehaviour {
         GetComponent<Animator>().SetBool("Hit", true);
     }
 
+    public void MakeDamage(){
+        if (_player == null) return;
+        _player.GetComponent<PlayerCombat>().TakeDamage(_attack);
+        _player.GetComponent<PlayerMovement>().ExtraUpPush();
+    }
 
-    protected void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider == null) return;
-        if (collision.collider.gameObject.tag == "Player"){
-            Debug.Log("DAÑO AL PLAYER JEJE");
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject == null) return;
+        if (collision.gameObject.tag == "Player")
+        {
+            _player = collision.gameObject;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject == null) return;
+        if (collision.gameObject.tag == "Player")
+        {
+            _player = null;
+        }
+    }
+
 
 }

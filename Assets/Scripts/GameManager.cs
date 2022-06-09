@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     void Awake(){
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
+        Load();
     }
     /////////////////////////////////////////////////////////////////////
 
@@ -18,24 +19,31 @@ public class GameManager : MonoBehaviour {
 
     public int REAL_PROGRESSION = 0;
 
-    public GameObject LVL1;
-    public GameObject LVL2;
+    private GameObject LVL1;
+    private GameObject LVL2;
 
     [SerializeField]
     private GameObject _inkPot;
 
     private GameObject _fader;
 
-    [SerializeField]
     private List<GameObject> _templateButtons;
 
-    void Start(){
+    public void Load(){
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
-        LVL2.SetActive(false);
         MusicPlayer.Instance.PlayMusic("forest");
 
         _fader = GameObject.FindObjectOfType<Fader>().gameObject;
+
+        LVL1 = GameObject.FindObjectOfType<FORESTID>().gameObject;
+        LVL2 = GameObject.FindObjectOfType<CAVEID>().gameObject;
+
+        LVL2.SetActive(false);
+        _templateButtons = new List<GameObject>();
+        _templateButtons.Add(GameObject.FindObjectOfType<BOXTEMPLATEBUTTONID>().gameObject);
+        _templateButtons.Add(GameObject.FindObjectOfType<BOMBTEMPLATEBUTTONID>().gameObject);
+        _templateButtons.Add(GameObject.FindObjectOfType<BULBTEMPLATEBUTTONID>().gameObject);
 
         foreach (GameObject go in _templateButtons) go.SetActive(false);
     }

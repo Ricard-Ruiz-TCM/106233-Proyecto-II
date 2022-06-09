@@ -6,6 +6,8 @@ public class BombTemplate : Template {
 
     private List<GameObject> _objects;
 
+    public float Radius => _explosionRadius;
+
     [SerializeField]
     private float _explosionRadius;
 
@@ -16,24 +18,32 @@ public class BombTemplate : Template {
     [SerializeField]
     private float _explosionTime;
 
+    private bool _Exploded;
+    public bool Exploded() { return _Exploded; }
+
     [SerializeField]
     private Attack _attack;
 
     private int _particlesID;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, Radius);
+    }
 
     private void Start() {
         load();
 
         _explosionRadius = 5.0f;
         _explosionTime = -1.0f;
-
+        _Exploded = false;
         _text = GetComponentInChildren<TextMesh>();
         _spritebg = transform.GetChild(1).GetComponent<SpriteRenderer>();
         _color = _spritebg.color;
 
         _text.text = "";
 
-        _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BoxTemplate");
+        _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BombTemplate");
 
         _particlesID = ParticleInstancer.Instance.StartSpecialParticles("MechaBomba_Particle", transform);
 
@@ -65,6 +75,7 @@ public class BombTemplate : Template {
     }
 
     public void Explode() {
+        _Exploded = true;
         GetComponent<Animator>().SetBool("Explode", true);
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
@@ -92,7 +103,15 @@ public class BombTemplate : Template {
         {
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius)
             {
+                if (go.GetComponent<ICombat>() == null) break;
                 go.GetComponent<ICombat>().TakeDamage(_attack);
+            }
+        }
+
+        List<GameObject> bosses = new List<GameObject>(GameObject.FindGameObjectsWithTag("Boss"));
+        foreach (GameObject go in bosses) {
+            if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius * 2.0f) {
+                go.GetComponent<BossAttack>().TakeDamage(_attack);
             }
         }
 
@@ -103,6 +122,8 @@ public class BombTemplate : Template {
         this.transform.Translate(new Vector3(0.0f, 0.35f, 0.0f));
 
         ParticleInstancer.Instance.StartParticles("BombExplosion_Particle", transform);
+
+        Destroy(transform.Find("Circle").gameObject);
 
         Destroy(this.gameObject, 1.3f);
     }

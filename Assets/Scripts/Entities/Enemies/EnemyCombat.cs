@@ -9,7 +9,9 @@ public class EnemyCombat : Entity, ICombat {
     // ICombat
     public Attack ActiveWeapon => _weapon;
 
+    [SerializeField]
     protected float _health;
+    [SerializeField]
     protected Attack _weapon;
     protected bool dying = false;
     public bool Dying => dying;

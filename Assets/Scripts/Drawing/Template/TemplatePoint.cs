@@ -12,7 +12,7 @@ public class TemplatePoint : MonoBehaviour {
     }
 
     private void Start() {
-        _radius = 0.15f;
+        _radius = 0.25f;
     }
 
     public bool CheckCollision(List<Vector2> points) {

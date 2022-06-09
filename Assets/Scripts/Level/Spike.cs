@@ -15,7 +15,7 @@ public class Spike : MonoBehaviour {
         if (collision == null) return;
         if (collision.gameObject.tag != "Player") return;
 
-        collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL);
+        collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL, true);
     }
 
 }

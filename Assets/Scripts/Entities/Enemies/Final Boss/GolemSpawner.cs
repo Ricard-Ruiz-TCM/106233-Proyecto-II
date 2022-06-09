@@ -15,7 +15,7 @@ public class GolemSpawner : MonoBehaviour {
 
     public void SetDir(float dir){
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(100.0f * dir, 175.0f));
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(175.0f * dir, 0.0f));
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -25,9 +25,7 @@ public class GolemSpawner : MonoBehaviour {
     }
 
     private void Spawn(){
-        Vector2 pos = transform.position;
-        pos.y += 1.0f;
-        Instantiate(_enemy, pos, Quaternion.identity, _enemyContainer.transform);
+        Instantiate(_enemy, transform.position, Quaternion.identity, _enemyContainer.transform);
         Destroy(this.gameObject);
     }
 

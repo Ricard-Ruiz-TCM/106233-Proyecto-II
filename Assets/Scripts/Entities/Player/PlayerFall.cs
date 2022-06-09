@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerFall : PlayerState, IHaveStates {
@@ -24,6 +25,9 @@ public class PlayerFall : PlayerState, IHaveStates {
     public bool Grounded() { return _onGround; }
     public void OnGround(bool grounded) { _onGround = grounded; }
 
+    private bool _speedR;
+    public bool SpeedReduced() { return _speedR; }
+
     // Col. with Wall
     [SerializeField]
     private bool _onWall;
@@ -34,6 +38,10 @@ public class PlayerFall : PlayerState, IHaveStates {
     private bool _facingWall;
     public bool FacingWall() { return _facingWall; }
     public void OnFacingWall(bool wall) { _facingWall = wall; }
+
+    [SerializeField]
+    private float _fallTime;
+    public bool CanCoyoteJump() { return ((_fallTime < 0.2f) && (!_player.LastState().Equals(PLAYER_STATE.PS_JUMP))); }
 
     [SerializeField]
     private float _gravity;
@@ -79,8 +87,16 @@ public class PlayerFall : PlayerState, IHaveStates {
 
     // Unity
     void FixedUpdate(){
-        if (!Grounded() && (!IsFalling() || !_jump.IsJumping())) _fallen = true;
-                                                            else _fallen = false;
+        if (!Grounded() && (!IsFalling() || !_jump.IsJumping()))
+        {
+            _fallen = true; 
+            _fallTime += Time.deltaTime;
+        }
+        else
+        {
+            _fallen = false;
+            _fallTime = 0.0f;
+        }
     }
 
     // PlayerFall.cs <Fall>
@@ -93,7 +109,8 @@ public class PlayerFall : PlayerState, IHaveStates {
         _isFalling = true;
         _particleId = ParticleInstancer.Instance.StartSpecialParticles("ParticlesCaidaaaa", transform);
         if (!_player.LastState().Equals(PLAYER_STATE.PS_JUMP)) {
-            _body.velocity = new Vector3(_body.velocity.x / 10.0f, _body.velocity.y);
+            _body.velocity = new Vector3(_body.velocity.x / 2.5f, _body.velocity.y);
+            _jump.DecideBoosts();
         }
     }
 
@@ -109,6 +126,7 @@ public class PlayerFall : PlayerState, IHaveStates {
     public void OnEnterState(){
         EnableSystem();
         ///////////////
+        _speedR = false;
         StarFall();
         //MusicPlayer.Instance.PlaySpecialFX("fall", 0.25f, 1.0f);
         _animator.SetBool("Fall", true);
@@ -118,6 +136,7 @@ public class PlayerFall : PlayerState, IHaveStates {
         _animator.SetBool("Fall", false);
         MusicPlayer.Instance.StopFX("fall");
         ////////////////
+        _speedR = false;
         DisableSystem();
         ParticleInstancer.Instance.StopParticles(_particleId);
     }
@@ -125,6 +144,9 @@ public class PlayerFall : PlayerState, IHaveStates {
     public void OnState(){
         if (!IsEnabled()) return;
         /////////////////////////
+        ///
+        if (CanCoyoteJump()) return;
+
         if (Grounded()) EndFall();
 
         OnFalling?.Invoke();

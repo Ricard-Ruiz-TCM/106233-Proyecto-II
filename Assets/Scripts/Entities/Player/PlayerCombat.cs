@@ -44,6 +44,8 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     // PlayerSateMachine
     protected Player _player;
 
+    private bool _canAttack;
+
     void Awake(){
         LoadState();
         /////////////
@@ -79,11 +81,15 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         OnEndAttack?.Invoke();
     }
 
-    private ICombat FindTarget(){
+    private GameObject FindTarget(){
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _weapon.Range, _layer_Enemy);
         if (hit.collider != null){
             if (hit.collider.gameObject.tag == "Enemy"){
-                return hit.collider.gameObject.GetComponent<ICombat>();    
+                return hit.collider.gameObject;    
+            }
+            if (hit.collider.gameObject.tag == "Boss")
+            {
+                return hit.collider.gameObject;
             }
         }
         return null;
@@ -121,6 +127,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         EnableSystem();
         ///////////////
         Attack(null);
+        _canAttack = true;
         if (Melee())
         {
             _animator.SetBool("Melee", true);
@@ -140,11 +147,16 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     public void OnState(){
         if (!IsEnabled()) return;
 
-        if (Melee()) {
-            ICombat target = FindTarget();
-            if (target != null)
-            {
-                target.TakeDamage(_weapon);
+        if (Melee() && (_canAttack)) {
+            GameObject target = FindTarget();
+            _canAttack = false;
+            if (target != null) {
+                if (Camera.main.GetComponent<CameraMovement>().OnBoos)
+                {
+                    if (target.GetComponent<BossAttack>() == null) target.GetComponent<ICombat>().TakeDamage(_weapon);
+                    else target.GetComponent<BossAttack>().TakeDamage(_weapon);
+                }
+                else target.GetComponent<ICombat>().TakeDamage(_weapon);
             }
         }
 
