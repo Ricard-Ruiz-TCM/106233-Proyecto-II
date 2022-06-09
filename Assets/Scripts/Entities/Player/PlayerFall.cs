@@ -144,15 +144,10 @@ public class PlayerFall : PlayerState, IHaveStates {
     public void OnState(){
         if (!IsEnabled()) return;
         /////////////////////////
-        ///
         if (CanCoyoteJump()) return;
-
         if (Grounded()) EndFall();
-
         OnFalling?.Invoke();
-
         ClampFallSpeed();
-        
         _jump.CheckBoost();
     }
 
