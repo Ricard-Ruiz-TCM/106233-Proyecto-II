@@ -6,6 +6,8 @@ public class BombTemplate : Template {
 
     private List<GameObject> _objects;
 
+    public float Radius => _explosionRadius;
+
     [SerializeField]
     private float _explosionRadius;
 
@@ -16,17 +18,25 @@ public class BombTemplate : Template {
     [SerializeField]
     private float _explosionTime;
 
+    private bool _Exploded;
+    public bool Exploded() { return _Exploded; }
+
     [SerializeField]
     private Attack _attack;
 
     private int _particlesID;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, Radius);
+    }
 
     private void Start() {
         load();
 
         _explosionRadius = 5.0f;
         _explosionTime = -1.0f;
-
+        _Exploded = false;
         _text = GetComponentInChildren<TextMesh>();
         _spritebg = transform.GetChild(1).GetComponent<SpriteRenderer>();
         _color = _spritebg.color;
@@ -65,6 +75,7 @@ public class BombTemplate : Template {
     }
 
     public void Explode() {
+        _Exploded = true;
         GetComponent<Animator>().SetBool("Explode", true);
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
@@ -111,6 +122,8 @@ public class BombTemplate : Template {
         this.transform.Translate(new Vector3(0.0f, 0.35f, 0.0f));
 
         ParticleInstancer.Instance.StartParticles("BombExplosion_Particle", transform);
+
+        Destroy(transform.Find("Circle").gameObject);
 
         Destroy(this.gameObject, 1.3f);
     }
