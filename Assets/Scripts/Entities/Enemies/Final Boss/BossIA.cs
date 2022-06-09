@@ -16,7 +16,7 @@ public class BossIA : EnemyMovement {
 
     [SerializeField]
     private BOSS_STATES _state;
-    private BOSS_STATES State() { return _state; }
+    public BOSS_STATES State() { return _state; }
 
     private GameObject _player;
 

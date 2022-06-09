@@ -31,6 +31,8 @@ public class CameraMovement : MonoBehaviour {
 
     private bool _OnBossRoom;
 
+    private GameObject _bossHUD;
+
     // Temp vector3 for next pos
     [SerializeField]
     Vector3 _nextPos;
@@ -48,6 +50,9 @@ public class CameraMovement : MonoBehaviour {
 
         _holdY = false;
 
+        _bossHUD = GameObject.FindObjectOfType<BossHealthHUD>().gameObject;
+        _bossHUD.SetActive(false);
+
         BossPosition = new Vector3(91f, -67.25f, -20.0f);
 
         _drawing = _player.GetComponent<PlayerDrawing>();
@@ -61,6 +66,7 @@ public class CameraMovement : MonoBehaviour {
 
         if ((Vector2.Distance(transform.position, BossPosition) < 5.0f) && (!_OnBossRoom)){
             _OnBossRoom = true;
+            _bossHUD.SetActive(true);
             MusicPlayer.Instance.PlayMusic("boss");
         }
 

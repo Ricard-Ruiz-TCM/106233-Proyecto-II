@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BossAttack : EnemyCombat {
+
+    public static event Action OnHealthChange;
 
     private Rigidbody2D _body;
 
@@ -29,8 +32,7 @@ public class BossAttack : EnemyCombat {
     }
 
     public void MeleeAttack(){
-        if (Vector2.Distance(this.transform.position, _player.position) < 2.2f)
-        {
+        if (Vector2.Distance(this.transform.position, _player.position) < 2.2f){
             _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
         }
     }
@@ -42,8 +44,18 @@ public class BossAttack : EnemyCombat {
         Invoke("HandDamage", 1.55f);
     }
 
-    private void HandDamage()
-    {
+    public new void TakeDamage(Attack weapon){
+        if (!CanTakeDamage) return;
+        float dmg = weapon.Damage;
+        if (!GetComponent<BossIA>().State().Equals(BOSS_STATES.B_TAKE_DAMAGE)) dmg /= 5.0f;
+        _health -= dmg;
+        OnHealthChange?.Invoke();
+        if (_health <= 0.0f){
+            dying = true;
+        }
+    }
+
+    private void HandDamage(){
         if (_hand == null) return;
         _hand.GetComponentInChildren<HandAttack>().MakeDamage();
     }

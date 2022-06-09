@@ -11,4 +11,12 @@ public class BarHUDElement : MonoBehaviour {
         GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0.0f, nextW);
     }
 
+    protected void fillRBar(float value, float maxValue)
+    {
+        float per = value / maxValue;
+        float w = transform.parent.GetComponent<RectTransform>().sizeDelta.x;
+        float nextW = w * per;
+        GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0.0f, nextW);
+    }
+
 }

@@ -81,15 +81,15 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         OnEndAttack?.Invoke();
     }
 
-    private ICombat FindTarget(){
+    private GameObject FindTarget(){
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _weapon.Range, _layer_Enemy);
         if (hit.collider != null){
             if (hit.collider.gameObject.tag == "Enemy"){
-                return hit.collider.gameObject.GetComponent<ICombat>();    
+                return hit.collider.gameObject;    
             }
             if (hit.collider.gameObject.tag == "Boss")
             {
-                return hit.collider.gameObject.GetComponent<ICombat>();
+                return hit.collider.gameObject;
             }
         }
         return null;
@@ -148,12 +148,11 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         if (!IsEnabled()) return;
 
         if (Melee() && (_canAttack)) {
-            ICombat target = FindTarget();
+            GameObject target = FindTarget();
             _canAttack = false;
-            if (target != null)
-            {
-                
-                target.TakeDamage(_weapon);
+            if (target != null) {
+                if (Camera.main.GetComponent<CameraMovement>().OnBoos) target.GetComponent<BossAttack>().TakeDamage(_weapon);
+                else target.GetComponent<ICombat>().TakeDamage(_weapon);
             }
         }
 
