@@ -10,7 +10,7 @@ public class CheckPoint : MonoBehaviour {
 
         if(SpawnParticles==false)
         {
-            ParticleInstancer.Instance.StartParticles("Fountain_Particle", transform);
+            ParticleInstancer.Instance.StartSpecialParticles("Fountain_Particle", transform);
             SpawnParticles = true;
         }
         collision.gameObject.GetComponent<Player>().SaveCheckPoint(transform.position);

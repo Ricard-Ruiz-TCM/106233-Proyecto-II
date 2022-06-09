@@ -142,8 +142,6 @@ public class Player : Entity {
 
     void Update(){
 
-        MusicPlayer.Instance.UUpdate();
-
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
 

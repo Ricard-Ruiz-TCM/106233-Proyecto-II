@@ -6,11 +6,6 @@ public class GameManager : MonoBehaviour {
     /////////////////////////////////////////////////////////////////////
     // Singleton Instance
     public static GameManager Instance { get; private set; }
-    void Awake(){
-        if (Instance != null && Instance != this) Destroy(this);
-        else Instance = this;
-        Load();
-    }
     /////////////////////////////////////////////////////////////////////
 
     private GameObject _container;
@@ -29,10 +24,11 @@ public class GameManager : MonoBehaviour {
 
     private List<GameObject> _templateButtons;
 
-    public void Load(){
+    public void Awake(){
+        Instance = this;
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _inkPot = Resources.Load<GameObject>("Prefabs/Ink");
-        MusicPlayer.Instance.PlayMusic("forest");
+        
 
         _fader = GameObject.FindObjectOfType<Fader>().gameObject;
 
@@ -46,6 +42,10 @@ public class GameManager : MonoBehaviour {
         _templateButtons.Add(GameObject.FindObjectOfType<BULBTEMPLATEBUTTONID>().gameObject);
 
         foreach (GameObject go in _templateButtons) go.SetActive(false);
+    }
+
+    void Start(){
+        MusicPlayer.Instance.PlayMusic("forest");
     }
 
     public void InstantiateInkPot(Vector2 pos) {

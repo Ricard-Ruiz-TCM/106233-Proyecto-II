@@ -8,18 +8,19 @@ public class ParticleInstancer : MonoBehaviour
     /////////////////////////////////////////////////////////////////////
     // Singleton Instance
     public static ParticleInstancer Instance { get; private set; }
-    void Awake()
-    {
-        if (Instance != null && Instance != this) Destroy(this);
-        else Instance = this;
-        _particles = new Dictionary<string, GameObject>();
-        _particlesInGame = new List<GameObject>();
-    }
     /////////////////////////////////////////////////////////////////////
 
     private Dictionary<string, GameObject> _particles;
     private List<GameObject> _particlesInGame;
 
+
+    void Awake() {
+        if (Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
+        _particles = new Dictionary<string, GameObject>();
+        _particlesInGame = new List<GameObject>();
+    }
+    
     private void LoadParticles(string name){
         _particles.Add(name, Resources.Load<GameObject>("Prefabs/Particles/" + name));
     }

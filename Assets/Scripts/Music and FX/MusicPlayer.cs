@@ -6,11 +6,6 @@ public class MusicPlayer : MonoBehaviour {
     /////////////////////////////////////////////////////////////////////
     // Singleton Instance
     public static MusicPlayer Instance { get; private set; }
-    void Awake(){
-        if (Instance != null && Instance != this) Destroy(this);
-                                             else Instance = this;
-        LOADMP();
-    }
     /////////////////////////////////////////////////////////////////////
 
     public AudioSource _fxAS;
@@ -28,7 +23,8 @@ public class MusicPlayer : MonoBehaviour {
     public Dictionary<string, int> _musicDic;
 
     // Unity
-    public void LOADMP(){
+    void Awake(){
+        Instance = this;
         _fx = new List<AudioClip>();
         _fxDic = new Dictionary<string, int>();
 
