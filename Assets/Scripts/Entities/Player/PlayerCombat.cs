@@ -46,10 +46,6 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
     private bool _canAttack;
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, _weapon.Range);
-    }
-
     void Awake(){
         LoadState();
         /////////////
