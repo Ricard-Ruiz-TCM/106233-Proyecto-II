@@ -151,7 +151,11 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
             GameObject target = FindTarget();
             _canAttack = false;
             if (target != null) {
-                if (Camera.main.GetComponent<CameraMovement>().OnBoos) target.GetComponent<BossAttack>().TakeDamage(_weapon);
+                if (Camera.main.GetComponent<CameraMovement>().OnBoos)
+                {
+                    if (target.GetComponent<BossAttack>() == null) target.GetComponent<ICombat>().TakeDamage(_weapon);
+                    else target.GetComponent<BossAttack>().TakeDamage(_weapon);
+                }
                 else target.GetComponent<ICombat>().TakeDamage(_weapon);
             }
         }

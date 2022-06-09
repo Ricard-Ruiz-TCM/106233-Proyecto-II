@@ -31,7 +31,7 @@ public class CameraMovement : MonoBehaviour {
 
     private bool _OnBossRoom;
 
-    private GameObject _bossHUD;
+    public GameObject _bossHUD;
 
     // Temp vector3 for next pos
     [SerializeField]
@@ -50,7 +50,6 @@ public class CameraMovement : MonoBehaviour {
 
         _holdY = false;
 
-        _bossHUD = GameObject.FindObjectOfType<BossHealthHUD>().gameObject;
         _bossHUD.SetActive(false);
 
         BossPosition = new Vector3(91f, -67.25f, -20.0f);

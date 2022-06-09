@@ -33,7 +33,7 @@ public class BombTemplate : Template {
 
         _text.text = "";
 
-        _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BoxTemplate");
+        _attack = Resources.Load<Attack>("ScriptableObjects/Templates/BombTemplate");
 
         _particlesID = ParticleInstancer.Instance.StartSpecialParticles("MechaBomba_Particle", transform);
 
@@ -99,7 +99,7 @@ public class BombTemplate : Template {
 
         List<GameObject> bosses = new List<GameObject>(GameObject.FindGameObjectsWithTag("Boss"));
         foreach (GameObject go in bosses) {
-            if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
+            if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius * 2.0f) {
                 go.GetComponent<BossAttack>().TakeDamage(_attack);
             }
         }
