@@ -361,7 +361,7 @@ public class Player : Entity {
     }
 
     private void Invencible() {
-        Invoke("NoInvencible", 1.75f);
+        Invoke("NoInvencible", 2.5f);
     }
 
     private void NoInvencible() {

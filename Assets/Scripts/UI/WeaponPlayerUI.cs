@@ -43,11 +43,11 @@ public class WeaponPlayerUI : MonoBehaviour {
     }
 
     public void Hide(){
-        _sprite.color -= new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        _sprite.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
     public void Show(){
-        _sprite.color += new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        _sprite.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
 
