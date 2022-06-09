@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BOSS_STATES {
+    B_HUMAN_INTRO,
     B_INTRO,
     B_MELEE_ATTACK, 
     B_HAND_ATTACK, 
@@ -89,25 +90,30 @@ public class BossIA : EnemyMovement {
 
         _waitTime = 2.5f;
 
-        ChangeState("", BOSS_STATES.B_INTRO, "Intro");
+        ChangeState("", BOSS_STATES.B_HUMAN_INTRO, "HIntro");
     }
 
     private Vector3 _handPos;
 
-    public bool canS;
-
     public float _spawnD;
 
     private void Update() {
-
-        canS = CanSpawnAttack();
-
+        
         _waitTime -= Time.deltaTime;
-        _meleeAttackTimer -= Time.deltaTime;
-        _handAttackTimer -= Time.deltaTime;
-        _spawnAttackTimer -= Time.deltaTime;
+        if (!State().Equals(BOSS_STATES.B_HUMAN_INTRO)) { 
+            _meleeAttackTimer -= Time.deltaTime;
+            _handAttackTimer -= Time.deltaTime;
+            _spawnAttackTimer -= Time.deltaTime;
+        }
 
         switch(State()){
+            case BOSS_STATES.B_HUMAN_INTRO:
+                if (_waitTime <= 0.0f) {
+                    ChangeState("HIntro", BOSS_STATES.B_INTRO, "Intro");
+                    transform.Find("Dialog").gameObject.SetActive(false);
+                    _waitTime = 2.5f;
+                }
+                break;
             case BOSS_STATES.B_INTRO:
                 rotation();
                 if (GetComponent<BossAttack>().Dying) ChangeState("Intro", BOSS_STATES.B_DEATH, "Die");
