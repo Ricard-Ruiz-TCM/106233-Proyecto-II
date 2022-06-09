@@ -137,9 +137,12 @@ public class Player : Entity {
         _spikeAttack = Resources.Load<Attack>("ScritpableObjects/SpikeAttack");
 
         ChangeState(PLAYER_STATE.PS_IDDLE);
+
     }
 
     void Update(){
+
+        MusicPlayer.Instance.UUpdate();
 
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
