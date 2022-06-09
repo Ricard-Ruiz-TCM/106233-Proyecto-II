@@ -83,6 +83,8 @@ public class BossIA : EnemyMovement {
 
         _detectionDistance = 2.1f;
 
+        _spawnD = 4.0f;
+
         _animator = GetComponent<Animator>();
 
         _waitTime = 2.5f;
@@ -92,7 +94,13 @@ public class BossIA : EnemyMovement {
 
     private Vector3 _handPos;
 
+    public bool canS;
+
+    public float _spawnD;
+
     private void Update() {
+
+        canS = CanSpawnAttack();
 
         _waitTime -= Time.deltaTime;
         _meleeAttackTimer -= Time.deltaTime;
@@ -157,6 +165,8 @@ public class BossIA : EnemyMovement {
                         ChangeState("Move", BOSS_STATES.B_MELEE_ATTACK, "Melee");
                         _waitTime = 1.2f;
                         Invoke("MeleeAttack", 0.8f);
+                    } else {
+                        _handAttackTimer -= 2.0f * Time.deltaTime;
                     }
                 }
                 break;
@@ -180,7 +190,7 @@ public class BossIA : EnemyMovement {
     public bool CanSpawnAttack(){
         Vector2 point = transform.position;
         point.x += transform.right.x * 1.5f;
-        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, 1.55f, LayerMask.GetMask("Enemy", "Wall"));
+        RaycastHit2D hit = Physics2D.Raycast(point, transform.right, _spawnD, LayerMask.GetMask("Enemy", "Wall"));
         return (hit.collider == null);
     }
 

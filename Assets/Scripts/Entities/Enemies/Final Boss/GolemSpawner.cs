@@ -15,7 +15,7 @@ public class GolemSpawner : MonoBehaviour {
 
     public void SetDir(float dir){
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(175.0f * dir, 0.0f));
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(150.0f * dir, 0.0f));
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

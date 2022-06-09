@@ -31,6 +31,12 @@ public class BossAttack : EnemyCombat {
         _body = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        GameObject.FindObjectOfType<BossHealthHUD>()._boss = this;
+        GameObject.FindObjectOfType<BossHealthHUD>().UpdateBar();
+    }
+
     public void MeleeAttack(){
         if (Vector2.Distance(this.transform.position, _player.position) < 2.2f){
             _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);

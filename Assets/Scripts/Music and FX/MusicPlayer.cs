@@ -33,7 +33,7 @@ public class MusicPlayer : MonoBehaviour {
 
     }
 
-    public void UUpdate() {
+    public void Update() {
 
         if (_fadeAS) _musicAS.volume -= 0.001f;
                 else _musicAS.volume += 0.001f;

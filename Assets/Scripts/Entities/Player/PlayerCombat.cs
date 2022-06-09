@@ -139,6 +139,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
                 if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range){
                     Vector2 dir = (transform.position - go.transform.position);
                     dir.Normalize();
+                    if (go.GetComponent<ICombat>() == null) break;
                     if ((dir.x < 0) && (transform.right.x > 0)) go.GetComponent<ICombat>().TakeDamage(_weapon);
                     else if ((dir.x > 0) && (transform.right.x < 0)) go.GetComponent<ICombat>().TakeDamage(_weapon);
                     else if (dir.y < 0) go.GetComponent<ICombat>().TakeDamage(_weapon);
@@ -146,9 +147,10 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
             }
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("Boss"))
             {
-                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range){
+                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range * 1.5f){
                     Vector2 dir = (transform.position - go.transform.position);
                     dir.Normalize();
+                    if (go.GetComponent<BossAttack>() == null) break;
                     if ((dir.x < 0) && (transform.right.x > 0)) go.GetComponent<BossAttack>().TakeDamage(_weapon);
                     else if ((dir.x > 0) && (transform.right.x < 0)) go.GetComponent<BossAttack>().TakeDamage(_weapon);
                     else if (dir.y < 0) go.GetComponent<BossAttack>().TakeDamage(_weapon);
