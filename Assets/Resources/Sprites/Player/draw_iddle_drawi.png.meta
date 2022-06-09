@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -5152152449647739848
     second: draw_iddle_drawi-Sheet_3
+  - first:
+      213: -3761938430880355868
+    second: draw_iddle_drawi_0
+  - first:
+      213: 6644444478069091212
+    second: draw_iddle_drawi_1
+  - first:
+      213: -2567552586520813919
+    second: draw_iddle_drawi_2
+  - first:
+      213: -1075045906949724089
+    second: draw_iddle_drawi_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: draw_iddle_drawi-Sheet_0
+      name: draw_iddle_drawi_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 0
-        width: 46
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9a5c0a8a31ab36a0800000000000000
-      internalID: -6468399166991344998
+      spriteID: 4e96c70cde8eacbc0800000000000000
+      internalID: -3761938430880355868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: draw_iddle_drawi-Sheet_1
+      name: draw_iddle_drawi_1
       rect:
         serializedVersion: 2
-        x: 74
+        x: 64
         y: 0
-        width: 46
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7761695aa2d7bdb0800000000000000
-      internalID: -4776117250717292675
+      spriteID: c8b2d1d8c0fc53c50800000000000000
+      internalID: 6644444478069091212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: draw_iddle_drawi-Sheet_2
+      name: draw_iddle_drawi_2
       rect:
         serializedVersion: 2
-        x: 138
+        x: 128
         y: 0
-        width: 46
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a532b2c9ac6c560800000000000000
-      internalID: 7333771815306877453
+      spriteID: 1ae9a4aa6883e5cd0800000000000000
+      internalID: -2567552586520813919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: draw_iddle_drawi-Sheet_3
+      name: draw_iddle_drawi_3
       rect:
         serializedVersion: 2
-        x: 202
+        x: 192
         y: 0
-        width: 46
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83c7612f4a0ef78b0800000000000000
-      internalID: -5152152449647739848
+      spriteID: 7482607817ba411f0800000000000000
+      internalID: -1075045906949724089
       vertices: []
       indices: 
       edges: []
