@@ -46,6 +46,10 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
 
     private bool _canAttack;
 
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, _weapon.Range);
+    }
+
     void Awake(){
         LoadState();
         /////////////
@@ -79,20 +83,6 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     private void EndAttack() {
         _attacking = false;
         OnEndAttack?.Invoke();
-    }
-
-    private GameObject FindTarget(){
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _weapon.Range, _layer_Enemy);
-        if (hit.collider != null){
-            if (hit.collider.gameObject.tag == "Enemy"){
-                return hit.collider.gameObject;    
-            }
-            if (hit.collider.gameObject.tag == "Boss")
-            {
-                return hit.collider.gameObject;
-            }
-        }
-        return null;
     }
 
     // PlayerCombat.cs <Melee>
@@ -148,18 +138,27 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         if (!IsEnabled()) return;
 
         if (Melee() && (_canAttack)) {
-            GameObject target = FindTarget();
             _canAttack = false;
-            if (target != null) {
-                if (Camera.main.GetComponent<CameraMovement>().OnBoos)
-                {
-                    if (target.GetComponent<BossAttack>() == null) target.GetComponent<ICombat>().TakeDamage(_weapon);
-                    else target.GetComponent<BossAttack>().TakeDamage(_weapon);
+            foreach(GameObject go in GameObject.FindGameObjectsWithTag("Enemy")){
+                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range){
+                    Vector2 dir = (transform.position - go.transform.position);
+                    dir.Normalize();
+                    if ((dir.x < 0) && (transform.right.x > 0)) go.GetComponent<ICombat>().TakeDamage(_weapon);
+                    else if ((dir.x > 0) && (transform.right.x < 0)) go.GetComponent<ICombat>().TakeDamage(_weapon);
+                    else if (dir.y < 0) go.GetComponent<ICombat>().TakeDamage(_weapon);
                 }
-                else target.GetComponent<ICombat>().TakeDamage(_weapon);
+            }
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range){
+                    Vector2 dir = (transform.position - go.transform.position);
+                    dir.Normalize();
+                    if ((dir.x < 0) && (transform.right.x > 0)) go.GetComponent<BossAttack>().TakeDamage(_weapon);
+                    else if ((dir.x > 0) && (transform.right.x < 0)) go.GetComponent<BossAttack>().TakeDamage(_weapon);
+                    else if (dir.y < 0) go.GetComponent<BossAttack>().TakeDamage(_weapon);
+                }
             }
         }
-
         _attackTime += Time.deltaTime;
         if (_attackTime >= _weapon.Cooldown) EndAttack();
     }
