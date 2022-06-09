@@ -9,6 +9,7 @@ public class MusicPlayer : MonoBehaviour {
     void Awake(){
         if (Instance != null && Instance != this) Destroy(this);
                                              else Instance = this;
+        LOADMP();
     }
     /////////////////////////////////////////////////////////////////////
 
@@ -27,18 +28,16 @@ public class MusicPlayer : MonoBehaviour {
     public Dictionary<string, int> _musicDic;
 
     // Unity
-    void Start(){
+    public void LOADMP(){
         _fx = new List<AudioClip>();
         _fxDic = new Dictionary<string, int>();
 
         _music = new List<AudioClip>();
         _musicDic = new Dictionary<string, int>();
 
-        _fadeAS = true;
-        _fadeCM = true;
     }
 
-    void Update() {
+    public void UUpdate() {
 
         if (_fadeAS) _musicAS.volume -= 0.001f;
                 else _musicAS.volume += 0.001f;
