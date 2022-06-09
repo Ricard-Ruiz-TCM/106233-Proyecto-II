@@ -13,11 +13,6 @@ public class PlantInk : EnemyBullet
         Destroy(this.gameObject, 2.5f);
     }
 
-    protected new void Movement()
-    {
-
-    }
-
     public void Direction(float dir)
     {
         fwd = dir;

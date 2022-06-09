@@ -5,13 +5,9 @@ public class HandAttack : MonoBehaviour {
     [SerializeField]
     private Attack _attack;
 
-    private bool _move;
-
     private GameObject _player;
 
     private void Start() {
-        _move = false;
-
         Invoke("EnableMove", 1.2f);
 
         Destroy(this.gameObject, 2.5f);

@@ -12,15 +12,12 @@ public class ShadowAttack : EnemyCombat
     public float DetectionRange;
 
     private ShadowAI shadowAI;
-    private Animator animator;
     private Transform player;
     public bool attacked = false;
-    private bool canBeAttacked = false;
     // Start is called before the first frame update
     void Start()
     {
         shadowAI = GetComponentInParent<ShadowAI>();
-        animator = gameObject.GetComponentInParent<Animator>();
         player = GameObject.FindObjectOfType<Player>().transform;
         _health = 20;
     }

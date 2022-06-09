@@ -11,7 +11,6 @@ public enum States
 
 public class SlimeAI : MonoBehaviour
 {
-    private Player player;
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsDetected;
     public LayerMask WhatIsWall;
@@ -20,9 +19,7 @@ public class SlimeAI : MonoBehaviour
 
     private float WallDetectionDistance = 0.25f;
     private float patrollingSpeed = 1.0f;
-    private float currentTime;
     private float stopTime;
-    private float maxTime = 4.0f;
     private float currentSpeed;
     public States currentState;
 
@@ -33,7 +30,6 @@ public class SlimeAI : MonoBehaviour
     {
         currentState = States.Patrolling;
         currentSpeed = patrollingSpeed;
-        player = FindObjectOfType<Player>();
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
@@ -89,7 +85,6 @@ public class SlimeAI : MonoBehaviour
     void Flip()
     {
         transform.Rotate(0, 180, 0);
-        currentTime = 0;
     }
 
 }
