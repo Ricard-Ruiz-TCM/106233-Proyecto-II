@@ -144,7 +144,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
                     else if (dir.y < 0) go.GetComponent<ICombat>().TakeDamage(_weapon);
                 }
             }
-            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Enemy"))
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Boss"))
             {
                 if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range){
                     Vector2 dir = (transform.position - go.transform.position);
