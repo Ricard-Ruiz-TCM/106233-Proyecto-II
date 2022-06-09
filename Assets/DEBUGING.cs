@@ -67,7 +67,7 @@ public class DEBUGING : MonoBehaviour {
     }
 
     public void GetAll() {
-        StartCoroutine(GetAllTemplates());
+        _player.transform.position = new Vector2(-24.4f, -12.10f);
     }
 
     public IEnumerator GetAllTemplates(){

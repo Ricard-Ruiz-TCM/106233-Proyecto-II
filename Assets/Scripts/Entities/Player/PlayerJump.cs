@@ -75,26 +75,35 @@ public class PlayerJump : PlayerState, IHaveStates {
         _body.gravityScale = _gravity;
     }
 
+    public void DecideBoosts()
+    {
+        _boost = 2;
+        if (_body.velocity.x < -1.0f) _boost = 1;
+        if (_body.velocity.x > 1.0f) _boost = -1;
+    }
+
     private void Jump(float force, float xforce = 0.0f) {
         SetJumpGravity();
 
-        _boost = 2;
         _lastVelY = 0.0f;
 
-        if (_body.velocity.x < -1.0f) _boost = 1;
-        if (_body.velocity.x > 1.0f) _boost = -1;
+        DecideBoosts();
 
-        if (_boost != 2) force = force * 0.825f;
+        if (_boost != 2) force = force * 0.9f;
         _body.AddForce(new Vector2(xforce, force));
 
-        _body.velocity = new Vector2(_body.velocity.x * 0.7f, _body.velocity.y);
+        _body.velocity = new Vector2(_body.velocity.x * 0.75f, _body.velocity.y);
 
         _isJumping = true;
     }
 
     private void StartJump(float force) {
-        if (_fall.OnTheWall() && _fall.IsFalling()) {
-            _body.velocity = Vector2.zero;
+        _body.velocity = new Vector2(_body.velocity.x, 0.1f);
+        if ((!_fall.Grounded()) && (_fall.IsFalling()) && (_fall.CanCoyoteJump())) {
+            _body.velocity = new Vector3(_body.velocity.x * 2.5f, _body.velocity.y);
+            _body.velocity = new Vector2(Mathf.Clamp(_body.velocity.x, -3.5f, 3.5f), _body.velocity.y);
+            Jump(force);
+        } else if (_fall.OnTheWall() && _fall.IsFalling()) {
             float v = (force * 0.75f) * (_fall.FacingWall() ? -transform.right.x : transform.right.x);
             Jump(force * 0.9f, v);
             // Rotación

@@ -58,7 +58,6 @@ public class PlayerDash : PlayerState, IHaveStates {
     }
     
     public void EndDash(){
-        _body.velocity = new Vector2(_lastVelocity, _body.velocity.y);
         _isDashing = false;
         _dashDuration = 0.0f;
         _dashTime = _dashMaxTime;
