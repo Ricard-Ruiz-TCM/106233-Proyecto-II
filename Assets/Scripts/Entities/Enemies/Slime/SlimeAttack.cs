@@ -37,7 +37,9 @@ public class SlimeAttack : EnemyCombat
     public void SlimeAttacks()
     {
         slime.AddForce(new Vector2(transform.right.x * 800.0f, 1.0f));
-        
+        ParticleInstancer.Instance.StartParticles("DashSlime_Particle", transform);
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
