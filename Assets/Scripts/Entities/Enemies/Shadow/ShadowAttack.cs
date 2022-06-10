@@ -28,6 +28,7 @@ public class ShadowAttack : EnemyCombat
         if (dying)
         {
             dying = false;
+            ParticleInstancer.Instance.StartParticles("SombraDie_Particle", transform);
             GetComponent<Rigidbody2D>().isKinematic = true;
             GetComponent<BoxCollider2D>().isTrigger = true;
             shadowAI.shadowState = ShadowStates.Dying;

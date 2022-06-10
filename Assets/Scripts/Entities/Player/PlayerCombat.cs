@@ -170,6 +170,5 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     private IEnumerator AttackDelay(float time)
     {
         yield return new WaitForSeconds(time);
-        ParticleInstancer.Instance.StartParticles("Particles_attack", new Vector2(transform.position.x + 0.8f, transform.position.y));
     }
 }

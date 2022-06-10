@@ -21,7 +21,6 @@ public class BatAttack : EnemyCombat
     private float maxTime = 2f;
     private Transform player;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +45,8 @@ public class BatAttack : EnemyCombat
         {
             //animator.SetBool("Dying", true);
             StartCoroutine(DeathDelay(0.5f));
+            ParticleInstancer.Instance.StartParticles("MucielagoDie_Particle", transform);
+   
         }
 
     }
