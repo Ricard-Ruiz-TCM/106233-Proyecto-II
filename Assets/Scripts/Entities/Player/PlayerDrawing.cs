@@ -127,7 +127,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         if (newPos == -1) newPos = (_templatesIndex + 1) % GameManager.Instance.REAL_PROGRESSION;
         newPos = Mathf.Clamp(newPos, 0, GameManager.Instance.REAL_PROGRESSION - 1);
 
-        CurrentTemplateGuide().FadeOut();
+        CurrentTemplate().SetActive(false);
         SetTemplateIndex(newPos);
         CurrentTemplate().SetActive(true);
 
@@ -136,6 +136,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         ActiveTool().SetPosition(CurrentTemplateGuide().StartPoint());
 
         ClearStrokes();
+        MusicPlayer.Instance.PlayFX("Guia_CambioGuia/Guia_CambioGuia_" + ((int)Random.Range(1, 2)).ToString(), 0.5f);
     }
 
     public void LastTemplate(){
@@ -149,6 +150,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
     public void OnEnterState(){
         EnableSystem();
         ///////////////
+        MusicPlayer.Instance.PlayFX("Guia_Open/Guia_Open_" + ((int)Random.Range(1, 2)).ToString(), 0.5f);
         _activeTool = _brushTool;
         ActiveTool().Show(0.75f);
 
@@ -188,6 +190,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _templateCompleted = false;
         CurrentTemplate().GetComponent<TemplateGuide>().Reset();
         CurrentTemplateGuide().FadeOut();
+        MusicPlayer.Instance.PlayFX("Guia_Close/Guia_Close_" + ((int)Random.Range(1, 2)).ToString(), 0.5f);
         ////////////////
         DisableSystem();
     }

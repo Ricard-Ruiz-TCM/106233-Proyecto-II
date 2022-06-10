@@ -130,6 +130,7 @@ public class BatAI : MonoBehaviour
     void Fly()
     {
         transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
+        MusicPlayer.Instance.PlayFX("Enemy_Bat/Enemy_bat", 0.1f);
     }
 
     void Turn()

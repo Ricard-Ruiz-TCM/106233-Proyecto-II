@@ -76,5 +76,6 @@ public class PlantAttack : EnemyCombat
         attacking = false;
         animator.SetBool("Attack", false);
         animator.SetBool("Idle", true);
+        MusicPlayer.Instance.PlayFX("Enemy_PlantaAtk/Enemy_PlantaAtk_" + ((int)Random.Range(1, 3)).ToString(), 0.1f);
     }
 }
