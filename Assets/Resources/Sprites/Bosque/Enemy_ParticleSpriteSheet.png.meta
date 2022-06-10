@@ -1,0 +1,972 @@
+fileFormatVersion: 2
+guid: a3d9eeb93efbcf84a9c51f33ba5a2769
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8471528983546576067
+    second: Enemy_ParticleSpriteSheet_0
+  - first:
+      213: 8845017380463833741
+    second: Enemy_ParticleSpriteSheet_1
+  - first:
+      213: 4333374537526013308
+    second: Enemy_ParticleSpriteSheet_2
+  - first:
+      213: -2498285505251115405
+    second: Enemy_ParticleSpriteSheet_3
+  - first:
+      213: 4583785699460485591
+    second: Enemy_ParticleSpriteSheet_4
+  - first:
+      213: 4537936402626284739
+    second: Enemy_ParticleSpriteSheet_5
+  - first:
+      213: 4343603475703140570
+    second: Enemy_ParticleSpriteSheet_6
+  - first:
+      213: 1621647691011786713
+    second: Enemy_ParticleSpriteSheet_7
+  - first:
+      213: 4268608573045666724
+    second: Enemy_ParticleSpriteSheet_8
+  - first:
+      213: -8473644048983769678
+    second: Enemy_ParticleSpriteSheet_9
+  - first:
+      213: -7282399298638858639
+    second: Enemy_ParticleSpriteSheet_10
+  - first:
+      213: 2163837140223613148
+    second: Enemy_ParticleSpriteSheet_11
+  - first:
+      213: -9166670317083324508
+    second: Enemy_ParticleSpriteSheet_12
+  - first:
+      213: -499985169026082684
+    second: Enemy_ParticleSpriteSheet_13
+  - first:
+      213: 3877305676644893603
+    second: Enemy_ParticleSpriteSheet_14
+  - first:
+      213: -246633740315936392
+    second: Enemy_ParticleSpriteSheet_15
+  - first:
+      213: -4490358506358646713
+    second: Enemy_ParticleSpriteSheet_16
+  - first:
+      213: 7369736610618109364
+    second: Enemy_ParticleSpriteSheet_17
+  - first:
+      213: 5983856011193567680
+    second: Enemy_ParticleSpriteSheet_18
+  - first:
+      213: -4351657354256935407
+    second: Enemy_ParticleSpriteSheet_19
+  - first:
+      213: -6870538305272205224
+    second: Enemy_ParticleSpriteSheet_20
+  - first:
+      213: -7241800586379457507
+    second: Enemy_ParticleSpriteSheet_21
+  - first:
+      213: 2546244196839806784
+    second: Enemy_ParticleSpriteSheet_22
+  - first:
+      213: 8653335513396933732
+    second: Enemy_ParticleSpriteSheet_23
+  - first:
+      213: -7186470232709499732
+    second: Enemy_ParticleSpriteSheet_24
+  - first:
+      213: 9190589207141257219
+    second: Enemy_ParticleSpriteSheet_25
+  - first:
+      213: 825951343872224902
+    second: Enemy_ParticleSpriteSheet_26
+  - first:
+      213: -7054749946371504930
+    second: Enemy_ParticleSpriteSheet_27
+  - first:
+      213: -6242343842950294931
+    second: Enemy_ParticleSpriteSheet_28
+  - first:
+      213: -7117375509139805339
+    second: Enemy_ParticleSpriteSheet_29
+  - first:
+      213: -294467553147437274
+    second: Enemy_ParticleSpriteSheet_30
+  - first:
+      213: -3295154535739737998
+    second: Enemy_ParticleSpriteSheet_31
+  - first:
+      213: 8181848414115175409
+    second: Enemy_ParticleSpriteSheet_32
+  - first:
+      213: -8207975725047382809
+    second: Enemy_ParticleSpriteSheet_33
+  - first:
+      213: -7674425433040731443
+    second: Enemy_ParticleSpriteSheet_34
+  - first:
+      213: -7805497033036352707
+    second: Enemy_ParticleSpriteSheet_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 167
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc38b8f9bae09570800000000000000
+      internalID: 8471528983546576067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 163
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82f3b2d170dfba70800000000000000
+      internalID: 8845017380463833741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 162
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7de5f3ce2d332c30800000000000000
+      internalID: 4333374537526013308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 164
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37efff7c19e445dd0800000000000000
+      internalID: -2498285505251115405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 164
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d19bd6cec0ec9f30800000000000000
+      internalID: 4583785699460485591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 165
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc8adb7d1df9fe30800000000000000
+      internalID: 4537936402626284739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 135
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad010760954974c30800000000000000
+      internalID: 4343603475703140570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 133
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7079dabff318610800000000000000
+      internalID: 1621647691011786713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 134
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3f29191e42d3b30800000000000000
+      internalID: 4268608573045666724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 133
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd383bf1a1976a80800000000000000
+      internalID: -8473644048983769678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 134
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176b314fb68bfea90800000000000000
+      internalID: -7282399298638858639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 134
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd853de1a6e770e10800000000000000
+      internalID: 2163837140223613148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 103
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af8129e9e179c080800000000000000
+      internalID: -9166670317083324508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 105
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4889c374322bf09f0800000000000000
+      internalID: -499985169026082684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 104
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a3460658f4fec530800000000000000
+      internalID: 3877305676644893603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 105
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879b7de7be7c39cf0800000000000000
+      internalID: -246633740315936392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 102
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748d65ababa0fa1c0800000000000000
+      internalID: -4490358506358646713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 104
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd651c9660964660800000000000000
+      internalID: 7369736610618109364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 70
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9474e965dea0350800000000000000
+      internalID: 5983856011193567680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 71
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1169c4f31becb93c0800000000000000
+      internalID: -4351657354256935407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 69
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850398220d1f6a0a0800000000000000
+      internalID: -6870538305272205224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 70
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c03a24cb4ff7b90800000000000000
+      internalID: -7241800586379457507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 71
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04759004b93165320800000000000000
+      internalID: 2546244196839806784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 72
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464fb465dc2d61870800000000000000
+      internalID: 8653335513396933732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 40
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca47e6e1667844c90800000000000000
+      internalID: -7186470232709499732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 38
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3009138a0388b8f70800000000000000
+      internalID: 9190589207141257219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 39
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ea2450f5e567b00800000000000000
+      internalID: 825951343872224902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 35
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4025b2d4e781e90800000000000000
+      internalID: -7054749946371504930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 38
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62d913295dbe59a0800000000000000
+      internalID: -6242343842950294931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 38
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b28a41fa00a3d90800000000000000
+      internalID: -7117375509139805339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fb4c01257d9ebf0800000000000000
+      internalID: -294467553147437274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 4
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278373188624542d0800000000000000
+      internalID: -3295154535739737998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 4
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb9d6988c3cb8170800000000000000
+      internalID: 8181848414115175409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 5
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec7587d099671e80800000000000000
+      internalID: -8207975725047382809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 2
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc24260cab6fe7590800000000000000
+      internalID: -7674425433040731443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_ParticleSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 4
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33b082cdcd4da390800000000000000
+      internalID: -7805497033036352707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

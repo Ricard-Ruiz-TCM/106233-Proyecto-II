@@ -22,6 +22,7 @@ public class SlimeAttack : EnemyCombat
     {
         if (dying)
         {
+            ParticleInstancer.Instance.StartParticles("EnemyDie_Particle", transform);
             dying = false;
             GetComponent<SlimeAI>().currentState = States.Dying;
             animator.SetBool("Dying", true);
@@ -29,6 +30,7 @@ public class SlimeAttack : EnemyCombat
             GetComponent<CircleCollider2D>().isTrigger = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(DeathDelay(2.3f));
+
         }
     }
 
