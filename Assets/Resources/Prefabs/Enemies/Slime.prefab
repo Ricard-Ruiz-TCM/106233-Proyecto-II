@@ -122,7 +122,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0076475143, y: -0.012041569}
+  m_Offset: {x: 0.0076475143, y: 0.01}
   serializedVersion: 2
   m_Radius: 0.20425749
 --- !u!114 &3438083274922644339
@@ -161,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675895b7466f7b347a3977046fcfdd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
+  _weapon: {fileID: 0}
+  CanTakeDamage: 1
   attackSpeed: 10
   slime: {fileID: 3438083274922644337}
   currentAttack: {fileID: 11400000, guid: 51f50145a2def5c42ab329e4689e0ea1, type: 2}

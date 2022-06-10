@@ -63,7 +63,7 @@ public class PlantAttack : EnemyCombat
             if (IsInvoking("InkAttack")) CancelInvoke("InkAttack");
             StartCoroutine(DeathDelay(1.9f));
             GetComponent<Rigidbody2D>().isKinematic = true;
-            GetComponent<BoxCollider2D>().isTrigger = true;
+            GetComponent<PolygonCollider2D>().isTrigger = true;
         }
     }
 
