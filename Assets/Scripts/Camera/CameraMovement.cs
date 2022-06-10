@@ -26,6 +26,7 @@ public class CameraMovement : MonoBehaviour {
     private float _str;
 
     private bool _holdY;
+    private bool _holdX;
 
     public bool OnBoos => _OnBossRoom;
 
@@ -42,13 +43,14 @@ public class CameraMovement : MonoBehaviour {
         _player = GameObject.FindObjectOfType<Player>().gameObject.transform;
 
         _deltaX = 2.0f;
-        _nextDeltaX = 0.0f;
+        _nextDeltaX = 2.0f;
         _deltaY = 1.5f;
         _str = 8.0f;
 
         _OnBossRoom = false;
 
         _holdY = false;
+        _holdX = false;
 
         _bossHUD.SetActive(false);
 
@@ -89,6 +91,11 @@ public class CameraMovement : MonoBehaviour {
         _nextPos = new Vector3(_player.position.x + _deltaX, _player.position.y + _deltaY, transform.position.z);
         
         if (_holdY) { _nextPos.y = transform.position.y; }
+        if (_holdX) { 
+            _nextPos.x = transform.position.x; 
+            if (_player.transform.position.x > _nextPos.x) EnableXMovement();
+        }
+
         if (_OnBossRoom) _nextPos = BossPosition;
 
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
@@ -105,6 +112,14 @@ public class CameraMovement : MonoBehaviour {
     public void StopYMovement()
     {
         _holdY = true;
+    }
+
+    public void StopXMovement(){
+        _holdX = true;
+    }
+
+    public void EnableXMovement(){
+        _holdX = false;
     }
 
     public void EnableYMovement()
