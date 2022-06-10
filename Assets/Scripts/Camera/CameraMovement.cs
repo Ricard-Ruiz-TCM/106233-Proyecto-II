@@ -93,7 +93,7 @@ public class CameraMovement : MonoBehaviour {
         if (_holdY) { _nextPos.y = transform.position.y; }
         if (_holdX) { 
             _nextPos.x = transform.position.x; 
-            if (_player.transform.position.x > _nextPos.x) EnableXMovement();
+            if (_player.transform.position.x + _deltaX >= _nextPos.x) EnableXMovement();
         }
 
         if (_OnBossRoom) _nextPos = BossPosition;
