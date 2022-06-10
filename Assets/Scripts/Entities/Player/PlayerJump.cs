@@ -142,7 +142,7 @@ public class PlayerJump : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         StartJump(_jumpStr);
-        MusicPlayer.Instance.PlayFX("jump", 0.4f);
+        MusicPlayer.Instance.PlayFX("Player_Jump_1/Player_Jump_1", 0.4f);
         _animator.SetBool("Jump", true);
     }
 
