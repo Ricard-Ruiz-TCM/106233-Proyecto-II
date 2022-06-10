@@ -27,7 +27,7 @@ public class RightDetector : MonoBehaviour {
     }
 
     void Start(){
-        _checkRadius = 0.175f;
+        _checkRadius = 0.2f;
 
         _layer_WallFall = LayerMask.GetMask("WallFall");
     }

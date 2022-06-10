@@ -54,7 +54,7 @@ public class FallingPlatform : MonoBehaviour {
         if (IsFalling()) return;
         _fall = true;
         GetComponent<Rigidbody2D>().isKinematic = false;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<PolygonCollider2D>().isTrigger = true;
         MusicPlayer.Instance.PlayFX("Books_Falling/Books_Falling_" + ((int)Random.Range(1, 3)).ToString(), 5f);
         Invoke("Restore", _fallTime);
     }
@@ -62,7 +62,7 @@ public class FallingPlatform : MonoBehaviour {
     private void Restore(){
         _fall = false;
         _fade = false;
-        GetComponent<BoxCollider2D>().isTrigger = false;
+        GetComponent<PolygonCollider2D>().isTrigger = false;
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.5f);

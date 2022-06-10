@@ -31,6 +31,7 @@ public class PlayerJump : PlayerState, IHaveStates {
     private float _gravity;
 
     // Fall & WallFall Systems
+    private PlayerMovement _movement;
     private PlayerFall _fall;
 
     // Unity
@@ -56,6 +57,7 @@ public class PlayerJump : PlayerState, IHaveStates {
         _gravity = 0.5f;
 
         _fall = GetComponent<PlayerFall>();
+        _movement = GetComponent<PlayerMovement>();
     }
 
     // Unity
@@ -110,9 +112,7 @@ public class PlayerJump : PlayerState, IHaveStates {
             if (v > 0.0f) transform.localEulerAngles = new Vector2(0.0f, 0.0f);
             if (v < 0.0f) transform.localEulerAngles = new Vector2(0.0f, 180.0f);
             _boost = 0;
-        } else {
-            Jump(force);
-        }
+        } else { Jump(force); }
         OnJump?.Invoke();
     }
 

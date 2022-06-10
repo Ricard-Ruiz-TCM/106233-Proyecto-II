@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5901386720745372130}
   - component: {fileID: 5901386720745372129}
   - component: {fileID: 5901386720745372128}
-  - component: {fileID: 5901386720745372135}
   - component: {fileID: 5901386720745372134}
+  - component: {fileID: 6892144082876862777}
   m_Layer: 17
   m_Name: FallingBook
   m_TagString: Untagged
@@ -107,8 +107,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &5901386720745372135
-BoxCollider2D:
+--- !u!114 &5901386720745372134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901386720745372133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb14354beb59014da539f102b8fce76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallTime: 6
+  _fadeTime: 0.5
+--- !u!60 &6892144082876862777
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,23 +144,19 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.94, y: 0.25}
-  m_EdgeRadius: 0
---- !u!114 &5901386720745372134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5901386720745372133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb14354beb59014da539f102b8fce76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fallTime: 6
-  _fadeTime: 0.5
+  m_Points:
+    m_Paths:
+    - - {x: 0.46954647, y: -0.04041691}
+      - {x: 0.41581607, y: 0.067248076}
+      - {x: 0.35052636, y: 0.10781988}
+      - {x: 0.122938, y: 0.10967997}
+      - {x: 0.0072662123, y: 0.02197627}
+      - {x: -0.10073041, y: 0.10043315}
+      - {x: -0.25462952, y: 0.102533974}
+      - {x: -0.3736033, y: 0.102518514}
+      - {x: -0.46736023, y: -0.059046783}
+      - {x: -0.47, y: -0.125}
+      - {x: 0.47527954, y: -0.12632117}
 --- !u!1001 &834229917109141287
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,9 +10,12 @@ public class PlayerMovement : PlayerState, IHaveStates {
     public float _speed;
 
     // Col. with Walls??
+    [SerializeField]
     private bool _wallFree;
     private bool WallFree() { return _wallFree; }
     private void CanMoveRight(bool col) { _wallFree = col; }
+
+    public bool NotFacingWall() { return WallFree(); }
 
     // Unity
     private void OnEnable(){
