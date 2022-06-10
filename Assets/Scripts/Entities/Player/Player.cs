@@ -157,7 +157,7 @@ public class Player : Entity {
                 /* TO: PS_ATTACK */
                 else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);
                 /* TO: PS_MOVE */ 
-                else if ((_input.Left() ^ _input.Right())) ChangeState(PLAYER_STATE.PS_MOVE);
+                else if ((_input.Left() || _input.Right()) && (_movement.NotFacingWall())) ChangeState(PLAYER_STATE.PS_MOVE);
                 /* TO: PS_DRAW */ 
                 else if (_drawing.IsEnabled()) ChangeState(PLAYER_STATE.PS_DRAW);
                 // EXtra
@@ -169,20 +169,21 @@ public class Player : Entity {
                 }
                 break;
             case PLAYER_STATE.PS_MOVE:
-                /* TO: PS_DRAW */ 
-                if (_drawing.IsEnabled()) ChangeState(PLAYER_STATE.PS_DRAW);
+                /* TO: PS_IDDLE */
+                if ((!(_input.Left() ^ _input.Right())) || (!_movement.NotFacingWall())) ChangeState(PLAYER_STATE.PS_IDDLE);
+                /* TO: PS_DRAW */
+                else if (_drawing.IsEnabled()) ChangeState(PLAYER_STATE.PS_DRAW);
                 /* to: PS_DASH */
                 else if (_dash.CanDash()) ChangeState(PLAYER_STATE.PS_DASH);
                 /* TO: PS_JUMP */
                 else if (CanJump()) ChangeState(PLAYER_STATE.PS_JUMP);
                 /* TO: PS_FALL */
                 else if (_fall.HaveFallen()) ChangeState(PLAYER_STATE.PS_FALL);
-                /* TO: PS_IDDLE */
-                else if (!(_input.Left() ^ _input.Right())) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_ATTACK */
                 else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);
                 // EXtra
-                else {
+                else
+                {
                     _movement.ApplyFriccion();
                     _movement.ApplyRotacion();
                     if (!_input.MainAction()) EnableAttack();

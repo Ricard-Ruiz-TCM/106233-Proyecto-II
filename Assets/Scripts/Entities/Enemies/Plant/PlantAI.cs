@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantAI : EnemyMovement
 {
-    public Rigidbody2D player;
+    public GameObject player;
     public LayerMask WhatIsPlayer;
     public Transform EdgeDetectionPoint;
     public float DetectionDistance;
@@ -13,55 +13,39 @@ public class PlantAI : EnemyMovement
 
     private bool detected;
 
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.DrawWireSphere(transform.position, DetectionDistance);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponentInChildren<Rigidbody2D>();
+        player = GameObject.FindObjectOfType<Player>().gameObject;
         detected = false;
-        DetectionDistance = 5.0f;
+        DetectionDistance = 4.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        if(PlayerDetection())
-        {
-            detected = true;
-        }
 
-        if (!CheckRotation())
-        {
-            Flip();
-            detected = true;
-        }
-        if(IsInRange() == false)
-        {
-            detected = false;
-        }
+        detected = PlayerDetection();
+
+        if (!GetComponent<PlantAttack>().Dying) ApplyRotation();
 
     }
 
-    void Flip()
-    {
-        transform.Rotate(0, 180, 0);
+
+    private void ApplyRotation() {
+        Vector2 dir = (transform.position - player.gameObject.transform.position);
+        dir.Normalize();
+        transform.localEulerAngles = new Vector3(0.0f, -180.0f * Mathf.Ceil(-dir.x), 0.0f);
     }
 
-    private bool CheckRotation()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, transform.right, DetectionDistance, WhatIsPlayer);
-        return hit.collider == null;
+    private bool PlayerDetection() {
+        return (Vector2.Distance(transform.position, player.gameObject.transform.position) < DetectionDistance);
     }
 
-    private bool PlayerDetection()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, -transform.right, DetectionDistance, WhatIsPlayer);
-        return hit.collider != null;
-    }
-
-    bool IsInRange()
-    {
-        float dist = Vector2.Distance(player.position, transform.position);
-        return dist < DetectionDistance;
-    }
 }
