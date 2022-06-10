@@ -44,8 +44,9 @@ public class BatAttack : EnemyCombat
         if (dying)
         {
             //animator.SetBool("Dying", true);
+            dying = false;
             StartCoroutine(DeathDelay(0.5f));
-            ParticleInstancer.Instance.StartParticles("MucielagoDie_Particle", transform);
+            ParticleInstancer.Instance.StartParticles("MucielagoDie_Particle", transform.position);
    
         }
 
