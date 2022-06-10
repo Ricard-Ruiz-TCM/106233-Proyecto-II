@@ -58,6 +58,7 @@ public class PlantAttack : EnemyCombat
         if (dying)
         {
             animator.SetBool("Dying", true);
+            ParticleInstancer.Instance.StartParticles("PlantaDie_Particle", transform);
             dying = false;
             if (IsInvoking("InkAttack")) CancelInvoke("InkAttack");
             StartCoroutine(DeathDelay(1.9f));
