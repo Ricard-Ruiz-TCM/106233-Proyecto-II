@@ -127,7 +127,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         if (newPos == -1) newPos = (_templatesIndex + 1) % GameManager.Instance.REAL_PROGRESSION;
         newPos = Mathf.Clamp(newPos, 0, GameManager.Instance.REAL_PROGRESSION - 1);
 
-        CurrentTemplateGuide().FadeOut();
+        CurrentTemplate().SetActive(false);
         SetTemplateIndex(newPos);
         CurrentTemplate().SetActive(true);
 
