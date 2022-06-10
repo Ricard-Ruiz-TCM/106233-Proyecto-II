@@ -79,10 +79,11 @@ public class BombTemplate : Template {
     public void Explode() {
         _Exploded = true;
         GetComponent<Animator>().SetBool("Explode", true);
+        MusicPlayer.Instance.StopFX("Bomb_Timer");
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
                 ParticleInstancer.Instance.StartParticles("WallBreak_Particles", go.transform.position);
-                MusicPlayer.Instance.PlayFX("Explosion_bomb", 0.5f);
+                MusicPlayer.Instance.PlayFX("Explosion_bomb", 1f);
                 Destroy(go);
             }
         }

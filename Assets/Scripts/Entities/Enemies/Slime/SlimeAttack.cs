@@ -38,7 +38,7 @@ public class SlimeAttack : EnemyCombat
     {
         slime.AddForce(new Vector2(transform.right.x * 800.0f, 1.0f));
         ParticleInstancer.Instance.StartParticles("DashSlime_Particle", transform);
-        MusicPlayer.Instance.PlayFX("Enemy_SlimeAtk_1/Enemy_SlimeAtk_1", 0.1f);
+        MusicPlayer.Instance.PlayFX("Enemy_SlimeAtk_1/Enemy_SlimeAtk_1", 0.5f);
 
     }
 
