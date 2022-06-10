@@ -84,7 +84,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     // PlayerCombat.cs <Melee>
     private void MeleeAttack() {
         _body.velocity = Vector2.zero;
-        _body.AddForce(new Vector2(transform.right.x * 150.0f, 75.0f));
+        _body.AddForce(new Vector2(transform.right.x * 75.0f, 37.5f));
         StartCoroutine(AttackDelay(0.3f));
         MusicPlayer.Instance.PlayFX("Player_AtkMelee/Player_AtkMelee_" + ((int)UnityEngine.Random.Range(1, 4)).ToString(), 0.1f);
     }
