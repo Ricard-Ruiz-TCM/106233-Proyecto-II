@@ -43,7 +43,7 @@ public class PlayerDash : PlayerState, IHaveStates {
 
         _dashSafeDistance = 0.35f;
 
-        _layers = LayerMask.GetMask("Wall", "Ground", "WallFall", "Door", "FallingPlatform", "Object");
+        _layers = LayerMask.GetMask("Ground", "Wall", "Spike", "FallingPlatform", "Platform", "Enemy", "Object", "WallFall");
 
         _fall = GetComponent<PlayerFall>();
     }
@@ -67,7 +67,9 @@ public class PlayerDash : PlayerState, IHaveStates {
     public void OnEnterState(){
         EnableSystem();
         ///////////////
-        StartDash();
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _dashSafeDistance, _layers);
+        if (hit.collider == null) StartDash();
+        else EndDash();
         MusicPlayer.Instance.PlayFX("Player_Dash/Player_Dash", 0.5f);
         _animator.SetBool("Dash", true);
     }
@@ -85,7 +87,10 @@ public class PlayerDash : PlayerState, IHaveStates {
 
         // Comprobación para que no se meta en una pared
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _dashSafeDistance, _layers);
-        if (hit.collider != null) { _lastVelocity = 0.0f; EndDash(); }
+        if (hit.collider != null) { 
+            _body.velocity = Vector2.zero; 
+            EndDash(); 
+        }
 
         _dashDuration += Time.deltaTime;
         if (_dashDuration >= _dashTime) EndDash();
