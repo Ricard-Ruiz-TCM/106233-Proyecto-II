@@ -40,7 +40,7 @@ public class TemplateGuide : MonoBehaviour {
 
     private void OnEnable()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.8f);
         _fade = 1.0f;
     }
 
