@@ -56,7 +56,7 @@ public class BombTemplate : Template {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
-        MusicPlayer.Instance.PlayFX("Bomb_place/Bomb_Place_" + ((int)Random.Range(1, 3)).ToString(), 0.1f);
+        MusicPlayer.Instance.PlayFX("Bomb_place/Bomb_Place_" + ((int)Random.Range(1, 3)).ToString(), 0.5f);
     }
 
     private void Update(){
@@ -66,6 +66,7 @@ public class BombTemplate : Template {
             _text.text = ((int)_explosionTime).ToString();
             _color.a = 1.0f;
             _spritebg.color = _color;
+            MusicPlayer.Instance.PlayFX("Bomb_Timer", 0.5f);
         }
         else
         {
@@ -81,6 +82,7 @@ public class BombTemplate : Template {
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
                 ParticleInstancer.Instance.StartParticles("WallBreak_Particles", go.transform.position);
+                MusicPlayer.Instance.PlayFX("Explosion_bomb", 0.5f);
                 Destroy(go);
             }
         }

@@ -28,7 +28,7 @@ public class BoxTemplate : Template {
         if (collision.collider == null) return;
 
         _body.velocity = Vector2.zero;
-        MusicPlayer.Instance.PlayFX("Box_place/Box_place_" + ((int)Random.Range(1, 3)).ToString(), 0.1f);
+        MusicPlayer.Instance.PlayFX("Box_place/Box_place_" + ((int)Random.Range(1, 3)).ToString(), 0.5f);
         if (collision.collider.gameObject.tag == "WallFall") GetComponent<Rigidbody2D>().isKinematic = true;
 
         if (collision.collider.gameObject.tag == "Enemy") {
