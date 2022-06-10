@@ -86,7 +86,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         _body.velocity = Vector2.zero;
         _body.AddForce(new Vector2(transform.right.x * 75.0f, 37.5f));
         StartCoroutine(AttackDelay(0.3f));
-        MusicPlayer.Instance.PlayFX("Player_AtkMelee/Player_AtkMelee_" + ((int)UnityEngine.Random.Range(1, 4)).ToString(), 0.1f);
+        MusicPlayer.Instance.PlayFX("Player_AtkMelee/Player_AtkMelee_" + ((int)UnityEngine.Random.Range(1, 4)).ToString(), 0.5f);
     }
 
     // PlayerCombat.cs <Ranged>
@@ -95,7 +95,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         _player.UseInk(_weapon.InkCost);
         GameObject bullet = Instantiate(_inkBullet, new Vector2(this.transform.position.x + 0.005f, this.transform.position.y + 0.5f), Quaternion.identity, _container.transform);
         bullet.GetComponent<PlayerBullet>().Dir(this.transform.right.x);
-        MusicPlayer.Instance.PlayFX("Player_AtkDistance/Player_AtkDistance_" + ((int)UnityEngine.Random.Range(1, 2)).ToString(), 0.1f);
+        MusicPlayer.Instance.PlayFX("Player_AtkDistance/Player_AtkDistance_" + ((int)UnityEngine.Random.Range(1, 2)).ToString(), 0.5f);
     }
 
     // ICombat
@@ -147,7 +147,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
                     if ((dir.x < 0) && (transform.right.x > 0)) go.GetComponent<ICombat>().TakeDamage(_weapon);
                     else if ((dir.x > 0) && (transform.right.x < 0)) go.GetComponent<ICombat>().TakeDamage(_weapon);
                     else if (dir.y < 0) go.GetComponent<ICombat>().TakeDamage(_weapon);
-                    MusicPlayer.Instance.PlayFX("Player_AtkMelee_Hit/Player_AtkMelee_Hit_" + ((int)UnityEngine.Random.Range(1, 4)).ToString(), 0.1f);
+                    MusicPlayer.Instance.PlayFX("Player_AtkMelee_Hit/Player_AtkMelee_Hit_" + ((int)UnityEngine.Random.Range(1, 4)).ToString(), 0.5f);
                 }
             }
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("Boss"))
