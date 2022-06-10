@@ -117,6 +117,8 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         if (Melee())
         {
             _animator.SetBool("Melee", true);
+            ParticleInstancer.Instance.StartParticles("RafagaMelee_Particle", transform);
+
         }
         if (Ranged()) _animator.SetBool("Ranged", true);
     }

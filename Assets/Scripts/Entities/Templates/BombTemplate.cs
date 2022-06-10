@@ -56,6 +56,7 @@ public class BombTemplate : Template {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
+        MusicPlayer.Instance.PlayFX("Bomb_place/Bomb_Place_" + ((int)Random.Range(1, 3)).ToString(), 0.1f);
     }
 
     private void Update(){
