@@ -29,7 +29,7 @@ public class SlimeAttack : EnemyCombat
             GetComponent<Rigidbody2D>().isKinematic = true;
             GetComponent<CircleCollider2D>().isTrigger = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            StartCoroutine(DeathDelay(2.3f));
+            StartCoroutine(DeathDelay(2.2f));
 
         }
     }
