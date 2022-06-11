@@ -66,7 +66,7 @@ public class PlayerMovement : PlayerState, IHaveStates {
 
     // PlayerMovement.cs <Audio>
     public void Steps() {
-        MusicPlayer.Instance.PlayFX("Steps/step" + ((int)Random.Range(0, 6)).ToString(), 0.3f);
+        MusicPlayer.Instance.PlayFX("Player_Pasos_graba/Player_Footstep_Gravel_" + ((int)Random.Range(1, 6)).ToString(), 0.5f);
         Vector2 POS = transform.position; POS.y-=0.35f;
         ParticleInstancer.Instance.StartParticles("Pasos_Particulas", POS);
 

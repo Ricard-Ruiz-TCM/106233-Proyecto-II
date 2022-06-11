@@ -72,7 +72,7 @@ public class PlayerDash : PlayerState, IHaveStates {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _dashSafeDistance, _layers);
         if (hit.collider == null) StartDash();
         else EndDash();
-        MusicPlayer.Instance.PlayFX("Player_Dash/Player_Dash", 0.5f);
+        MusicPlayer.Instance.PlayFX("Player_Dash/Player_Dash", 0.3f);
         _animator.SetBool("Dash", true);
     }
 

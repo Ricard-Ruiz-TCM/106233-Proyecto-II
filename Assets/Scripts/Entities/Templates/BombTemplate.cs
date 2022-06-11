@@ -83,7 +83,6 @@ public class BombTemplate : Template {
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
                 ParticleInstancer.Instance.StartParticles("WallBreak_Particles", go.transform.position);
-                MusicPlayer.Instance.PlayFX("Explosion_bomb", 1f);
                 Destroy(go);
             }
         }
@@ -129,6 +128,7 @@ public class BombTemplate : Template {
 
         Destroy(transform.Find("Circle").gameObject);
 
+        MusicPlayer.Instance.PlayFX("Explosion_bomb", 1f);
         Destroy(this.gameObject, 1.3f);
     }
 

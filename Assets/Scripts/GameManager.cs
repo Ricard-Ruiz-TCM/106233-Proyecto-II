@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
     public void GOTOLVL2(){
         LVL1.SetActive(false);
         LVL2.SetActive(true);
-        MusicPlayer.Instance.PlayMusic("cave");
+        MusicPlayer.Instance.PlayMusic("Musica_Cueva/Musica_Cueva", 1f, true);
         foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemies);
         }
