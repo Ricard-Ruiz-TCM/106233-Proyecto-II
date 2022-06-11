@@ -53,6 +53,8 @@ public class PlayerDash : PlayerState, IHaveStates {
         _isDashing = true;
         _dashDuration = 0.0f;
         _lastVelocity = _body.velocity.x;
+        ParticleInstancer.Instance.StartSpecialParticles("Rafaga_Particle", transform);
+
         if (_fall.IsFalling()) _dashTime = 0.2f;
         _body.AddForce(new Vector2(transform.right.x * _dashStr, 0.0f));
     }
