@@ -390,7 +390,7 @@ public class Player : Entity {
         Camera.main.transform.GetComponent<CameraMovement>().EnableYMovement();
         ChangeState(PLAYER_STATE.PS_IDDLE);
         OnRespawn?.Invoke();
-        ParticleInstancer.Instance.StartParticles("respawn_3", transform);
+        ParticleInstancer.Instance.StartParticles("CreacionDibujo_Particle", transform);
 
     }
 

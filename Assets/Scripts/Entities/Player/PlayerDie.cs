@@ -70,7 +70,9 @@ public class PlayerDie : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         switch (_dCause){
-            case DEATH_CAUSE.D_DAMAGE: Invoke("InstantiateHand", 1.0f); break;
+            case DEATH_CAUSE.D_DAMAGE: Invoke("InstantiateHand", 1.0f);
+                ParticleInstancer.Instance.StartParticles("RespawnLokuraParticula", this.transform);
+                break;
             case DEATH_CAUSE.D_FALL:
                 _body.velocity = Vector2.zero;
                 _body.isKinematic = true;
