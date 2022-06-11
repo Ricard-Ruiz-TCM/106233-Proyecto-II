@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GolemAttack : EnemyCombat
 {
+    private bool canAttack;
     private GameObject player;
 
     private void OnDrawGizmos()
@@ -15,6 +16,8 @@ public class GolemAttack : EnemyCombat
     {
         player = GameObject.FindObjectOfType<Player>().gameObject;
         _weapon = Resources.Load<Attack>("ScriptableObjects/Attacks/GolemAttack");
+
+        canAttack = true;
     }
 
     void Update()
@@ -22,6 +25,7 @@ public class GolemAttack : EnemyCombat
         if (dying)
         {
             dying = false;
+            canAttack = false;
             GetComponent<Rigidbody2D>().isKinematic = true;
             GetComponent<BoxCollider2D>().isTrigger = true;
             GetComponent<Animator>().SetBool("Die", true);
@@ -33,6 +37,7 @@ public class GolemAttack : EnemyCombat
 
     public void Attack()
     {
+        if (!canAttack) return;
         if (Vector2.Distance(transform.position, player.transform.position) < 1.35f)
         {
             player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
