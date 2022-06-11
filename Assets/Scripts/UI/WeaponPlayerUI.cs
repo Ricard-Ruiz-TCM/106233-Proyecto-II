@@ -16,6 +16,8 @@ public class WeaponPlayerUI : MonoBehaviour {
         Player.OnChangeWeapon += ChangeWeapon;
         PlayerCombat.OnAttack += Hide;
         PlayerCombat.OnEndAttack += Show;
+        Player.OnRespawn += AlphaPlus;
+        PlayerDie.OnDie += AlphaLess;
     }
 
     // Unity
@@ -23,6 +25,8 @@ public class WeaponPlayerUI : MonoBehaviour {
         Player.OnChangeWeapon -= ChangeWeapon;
         PlayerCombat.OnAttack -= Hide;
         PlayerCombat.OnEndAttack -= Show;
+        Player.OnRespawn -= AlphaPlus;
+        PlayerDie.OnDie -= AlphaLess;
     }
 
     // Unity
@@ -43,12 +47,21 @@ public class WeaponPlayerUI : MonoBehaviour {
     }
 
     public void Hide(){
-        _sprite.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        _sprite.color = new Color(1.0f, 1.0f, 1.0f, _sprite.color.a);
     }
 
     public void Show(){
-        _sprite.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        _sprite.color = new Color(1.0f, 1.0f, 1.0f, _sprite.color.a);
     }
 
+    public void AlphaPlus()
+    {
+        _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, 1.0f);
+    }
+
+    public void AlphaLess()
+    {
+        _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, 0.5f);
+    }
 
 }

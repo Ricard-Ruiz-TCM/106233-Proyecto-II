@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum DEATH_CAUSE {
     D_DAMAGE, D_FALL
 }
 
 public class PlayerDie : PlayerState, IHaveStates {
+
+    public static event Action OnDie;
 
     // Death Attributes
     private string _cause;
@@ -69,6 +72,7 @@ public class PlayerDie : PlayerState, IHaveStates {
     public void OnEnterState(){
         EnableSystem();
         ///////////////
+        OnDie?.Invoke();
         switch (_dCause){
             case DEATH_CAUSE.D_DAMAGE: Invoke("InstantiateHand", 1.0f);
                 ParticleInstancer.Instance.StartParticles("RespawnLokuraParticula", this.transform);
