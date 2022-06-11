@@ -40,6 +40,7 @@ public class BossAttack : EnemyCombat {
     public void MeleeAttack(){
         if (Vector2.Distance(this.transform.position, _player.position) < 2.2f){
             _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
+            ParticleInstancer.Instance.StartParticles("MeleeBoss_Particle", transform);
         }
     }
     
@@ -47,6 +48,7 @@ public class BossAttack : EnemyCombat {
         _hand = Instantiate(_handPrefab, _elementsContainer.transform);
         if (_player.GetComponent<PlayerFall>().Grounded()) pos = _player.transform.position;
         _hand.transform.position = new Vector2(pos.x, pos.y - 0.30f);
+        ParticleInstancer.Instance.StartSpecialParticles("AtaqueBossMano_Particle", _hand.transform);
         Invoke("HandDamage", 1.55f);
     }
 

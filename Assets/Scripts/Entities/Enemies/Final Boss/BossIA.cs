@@ -190,7 +190,7 @@ public class BossIA : EnemyMovement {
 
     private bool toDestroy = true;
 
-    public void MeleeAttack() { _combat.MeleeAttack(); }
+    public void MeleeAttack() { _combat.MeleeAttack(); ParticleInstancer.Instance.StartParticles("MeleeBoss_Particle", transform); }
     public void HandAttack() { _combat.HandAttack(_handPos);  }
 
     public bool CanSpawnAttack(){

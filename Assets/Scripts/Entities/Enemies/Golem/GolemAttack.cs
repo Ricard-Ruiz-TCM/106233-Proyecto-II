@@ -26,6 +26,8 @@ public class GolemAttack : EnemyCombat
             GetComponent<BoxCollider2D>().isTrigger = true;
             GetComponent<Animator>().SetBool("Die", true);
             StartCoroutine(DeathDelay(0.75f));
+            ParticleInstancer.Instance.StartSpecialParticles("GolemDie_Particle", transform);
+
         }
     }
 
