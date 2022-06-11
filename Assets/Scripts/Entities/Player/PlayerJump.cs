@@ -142,6 +142,7 @@ public class PlayerJump : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         StartJump(_jumpStr);
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("FaddedGround")) go.GetComponent<FadedGround>().DisableCol();
         MusicPlayer.Instance.PlayFX("Player_Jump_1/Player_Jump_1", 0.4f);
         _animator.SetBool("Jump", true);
     }

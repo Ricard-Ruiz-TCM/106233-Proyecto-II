@@ -128,6 +128,9 @@ public class PlayerFall : PlayerState, IHaveStates {
         ///////////////
         _speedR = false;
         StarFall();
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("FaddedGround")) {
+            go.GetComponent<FadedGround>().EnableCol();
+        }
         //MusicPlayer.Instance.PlaySpecialFX("fall", 0.25f, 1.0f);
         _animator.SetBool("Fall", true);
     }

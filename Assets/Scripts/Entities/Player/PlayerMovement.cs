@@ -64,6 +64,8 @@ public class PlayerMovement : PlayerState, IHaveStates {
         if (hit.collider != null) hit.collider.GetComponent<FadedGround>().DisableCol();
     }
 
+    
+
     // PlayerMovement.cs <Audio>
     public void Steps() {
         MusicPlayer.Instance.PlayFX("Player_Pasos_graba/Player_Footstep_Gravel_" + ((int)Random.Range(1, 6)).ToString(), 0.5f);
