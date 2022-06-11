@@ -103,7 +103,7 @@ public class CameraMovement : MonoBehaviour {
             if (_player.transform.position.x + _deltaX >= _nextPos.x) EnableXMovement();
         }
 
-        if (_OnBossRoom) _nextPos = BossPosition;
+        if (_OnBossRoom) { _nextPos = BossPosition; _str = 2.5f; }
 
         transform.position = Vector3.Lerp(transform.position, _nextPos, _str * Time.deltaTime);
     }
