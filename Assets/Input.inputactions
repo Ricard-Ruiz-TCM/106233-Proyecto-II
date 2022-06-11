@@ -91,7 +91,7 @@
                     "id": "6b3b4b7f-2787-4c09-850c-a961db425224",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "TempNext",

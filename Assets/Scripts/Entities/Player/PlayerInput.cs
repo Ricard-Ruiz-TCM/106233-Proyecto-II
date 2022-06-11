@@ -106,6 +106,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void OnDowny(InputValue input){
+        if (!input.isPressed) return;
         _player.TryFallGround();
     }
 

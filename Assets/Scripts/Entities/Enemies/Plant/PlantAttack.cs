@@ -9,6 +9,8 @@ public class PlantAttack : EnemyCombat
     public GameObject _container;
     public Attack currentAttack;
 
+    public bool CanAttack;
+
     private PlayerCombat _playerCombat;
     private PlantAI plantAI;
     private float currentTime;
@@ -39,6 +41,7 @@ public class PlantAttack : EnemyCombat
         _health = 5;
         animator = GetComponentInParent<Animator>();
         animator.SetBool("Attack", false);
+        CanAttack = true;
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class PlantAttack : EnemyCombat
 
         if (dying)
         {
+            CanAttack = false;
             animator.SetBool("Dying", true);
             ParticleInstancer.Instance.StartParticles("PlantaDie_Particle", transform);
             dying = false;
@@ -69,6 +73,7 @@ public class PlantAttack : EnemyCombat
 
     void InkAttack()
     {
+        if (!CanAttack) return;
         if (dying == true) return;
         Vector2 init = new Vector2(transform.position.x + (transform.right.x * -0.3f), transform.position.y + 0.8f);
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, _container.transform);
