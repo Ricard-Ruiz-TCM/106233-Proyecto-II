@@ -22,12 +22,14 @@ public class RightDetector : MonoBehaviour {
     public static event Action<bool> OnWallWhileFalling;
     public static event Action<bool> onFacingWall;
 
+    public static event Action<bool> OnSafeBoost;
+
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, _checkRadius);
     }
 
     void Start(){
-        _checkRadius = 0.2f;
+        _checkRadius = 0.15f;
 
         _layer_WallFall = LayerMask.GetMask("WallFall");
     }
@@ -37,11 +39,18 @@ public class RightDetector : MonoBehaviour {
         CheckCheckPoint();
         CheckRightWall();
         CheckFacingWall();
+        CheckSafeBoost();
     }
 
     private void CheckRight() {
         var colliders = Physics2D.OverlapCircleAll(transform.position, _checkRadius, _multipleRightLayer);
         CanMoveRight?.Invoke(!(colliders.Length > 0));
+    }
+
+    private void CheckSafeBoost() {
+        Vector2 pos = transform.position; pos.y -= 0.125f;
+        var colliders = Physics2D.OverlapCircleAll(pos, _checkRadius, _multipleRightLayer);
+        OnSafeBoost?.Invoke(!(colliders.Length > 0));
     }
 
     private void CheckCheckPoint() {

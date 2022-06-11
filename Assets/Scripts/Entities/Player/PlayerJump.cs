@@ -36,10 +36,10 @@ public class PlayerJump : PlayerState, IHaveStates {
 
     // Unity
     private void OnEnable(){
-        RightDetector.CanMoveRight += (bool wall) => { _wallFree = wall; };
+        RightDetector.OnSafeBoost += (bool wall) => { _wallFree = wall; };
     }
     private void OnDisable(){
-        RightDetector.CanMoveRight -= (bool wall) => { _wallFree = wall; };
+        RightDetector.OnSafeBoost -= (bool wall) => { _wallFree = wall; };
     }
 
     // Unity

@@ -68,7 +68,6 @@ public class Player : Entity {
 
     [SerializeField]
     private bool _canAttack;
-    private bool CanAttack() { return (_canAttack && _input.MainAction()); }
     private void EnableAttack() { _canAttack = true; }
     private void DisableAttack() { _canAttack = false; }
 
@@ -203,9 +202,12 @@ public class Player : Entity {
                 if (_dash.CanDash()) ChangeState(PLAYER_STATE.PS_DASH);
                 /* TO: PS_FALL */
                 else if (_jump.JumpEnds() || !_input.Jump()) ChangeState(PLAYER_STATE.PS_FALL);
+                /* TO: PS_ATTACK 
+                else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);*/
                 // Extra
                 else {
                     _movement.ApplyRotacion();
+                    //if (!_input.MainAction()) EnableAttack();
                 }
                 break;
             case PLAYER_STATE.PS_FALL:
@@ -217,11 +219,14 @@ public class Player : Entity {
                 else if (_fall.Grounded()) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_WALL_FALL */
                 else if (_fall.OnTheWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
+                /* TO: PS_ATTACK 
+                else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);*/
                 // Extra
                 else
                 {
                     if (!_input.Jump()) EnableJump();
                     _movement.ApplyRotacion();
+                    //if (!_input.MainAction()) EnableAttack();
                 }
                 break;
             case PLAYER_STATE.PS_DRAW:
@@ -283,8 +288,13 @@ public class Player : Entity {
         if (HaveInk(10)) {
             if (GameManager.Instance.REAL_PROGRESSION > 0) _drawing.ToggleSystem();
         } else {
-            Instantiate(_NoInk, transform.position + new Vector3(-0.6f, 0.6f, 0.0f), Quaternion.identity, transform);
+            if (!IsInvoking("InstantNoInk")) Invoke("InstantNoInk", 0.5f);
         }
+    }
+
+    private void InstantNoInk()
+    {
+        Instantiate(_NoInk, transform.position + new Vector3(-0.6f, 0.6f, 0.0f), Quaternion.identity, transform);
     }
 
     public void SwapTools(){
@@ -392,6 +402,16 @@ public class Player : Entity {
         OnRespawn?.Invoke();
         ParticleInstancer.Instance.StartParticles("CreacionDibujo_Particle", transform);
 
+    }
+
+    private bool CanAttack() { 
+        if (_combat.Ranged()) {
+            if (!HaveInk(5)) {
+                if (_input.MainAction()) if (!IsInvoking("InstantNoInk")) Invoke("InstantNoInk", 0.5f);
+                return false;
+            }
+        }
+        return (_canAttack && _input.MainAction()); 
     }
 
     // State Machine Change and Check Methods

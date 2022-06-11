@@ -22,8 +22,8 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
     [SerializeField]
     private COMBAT_STATE _state;
     public COMBAT_STATE CombatState() { return _state; }
-    private bool Melee() { return (CombatState() == COMBAT_STATE.C_MELEE); }
-    private bool Ranged() { return (CombatState() == COMBAT_STATE.C_RANGED); }
+    public bool Melee() { return (CombatState() == COMBAT_STATE.C_MELEE); }
+    public bool Ranged() { return (CombatState() == COMBAT_STATE.C_RANGED); }
 
     // Active Weapon
     [SerializeField]
