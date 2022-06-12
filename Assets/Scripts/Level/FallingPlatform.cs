@@ -34,9 +34,8 @@ public class FallingPlatform : MonoBehaviour {
     // Unity
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision == null) return;
-        if (collision.gameObject.tag != "Player") return;
-
-        if (CanFade()) Fade();
+        if (collision.gameObject.tag == "Player") if (CanFade()) Fade();
+        if (collision.gameObject.tag == "Enemy") if (CanFade()) Fade();
     }
 
     // FallingPlatform.cs
