@@ -90,7 +90,7 @@ public class ShadowAI : EnemyMovement
                     animator.SetBool("Appearing", true);
                     shadowState = ShadowStates.Appearing;
                 }
-                if (Vector2.Distance(transform.position, player.transform.position) < 0.25f) {
+                if (Vector2.Distance(transform.position, player.transform.position) < 0.3f) {
                     if (attackCD >= 6.0f) {
                         shadowState = ShadowStates.Attacking;
                         animator.SetBool("Underground", false);
