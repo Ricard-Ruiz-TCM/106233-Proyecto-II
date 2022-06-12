@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   Portrait: {fileID: 1166433094336620484, guid: c0561c64d80efb64ead537782a769f3b, type: 3}
-  Text: "Has conseguida la Bomba, \xFAsala para llegar a sitios sellados."
+  Text: "Recuerda la Bomba Drawi, \xFAsala para llegar a sitios sellados o hacer
+    explotar enemigos."
   Duration: 8
