@@ -24,6 +24,17 @@ public class BoxTemplate : Template {
         if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) > 2.0f) _canKill = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject == null) return;
+        if (collision.gameObject.tag == "Enemy") {
+            if (CanKill()) {
+                if (collision.gameObject.GetComponent<BoxTemplate>() != null) return;
+                collision.gameObject.GetComponent<ICombat>().TakeDamage(_attack);
+                _body.velocity = Vector2.zero;
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider == null) return;
 
@@ -34,7 +45,7 @@ public class BoxTemplate : Template {
         if (collision.collider.gameObject.tag == "Enemy") {
             if (CanKill()){
                 if (collision.collider.gameObject.GetComponent<BoxTemplate>() != null) return;
-                Destroy(collision.collider.gameObject);
+                collision.collider.gameObject.GetComponent<ICombat>().TakeDamage(_attack);
                 _body.velocity = Vector2.zero;
             }
         }

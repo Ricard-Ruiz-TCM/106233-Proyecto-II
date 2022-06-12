@@ -19,7 +19,7 @@ public class ShadowAttack : EnemyCombat
     {
         shadowAI = GetComponentInParent<ShadowAI>();
         player = GameObject.FindObjectOfType<Player>().transform;
-        _health = 20;
+        _health = 15;
     }
 
     // Update is called once per frame
