@@ -16,7 +16,7 @@ public abstract class DrawElement : MonoBehaviour {
     }
 
     public void Move(Vector2 dir) {
-        _position += dir; Place();
+        _position += dir * Time.deltaTime; Place();
     }
 
     public void SetPosition(Vector2 position) {

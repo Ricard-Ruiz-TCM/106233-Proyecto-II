@@ -30,7 +30,7 @@ public class PlayerPlacing : PlayerState, IHaveStates {
         LoadState();
         ////////////
         _placed = false;
-        _placeSpeed = 0.05f;
+        _placeSpeed = 3.0f;
 
         _activeBox = null;
         _templateElement = null;

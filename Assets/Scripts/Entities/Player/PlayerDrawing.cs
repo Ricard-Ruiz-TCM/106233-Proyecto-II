@@ -61,7 +61,7 @@ public class PlayerDrawing : PlayerState, IHaveStates {
         _brushTool = GameObject.FindObjectOfType<Brush>().gameObject;
         _eraserTool = GameObject.FindObjectOfType<Eraser>().gameObject;
         _activeTool = _brushTool;
-        _toolSpeed = 0.025f;
+        _toolSpeed = 1.5f;
 
         _strokes = new List<GameObject>();
 
