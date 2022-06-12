@@ -50,6 +50,11 @@ public class BoxTemplate : Template {
             }
         }
 
+        if (collision.collider.gameObject.tag == "Spikes") {
+            ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
+            Destroy(this.gameObject);
+        }
+
         if (collision.collider.gameObject.tag == "Boss")
         {
             if (collision.collider.gameObject.GetComponent<BoxTemplate>() != null) return;
