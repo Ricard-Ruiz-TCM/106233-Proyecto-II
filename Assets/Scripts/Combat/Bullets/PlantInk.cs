@@ -17,10 +17,7 @@ public class PlantInk : EnemyBullet
     {
         fwd = dir;
         GetComponent<Rigidbody2D>().AddForce(new Vector2(fwd * 200.0f, 125.0f));
-        /*_speed = 5.0f; 
-        direction = new Vector2(50.0f, 10.0f);
-        transform.localEulerAngles = new Vector2(0.0f, (dir < 0 ? 0.0f : 180.0f));
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(-(transform.right.x) * direction.x * _speed, direction.y * _speed));*/
+        transform.localEulerAngles = new Vector2(0.0f, 180.0f * (Mathf.Ceil(dir) < 0 ? 0 : 1));
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
