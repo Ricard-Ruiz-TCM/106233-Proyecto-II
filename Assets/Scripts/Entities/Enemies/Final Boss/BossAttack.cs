@@ -55,8 +55,10 @@ public class BossAttack : EnemyCombat {
     public new void TakeDamage(Attack weapon){
         if (!CanTakeDamage) return;
         float dmg = weapon.Damage;
+        ParticleInstancer.Instance.StartParticles("BossTakeDamage_Particle", transform);
         if (!GetComponent<BossIA>().State().Equals(BOSS_STATES.B_TAKE_DAMAGE)) dmg /= 5.0f;
         _health -= dmg;
+
         OnHealthChange?.Invoke();
         if (_health <= 0.0f){
             dying = true;
