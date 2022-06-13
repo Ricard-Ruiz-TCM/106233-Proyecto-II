@@ -100,6 +100,7 @@ public class Player : Entity {
 
     public float _alpha;
 
+
     void Start(){
         _ink = 50;
         _maxInk = _ink;
