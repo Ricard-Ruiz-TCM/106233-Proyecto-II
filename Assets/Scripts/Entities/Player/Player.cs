@@ -156,6 +156,7 @@ public class Player : Entity {
     void Update(){
 
         if (blocked) return;
+        if (_pause) return;
 
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
