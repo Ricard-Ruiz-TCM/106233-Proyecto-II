@@ -66,10 +66,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void OnPause(InputValue input){
-        bool pause = false;
-        pause |= _player.StopDrawing();
-        pause |= _player.StopPlacing();
-        if (pause) _player.Pause();
+        _player.Pause();
     }
 
     void OnBug(){
