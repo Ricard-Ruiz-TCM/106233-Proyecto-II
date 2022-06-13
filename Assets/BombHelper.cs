@@ -18,7 +18,7 @@ public class BombHelper : MonoBehaviour
     private void Update()
     {
         if (fade) return;
-        alpha += 1.0f * Time.deltaTime;
+        alpha += 0.5f * Time.deltaTime;
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
     }
 
