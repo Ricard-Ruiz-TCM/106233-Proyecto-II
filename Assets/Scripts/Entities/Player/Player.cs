@@ -366,7 +366,7 @@ public class Player : Entity {
 
     private void IJustTakeDamage(DEATH_CAUSE cause){
         _die.SetDeathCause(cause);
-        _movement.PushBack();
+        if (!State().Equals(PLAYER_STATE.PS_ATTACK)) _movement.PushBack();
         _canCHealth = false;
         Invencible();
         CheckDeath();
