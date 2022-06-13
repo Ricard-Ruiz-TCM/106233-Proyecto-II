@@ -14,22 +14,40 @@ public class FadedGround : MonoBehaviour {
 
     private float _time;
 
+    private float _off;
+
     // Unity
     void Awake(){
         _topD = GameObject.FindObjectOfType<TopDetector>().transform;
         _bottomD = GameObject.FindObjectOfType<BottomDetector>().transform;
         _inside = false;
         _collider = GetComponent<BoxCollider2D>();
+
+        _off = 0.15f;
     }
 
     private void Update()
     {
         _time += Time.deltaTime;
         if (_time < 0.2f) return;
-        if (_bottomD.position.y > (transform.position.y + 0.125f)) {
-            if (!_inside) _collider.isTrigger = false;
-        } else {
-            _collider.isTrigger = true;
+
+        // bottom arriba
+        if (_bottomD.position.y > (transform.position.y + _off)) {
+            // top arriba
+            if (_topD.position.y > (transform.position.y + _off)) {
+                _collider.isTrigger = false;
+            }
+        }
+        // bottom abajo
+        if (_bottomD.position.y < (transform.position.y - _off)) {
+            // top arriba
+            if (_topD.position.y > (transform.position.y + _off)) {
+                _collider.isTrigger = true;
+            }
+            // top abajo
+            if (_topD.position.y < (transform.position.y - _off)) {
+                _collider.isTrigger = true;
+            }
         }
     }
 
