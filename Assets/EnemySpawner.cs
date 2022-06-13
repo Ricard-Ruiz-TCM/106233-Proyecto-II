@@ -9,7 +9,8 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     private float _spanDistance;
 
-    private bool _canSpawn;
+    private float _BspanDistance;
+
 
     GameObject spawned;
 
@@ -20,6 +21,8 @@ public class EnemySpawner : MonoBehaviour {
     private GameObject _spawnAnim;
 
     private GameObject _player;
+
+    public Attack _destroyer;
 
     private bool _tryToSpawn;
 
@@ -43,8 +46,11 @@ public class EnemySpawner : MonoBehaviour {
         if (!_tryToSpawn) {
             _tryToSpawn = true;
             _animation = false;
-            _spanDistance *= 5.0f;
-            if (spawned != null) Destroy(spawned);
+            _spanDistance = _BspanDistance * 2.0f;
+            if (spawned != null){
+                spawned.GetComponent<ICombat>().TakeDamage(_destroyer);
+                spawned = null;
+            }
             if (Vector2.Distance(_player.transform.position, transform.position) < _spanDistance) _animation = true;
         }
     }
@@ -53,9 +59,16 @@ public class EnemySpawner : MonoBehaviour {
         _enemyContainer = GameObject.FindObjectOfType<EnemyContainer>().gameObject;
         _spawnAnim = Resources.Load<GameObject>("Prefabs/ENEMY_SPAWN_ANIM");
 
+        _destroyer = Resources.Load<Attack>("ScriptableObjects/Attacks/Destroyer");
+
         _tryToSpawn = true;
 
         _player = GameObject.FindObjectOfType<Player>().gameObject;
+    }
+
+    private void Start()
+    {
+        _BspanDistance = _spanDistance;
     }
 
     private void Update() {

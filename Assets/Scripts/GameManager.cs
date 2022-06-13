@@ -24,6 +24,21 @@ public class GameManager : MonoBehaviour {
 
     private List<GameObject> _templateButtons;
 
+    private void OnEnable()
+    {
+        Player.OnRespawn += RemoveInks;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnRespawn += RemoveInks;
+    }
+
+    public void RemoveInks()
+    {
+        foreach (InkPot go in GameObject.FindObjectsOfType<InkPot>()) Destroy(go.gameObject);
+    }
+
     public void Awake(){
         Instance = this;
         _container = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
