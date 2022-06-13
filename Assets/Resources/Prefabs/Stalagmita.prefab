@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5ab74d682bfd14784f3fb46f9fcfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallDistance: 5
-  _detectionDistance: 2
+  _fallDistance: 8
+  _detectionDistance: 5
   _stalagmite: {fileID: 0}
 --- !u!60 &1299556643209133831
 PolygonCollider2D:
