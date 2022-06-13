@@ -152,7 +152,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
             }
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("Boss"))
             {
-                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range * 1.5f){
+                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range * 2.0f){
                     Vector2 dir = (transform.position - go.transform.position);
                     dir.Normalize();
                     if (go.GetComponent<BossAttack>() == null) break;
