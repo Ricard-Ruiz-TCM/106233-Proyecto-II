@@ -3,45 +3,55 @@ using UnityEngine;
 public class FadedGround : MonoBehaviour {
 
     // Player Transform & Layer
-    private Transform _player;
-    private LayerMask _layer_Ground;
+    private Transform _topD;
+    private Transform _bottomD;
 
-    private bool _want2Enable;
+    [SerializeField]
+    private bool _inside;
 
     // Components
-    private CompositeCollider2D _collider;
+    private BoxCollider2D _collider;
+
+    private float _time;
 
     // Unity
     void Awake(){
-        _player = GameObject.FindObjectOfType<Player>().transform;
-        _layer_Ground = LayerMask.GetMask("Platform");
+        _topD = GameObject.FindObjectOfType<TopDetector>().transform;
+        _bottomD = GameObject.FindObjectOfType<BottomDetector>().transform;
+        _inside = false;
+        _collider = GetComponent<BoxCollider2D>();
+    }
 
-        _want2Enable = false;
-
-        _collider = GetComponent<CompositeCollider2D>();
+    private void Update()
+    {
+        _time += Time.deltaTime;
+        if (_time < 0.2f) return;
+        if (_bottomD.position.y > (transform.position.y + 0.125f)) {
+            if (!_inside) _collider.isTrigger = false;
+        } else {
+            _collider.isTrigger = true;
+        }
     }
 
     // FadedGround.cs
     public void DisableCol(){
         _collider.isTrigger = true;
+        _time = 0.0f;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag != "Player") return;
+        _inside = true;
     }
 
-    public void EnableCol(){
-        _want2Enable = true;
-        var colliders = Physics2D.OverlapCircleAll(_player.transform.position, 0.25f, _layer_Ground);
-        if (colliders.Length < 1)
-        {
-            _collider.isTrigger = false;
-            _want2Enable = false;
-        }
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.tag != "Player") return;
+        _inside = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (_want2Enable)
-        {
-            _collider.isTrigger = false;
-            _want2Enable = false;
-        }
+        if (collision.gameObject.tag != "Player") return;
+        _inside = false;
     }
 
 }
