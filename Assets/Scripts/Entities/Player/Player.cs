@@ -454,7 +454,7 @@ public class Player : Entity {
 
     // ------------------------------
 
-    private bool _pause;
+    [SerializeField]private bool _pause;
     public bool IsPaused(){ return _pause; }
 
     public void Pause(){
