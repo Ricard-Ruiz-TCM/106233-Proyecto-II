@@ -6,6 +6,7 @@ using UnityEngine;
 public class BossAttack : EnemyCombat {
 
     public static event Action OnHealthChange;
+    public static event Action OnBossDown;
 
     private Rigidbody2D _body;
 
@@ -62,6 +63,7 @@ public class BossAttack : EnemyCombat {
         OnHealthChange?.Invoke();
         if (_health <= 0.0f){
             dying = true;
+            OnBossDown?.Invoke();
         }
     }
 
