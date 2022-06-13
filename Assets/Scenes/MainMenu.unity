@@ -1302,7 +1302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPause: {fileID: 528533912}
-  options: {fileID: 1100161708}
 --- !u!1 &601083882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,8 +2132,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 738259295}
   m_HandleRect: {fileID: 1211018045}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 20
+  m_MinValue: -80
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -3941,8 +3940,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 518278006}
   m_HandleRect: {fileID: 2025578706}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 20
+  m_MinValue: -80
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -4119,8 +4118,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 2000389197}
   m_HandleRect: {fileID: 377926835}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 20
+  m_MinValue: -80
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

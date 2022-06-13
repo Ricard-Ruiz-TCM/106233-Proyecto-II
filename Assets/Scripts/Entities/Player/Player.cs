@@ -105,6 +105,8 @@ public class Player : Entity {
         _ink = 50;
         _maxInk = _ink;
 
+        _pause = false;
+
         _health = 100;
         _maxHealth = _health;
 
@@ -140,7 +142,21 @@ public class Player : Entity {
 
     }
 
+    private bool blocked;
+
+    public void BlockPlayer(float time){
+        blocked = true;
+        Invoke("unlock", time);
+    }
+
+    private void unlock(){
+        blocked = false;
+    }
+
     void Update(){
+
+        if (blocked) return;
+        if (_pause) return;
 
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
@@ -452,8 +468,17 @@ public class Player : Entity {
 
     // ------------------------------
 
+    [SerializeField]private bool _pause;
+    public bool IsPaused(){ return _pause; }
+
     public void Pause(){
-        Debug.Log("PAUSE TIME   ");
+        if (_pause) {
+            _pause = false;
+
+        } else {
+            _pause = true;
+            
+        }
     }
 
 }
