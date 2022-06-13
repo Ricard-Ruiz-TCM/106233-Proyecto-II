@@ -32,8 +32,8 @@ public class WeaponPlayerUI : MonoBehaviour {
     // Unity
     void Awake(){
         _sprite = GetComponent<SpriteRenderer>();
-        _brush = Resources.LoadAll<Sprite>("Sprites/armas")[0];
-        _eraser = Resources.LoadAll<Sprite>("Sprites/armas")[1];
+        _brush = Resources.LoadAll<Sprite>("Sprites/Cosas Extras/armas")[0];
+        _eraser = Resources.LoadAll<Sprite>("Sprites/Cosas Extras/armas")[1];
     }
 
     // Unity
