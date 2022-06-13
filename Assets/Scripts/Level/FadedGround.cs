@@ -26,20 +26,20 @@ public class FadedGround : MonoBehaviour {
         _off = 0.15f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _time += Time.deltaTime;
         if (_time < 0.2f) return;
 
         // bottom arriba
-        if (_bottomD.position.y > (transform.position.y + _off)) {
+        if (_bottomD.position.y - _off > (transform.position.y + _off)) {
             // top arriba
             if (_topD.position.y > (transform.position.y + _off)) {
                 _collider.isTrigger = false;
             }
         }
         // bottom abajo
-        if (_bottomD.position.y < (transform.position.y - _off)) {
+        if (_bottomD.position.y - _off < (transform.position.y - _off)) {
             // top arriba
             if (_topD.position.y > (transform.position.y + _off)) {
                 _collider.isTrigger = true;
@@ -55,21 +55,6 @@ public class FadedGround : MonoBehaviour {
     public void DisableCol(){
         _collider.isTrigger = true;
         _time = 0.0f;
-    }
-    
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag != "Player") return;
-        _inside = true;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.tag != "Player") return;
-        _inside = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.tag != "Player") return;
-        _inside = false;
     }
 
 }

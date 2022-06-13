@@ -31,6 +31,9 @@ public class Player : Entity {
     public static event Action OnInkChange;
 
     [SerializeField]
+    private bool _insidePlatform;
+
+    [SerializeField]
     private int _ink;
     public int Ink() { return _ink; }
     public void UseInk(int amount) { _ink -= amount; _ink = Math.Max(_ink, 0); OnInkChange?.Invoke();}
@@ -116,6 +119,9 @@ public class Player : Entity {
         _alpha = 1.0f;
 
         _canAttack = true;
+
+        _insidePlatform = false;
+
 
         _currentState = PLAYER_STATE.PS_NO_STATE;
 
@@ -237,7 +243,7 @@ public class Player : Entity {
                 /* TO : JUMP */
                 else if ((CanJump()) && (_fall.CanCoyoteJump())) ChangeState(PLAYER_STATE.PS_JUMP);
                 /* TO: PS_IDDLE */
-                else if (_fall.Grounded()) ChangeState(PLAYER_STATE.PS_IDDLE);
+                else if (_fall.Grounded() && !_insidePlatform) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_WALL_FALL */
                 else if (_fall.OnTheWall() && _timeOnState > 0.1f) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 /* TO: PS_ATTACK 
@@ -485,6 +491,36 @@ public class Player : Entity {
             _pause = true;
             
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.tag != "FaddedGround") return;
+        _insidePlatform = false;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.tag != "FaddedGround") return;
+        _insidePlatform = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag != "FaddedGround") return;
+        _insidePlatform = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag != "FaddedGround") return;
+        _insidePlatform = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.tag != "FaddedGround") return;
+        _insidePlatform = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag != "FaddedGround") return;
+        _insidePlatform = false;
     }
 
 }
