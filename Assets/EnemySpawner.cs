@@ -9,6 +9,10 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     private float _spanDistance;
 
+    private bool _canSpawn;
+
+    GameObject spawned;
+
     [SerializeField]
     private GameObject _enemy;
 
@@ -19,9 +23,30 @@ public class EnemySpawner : MonoBehaviour {
 
     private bool _tryToSpawn;
 
+    private void OnEnable()
+    {
+        Player.OnRespawn += ResSpawn;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnRespawn -= ResSpawn;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, _spanDistance);
+    }
+
+    public void ResSpawn()
+{
+        if (!_tryToSpawn) {
+            _tryToSpawn = true;
+            _animation = false;
+            _spanDistance *= 5.0f;
+            if (spawned != null) Destroy(spawned);
+            if (Vector2.Distance(_player.transform.position, transform.position) < _spanDistance) _animation = true;
+        }
     }
 
     void Awake() {
@@ -31,7 +56,6 @@ public class EnemySpawner : MonoBehaviour {
         _tryToSpawn = true;
 
         _player = GameObject.FindObjectOfType<Player>().gameObject;
-
     }
 
     private void Update() {
@@ -44,8 +68,8 @@ public class EnemySpawner : MonoBehaviour {
         _tryToSpawn = false;
         if (_animation) SpawnHand();
         else {
-            Instantiate(_enemy, transform.position, Quaternion.identity, _enemyContainer.transform);
-            Destroy(this.gameObject);
+            spawned = Instantiate(_enemy, transform.position, Quaternion.identity, _enemyContainer.transform);
+            //Destroy(this.gameObject);
         }
     }
 
