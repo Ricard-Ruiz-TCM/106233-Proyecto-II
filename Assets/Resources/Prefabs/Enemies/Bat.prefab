@@ -191,6 +191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08737b5a36ad1184bbcba6accd62049a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
+  _weapon: {fileID: 0}
+  CanTakeDamage: 1
   currentAttack: {fileID: 11400000, guid: c89fc018cd8ed274eb501a8d6046e287, type: 2}
   _bullet: {fileID: 4595159293922017097, guid: 214da4cdc4080694ab5981d3545ba49f, type: 3}
   WhatIsPlayer:
@@ -198,7 +201,7 @@ MonoBehaviour:
     m_Bits: 8388608
   WhatIsVisible:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 33554688
   container: {fileID: 7361935468834109452}
   DetectionRange: 3.5
   VisionAngle: 45

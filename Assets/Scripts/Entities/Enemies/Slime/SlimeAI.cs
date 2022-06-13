@@ -53,6 +53,9 @@ public class SlimeAI : MonoBehaviour
             stopTime = 0;
             }
         } else if (currentState == States.Attacking){
+            RaycastHit2D hit = Physics2D.Raycast(EdgeDetectionPoint.position, transform.right, WallDetectionDistance / 2.0f, WhatIsWall);
+            if (hit.collider != null)
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             if (stopTime > 3.0f) {
                 currentState = States.Patrolling;
                 stopTime = 0;
