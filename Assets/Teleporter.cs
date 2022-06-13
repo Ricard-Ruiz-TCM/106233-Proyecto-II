@@ -35,6 +35,7 @@ public class Teleporter : MonoBehaviour {
 
     private void Teleport() {
         GameManager.Instance.Fade();
+        GameObject.FindObjectOfType<Player>().BlockPlayer(3.5f);
     }
 
     public void GoLVL2() {

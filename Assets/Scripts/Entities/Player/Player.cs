@@ -142,7 +142,20 @@ public class Player : Entity {
 
     }
 
+    private bool blocked;
+
+    public void BlockPlayer(float time){
+        blocked = true;
+        Invoke("unlock", time);
+    }
+
+    private void unlock(){
+        blocked = false;
+    }
+
     void Update(){
+
+        if (blocked) return;
 
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
