@@ -74,8 +74,9 @@ public class PlayerDie : PlayerState, IHaveStates {
         ///////////////
         OnDie?.Invoke();
         switch (_dCause){
-            case DEATH_CAUSE.D_DAMAGE: Invoke("InstantiateHand", 1.0f);
-                ParticleInstancer.Instance.StartParticles("RespawnLokuraParticula", this.transform);
+            case DEATH_CAUSE.D_DAMAGE: 
+                Invoke("InstantiateHand", 1.0f);
+                //ParticleInstancer.Instance.StartParticles("RespawnLokuraParticula", this.transform);
                 break;
             case DEATH_CAUSE.D_FALL:
                 _body.velocity = Vector2.zero;

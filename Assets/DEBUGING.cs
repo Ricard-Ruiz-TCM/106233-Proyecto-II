@@ -58,8 +58,7 @@ public class DEBUGING : MonoBehaviour {
     }
 
     public void TakeDmg(){
-        Attack a = new Attack(); a.Damage = 1;
-        _player.GetComponent<PlayerCombat>().TakeDamage(a);
+        _player.GetComponent<PlayerCombat>().TakeDamage(Resources.Load<Attack>("ScriptableObjects/Attacks/Destroyer"));
     }
     
     public void BossTime() {
