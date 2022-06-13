@@ -5,6 +5,21 @@ public class PlayerWallFall : PlayerState, IHaveStates {
     [SerializeField]
     private float _gravity;
 
+    [SerializeField]
+    private bool _facingWall;
+    public bool FacingWall() { return _facingWall; }
+    public void OnFacingWall(bool wall) { _facingWall = wall; }
+
+    // Unity
+    void OnEnable() {
+        RightDetector.onFacingWall += OnFacingWall;
+    }
+
+    // Unity
+    void OnDisable() {
+        RightDetector.onFacingWall -= OnFacingWall;
+    }
+
     void Awake(){
         LoadState();
         ////////////
@@ -22,10 +37,15 @@ public class PlayerWallFall : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         SetWallFallGravity();
+        if (!FacingWall()) FaceWall();
         _animator.SetBool("FallWall", true);
     }
 
-public void OnExitState(){
+    public void FaceWall() {
+        transform.Rotate(new Vector2(0.0f, 180.0f));
+    }
+
+    public void OnExitState(){
         _animator.SetBool("FallWall", false);
         ////////////////
         DisableSystem();

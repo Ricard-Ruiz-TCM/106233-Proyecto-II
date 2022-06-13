@@ -50,6 +50,8 @@ public class Player : Entity {
     private int _maxHealth;
     public float MaxHealth() { return _maxHealth; }
 
+    private float _timeOnState;
+
     // CheckPoint 
     private Vector2 _respawnPoint;
 
@@ -158,6 +160,8 @@ public class Player : Entity {
         if (blocked) return;
         if (_pause) return;
 
+        _timeOnState += Time.deltaTime;
+
         // "Update" del estado actual
         CurrentStateBehaviour().OnState();
 
@@ -235,7 +239,7 @@ public class Player : Entity {
                 /* TO: PS_IDDLE */
                 else if (_fall.Grounded()) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_WALL_FALL */
-                else if (_fall.OnTheWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
+                else if (_fall.OnTheWall() && _timeOnState > 0.1f) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 /* TO: PS_ATTACK 
                 else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);*/
                 // Extra
@@ -434,6 +438,8 @@ public class Player : Entity {
     // State Machine Change and Check Methods
     public void ChangeState(PLAYER_STATE next){
         if (State().Equals(next)) return;
+
+        _timeOnState = 0.0f;
 
         DisableAttack();
         DisableJump();
