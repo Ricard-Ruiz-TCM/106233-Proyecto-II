@@ -12,6 +12,7 @@ public class CheckPoint : MonoBehaviour {
         {
             ParticleInstancer.Instance.StartSpecialParticles("Fountain_Particle", transform);
             SpawnParticles = true;
+            MusicPlayer.Instance.PlayFX("Player_checkpoint/Player_checkpoint", 0.5f);
         }
         collision.gameObject.GetComponent<Player>().SaveCheckPoint(transform.position);
     }

@@ -47,5 +47,6 @@ public class EnemyCombat : Entity, ICombat {
         yield return new WaitForSeconds(time);
         GameManager.Instance.InstantiateInkPot(transform.position);
         Destroy(this.gameObject);
+        MusicPlayer.Instance.PlayFX("Enemy_Death/Enemy_Death", 0.5f);
     }
 }
