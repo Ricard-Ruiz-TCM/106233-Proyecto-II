@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3597377739845451116}
   - component: {fileID: 3597377739845451115}
   - component: {fileID: 3597377739845451114}
-  - component: {fileID: 3597377739845451118}
   m_Layer: 0
   m_Name: Antorcha
   m_TagString: Untagged
@@ -105,18 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3597377739845451118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3597377739845451113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c954aca2beb89d2409c228b1c9434e4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8662848928024339317
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +129,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8662848928024339317}
-  m_LocalRotation: {x: -0, y: -0, z: -0.4039609, w: 0.91477627}
+  m_LocalRotation: {x: -0, y: -0, z: 0.007427635, w: 0.9999724}
   m_LocalPosition: {x: 0.034, y: 0.065, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -163,10 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.593
-  m_Color: {r: 1, g: 0.35205054, b: 0.025157154, a: 1}
+  m_FalloffIntensity: 0.862
+  m_Color: {r: 1, g: 0.43137255, b: 0, a: 1}
   m_Intensity: 1
-  m_LightVolumeOpacity: 0.688
+  m_LightVolumeOpacity: 0.5
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
@@ -176,8 +163,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 0.77150726
+  m_PointLightInnerRadius: 0.5721199
+  m_PointLightOuterRadius: 3.3838995
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
