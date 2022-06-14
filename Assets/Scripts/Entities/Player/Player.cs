@@ -382,7 +382,7 @@ public class Player : Entity {
         OnHealthChange?.Invoke();
     }
 
-    public void TakeDamage(int amount, DEATH_CAUSE source = DEATH_CAUSE.D_DAMAGE) { 
+    public void TakeDamage(int amount, DEATH_CAUSE source = DEATH_CAUSE.D_DAMAGE) {
         if (CanChangeHealth()) {
             _health -= amount; 
             IJustTakeDamage(source);
