@@ -70,7 +70,6 @@ public class Stalagmite : MonoBehaviour {
     private void Shake() {
         _canFall = true;
         GetComponent<Animator>().SetBool("Shake", true);
-        ParticleInstancer.Instance.StartParticles("Particula_Estalactita", transform);
 
     }
 
@@ -87,17 +86,19 @@ public class Stalagmite : MonoBehaviour {
     // Unity
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision == null) return;
-        if (collision.gameObject.tag != "Player") return;
-
-        collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL);
+        if (collision.gameObject.tag == "Player") {
+            collision.gameObject.GetComponent<Player>().TakeDamage(5, DEATH_CAUSE.D_DAMAGE);
+        }
+        ParticleInstancer.Instance.StartParticles("Particula_Estalactita", transform.position);
     }
 
     // Unity
     void OnCollisionEnter2D(Collision2D collision){
         if (collision == null) return;
-        if (collision.gameObject.tag != "Player") return;
-
-        collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL);
+        if (collision.gameObject.tag != "Player") {
+            collision.gameObject.GetComponent<Player>().TakeDamage(5, DEATH_CAUSE.D_DAMAGE);
+        }
+        ParticleInstancer.Instance.StartParticles("Particula_Estalactita", transform.position);
     }
 
 }
