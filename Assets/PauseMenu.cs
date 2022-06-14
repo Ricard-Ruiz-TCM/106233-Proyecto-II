@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         menuPause.SetActive(false);
         Time.timeScale = 1f;
         _paused = false;
+        //GameManager.FindObjectOfType<Player>().Pause();
     }
 
     public void Pause()
@@ -44,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         menuPause.SetActive(true);
         Time.timeScale = 0f;
         _paused = true;
+        GameManager.FindObjectOfType<Player>().Pause();
     }
 
     public void LoadMenu()

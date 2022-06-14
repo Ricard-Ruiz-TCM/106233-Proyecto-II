@@ -41,7 +41,7 @@ public class ShadowAttack : EnemyCombat
         if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
         {
             player.GetComponent<PlayerCombat>().TakeDamage(currentAttack);
-            MusicPlayer.Instance.PlayFX("Enemy_ShadowAtk/Enemy_ShadowAtk_" + ((int)Random.Range(1, 2)).ToString(), 0.1f);
+            MusicPlayer.Instance.PlayFX("Enemy_ShadowAtk/Enemy_ShadowAtk_" + ((int)Random.Range(1, 2)).ToString(), 0.5f);
         }
     }
 

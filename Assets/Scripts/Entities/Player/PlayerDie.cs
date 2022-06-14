@@ -76,12 +76,14 @@ public class PlayerDie : PlayerState, IHaveStates {
         switch (_dCause){
             case DEATH_CAUSE.D_DAMAGE: 
                 Invoke("InstantiateHand", 1.0f);
+                MusicPlayer.Instance.PlayFX("Player_death_Pinchos/Player_death_Pinchos_" + ((int)UnityEngine.Random.Range(1, 3)).ToString(), 0.5f);
                 //ParticleInstancer.Instance.StartParticles("RespawnLokuraParticula", this.transform);
                 break;
             case DEATH_CAUSE.D_FALL:
                 _body.velocity = Vector2.zero;
                 _body.isKinematic = true;
                 ParticleInstancer.Instance.StartParticles("Plumas_Particle", this.transform);
+                MusicPlayer.Instance.PlayFX("Player_Death_Fall/Player_Death_Fall", 0.5f);
                 break;
             default: break;
         }
