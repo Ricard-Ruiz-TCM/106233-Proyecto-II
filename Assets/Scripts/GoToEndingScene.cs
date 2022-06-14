@@ -13,6 +13,8 @@ public class GoToEndingScene : MonoBehaviour
     private bool startTimer;
     public ParticleSystem confetti1;
     public ParticleSystem confetti2;
+    public ParticleSystem confetti3;
+    public ParticleSystem confetti4;
 
     private void OnEnable()
     {
@@ -43,6 +45,8 @@ public class GoToEndingScene : MonoBehaviour
         startTimer = true;
         confetti1.Play();
         confetti2.Play();
+        confetti3.Play();
+        confetti4.Play();
     }
 }
 
