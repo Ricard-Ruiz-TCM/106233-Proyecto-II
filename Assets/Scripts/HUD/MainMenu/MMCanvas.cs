@@ -14,7 +14,6 @@ public class MMCanvas : MonoBehaviour {
     [SerializeField]
     private GameObject _optionsPanel;
 
-    public GameObject _option0;
     public GameObject _option1;
     public GameObject _option2;
     public GameObject _option3;
@@ -28,12 +27,6 @@ public class MMCanvas : MonoBehaviour {
         _optionsPanel.SetActive(false);
     }
 
-
-    public void OnClickContinue(){
-        _selector.transform.SetParent(_option0.transform);
-        _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
-        SceneManager.LoadScene("GameIntro");
-    }
 
     public void OnClickNewGame(){
         _selector.transform.SetParent(_option1.transform);
