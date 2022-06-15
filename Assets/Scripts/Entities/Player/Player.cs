@@ -23,6 +23,8 @@ public class Player : Entity {
     // Observer para avisar cuando cambiamos de arma
     public static event Action<COMBAT_STATE> OnChangeWeapon;
 
+    public static event Action<bool> OnPause;
+
     public static event Action OnRespawn;
 
     // Observer para ver caundo cambia la vida
@@ -493,6 +495,7 @@ public class Player : Entity {
             _pause = true;
             
         }
+        OnPause?.Invoke(_pause);
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
