@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start(){
-        MusicPlayer.Instance.PlayMusic("Musica_bosque/Musica_bosque", 1f, true);
+        MusicPlayer.Instance.PlayMusic("Musica_bosque_V2/Musica_bosque", 1f, true);
     }
 
     public void InstantiateInkPot(Vector2 pos) {
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
     public void GOTOLVL1(){
         LVL1.SetActive(true);
         LVL2.SetActive(false);
-        MusicPlayer.Instance.PlayMusic("Musica_bosque/Musica_bosque", 1f, true);
+        MusicPlayer.Instance.PlayMusic("Musica_bosque_V2/Musica_bosque", 1f, true);
         foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             Destroy(enemies);
