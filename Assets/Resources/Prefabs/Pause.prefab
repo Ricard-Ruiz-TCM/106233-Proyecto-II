@@ -1765,7 +1765,7 @@ PrefabInstance:
       objectReference: {fileID: 5684818925127845408}
     - target: {fileID: 3622387713754066296, guid: bc1a5025edbaa8a439a606b7f9830133, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetFxVolume
+      value: SetVolume
       objectReference: {fileID: 0}
     - target: {fileID: 3622387713754066296, guid: bc1a5025edbaa8a439a606b7f9830133, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
