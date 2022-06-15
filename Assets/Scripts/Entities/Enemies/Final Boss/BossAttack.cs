@@ -42,6 +42,7 @@ public class BossAttack : EnemyCombat {
         if (Vector2.Distance(this.transform.position, _player.position) < 2.2f){
             _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
             ParticleInstancer.Instance.StartParticles("MeleeBoss_Particle", transform);
+            MusicPlayer.Instance.PlayFX("Boss_ATK/Boss_MeleeAtk",1f);
         }
     }
     
@@ -52,7 +53,7 @@ public class BossAttack : EnemyCombat {
         ParticleInstancer.Instance.StartSpecialParticles("AtaqueBossMano_Particle", _hand.transform);
         Invoke("HandDamage", 1.55f);
     }
-
+   
     public new void TakeDamage(Attack weapon){
         if (!CanTakeDamage) return;
         float dmg = weapon.Damage;
@@ -70,6 +71,8 @@ public class BossAttack : EnemyCombat {
     private void HandDamage(){
         if (_hand == null) return;
         _hand.GetComponentInChildren<HandAttack>().MakeDamage();
+        MusicPlayer.Instance.PlayFX("Boss_ATK/boss_LongAtk", 1f);
+
     }
 
     public void SpawnAttack(float dir){
