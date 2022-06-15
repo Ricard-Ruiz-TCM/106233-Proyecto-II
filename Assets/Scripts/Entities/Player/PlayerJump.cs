@@ -105,7 +105,7 @@ public class PlayerJump : PlayerState, IHaveStates {
             _body.velocity = new Vector3(_body.velocity.x * 2.5f, _body.velocity.y);
             _body.velocity = new Vector2(Mathf.Clamp(_body.velocity.x, -3.5f, 3.5f), _body.velocity.y);
             Jump(force);
-        } else if (_fall.OnTheWall() && _fall.IsFalling()) {
+        } else if (_fall.FacingWall()) {
             float v = (force * 0.75f) * (_fall.FacingWall() ? -transform.right.x : transform.right.x);
             Jump(force * 0.9f, v);
             // Rotación
