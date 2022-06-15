@@ -140,7 +140,7 @@ public class PlayerCombat : PlayerState, ICombat, IHaveStates {
         if (Melee() && (_canAttack)) {
             _canAttack = false;
             foreach(GameObject go in GameObject.FindGameObjectsWithTag("Enemy")){
-                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range){
+                if (Vector2.Distance(go.transform.position, this.transform.position) < _weapon.Range * 1.5f){
                     Vector2 dir = (transform.position - go.transform.position);
                     dir.Normalize();
                     if (go.GetComponent<ICombat>() == null) break;
