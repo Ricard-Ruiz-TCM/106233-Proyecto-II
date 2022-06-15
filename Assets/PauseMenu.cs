@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject menuPause;
+    public GameObject menuOptions;
+    public GameObject menuSettings;
 
     float _time;
     bool _pause;
@@ -41,17 +43,20 @@ public class PauseMenu : MonoBehaviour
             _time = 0.0f;
             menuPause.GetComponent<Animator>().SetBool("Pause", true);
         } else {
+            OptionsClose();
             menuPause.GetComponent<Animator>().SetBool("Pause", false);
             Time.timeScale = 1f;
         }
     }
 
     public void Options() {
-        menuPause.GetComponent<Animator>().SetBool("Options", true);
+        menuOptions.GetComponent<RectTransform>().anchoredPosition = new Vector2(-530, -400);
+        menuSettings.GetComponent<RectTransform>().anchoredPosition = new Vector2(1075, -40);
     }
 
     public void OptionsClose(){
-        menuPause.GetComponent<Animator>().SetBool("Options", false);
+        menuOptions.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -400);
+        menuSettings.GetComponent<RectTransform>().anchoredPosition = new Vector2(1500, -40);
     }
 
     public void ExitClick(){

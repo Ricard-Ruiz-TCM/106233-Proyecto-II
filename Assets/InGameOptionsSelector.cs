@@ -24,16 +24,7 @@ public class InGameOptionsSelector : MonoBehaviour {
     }
 
     private void Awake() {
-        positions = new List<List<Vector2>>();
-        positions.Add(new List<Vector2>());
-        positions[0].Add(new Vector2(-230, -180));
-        positions[0].Add(new Vector2(294, -180));
-        positions.Add(new List<Vector2>());
-        positions[1].Add(new Vector2(-170, -317));
-        positions[1].Add(new Vector2(233, -318));
-        positions.Add(new List<Vector2>());
-        positions[2].Add(new Vector2(-124, -461));
-        positions[2].Add(new Vector2(205, -461));
+
     }
 
     void Start(){
