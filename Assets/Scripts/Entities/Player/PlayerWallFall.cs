@@ -37,12 +37,12 @@ public class PlayerWallFall : PlayerState, IHaveStates {
         EnableSystem();
         ///////////////
         SetWallFallGravity();
-        if (!FacingWall()) FaceWall();
+        if (FacingWall()) UnFaceWall();
         _animator.SetBool("FallWall", true);
     }
 
-    public void FaceWall() {
-        transform.Rotate(new Vector2(0.0f, 180.0f));
+    public void UnFaceWall() {
+        transform.localEulerAngles = new Vector2(0.0f, (transform.right.x < 0 ? 0.0f : 180.0f));
     }
 
     public void OnExitState(){
