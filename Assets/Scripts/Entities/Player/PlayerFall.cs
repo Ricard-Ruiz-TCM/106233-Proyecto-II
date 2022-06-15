@@ -137,7 +137,7 @@ public class PlayerFall : PlayerState, IHaveStates {
         ////////////////
         _speedR = false;
         DisableSystem();
-        ParticleInstancer.Instance.StopParticles(_particleId);
+        //ParticleInstancer.Instance.StopParticles(_particleId);
     }
 
     public void OnState(){

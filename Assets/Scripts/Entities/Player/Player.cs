@@ -285,7 +285,7 @@ public class Player : Entity {
                 if (_fall.Grounded()) 
                     ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_FALL */
-                else if (_fall.IsFalling() && !_fall.OnTheWall()) 
+                else if (_fall.IsFalling() && !_fall.OnTheWall() && _timeOnState > 0.2f) 
                     ChangeState(PLAYER_STATE.PS_FALL);
                 /* TO: PS_JUMP */
                 else if (CanJump()) 
