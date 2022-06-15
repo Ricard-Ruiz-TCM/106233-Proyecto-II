@@ -107,7 +107,6 @@ public class PlayerFall : PlayerState, IHaveStates {
     public void StarFall(){
         SetFallGravity();
         _isFalling = true;
-        _particleId = ParticleInstancer.Instance.StartSpecialParticles("ParticlesCaidaaaa", transform);
         if (!_player.LastState().Equals(PLAYER_STATE.PS_JUMP)) {
             _body.velocity = new Vector3(_body.velocity.x / 2.5f, _body.velocity.y);
             _jump.DecideBoosts();
