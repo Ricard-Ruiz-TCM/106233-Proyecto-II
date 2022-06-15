@@ -17,9 +17,10 @@ public class InkButtonHight : MonoBehaviour, IPointerEnterHandler {
     public void OnPointerEnter(PointerEventData eventData)
     {
         _ink.transform.SetParent(this.transform); 
-        _ink.GetComponent<RectTransform>().anchoredPosition = new Vector2(-(_ink.transform.parent.GetComponent<RectTransform>().rect.width / 1.5f), 0.0f);
+        _ink.GetComponent<RectTransform>().anchoredPosition = new Vector2(-(_ink.transform.parent.GetComponent<RectTransform>().rect.width / 1.1f), 0.0f);
 
         _brush.transform.SetParent(this.transform); 
-        _brush.GetComponent<RectTransform>().anchoredPosition = new Vector2((_brush.transform.parent.GetComponent<RectTransform>().rect.width / 1.5f), 0.0f);
+        float w = _brush.GetComponent<RectTransform>().rect.width / 5.0f;
+        _brush.GetComponent<RectTransform>().anchoredPosition = new Vector2(_brush.transform.parent.GetComponent<RectTransform>().rect.width + w, 0.0f);
     }
 }
