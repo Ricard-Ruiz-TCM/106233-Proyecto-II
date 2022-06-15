@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Master Volume
+  m_text: Volumen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -2403,7 +2403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 3}
+  m_AnchoredPosition: {x: -40, y: 3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955901259
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Game
+  m_text: Jugar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -3476,7 +3476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Ajustes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -3610,7 +3610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Salir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -3744,7 +3744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music Volume
+  m_text: "Volumen M\xFAsica"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -3807,7 +3807,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -32.663643, w: 0}
+  m_margin: {x: 0, y: 0, z: -47.641594, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3878,7 +3878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: "Atr\xE1s"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -4162,7 +4162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FX Volume
+  m_text: Volumen FX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
