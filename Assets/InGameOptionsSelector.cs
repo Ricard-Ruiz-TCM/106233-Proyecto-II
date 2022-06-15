@@ -43,7 +43,9 @@ public class InGameOptionsSelector : MonoBehaviour {
     void Update(){
         if (!_pause)  return;
 
-        // METER INPUT AQUÍ PARA QUE FUNCIONE CON EL MANDO Y CON EL RATON
+        Vector2 mousepos = _input.MousePos();
+
+        
     }
 
     private void StartSelector(bool pause) {
