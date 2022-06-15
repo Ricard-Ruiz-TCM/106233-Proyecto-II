@@ -80,9 +80,9 @@ public class BombTemplate : Template {
         GetComponent<Animator>().SetBool("Explode", true);
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
-                if (go.GetComponent<BombHelper>() != null) return;
-                ParticleInstancer.Instance.StartParticles("WallBreak_Particles", go.transform.position);
                 Destroy(go);
+                if (go.GetComponent<BombHelper>() != null) break;
+                ParticleInstancer.Instance.StartParticles("WallBreak_Particles", go.transform.position);
             }
         }
 
