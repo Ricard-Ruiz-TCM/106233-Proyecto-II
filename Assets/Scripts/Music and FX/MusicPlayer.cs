@@ -37,11 +37,11 @@ public class MusicPlayer : MonoBehaviour {
 
         if (_fadeAS) _musicAS.volume -= 0.001f;
                 else _musicAS.volume += 0.001f;
-        _musicAS.volume = Mathf.Clamp(_musicAS.volume, 0.0f, 1.0f);
+        _musicAS.volume = Mathf.Clamp(_musicAS.volume, 0.0f, 0.6f);
 
         if (_fadeCM) _currentMusic.volume -= 0.001f;
                 else _currentMusic.volume += 0.001f;
-        _currentMusic.volume = Mathf.Clamp(_currentMusic.volume, 0.0f, 1.0f);
+        _currentMusic.volume = Mathf.Clamp(_currentMusic.volume, 0.0f, 0.6f);
 
     }
 

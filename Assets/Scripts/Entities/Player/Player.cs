@@ -431,7 +431,7 @@ public class Player : Entity {
         ChangeState(PLAYER_STATE.PS_IDDLE);
         OnRespawn?.Invoke();
         ParticleInstancer.Instance.StartParticles("CreacionDibujo_Particle", transform);
-        MusicPlayer.Instance.PlayFX("Player_reespawn/Player_reespawn", 0.5f);
+        MusicPlayer.Instance.PlayFX("Player_reespawn/Player_reespawn", 1f);
 
     }
 

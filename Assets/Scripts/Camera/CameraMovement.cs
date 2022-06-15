@@ -71,7 +71,7 @@ public class CameraMovement : MonoBehaviour {
         if ((Vector2.Distance(transform.position, BossPosition) < 5.0f) && (!_OnBossRoom)){
             _OnBossRoom = true;
             _bossHUD.SetActive(true);
-            MusicPlayer.Instance.PlayMusic("boss");
+            MusicPlayer.Instance.PlayMusic("boss", 1f, true);
         }
 
         _nextDeltaX = 2.0f * _player.transform.right.x;

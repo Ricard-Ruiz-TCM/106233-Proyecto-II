@@ -14,11 +14,12 @@ public class HandShakerUI : MonoBehaviour {
         _time = 0.0f;
         _speed = 0.03f;
         _rack = 20.0f;
+
     }
 
     // Unity
     void Start() {
-        Destroy(this.gameObject, _timeAlive);
+        Destroy(this.gameObject, _timeAlive); 
     }
 
     void Update() {

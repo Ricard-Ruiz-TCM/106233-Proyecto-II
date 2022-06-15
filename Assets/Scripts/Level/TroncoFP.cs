@@ -46,6 +46,7 @@ public class TroncoFP : MonoBehaviour
     private void Fade()
     {
         ParticleInstancer.Instance.StartParticles("Puente_Particulas 1", transform);
+        if (Random.Range(0, 5) == 0) MusicPlayer.Instance.PlayFX("wooffall",0.5f);
 
         if (IsFaded()) return;
         _fade = true;
