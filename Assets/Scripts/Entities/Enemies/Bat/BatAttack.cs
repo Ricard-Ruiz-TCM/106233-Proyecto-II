@@ -18,7 +18,7 @@ public class BatAttack : EnemyCombat
     public float FOV = 90f;
 
     private float currentTime;
-    private float maxTime = 2f;
+    private float maxTime = 1.5f;
     private Transform player;
 
     // Start is called before the first frame update
