@@ -118,16 +118,19 @@ public class MusicPlayer : MonoBehaviour {
         if (_currentMusic.isPlaying) {
             _musicAS.clip = GetMusic(audio);
             _musicAS.Play();
+            _musicAS.loop = repeat;
             _musicAS.volume = 0.0f;
             _fadeCM = true; _fadeAS = false;
         } else if (_musicAS.isPlaying) {
             _currentMusic.clip = GetMusic(audio);
             _currentMusic.Play();
+            _currentMusic.loop = repeat;
             _currentMusic.volume = 0.0f;
             _fadeAS = true; _fadeCM = false;
         } else {
             _currentMusic.clip = GetMusic(audio);
             _currentMusic.Play();
+            _currentMusic.loop = repeat;
             _currentMusic.volume = 0.0f;
             _fadeAS = false;
         }

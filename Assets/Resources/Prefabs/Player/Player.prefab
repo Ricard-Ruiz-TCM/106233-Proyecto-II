@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 1156490840213546253}
   - component: {fileID: 2065730951}
   - component: {fileID: 8607430394609021042}
+  - component: {fileID: 4755581287261371027}
   m_Layer: 23
   m_Name: Player
   m_TagString: Player
@@ -488,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b24afafde494940b8be4056636a071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _insidePlatform: 0
   _ink: 0
   _health: 0
   _canCHealth: 0
@@ -497,6 +499,7 @@ MonoBehaviour:
   _canJump: 0
   _NoInk: {fileID: 0}
   _alpha: 0
+  _pause: 0
 --- !u!114 &1146343377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMoving: 0
   _speed: 0
+  _wallFree: 0
 --- !u!114 &1146343375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gravity: 0
+  _facingWall: 0
 --- !u!114 &8607430394609021042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +662,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _inkBullet: {fileID: 0}
+--- !u!81 &4755581287261371027
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951879192592214157}
+  m_Enabled: 1
 --- !u!1 &2951879192940518841
 GameObject:
   m_ObjectHideFlags: 0
