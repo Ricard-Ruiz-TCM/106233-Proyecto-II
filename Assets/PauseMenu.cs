@@ -47,7 +47,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Options() {
-        Debug.Log("Options");
+        menuPause.GetComponent<Animator>().SetBool("Options", true);
+    }
+
+    public void OptionsClose(){
+        menuPause.GetComponent<Animator>().SetBool("Options", false);
     }
 
     public void ExitClick(){
