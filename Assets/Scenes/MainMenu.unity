@@ -153,7 +153,7 @@ RectTransform:
   m_LocalScale: {x: 7, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 261429131}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -553,9 +553,9 @@ RectTransform:
   - {fileID: 1299862161}
   - {fileID: 1693909516}
   - {fileID: 646554641}
-  - {fileID: 1100161709}
   - {fileID: 56633494}
   - {fileID: 1809085733}
+  - {fileID: 1100161709}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -597,9 +597,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 5c94fb76003e71348a75aed15e4cc566, type: 2}
   optionMenu: {fileID: 1100161708}
   toggle: {fileID: 287836678}
-  slider: {fileID: 0}
-  fxSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
+  slider: {fileID: 1834258821}
+  fxSlider: {fileID: 1947628864}
+  musicSlider: {fileID: 914264425}
 --- !u!1 &287836676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2685,7 @@ RectTransform:
   - {fileID: 1947628863}
   - {fileID: 287836677}
   m_Father: {fileID: 261429131}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4060,7 +4060,7 @@ RectTransform:
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 261429131}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
