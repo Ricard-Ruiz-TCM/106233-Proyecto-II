@@ -22,6 +22,8 @@ public class PlayerJump : PlayerState, IHaveStates {
     public bool CanLand() { return (_jumpTime > 0.1f); }
     public bool JumpEnds() { return (!IsJumping()); }
 
+    private Player _player;
+
     // Boost Attributes
     [SerializeField]
     private int _boost; // -1 (left) | 0 (none) | 1 (right) | 2 (both)
@@ -58,6 +60,7 @@ public class PlayerJump : PlayerState, IHaveStates {
 
         _fall = GetComponent<PlayerFall>();
         _movement = GetComponent<PlayerMovement>();
+        _player = GetComponent<Player>();
     }
 
     // Unity
@@ -105,7 +108,7 @@ public class PlayerJump : PlayerState, IHaveStates {
             _body.velocity = new Vector3(_body.velocity.x * 2.5f, _body.velocity.y);
             _body.velocity = new Vector2(Mathf.Clamp(_body.velocity.x, -3.5f, 3.5f), _body.velocity.y);
             Jump(force);
-        } else if (_fall.FacingWall()) {
+        } else if (_fall.OnTheWall()) {
             float v = (force * 0.75f) * (_fall.FacingWall() ? -transform.right.x : transform.right.x);
             Jump(force * 0.9f, v);
             // Rotación

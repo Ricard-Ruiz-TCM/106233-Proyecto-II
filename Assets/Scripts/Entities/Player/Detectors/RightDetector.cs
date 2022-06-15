@@ -59,12 +59,12 @@ public class RightDetector : MonoBehaviour {
     }
 
     private void CheckRightWall() {
-        var colliders = Physics2D.OverlapCircleAll(transform.position, _checkRadius * 2.0f, _layer_WallFall);
+        var colliders = Physics2D.OverlapCircleAll(transform.position, _checkRadius * 2.25f, _layer_WallFall);
         OnWallWhileFalling?.Invoke(colliders.Length > 0);
     }
 
     private void CheckFacingWall(){
-        var colliders = Physics2D.OverlapCircleAll(transform.position, _checkRadius * 1.1f, _layer_WallFall);
+        var colliders = Physics2D.OverlapCircleAll(transform.position, _checkRadius * 1.2f, _layer_WallFall);
         onFacingWall?.Invoke(colliders.Length > 0);
     }
     

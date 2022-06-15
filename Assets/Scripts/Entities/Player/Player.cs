@@ -230,7 +230,7 @@ public class Player : Entity {
                 /* TO: PS_FALL */
                 else if (_jump.JumpEnds() || !_input.Jump()) ChangeState(PLAYER_STATE.PS_FALL);
                 /* TO: PS_WALL_FALL */
-                else if (_fall.FacingWall() && _timeOnState > 0.5f) ChangeState(PLAYER_STATE.PS_WALL_FALL);
+                else if (_fall.FacingWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 // Extra
                 else {
                     _movement.ApplyRotacion();
@@ -244,7 +244,7 @@ public class Player : Entity {
                 /* TO: PS_IDDLE */
                 else if (_fall.Grounded() && !_insidePlatform) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_WALL_FALL */
-                else if (_fall.FacingWall() && _timeOnState > 0.5f) ChangeState(PLAYER_STATE.PS_WALL_FALL);
+                else if (_fall.FacingWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 /* TO: PS_ATTACK 
                 else if (CanAttack()) ChangeState(PLAYER_STATE.PS_ATTACK);*/
                 // Extra
@@ -282,11 +282,14 @@ public class Player : Entity {
                 break;
             case PLAYER_STATE.PS_WALL_FALL:
                 /* TO: PS_IDDLE */
-                if (_fall.Grounded()) ChangeState(PLAYER_STATE.PS_IDDLE);
+                if (_fall.Grounded()) 
+                    ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_FALL */
-                else if (_fall.IsFalling() && !_fall.OnTheWall()) ChangeState(PLAYER_STATE.PS_FALL);
+                else if (_fall.IsFalling() && !_fall.OnTheWall()) 
+                    ChangeState(PLAYER_STATE.PS_FALL);
                 /* TO: PS_JUMP */
-                else if (CanJump()) ChangeState(PLAYER_STATE.PS_JUMP);
+                else if (CanJump()) 
+                    ChangeState(PLAYER_STATE.PS_JUMP);
                 // Extra
                 else {
                     if (!_input.Jump()) EnableJump();
