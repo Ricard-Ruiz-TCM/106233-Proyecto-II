@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class MusicPlayer : MonoBehaviour {
 
@@ -8,7 +9,8 @@ public class MusicPlayer : MonoBehaviour {
     public static MusicPlayer Instance { get; private set; }
     /////////////////////////////////////////////////////////////////////
 
-    public AudioSource _fxAS;
+    public GameObject fxprfeab;
+
     public bool _fadeAS;
     public AudioSource _musicAS;
     public bool _fadeCM;
@@ -90,25 +92,9 @@ public class MusicPlayer : MonoBehaviour {
         if (!ExistsFX(audio)) LoadFX(audio);
         ////////////////////////////////
         // Play del FX con el mixer del FX
-        _fxAS.PlayOneShot(GetFX(audio), volume);
-    }
-
-    public void PlaySpecialFX(string audio, float volume = 1, double time = 0.0f){
-        if (!ExistsFX(audio)) LoadFX(audio);
-        ////////////////////////////////
-        // Play del FX con el mixer del FX
-        _fxAS.clip = GetFX(audio);
-        _fxAS.volume = volume;
-        _fxAS.PlayScheduled(time);
-    }
-
-    public void StopFX(string audio){
-        if (!ExistsFX(audio)) LoadFX(audio);
-        ////////////////////////////////
-        // Play del FX con el mixer del FX
-        if (_fxAS.isPlaying) _fxAS.Stop();
-        _fxAS.volume = 1.0f;
-        _fxAS.clip = null;
+        GameObject g = Instantiate(fxprfeab, transform);
+        g.GetComponent<AudioSource>().PlayOneShot(GetFX(audio), volume);
+        Destroy(g, GetFX(audio).length * 1.2f);
     }
 
     public void PlayMusic(string audio, float volume = 1, bool repeat = false){

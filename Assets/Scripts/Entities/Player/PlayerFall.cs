@@ -127,13 +127,11 @@ public class PlayerFall : PlayerState, IHaveStates {
         ///////////////
         _speedR = false;
         StarFall();
-        //MusicPlayer.Instance.PlaySpecialFX("fall", 0.25f, 1.0f);
         _animator.SetBool("Fall", true);
     }
 
     public void OnExitState(){
         _animator.SetBool("Fall", false);
-        MusicPlayer.Instance.StopFX("fall");
         ////////////////
         _speedR = false;
         DisableSystem();

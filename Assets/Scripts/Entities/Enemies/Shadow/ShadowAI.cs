@@ -114,7 +114,7 @@ public class ShadowAI : EnemyMovement
 
             case ShadowStates.Appearing:
                 GetComponent<ShadowAttack>().CanTakeDamage = true;
-                if (currentTime >= 1.25f) {
+                if (currentTime >= 4.5f) {
                     animator.SetBool("Idle", true);
                     animator.SetBool("Appearing", false);
                     animator.SetBool("Disappearing", false);
