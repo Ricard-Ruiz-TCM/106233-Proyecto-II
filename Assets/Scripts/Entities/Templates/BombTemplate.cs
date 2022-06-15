@@ -66,7 +66,6 @@ public class BombTemplate : Template {
             _text.text = ((int)_explosionTime).ToString();
             _color.a = 1.0f;
             _spritebg.color = _color;
-            MusicPlayer.Instance.PlayFX("Bomb_Timer", 0.5f);
         }
         else
         {
@@ -79,7 +78,6 @@ public class BombTemplate : Template {
     public void Explode() {
         _Exploded = true;
         GetComponent<Animator>().SetBool("Explode", true);
-        MusicPlayer.Instance.StopFX("Bomb_Timer");
         foreach (GameObject go in _objects){
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius) {
                 ParticleInstancer.Instance.StartParticles("WallBreak_Particles", go.transform.position);
@@ -140,6 +138,7 @@ public class BombTemplate : Template {
         GetComponent<BoxCollider2D>().isTrigger = false;
         GetComponent<Rigidbody2D>().isKinematic = false;
         _explosionTime = 4.0f;
+        MusicPlayer.Instance.PlayFX("Bomb_Timer", 0.5f);
         Invoke("StopP", _explosionTime * 0.8f);
         Invoke("Explode", _explosionTime);
     }
