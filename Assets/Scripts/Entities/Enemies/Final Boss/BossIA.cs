@@ -56,14 +56,8 @@ public class BossIA : EnemyMovement {
         Fader.OnFullAlpha -= Respawn;
     }
 
-    public GameObject BossSpawner;
-
     private void Respawn(){
-        GameObject g = Instantiate(BossSpawner, GameObject.FindObjectOfType<ElementsContainer>().transform);
-        g.transform.position = new Vector3(94.482f, -70.544f, 0.0f);
-        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")){
-            Destroy(enemies);
-        }
+        foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) Destroy(enemies);
         foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Boss")) Destroy(enemies);
     }
 
