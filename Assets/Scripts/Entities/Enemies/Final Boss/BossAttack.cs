@@ -39,10 +39,10 @@ public class BossAttack : EnemyCombat {
     }
 
     public void MeleeAttack(){
-        if (Vector2.Distance(this.transform.position, _player.position) < 2.2f){
-            _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
             ParticleInstancer.Instance.StartParticles("MeleeBoss_Particle", transform);
             MusicPlayer.Instance.PlayFX("Boss_ATK/Boss_MeleeAtk",1f);
+        if (Vector2.Distance(this.transform.position, _player.position) < 2.2f){
+            _player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
         }
     }
     
