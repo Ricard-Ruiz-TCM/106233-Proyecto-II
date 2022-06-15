@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: ad8e2818bdc05cb4089e677033a22174
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3870292075206438479
+    second: pause_menu_sprite_sheet_0
+  - first:
+      213: -1011303353046391977
+    second: pause_menu_sprite_sheet_1
+  - first:
+      213: -8951329990467112617
+    second: pause_menu_sprite_sheet_2
+  - first:
+      213: -4495387930400956214
+    second: pause_menu_sprite_sheet_3
+  - first:
+      213: -2725561268279207901
+    second: pause_menu_sprite_sheet_4
+  - first:
+      213: -5827916540690666645
+    second: pause_menu_sprite_sheet_5
+  - first:
+      213: -3904313524231469031
+    second: pause_menu_sprite_sheet_6
+  - first:
+      213: -2488194365406018725
+    second: pause_menu_sprite_sheet_7
+  - first:
+      213: -2553850984084724706
+    second: pause_menu_sprite_sheet_8
+  - first:
+      213: 1111406134072476125
+    second: pause_menu_sprite_sheet_9
+  - first:
+      213: -3458874115122556992
+    second: pause_menu_sprite_sheet_10
+  - first:
+      213: -8666807968692496528
+    second: pause_menu_sprite_sheet_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,16 +68,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,10 +101,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +125,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 112
+        width: 227
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e60bff22a06b530800000000000000
+      internalID: 3870292075206438479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 83
+        width: 480
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753228165f027f1f0800000000000000
+      internalID: -1011303353046391977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 64
+        width: 78
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75138e2cccc76c380800000000000000
+      internalID: -8951329990467112617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 60
+        width: 57
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac06fd0be7c2d91c0800000000000000
+      internalID: -4495387930400956214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 33
+        width: 158
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32897a6977cdc2ad0800000000000000
+      internalID: -2725561268279207901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 39
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b628ba8c41f1fa0800000000000000
+      internalID: -5827916540690666645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 39
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9180e60298711d9c0800000000000000
+      internalID: -3904313524231469031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 46
+        width: 82
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5388dd5868287dd0800000000000000
+      internalID: -2488194365406018725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 31
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1429549f06ee8cd0800000000000000
+      internalID: -2553850984084724706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 41
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1849e8df18c6f00800000000000000
+      internalID: 1111406134072476125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 34
+        width: 80
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf8355715c9fffc0800000000000000
+      internalID: -3458874115122556992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause_menu_sprite_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 5
+        width: 480
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0771f89321059b780800000000000000
+      internalID: -8666807968692496528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
