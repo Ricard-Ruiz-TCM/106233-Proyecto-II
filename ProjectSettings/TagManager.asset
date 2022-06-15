@@ -17,6 +17,7 @@ TagManager:
   - Wall
   - Spikes
   - FaddedGround
+  - Options
   layers:
   - Default
   - TransparentFX
