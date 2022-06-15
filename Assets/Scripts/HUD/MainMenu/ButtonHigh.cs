@@ -15,6 +15,6 @@ public class ButtonHigh : MonoBehaviour, IPointerEnterHandler {
     public void OnPointerEnter(PointerEventData eventData)
     {
         _selector.transform.SetParent(this.transform); 
-        _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
+        _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(500.0f, -60.0f);
     }
 }
