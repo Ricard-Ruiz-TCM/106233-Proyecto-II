@@ -11,6 +11,10 @@ public class InGameOptionsSelector : MonoBehaviour {
     public GameObject _ink;
     public GameObject _brush;
 
+    PlayerInput _input;
+
+    private bool _pause;
+
     void OnEnable(){
         Player.OnPause += StartSelector;
     }
@@ -19,9 +23,7 @@ public class InGameOptionsSelector : MonoBehaviour {
         Player.OnPause -= StartSelector;
     }
 
-    private void StartSelector(bool pause) {
-        if (!pause) return;
-        _position = 0;
+    private void Awake() {
         positions = new List<List<Vector2>>();
         positions.Add(new List<Vector2>());
         positions[0].Add(new Vector2(-230, -180));
@@ -32,6 +34,21 @@ public class InGameOptionsSelector : MonoBehaviour {
         positions.Add(new List<Vector2>());
         positions[2].Add(new Vector2(-124, -461));
         positions[2].Add(new Vector2(205, -461));
+    }
+
+    void Start(){
+        _input = GameObject.FindObjectOfType<PlayerInput>();
+    }
+
+    void Update(){
+        if (!_pause)  return;
+
+        // METER INPUT AQUÍ PARA QUE FUNCIONE CON EL MANDO Y CON EL RATON
+    }
+
+    private void StartSelector(bool pause) {
+        _pause = pause;
+        _position = 0;
         ChangePosition(0);
     }
 
