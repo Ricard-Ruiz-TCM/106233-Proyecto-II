@@ -47,6 +47,8 @@ public class GoToEndingScene : MonoBehaviour
         confetti2.Play();
         confetti3.Play();
         confetti4.Play();
+        MusicPlayer.Instance.PlayFX("Celebration", 0.65f);
+
     }
 }
 

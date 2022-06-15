@@ -16,6 +16,8 @@ public class Spike : MonoBehaviour {
         if (collision.gameObject.tag != "Player") return;
         if (collision.gameObject.GetComponent<Player>().State().Equals(PLAYER_STATE.PS_DIE)) return;
         collision.gameObject.GetComponent<Player>().TakeDamage(100, DEATH_CAUSE.D_FALL, true);
+        MusicPlayer.Instance.PlayFX("Player_death_Pinchos_1",1.0f);
+
     }
 
 }
