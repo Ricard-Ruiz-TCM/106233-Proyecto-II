@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour {
     private GameObject _fader;
 
     private List<GameObject> _templateButtons;
-
+    public GameObject audioPajaros;
+    public GameObject audioViento;
     private void OnEnable()
     {
         Player.OnRespawn += RemoveInks;
@@ -68,6 +69,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GOTOLVL2(){
+        audioPajaros.GetComponent<AudioSource>().Stop();
+        audioViento.GetComponent<AudioSource>().Stop();
         LVL1.SetActive(false);
         LVL2.SetActive(true);
         MusicPlayer.Instance.PlayMusic("Musica_Cueva/Musica_Cueva", 1f, true);
@@ -89,7 +92,6 @@ public class GameManager : MonoBehaviour {
             Destroy(enemies);
         }
     }
-
 
     public void SetNewProgression (int templateID) {
         _templateButtons[REAL_PROGRESSION].SetActive(true);
