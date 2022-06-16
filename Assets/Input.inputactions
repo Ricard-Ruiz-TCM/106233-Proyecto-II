@@ -116,6 +116,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Bugy",
+                    "type": "Button",
+                    "id": "59bd7f22-aea1-478b-9e1c-d8327530b3dc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -407,12 +415,12 @@
                 },
                 {
                     "name": "",
-                    "id": "4ff254ed-878c-4d88-ae84-04d880e05386",
-                    "path": "<Gamepad>/select",
+                    "id": "88f7ade9-4b77-4a84-b5af-96cd84ab084d",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Bug",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Bugy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

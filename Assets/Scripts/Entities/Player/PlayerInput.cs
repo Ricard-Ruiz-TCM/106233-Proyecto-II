@@ -70,8 +70,11 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void OnBug(){
-        if (!MainAction()) transform.Translate(new Vector2(0.0f, 5.0f));
-        if (MainAction()) transform.Translate(new Vector2(2.0f, 0.0f));
+        transform.Translate(new Vector2(0.0f, 0.5f));
+    }
+
+    void OnBugy() {
+        _player.Respawn();
     }
 
     void OnMainActiony(InputValue input){
