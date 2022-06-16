@@ -106,10 +106,10 @@ TextureImporter:
       name: pincel_villana-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 47
-        height: 53
+        x: 9
+        y: 10
+        width: 25
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,10 +127,10 @@ TextureImporter:
       name: pincel_villana-Sheet_1
       rect:
         serializedVersion: 2
-        x: 47
-        y: 0
-        width: 47
-        height: 53
+        x: 56
+        y: 18
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,10 +148,10 @@ TextureImporter:
       name: pincel_villana-Sheet_2
       rect:
         serializedVersion: 2
-        x: 94
-        y: 0
-        width: 47
-        height: 53
+        x: 104
+        y: 10
+        width: 22
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: pincel_villana-Sheet_3
       rect:
         serializedVersion: 2
-        x: 141
-        y: 0
-        width: 47
-        height: 53
+        x: 152
+        y: 21
+        width: 21
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

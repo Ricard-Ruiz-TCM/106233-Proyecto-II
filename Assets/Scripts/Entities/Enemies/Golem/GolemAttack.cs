@@ -39,6 +39,7 @@ public class GolemAttack : EnemyCombat
     public void Attack()
     {
         if (!canAttack) return;
+        MusicPlayer.Instance.PlayFX("attack_golem",1.0f);
         if (Vector2.Distance(transform.position, player.transform.position) < 1.35f)
         {
             player.GetComponent<PlayerCombat>().TakeDamage(_weapon);
