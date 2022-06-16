@@ -109,6 +109,7 @@ public class ShadowAI : EnemyMovement
                     animator.SetBool("Appearing", true);
                     shadowState = ShadowStates.Appearing;
                     currentTime = 0.0f;
+                    MusicPlayer.Instance.PlayFX("Enemy_ShadowAtk_V2/Enemy_ShadowAtk_1",1.0f);
                 }
                 break;
 
