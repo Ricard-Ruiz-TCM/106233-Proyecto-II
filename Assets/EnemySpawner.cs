@@ -48,7 +48,8 @@ public class EnemySpawner : MonoBehaviour {
             _animation = false;
             _spanDistance = _BspanDistance * 2.0f;
             if (spawned != null){
-                spawned.GetComponent<ICombat>().TakeDamage(_destroyer);
+                //spawned.GetComponent<ICombat>().TakeDamage(_destroyer);
+                Destroy(spawned);
                 spawned = null;
             }
             if (Vector2.Distance(_player.transform.position, transform.position) < _spanDistance) _animation = true;
