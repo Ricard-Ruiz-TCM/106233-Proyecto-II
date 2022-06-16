@@ -13,12 +13,12 @@ public class startlevelalpha : MonoBehaviour
     private void Start()
     {
         _alhpa = 0.0f;
-        Invoke("StartAlpha", 1.75f);
+        Invoke("StartAlpha", 1.50f);
     }
 
     private void StartAlpha()
     {
-        _alhpa = 1.25f;
+        _alhpa = 1.0f;
     }
 
     // Update is called once per frame
