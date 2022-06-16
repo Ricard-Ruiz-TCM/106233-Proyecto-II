@@ -1333,7 +1333,7 @@ GameObject:
   - component: {fileID: 1246381828}
   - component: {fileID: 1246381827}
   m_Layer: 5
-  m_Name: Drawi
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1355,7 +1355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63, y: -380}
+  m_AnchoredPosition: {x: 236, y: -403}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1246381827
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8871383922172392458, guid: 1ffd14a8c1d54a6429897c13122e96aa, type: 3}
+  m_Sprite: {fileID: 2762727340729540721, guid: 9b96f6bb7a9894e4b8e485417b242c13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2024,8 +2024,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1653.86, y: -507.7}
-  m_SizeDelta: {x: 496.27502, y: 202.50069}
+  m_AnchoredPosition: {x: 1593.3357, y: -491.6643}
+  m_SizeDelta: {x: 520.3357, y: 208.1343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693909517
 MonoBehaviour:
@@ -2362,7 +2362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450355708917038909, guid: 660175350f0a4a34bb40e67807af4355, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4450355709076059820, guid: 660175350f0a4a34bb40e67807af4355, type: 3}
       propertyPath: m_AnchorMax.x
