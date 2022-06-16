@@ -21,12 +21,17 @@ public class MMCanvas : MonoBehaviour {
     [SerializeField]
     private GameObject _selector;
 
+    int current = 0;
+    int total_anims = 2;
+
     // Start is called before the first frame update
     void Start()
     {
         _optionsPanel.SetActive(false);
         MusicPlayer.Instance.PlayMusic("MainTitle_music_V2/MainTitle_music", 1f, true);
+        InvokeRepeating("Changeanim", 0.0f, 6.0f);
     }
+
     public void OnClickNewGame(){
         _selector.transform.SetParent(_option1.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
@@ -46,6 +51,12 @@ public class MMCanvas : MonoBehaviour {
         _selector.transform.SetParent(_option3.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
         Application.Quit(0);
+    }
+
+    public void Changeanim(){
+        GetComponent<Animator>().SetBool(current.ToString(), false);
+        current = Random.Range(0, total_anims);
+        GetComponent<Animator>().SetBool(current.ToString(), true);
     }
 
 }
