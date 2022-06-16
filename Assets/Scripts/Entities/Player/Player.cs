@@ -199,7 +199,7 @@ public class Player : Entity {
                 break;
             case PLAYER_STATE.PS_MOVE:
                 /* TO: PS_IDDLE */
-                if ((!(_input.Left() ^ _input.Right())) || (!_movement.NotFacingWall())) ChangeState(PLAYER_STATE.PS_IDDLE);
+                if ((!(_input.Left() || _input.Right())) || (!_movement.NotFacingWall())) ChangeState(PLAYER_STATE.PS_IDDLE);
                 /* TO: PS_DRAW */
                 else if (_drawing.IsEnabled()) ChangeState(PLAYER_STATE.PS_DRAW);
                 /* to: PS_DASH */

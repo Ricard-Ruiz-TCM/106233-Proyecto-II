@@ -61,7 +61,7 @@ public class BossAttack : EnemyCombat {
         if (!GetComponent<BossIA>().State().Equals(BOSS_STATES.B_TAKE_DAMAGE)) dmg /= 5.0f;
         if(dying==false)
         {
-            MusicPlayer.Instance.PlayFX("Boss_Recibiendo_Dano/Damage_Boss_" + Random.Range(1, 6), 1.0f);
+            if (Random.Range(0, 5) == 0) MusicPlayer.Instance.PlayFX("Boss_Recibiendo_Dano/Damage_Boss_" + Random.Range(1, 6), 0.4f);
             ParticleInstancer.Instance.StartParticles("BossTakeDamage_Particle", transform);
         }
         _health -= dmg;
