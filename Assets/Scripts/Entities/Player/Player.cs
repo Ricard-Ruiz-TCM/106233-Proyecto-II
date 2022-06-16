@@ -446,7 +446,7 @@ public class Player : Entity {
 
     private bool CanAttack() { 
         if (_combat.Ranged()) {
-            if (!HaveInk(5)) {
+            if (!HaveInk(10)) {
                 if (_input.MainAction()) if (!IsInvoking("InstantNoInk")) Invoke("InstantNoInk", 0.5f);
                 return false;
             }
