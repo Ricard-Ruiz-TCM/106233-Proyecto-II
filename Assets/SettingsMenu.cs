@@ -44,18 +44,23 @@ public class SettingsMenu : MonoBehaviour
         {
             Screen.fullScreen = true;
             Debug.Log("Fullscreen");
+            MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
+
 
         }
         else 
         {
             Screen.fullScreen= false;
             Debug.Log("Not fullscreen");
+            MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
+
         }
     }
 
 
     public void Back()
     {
-        optionMenu.SetActive(false);
+        MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
+        optionMenu.SetActive(false);     
     }
 }

@@ -25,12 +25,12 @@ public class MMCanvas : MonoBehaviour {
     void Start()
     {
         _optionsPanel.SetActive(false);
+        MusicPlayer.Instance.PlayMusic("MainTitle_music_V2/MainTitle_music", 1f, true);
     }
-
-
     public void OnClickNewGame(){
         _selector.transform.SetParent(_option1.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
+        MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
         SceneManager.LoadScene("GameIntro");
     }
 
@@ -38,6 +38,8 @@ public class MMCanvas : MonoBehaviour {
         _selector.transform.SetParent(_option2.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
         _optionsPanel.SetActive(!_optionsPanel.gameObject.activeSelf);
+        MusicPlayer.Instance.PlayFX("Buttons_menu_ChangeSelection");
+
     }
 
     public void OnClickExit(){
