@@ -549,7 +549,6 @@ MonoBehaviour:
   _spawnAttack: {fileID: 11400000, guid: 598cecaa43dd31641bcb451e8a768dd7, type: 2}
   _spawnAttackTimer: 0
   _waitTime: 0
-  BossSpawner: {fileID: 983417922342475165, guid: 588a3ccc7bf10c541aa78ba7792d6369, type: 3}
   _spawnD: 0
 --- !u!114 &8024434931353097748
 MonoBehaviour:
@@ -564,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 0
-  _weapon: {fileID: 11400000, guid: 9781d9abab4f3074d9b91f69c2cae5f7, type: 2}
+  _weapon: {fileID: 11400000, guid: d0187d97a487c524a88cb21fe93b6b95, type: 2}
   CanTakeDamage: 1
   _handPrefab: {fileID: 6425764876064675303, guid: b8057f5238b07444493f405a565f1bcc, type: 3}
   _spawner: {fileID: 4885185806677625458, guid: 8fcd7a1210ed7394794b723a255fb104, type: 3}

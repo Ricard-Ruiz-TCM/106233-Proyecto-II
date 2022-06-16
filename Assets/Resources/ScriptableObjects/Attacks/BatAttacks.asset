@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c066c305f0acca4084943fde823b094, type: 3}
   m_Name: BatAttacks
   m_EditorClassIdentifier: 
-  Damage: 20
+  Damage: 15
   InkCost: 20
   Range: 5
   Cooldown: 7

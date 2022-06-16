@@ -26,6 +26,7 @@ public class BatAttack : EnemyCombat
     {
         currentTime = 0;
         batAI = GetComponent<BatAI>();
+        _health = 25;
     }
 
     // Update is called once per frame

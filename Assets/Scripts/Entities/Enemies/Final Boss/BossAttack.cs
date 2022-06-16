@@ -22,7 +22,7 @@ public class BossAttack : EnemyCombat {
     private GameObject _hand;
 
     void Awake() {
-        _health =  100.0f;
+        _health =  500.0f;
 
         _elementsContainer = GameObject.FindObjectOfType<ElementsContainer>().gameObject;
         _enemiesContainer = GameObject.FindObjectOfType<EnemyContainer>().gameObject;

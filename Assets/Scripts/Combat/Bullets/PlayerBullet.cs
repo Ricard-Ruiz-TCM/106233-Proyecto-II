@@ -6,7 +6,7 @@ public class PlayerBullet : InkBullet {
     private Vector2 _str;
 
     void Start() {
-        LoadBullet("InkBullet");
+        LoadBullet("RangedAttack");
 
         Destroy(this.gameObject, 2.5f);
     }

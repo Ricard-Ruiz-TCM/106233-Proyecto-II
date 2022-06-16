@@ -9,7 +9,7 @@ public class PlantInk : EnemyBullet
 
     private void Start()
     {
-        LoadBullet("InkBullet");
+        LoadBullet("PlantAttack");
         Destroy(this.gameObject, 2.5f);
     }
 

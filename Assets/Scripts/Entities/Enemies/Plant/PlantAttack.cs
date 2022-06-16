@@ -38,7 +38,7 @@ public class PlantAttack : EnemyCombat
         plantAI = GetComponent<PlantAI>();
         _playerCombat = GetComponent<PlayerCombat>();
         currentTime = 0;
-        _health = 5;
+        _health = 25;
         animator = GetComponentInParent<Animator>();
         animator.SetBool("Attack", false);
         CanAttack = true;

@@ -16,7 +16,7 @@ public class GolemAttack : EnemyCombat
     {
         player = GameObject.FindObjectOfType<Player>().gameObject;
         _weapon = Resources.Load<Attack>("ScriptableObjects/Attacks/GolemAttack");
-
+        _health = 30;
         canAttack = true;
     }
 
