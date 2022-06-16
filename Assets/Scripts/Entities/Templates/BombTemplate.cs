@@ -94,6 +94,7 @@ public class BombTemplate : Template {
             if (Vector2.Distance(transform.position, go.transform.position) < _explosionRadius)
             {
                 ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", go.transform);
+                MusicPlayer.Instance.PlayFX("tree_falling",1.0f);
                 go.GetComponent<Animator>().SetBool("Fall", true);
             }
         }

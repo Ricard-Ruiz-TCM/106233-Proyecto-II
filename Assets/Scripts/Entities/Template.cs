@@ -87,7 +87,7 @@ public class Template : DrawElement, ICombat {
     public void TakeDamage(Attack weapon) {
         GameManager.Instance.InstantiateInkPot(transform.position);
         ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
-
+        MusicPlayer.Instance.PlayFX("Player_destroy_box", 0.5f);
         Destroy(this.gameObject);
     }
 

@@ -52,6 +52,7 @@ public class BoxTemplate : Template {
 
         if (collision.collider.gameObject.tag == "Spikes") {
             ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
+            MusicPlayer.Instance.PlayFX("Player_destroy_box", 0.5f);
             Destroy(this.gameObject);
         }
 
@@ -60,6 +61,7 @@ public class BoxTemplate : Template {
             if (collision.collider.gameObject.GetComponent<BoxTemplate>() != null) return;
             if (CanKill()) collision.collider.gameObject.GetComponent<BossAttack>().TakeDamage(_attack);
             ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
+            MusicPlayer.Instance.PlayFX("Player_destroy_box", 0.5f);
             Destroy(this.gameObject);
         }
 
@@ -67,6 +69,7 @@ public class BoxTemplate : Template {
             if (CanKill()) {
                 ParticleInstancer.Instance.StartParticles("BoxDestroy_Particle", transform.position);
                 collision.collider.GetComponent<PlayerCombat>().TakeDamage(_attack);
+                MusicPlayer.Instance.PlayFX("Player_destroy_box", 0.5f);
                 Destroy(this.gameObject);
             }
         }
