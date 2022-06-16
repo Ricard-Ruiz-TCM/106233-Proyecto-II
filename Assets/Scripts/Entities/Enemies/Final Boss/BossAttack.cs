@@ -59,6 +59,7 @@ public class BossAttack : EnemyCombat {
         float dmg = weapon.Damage;
         ParticleInstancer.Instance.StartParticles("BossTakeDamage_Particle", transform);
         if (!GetComponent<BossIA>().State().Equals(BOSS_STATES.B_TAKE_DAMAGE)) dmg /= 5.0f;
+        MusicPlayer.Instance.PlayFX("Boss_TakeDamge",1.0f);
         _health -= dmg;
 
         OnHealthChange?.Invoke();
