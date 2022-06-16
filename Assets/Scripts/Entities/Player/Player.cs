@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public enum PLAYER_STATE {
     PS_NO_STATE,
@@ -417,6 +418,7 @@ public class Player : Entity {
             _alpha = 0.5f;
         } else {
             ParticleInstancer.Instance.StartParticles("Particulasdedano", transform);
+            MusicPlayer.Instance.PlayFX("Player_voiced/PlayerVoice_" + Random.Range(1,4), 1.0f);
         }
     }
 

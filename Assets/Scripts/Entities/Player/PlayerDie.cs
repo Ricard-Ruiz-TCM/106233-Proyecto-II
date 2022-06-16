@@ -83,7 +83,7 @@ public class PlayerDie : PlayerState, IHaveStates {
                 _body.velocity = Vector2.zero;
                 _body.isKinematic = true;
                 ParticleInstancer.Instance.StartParticles("Plumas_Particle", this.transform);
-                MusicPlayer.Instance.PlayFX("Player_Death_Fall/Player_Death_Fall", 0.5f);
+                MusicPlayer.Instance.PlayFX("PlayerVoice_Dead_fall", 1.0f);
                 break;
             default: break;
         }
