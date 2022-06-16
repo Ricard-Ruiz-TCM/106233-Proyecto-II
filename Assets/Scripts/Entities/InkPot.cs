@@ -24,6 +24,7 @@ public class InkPot : MonoBehaviour
 
         if (collision.gameObject.gameObject.tag == "Player") {
             collision.gameObject.gameObject.GetComponent<Player>().AddInk(5);
+            MusicPlayer.Instance.PlayFX("Pickin_Ink", 1.0f);
             Destroy(this.gameObject);
         }
     }

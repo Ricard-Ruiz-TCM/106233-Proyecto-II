@@ -59,6 +59,6 @@ public class BatAttack : EnemyCombat
         GameObject bullet = Instantiate(_bullet, init, Quaternion.identity, container.transform);
         bullet.GetComponent<BatInk>().Direction(-transform.up.x);
         currentTime = 0;
-        MusicPlayer.Instance.PlayFX("Enemy_BatAtk/Enemy_BatAtk_" + ((int)Random.Range(1, 3)).ToString(), 1f);
+        MusicPlayer.Instance.PlayFX("Enemy_BatAtk_1",1.0f);
     }
 }
