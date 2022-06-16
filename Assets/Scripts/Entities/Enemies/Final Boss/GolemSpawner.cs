@@ -26,6 +26,7 @@ public class GolemSpawner : MonoBehaviour {
 
     private void Spawn(){
         Instantiate(_enemy, transform.position, Quaternion.identity, _enemyContainer.transform);
+        MusicPlayer.Instance.PlayFX("Spawn_Golem",1.0f);
         Destroy(this.gameObject);
     }
 
