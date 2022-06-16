@@ -42,7 +42,10 @@ public class PauseMenu : MonoBehaviour
         if (ispaused){
             _time = 0.0f;
             menuPause.GetComponent<Animator>().SetBool("Pause", true);
-        } else {
+            MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
+
+        }
+        else {
             OptionsClose();
             menuPause.GetComponent<Animator>().SetBool("Pause", false);
             Time.timeScale = 1f;
@@ -52,14 +55,20 @@ public class PauseMenu : MonoBehaviour
     public void Options() {
         menuOptions.GetComponent<RectTransform>().anchoredPosition = new Vector2(-530, -400);
         menuSettings.GetComponent<RectTransform>().anchoredPosition = new Vector2(1075, -40);
+        MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
+
     }
 
     public void OptionsClose(){
         menuOptions.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -400);
         menuSettings.GetComponent<RectTransform>().anchoredPosition = new Vector2(1500, -40);
+        MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
+
     }
 
     public void ExitClick(){
         SceneManager.LoadScene("MainMenu");
+        MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
+
     }
 }
