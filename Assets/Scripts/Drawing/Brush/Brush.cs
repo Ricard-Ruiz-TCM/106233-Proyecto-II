@@ -52,6 +52,7 @@ public class Brush : DrawElement {
             Drawing();
         } else if (IsDrawing() && !action) {
             EndDraw();
+
         }
     }
 
@@ -65,6 +66,7 @@ public class Brush : DrawElement {
         _strokeLR.SetPosition(1, _position);
 
         _stroke.transform.SetParent(_strokeContainer.transform);
+        GetComponent<AudioSource>().Play();
     }
 
     public void Drawing() {
@@ -78,6 +80,7 @@ public class Brush : DrawElement {
         StopDrawing();
         _stroke.GetComponent<Stroke>().CreateCollier();
         _canGetStroke = true;
+        GetComponent<AudioSource>().Stop();
     }
 
     void AddStrokePoint(Vector2 pointPos) {
