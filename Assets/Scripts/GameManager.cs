@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour {
     private List<GameObject> _templateButtons;
     public GameObject audioPajaros;
     public GameObject audioViento;
+
+    [SerializeField]
+    private Texture2D _cursor;
+
     private void OnEnable()
     {
         Player.OnRespawn += RemoveInks;
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GOTOLVL2(){
+        Cursor.SetCursor(_cursor, Vector2.zero, CursorMode.Auto);
         audioPajaros.GetComponent<AudioSource>().Stop();
         audioViento.GetComponent<AudioSource>().Stop();
         LVL1.SetActive(false);

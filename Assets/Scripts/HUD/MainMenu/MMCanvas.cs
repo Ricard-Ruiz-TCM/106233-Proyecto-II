@@ -24,12 +24,17 @@ public class MMCanvas : MonoBehaviour {
     int current = 0;
     int total_anims = 2;
 
+    [SerializeField]
+    private Texture2D _cursor;
+
     // Start is called before the first frame update
     void Start()
     {
         _optionsPanel.SetActive(false);
         MusicPlayer.Instance.PlayMusic("MainTitle_music_V2/MainTitle_music", 1f, true);
         InvokeRepeating("Changeanim", 0.0f, 6.0f);
+
+        Cursor.SetCursor(_cursor, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnClickNewGame(){
