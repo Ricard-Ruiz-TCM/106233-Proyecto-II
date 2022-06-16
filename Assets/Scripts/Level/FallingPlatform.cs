@@ -54,7 +54,7 @@ public class FallingPlatform : MonoBehaviour {
         _fall = true;
         GetComponent<Rigidbody2D>().isKinematic = false;
         GetComponent<PolygonCollider2D>().isTrigger = true;
-        MusicPlayer.Instance.PlayFX("Books_Falling_V2/Book_Falling_" + ((int)Random.Range(1, 2)).ToString(), 3f);
+        MusicPlayer.Instance.PlayFX("Books_Falling_V2/Book_Falling_" + ((int)Random.Range(1, 2)).ToString(), 0.8f);
         Invoke("Restore", _fallTime);
     }
 

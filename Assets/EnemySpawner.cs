@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnHand() {
         Vector2 pos = transform.position; pos.x += 1.2f;
         Instantiate(_spawnAnim, pos, Quaternion.identity);
-        MusicPlayer.Instance.PlayFX("Dibujo");
+        MusicPlayer.Instance.PlayFX("Dibujo",0.75f);
         _animation = false;
         Invoke("Spawn", 1.5f);
     }
