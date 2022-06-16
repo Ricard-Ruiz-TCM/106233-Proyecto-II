@@ -19,7 +19,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void Start() {
-        Pause(false);
+        menuPause.GetComponent<Animator>().SetBool("Pause", false);
+        Time.timeScale = 1f;
         _time = 0.0f;
     }
 
@@ -43,7 +44,6 @@ public class PauseMenu : MonoBehaviour
             _time = 0.0f;
             menuPause.GetComponent<Animator>().SetBool("Pause", true);
             MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
-
         }
         else {
             OptionsClose();
@@ -69,6 +69,5 @@ public class PauseMenu : MonoBehaviour
     public void ExitClick(){
         SceneManager.LoadScene("MainMenu");
         MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
-
     }
 }
