@@ -837,6 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047857839}
   - component: {fileID: 2047857838}
+  - component: {fileID: 2047857840}
   m_Layer: 0
   m_Name: DirectorEnding
   m_TagString: Untagged
@@ -854,13 +855,19 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 658e836224f51d7428cb2a49edc1a1ec, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 6662689303088130351, guid: 658e836224f51d7428cb2a49edc1a1ec, type: 2}
     value: {fileID: 451177473}
+  - key: {fileID: -1274742568476138455, guid: 658e836224f51d7428cb2a49edc1a1ec, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2224060930832043455, guid: 658e836224f51d7428cb2a49edc1a1ec, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6002339977765913998, guid: 658e836224f51d7428cb2a49edc1a1ec, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &2047857839
@@ -877,3 +884,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2047857840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047857837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119daa34d7d45b24ea17c35816ddd705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeline: {fileID: 11400000, guid: 658e836224f51d7428cb2a49edc1a1ec, type: 2}
