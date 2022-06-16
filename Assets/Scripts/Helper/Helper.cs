@@ -20,6 +20,7 @@ public class Helper : MonoBehaviour {
         _hud.UpdateItem(_item);
         if (GetComponent<newTemplateUI>() != null) GetComponent<newTemplateUI>().Show();
         if (_item.ID != -1) GameManager.Instance.SetNewProgression(_item.ID);
+        MusicPlayer.Instance.PlayFX("Profesor_Mumble", 1.0f);
         Destroy(this.gameObject);
     }
 
