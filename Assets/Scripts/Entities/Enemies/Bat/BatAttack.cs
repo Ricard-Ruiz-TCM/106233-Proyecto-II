@@ -47,6 +47,7 @@ public class BatAttack : EnemyCombat
             dying = false;
             StartCoroutine(DeathDelay(0.5f));
             ParticleInstancer.Instance.StartParticles("MucielagoDie_Particle", transform.position);
+            MusicPlayer.Instance.PlayFX("Bat_Die",1.0f);
    
         }
 

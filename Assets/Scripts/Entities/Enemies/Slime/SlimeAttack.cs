@@ -23,6 +23,7 @@ public class SlimeAttack : EnemyCombat
         if (dying)
         {
             ParticleInstancer.Instance.StartParticles("EnemyDie_Particle", transform);
+            MusicPlayer.Instance.PlayFX("Die_Slime",1.0f);
             dying = false;
             GetComponent<SlimeAI>().currentState = States.Dying;
             animator.SetBool("Dying", true);

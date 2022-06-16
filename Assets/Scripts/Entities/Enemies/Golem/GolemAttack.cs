@@ -31,6 +31,7 @@ public class GolemAttack : EnemyCombat
             GetComponent<Animator>().SetBool("Die", true);
             StartCoroutine(DeathDelay(0.75f));
             ParticleInstancer.Instance.StartSpecialParticles("GolemDie_Particle", transform);
+            MusicPlayer.Instance.PlayFX("Golem_Die", 1.0f);
 
         }
     }

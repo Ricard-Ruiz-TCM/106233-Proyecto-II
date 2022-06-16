@@ -68,6 +68,7 @@ public class PlantAttack : EnemyCombat
             StartCoroutine(DeathDelay(1.9f));
             GetComponent<Rigidbody2D>().isKinematic = true;
             GetComponent<PolygonCollider2D>().isTrigger = true;
+            MusicPlayer.Instance.PlayFX("Plant_Die", 1.0f);
         }
     }
 

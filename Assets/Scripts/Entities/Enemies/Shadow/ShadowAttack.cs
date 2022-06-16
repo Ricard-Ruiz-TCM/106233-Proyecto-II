@@ -33,6 +33,7 @@ public class ShadowAttack : EnemyCombat
             GetComponent<BoxCollider2D>().isTrigger = true;
             shadowAI.shadowState = ShadowStates.Dying;
             StartCoroutine(DeathDelay(1.25f));
+            MusicPlayer.Instance.PlayFX("Sombra_Die", 1.0f);
         }
     }
 
