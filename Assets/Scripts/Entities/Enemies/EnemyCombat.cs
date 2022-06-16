@@ -37,6 +37,7 @@ public class EnemyCombat : Entity, ICombat {
         if(dying==false)
         {
             ParticleInstancer.Instance.StartParticles("TakeDamageEnemy_Particle", transform);
+            MusicPlayer.Instance.PlayFX("Enemy_Hit_ByPlayer",1.0f);
 
         }
 

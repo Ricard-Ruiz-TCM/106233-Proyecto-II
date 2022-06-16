@@ -245,7 +245,14 @@ public class Player : Entity {
                 /* TO : JUMP */
                 else if ((CanJump()) && (_fall.CanCoyoteJump())) ChangeState(PLAYER_STATE.PS_JUMP);
                 /* TO: PS_IDDLE */
-                else if (_fall.Grounded() && !_insidePlatform) ChangeState(PLAYER_STATE.PS_IDDLE);
+                else if (_fall.Grounded() && !_insidePlatform)
+                {
+                    ChangeState(PLAYER_STATE.PS_IDDLE);
+                    MusicPlayer.Instance.PlayFX("CaidaDespuesDeSalto",0.15f);
+
+                }
+
+              
                 /* TO: PS_WALL_FALL */
                 else if (_fall.FacingWall()) ChangeState(PLAYER_STATE.PS_WALL_FALL);
                 /* TO: PS_ATTACK 
