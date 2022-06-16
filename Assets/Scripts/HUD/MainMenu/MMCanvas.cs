@@ -31,7 +31,7 @@ public class MMCanvas : MonoBehaviour {
         _selector.transform.SetParent(_option1.transform);
         _selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-75.0f, -35.0f);
         MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
-        SceneManager.LoadScene("GameIntro");
+        SceneManager.LoadScene(cinematicchecker.Instance.NextLevel());
     }
 
     public void OnClickOptions(){
