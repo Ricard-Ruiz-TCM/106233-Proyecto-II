@@ -17,7 +17,7 @@ public class BossHealthHUD : BarHUDElement
 
     public void UpdateBar()
     {
-        fillRBar(_boss.Health, 500.0f);
+        fillRBar(_boss.Health, 300.0f);
     }
 
 }
