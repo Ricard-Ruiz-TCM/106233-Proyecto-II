@@ -157,6 +157,7 @@ public class Player : Entity {
 
     public void BlockPlayer(float time){
         blocked = true;
+        ChangeState(PLAYER_STATE.PS_IDDLE);
         Invoke("unlock", time);
     }
 

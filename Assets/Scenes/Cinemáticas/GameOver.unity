@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6773802606862236616, guid: f27fc93cb808bc140bfe6fb0ee94d9f5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6773802606862236616, guid: f27fc93cb808bc140bfe6fb0ee94d9f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6773802606862236616, guid: f27fc93cb808bc140bfe6fb0ee94d9f5, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6773802606862236616, guid: f27fc93cb808bc140bfe6fb0ee94d9f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1100,9 +1100,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programadora:\nVeronika Bolshakova\n\nProgramador, Artista y Dise\xF1ador\nJordi
+  m_text: "\n\nProgramadora:\nVeronika Bolshakova\n\nProgramador, Artista y Dise\xF1ador\nJordi
     Borraz\n\nDise\xF1ador:\nMarino Montes\n\nProgramador:\nRicard Ruiz\n\nEl \"Artit\xE1h\"\nDaniel
-    S\xE1nchez\n"
+    S\xE1nchez\n\n\xA1Gracias por Jugar!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
   m_sharedMaterial: {fileID: 5898690803152910603, guid: 32b8c734dea10c24f86047a1c611dd38, type: 2}
@@ -1426,7 +1426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273744714}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.721, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451177472}
@@ -1471,9 +1471,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 53
   m_Sprite: {fileID: 21300000, guid: 170c520ce3951a149af61fe50451b3dd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

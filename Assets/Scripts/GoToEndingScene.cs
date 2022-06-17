@@ -48,7 +48,13 @@ public class GoToEndingScene : MonoBehaviour
         confetti3.Play();
         confetti4.Play();
         MusicPlayer.Instance.PlayFX("Celebration", 0.65f);
+        Invoke("Fader", 1.25f);
 
+    }
+
+    private void Fader()
+    {
+        GameManager.Instance.Fade();
     }
 }
 
