@@ -442,6 +442,12 @@ public class Player : Entity {
         ParticleInstancer.Instance.StartParticles("CreacionDibujo_Particle", transform);
         MusicPlayer.Instance.PlayFX("Player_reespawn/Player_reespawn", 1f);
 
+        if (Camera.main.transform.GetComponent<CameraMovement>().OnBoos)
+        {
+            foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")) Destroy(enemies);
+            foreach (GameObject enemies in GameObject.FindGameObjectsWithTag("Boss")) Destroy(enemies);
+        }
+
     }
 
     private bool CanAttack() { 
