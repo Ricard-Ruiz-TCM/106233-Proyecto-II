@@ -24,6 +24,6 @@
   
   - 60,00
   
- - Nota Final
+- Nota Final
   
   - 75,00
