@@ -17,5 +17,13 @@
 
 - Gold
 
-  -
+  - 90,00
   - https://youtu.be/-tKZEIsQgj0
+
+- GDD & Postmorten
+  
+  - 60,00
+  
+ - Nota Final
+  
+  - 75,00
